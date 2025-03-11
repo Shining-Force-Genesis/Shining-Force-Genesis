@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Rumble.wav-7d18821f2eeee22438f85743347ab88a.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Rumble.wav"
+dest_files=[ "res://.import/sfx_Rumble.wav-7d18821f2eeee22438f85743347ab88a.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

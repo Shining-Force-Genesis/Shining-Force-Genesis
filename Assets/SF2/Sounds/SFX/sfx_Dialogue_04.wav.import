@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Dialogue_04.wav-d5ca57e30abd8ec54f1d9c9b2107146f.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Dialogue_04.wav"
+dest_files=[ "res://.import/sfx_Dialogue_04.wav-d5ca57e30abd8ec54f1d9c9b2107146f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Event (Sad).mp3-684619e7323ee7026cb13afea34184ad.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Event (Sad).mp3"
+dest_files=[ "res://.import/Event (Sad).mp3-684619e7323ee7026cb13afea34184ad.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

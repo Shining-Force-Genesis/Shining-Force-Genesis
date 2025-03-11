@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Hit_2.wav-e92918a6d2628b9f9c10e7f2f4260cd4.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Hit_2.wav"
+dest_files=[ "res://.import/sfx_Hit_2.wav-e92918a6d2628b9f9c10e7f2f4260cd4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

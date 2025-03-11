@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Thunder.wav-db32d7166fb7519c213eec43f426cd8d.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Thunder.wav"
+dest_files=[ "res://.import/sfx_Thunder.wav-db32d7166fb7519c213eec43f426cd8d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

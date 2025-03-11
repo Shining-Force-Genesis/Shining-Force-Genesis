@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ending (Max and Adam's Event).mp3-5376bdb127aac55984caac716ba539cb.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Ending (Max and Adam's Event).mp3"
+dest_files=[ "res://.import/Ending (Max and Adam's Event).mp3-5376bdb127aac55984caac716ba539cb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,6 @@
+# Godot exported resource and scene files
+# These will be tracked within the main repo
+/**/*.tres
+/**/*.tscn
+
+/**/*.png

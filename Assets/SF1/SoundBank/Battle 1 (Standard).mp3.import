@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Battle 1 (Standard).mp3-731240f4a5b58d1fafb69922e22ece6d.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Battle 1 (Standard).mp3"
+dest_files=[ "res://.import/Battle 1 (Standard).mp3-731240f4a5b58d1fafb69922e22ece6d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlefd54ec4ccd"]
+
+[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/TownTilemap.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ck7weiy086rpx" path="res://Characters/main.tscn" id="1_ig7tw"]
+
+[node name="MAIN" type="Node2D"]
+
+[node name="TownTilemap" parent="." instance=ExtResource("1_0xm2m")]
+
+[node name="Character" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(204, 204)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+limit_left = 0
+limit_top = 0
+limit_right = 1176
+limit_bottom = 1056

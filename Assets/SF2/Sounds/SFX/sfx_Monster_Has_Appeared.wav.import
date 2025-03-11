@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Monster_Has_Appeared.wav-209fa2abc5daa83ef4da1dd74e61ef02.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Monster_Has_Appeared.wav"
+dest_files=[ "res://.import/sfx_Monster_Has_Appeared.wav-209fa2abc5daa83ef4da1dd74e61ef02.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

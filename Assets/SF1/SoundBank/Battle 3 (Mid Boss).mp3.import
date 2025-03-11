@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Battle 3 (Mid Boss).mp3-d8af1ce2e088ff4d69f7b659e459ba1e.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Battle 3 (Mid Boss).mp3"
+dest_files=[ "res://.import/Battle 3 (Mid Boss).mp3-d8af1ce2e088ff4d69f7b659e459ba1e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

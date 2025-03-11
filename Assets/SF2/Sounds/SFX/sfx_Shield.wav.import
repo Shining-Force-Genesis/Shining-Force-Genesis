@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Shield.wav-71212b7d40b56d74962aca2b9ab0661b.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Shield.wav"
+dest_files=[ "res://.import/sfx_Shield.wav-71212b7d40b56d74962aca2b9ab0661b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

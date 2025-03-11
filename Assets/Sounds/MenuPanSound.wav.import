@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/MenuPanSound.wav-23933effd13657bcc7add80077d44525.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/MenuPanSound.wav"
+dest_files=[ "res://.import/MenuPanSound.wav-23933effd13657bcc7add80077d44525.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

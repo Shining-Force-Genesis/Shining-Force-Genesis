@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Ancient Castle Rises.mp3-fb74f7691bc9458709d744d032682144.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Ancient Castle Rises.mp3"
+dest_files=[ "res://.import/Ancient Castle Rises.mp3-fb74f7691bc9458709d744d032682144.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

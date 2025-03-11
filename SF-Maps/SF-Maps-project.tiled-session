@@ -1,0 +1,285 @@
+{
+    "activeFile": "SF1/Chapter-2/Rindo/Rindo.tmx",
+    "expandedProjectPaths": [
+        "SF1/Chapter-2/MageSchool-and-HolySpring",
+        "SF1/Chapter-2",
+        "SF1",
+        "SF1/Chapter-2/Rindo",
+        ".",
+        "SF1/_Tilesets/Original",
+        "SF1/Chapter-1/Guardiana"
+    ],
+    "fileStates": {
+        "SF1/Chapter-1/Guardiana/KingsCastle.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": -156,
+                "y": 347.33333333333326
+            }
+        },
+        "SF1/Chapter-1/Guardiana/Town.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 318.66666666666663,
+                "y": 585.3333333333333
+            }
+        },
+        "SF1/Chapter-1/Guardiana/TownRef.tsx": {
+            "scaleInDock": 1
+        },
+        "SF1/Chapter-2/MageSchool-and-HolySpring/C2-Overworld-Ref.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "SF1/Chapter-2/MageSchool-and-HolySpring/MageSchool-and-HolySpring.tmx": {
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 2,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 32.25,
+                "y": 159.75
+            }
+        },
+        "SF1/Chapter-2/Overworld/C2-Overworld-Ref.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "SF1/Chapter-2/Overworld/Overworld.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 32,
+                "y": -31.5
+            }
+        },
+        "SF1/Chapter-2/Rindo/C2-Overworld-Ref.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.125,
+            "scaleInEditor": 0.33
+        },
+        "SF1/Chapter-2/Rindo/Rindo.tmx": {
+            "scale": 0.5,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": -524,
+                "y": 1798
+            }
+        },
+        "SF1/Chapter-2/ShadeAbbey/C2-Overworld-Ref.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 0.33,
+            "scaleInEditor": 1
+        },
+        "SF1/Chapter-2/ShadeAbbey/ShadeAbbey.tmx": {
+            "scale": 1.5,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 64,
+                "y": 0.3333333333333428
+            }
+        },
+        "SF1/_Tilesets/Original/0.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/1.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 3,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/10.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/11.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/12.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/13.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/14.tsx": {
+            "scaleInDock": 5.5,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/15.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/16.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/17.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/18.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/19.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/2.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/20.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/21.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/22.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/23.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/24.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/25.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/26.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/27.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/28.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/29.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/3.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/30.tsx": {
+            "scaleInDock": 5.5,
+            "scaleInEditor": 1
+        },
+        "SF1/_Tilesets/Original/31.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 8
+        },
+        "SF1/_Tilesets/Original/32.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 8
+        },
+        "SF1/_Tilesets/Original/4.tsx": {
+            "scaleInDock": 8,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/5.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/6.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/7.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/8.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        },
+        "SF1/_Tilesets/Original/9.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 5.5
+        }
+    },
+    "last.externalTilesetPath": "K:/Dev/ShiningForceRemadeRoot/SF-Maps/SF1/_Tilesets/Original",
+    "last.imagePath": "K:/Dev/ShiningForceRemadeRoot/SF-Maps/SF1/Maps_Ref",
+    "openFiles": [
+        "SF1/Chapter-2/MageSchool-and-HolySpring/MageSchool-and-HolySpring.tmx",
+        "SF1/Chapter-2/MageSchool-and-HolySpring/C2-Overworld-Ref.tsx",
+        "SF1/_Tilesets/Original/0.tsx",
+        "SF1/_Tilesets/Original/1.tsx",
+        "SF1/_Tilesets/Original/10.tsx",
+        "SF1/_Tilesets/Original/11.tsx",
+        "SF1/_Tilesets/Original/12.tsx",
+        "SF1/_Tilesets/Original/13.tsx",
+        "SF1/_Tilesets/Original/14.tsx",
+        "SF1/_Tilesets/Original/15.tsx",
+        "SF1/_Tilesets/Original/16.tsx",
+        "SF1/_Tilesets/Original/17.tsx",
+        "SF1/_Tilesets/Original/18.tsx",
+        "SF1/Chapter-2/ShadeAbbey/ShadeAbbey.tmx",
+        "SF1/Chapter-2/Overworld/Overworld.tmx",
+        "SF1/Chapter-2/Rindo/C2-Overworld-Ref.tsx",
+        "SF1/_Tilesets/Original/9.tsx",
+        "SF1/_Tilesets/Original/8.tsx",
+        "SF1/_Tilesets/Original/7.tsx",
+        "SF1/_Tilesets/Original/6.tsx",
+        "SF1/_Tilesets/Original/5.tsx",
+        "SF1/_Tilesets/Original/4.tsx",
+        "SF1/_Tilesets/Original/32.tsx",
+        "SF1/_Tilesets/Original/31.tsx",
+        "SF1/_Tilesets/Original/30.tsx",
+        "SF1/_Tilesets/Original/3.tsx",
+        "SF1/_Tilesets/Original/29.tsx",
+        "SF1/_Tilesets/Original/28.tsx",
+        "SF1/_Tilesets/Original/27.tsx",
+        "SF1/_Tilesets/Original/26.tsx",
+        "SF1/_Tilesets/Original/25.tsx",
+        "SF1/_Tilesets/Original/24.tsx",
+        "SF1/_Tilesets/Original/22.tsx",
+        "SF1/_Tilesets/Original/23.tsx",
+        "SF1/_Tilesets/Original/20.tsx",
+        "SF1/_Tilesets/Original/21.tsx",
+        "SF1/_Tilesets/Original/2.tsx",
+        "SF1/_Tilesets/Original/19.tsx",
+        "SF1/Chapter-2/Rindo/Rindo.tmx"
+    ],
+    "project": "SF-Maps-project.tiled-project",
+    "recentFiles": [
+        "SF1/Chapter-2/MageSchool-and-HolySpring/MageSchool-and-HolySpring.tmx",
+        "SF1/Chapter-2/MageSchool-and-HolySpring/C2-Overworld-Ref.tsx",
+        "SF1/_Tilesets/Original/0.tsx",
+        "SF1/_Tilesets/Original/1.tsx",
+        "SF1/_Tilesets/Original/10.tsx",
+        "SF1/_Tilesets/Original/11.tsx",
+        "SF1/_Tilesets/Original/12.tsx",
+        "SF1/_Tilesets/Original/13.tsx",
+        "SF1/_Tilesets/Original/14.tsx",
+        "SF1/_Tilesets/Original/15.tsx",
+        "SF1/_Tilesets/Original/16.tsx",
+        "SF1/_Tilesets/Original/17.tsx"
+    ],
+    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)"
+}

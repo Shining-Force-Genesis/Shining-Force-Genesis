@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jingle - Item Get!!.mp3-3b2f32297f8e2a8e4070ad62569ff6a2.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Jingle - Item Get!!.mp3"
+dest_files=[ "res://.import/Jingle - Item Get!!.mp3-3b2f32297f8e2a8e4070ad62569ff6a2.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Main Theme (Staff Roll).mp3-ed78151cdd03a70e72f75ad3874d5734.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Main Theme (Staff Roll).mp3"
+dest_files=[ "res://.import/Main Theme (Staff Roll).mp3-ed78151cdd03a70e72f75ad3874d5734.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

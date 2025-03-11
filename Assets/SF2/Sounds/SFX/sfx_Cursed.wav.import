@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Cursed.wav-bf1f2c3e7f12ae96c83488a07c6bd483.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Cursed.wav"
+dest_files=[ "res://.import/sfx_Cursed.wav-bf1f2c3e7f12ae96c83488a07c6bd483.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

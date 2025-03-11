@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sfx_Unknown_08.wav-845467d5ba91c28b39d6508afa360a8f.sample"
+
+[deps]
+
+source_file="res://Assets/SF2/Sounds/SFX/sfx_Unknown_08.wav"
+dest_files=[ "res://.import/sfx_Unknown_08.wav-845467d5ba91c28b39d6508afa360a8f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

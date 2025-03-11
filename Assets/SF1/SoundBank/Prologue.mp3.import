@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Prologue.mp3-86d43d0d62f8868a4ea1751eafa04014.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/Prologue.mp3"
+dest_files=[ "res://.import/Prologue.mp3-86d43d0d62f8868a4ea1751eafa04014.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/After City Destruction.mp3-fd6c13f0f9a7606459f27cec59186d51.mp3str"
+
+[deps]
+
+source_file="res://Assets/SF1/SoundBank/After City Destruction.mp3"
+dest_files=[ "res://.import/After City Destruction.mp3-fd6c13f0f9a7606459f27cec59186d51.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
