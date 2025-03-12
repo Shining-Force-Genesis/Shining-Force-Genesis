@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var cn = $Node2D
 @onready var ray = $RayCast2D
+@onready var camera = $Camera2D
 
 var tile_size = 24
 var inputs = {
@@ -14,10 +15,12 @@ var inputs = {
 var animation_speed = 5
 var moving = false
 
+var move_tween: Tween
 
 func _ready() -> void:
-	print(Player.move_tilemap)
-	pass 
+	Player.character = self
+	# print(Player.move_tilemap)
+
 
 func _process(delta: float) -> void:
 	if moving:
@@ -51,11 +54,11 @@ func move(dir):
 		# print(ray.get_collider())
 		
 		#position += inputs[dir] * tile_size
-		var tween = create_tween()
-		tween.tween_property(self, "position",
-			position + inputs[dir] * tile_size, 
+		move_tween = create_tween()
+		move_tween.tween_property(self, "global_position",
+			global_position + inputs[dir] * tile_size, 
 			1.0/animation_speed
 			).set_trans(Tween.TRANS_LINEAR)
 		moving = true
-		await tween.finished
+		await move_tween.finished
 		moving = false

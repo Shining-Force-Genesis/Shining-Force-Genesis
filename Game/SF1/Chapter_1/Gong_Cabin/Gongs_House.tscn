@@ -3096,20 +3096,20 @@ sources/0 = SubResource("TileSetAtlasSource_0")
 sources/1 = SubResource("TileSetAtlasSource_1")
 sources/2 = SubResource("TileSetAtlasSource_2")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pdww"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h17p0"]
 texture = ExtResource("4_5pdww")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_hvhjn"]
 tile_size = Vector2i(24, 24)
-sources/0 = SubResource("TileSetAtlasSource_5pdww")
+sources/0 = SubResource("TileSetAtlasSource_h17p0")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h17p0"]
-size = Vector2(72, 24)
+size = Vector2(68, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5pdww"]
-size = Vector2(24, 24)
+size = Vector2(16, 16)
 
 [node name="Gongs_House" type="Node2D"]
 script = ExtResource("1_h17p0")
@@ -3163,13 +3163,14 @@ position = Vector2(252, 420)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/OverworldEntranceArea2D"]
-position = Vector2(204, 444)
+position = Vector2(202, 446)
 shape = SubResource("RectangleShape2D_h17p0")
 metadata/_edit_lock_ = true
 
 [node name="RoofAreas" type="Node" parent="."]
 
 [node name="HQEntranceArea2D" type="Area2D" parent="RoofAreas"]
+z_index = 1
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoofAreas/HQEntranceArea2D"]
@@ -3178,12 +3179,18 @@ shape = SubResource("RectangleShape2D_5pdww")
 metadata/_edit_lock_ = true
 
 [node name="HQExitArea2D" type="Area2D" parent="RoofAreas"]
+z_index = 1
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RoofAreas/HQExitArea2D"]
 position = Vector2(276, 276)
 shape = SubResource("RectangleShape2D_5pdww")
 metadata/_edit_lock_ = true
+
+[node name="CameraLimitsInfo" type="Node" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="CameraLimitsInfo"]
+position = Vector2(680, 528)
 
 [connection signal="body_entered" from="Areas/OverworldEntranceArea2D" to="." method="_on_overworld_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="RoofAreas/HQEntranceArea2D" to="." method="_on_hq_entrance_area_2d_body_entered"]

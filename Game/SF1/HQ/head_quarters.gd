@@ -27,11 +27,14 @@ func _ready() -> void:
 		SceneManager.SceneFadeOut()
 		Player.enable()
 
-### Navigation
+
+### Navigations
 
 
-func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
+func _on_exit_area_2d_body_entered(body: Node2D) -> void:
+	# TODO need to save previous map and marker
+	
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
-		n.marker = n.marker_ancientsgate
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
+		n.marker = n.marker_hq
 		SceneManager.ChangeSceneNode(n)

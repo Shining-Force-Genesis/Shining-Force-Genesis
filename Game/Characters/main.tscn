@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ck7weiy086rpx"]
+[gd_scene load_steps=5 format=3 uid="uid://ck7weiy086rpx"]
 
 [ext_resource type="Script" uid="uid://bdquinkbsngor" path="res://Characters/character.gd" id="1_athk2"]
 [ext_resource type="PackedScene" uid="uid://bkq0v02pqpsmn" path="res://Characters/Max/max.tscn" id="1_tr1ox"]
+[ext_resource type="Script" uid="uid://t7jw06iu6w8d" path="res://Characters/character_body_2d.gd" id="3_sf1w8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_athk2"]
 size = Vector2(24, 24)
@@ -21,6 +22,7 @@ target_position = Vector2(0, 20)
 metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("3_sf1w8")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]

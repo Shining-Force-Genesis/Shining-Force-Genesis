@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var move_tilemap = $Map/MoveTileMapLayer
+@onready var roof_tilemap: TileMapLayer = $Map/Roof
 
 ### Navigation Markers
 var marker
@@ -18,20 +19,21 @@ func _ready() -> void:
 	# position player at navigation marker per previous location
 	match marker:
 		marker_entrance:
-			Player.set_character_position($Markers/EntranceMarker2D.position)
+			Player.set_character_position($Markers/OverworldMarker2D.position)
 		_:
-			Player.set_character_position($Markers/EntranceMarker2D.position)
+			Player.set_character_position($Markers/OverworldMarker2D.position)
 	
 	# enable player
 	if SceneManager.changing_scene:
 		SceneManager.SceneFadeOut()
 		Player.enable()
 
-### Navigation
+
+### Navigations
 
 
-func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
+func _on_overworld_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
 		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
-		n.marker = n.marker_ancientsgate
+		n.marker = n.marker_alterone
 		SceneManager.ChangeSceneNode(n)

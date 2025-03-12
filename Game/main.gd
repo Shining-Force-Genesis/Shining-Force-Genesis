@@ -12,5 +12,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
-		SceneManager.ChangeScene(SceneManager.SF1.C1.GongCabin)
+	# if Input.is_action_just_pressed("ui_accept"):
+	# SceneManager.ChangeScene(SceneManager.SF1.C1.GongCabin)
+	pass
