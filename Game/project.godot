@@ -16,6 +16,11 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://c5mgy6v4nskhx"
 config/windows_native_icon="res://Icon.ico"
 
+[autoload]
+
+SceneManager="*res://Globals/SceneManager.gd"
+Player="*res://Globals/Player.gd"
+
 [display]
 
 window/size/viewport_width=480

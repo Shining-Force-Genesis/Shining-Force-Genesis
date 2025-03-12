@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlefd54ec4ccd"]
+[gd_scene load_steps=5 format=3 uid="uid://dlefd54ec4ccd"]
 
-[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/TownTilemap.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/Chapter_1/Guardiana/TownTilemap.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://cec6dx1xogrhk" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://ck7weiy086rpx" path="res://Characters/main.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b8f1gj7urnvyo" path="res://timescale.gd" id="2_h2yge"]
 
 [node name="MAIN" type="Node2D"]
+script = ExtResource("1_1bvp3")
 
-[node name="TownTilemap" parent="." instance=ExtResource("1_0xm2m")]
+[node name="Timescale - speedup" type="Node2D" parent="."]
+script = ExtResource("2_h2yge")
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="TownTilemap" parent="Scene" instance=ExtResource("1_0xm2m")]
 
 [node name="Character" parent="." instance=ExtResource("1_ig7tw")]
+z_index = 1
 position = Vector2(204, 204)
 
 [node name="Camera2D" type="Camera2D" parent="Character"]

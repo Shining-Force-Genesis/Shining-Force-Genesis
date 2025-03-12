@@ -1,7 +1,5 @@
 extends Node2D
 
-# test engine timescale in global singleton
-
 @onready var cn = $Node2D
 @onready var ray = $RayCast2D
 
@@ -16,11 +14,9 @@ var inputs = {
 var animation_speed = 5
 var moving = false
 
-var move_tilemap: TileMapLayer
 
 func _ready() -> void:
-	move_tilemap = get_parent().get_child(0).move_tilemap
-	print(move_tilemap)
+	print(Player.move_tilemap)
 	pass 
 
 func _process(delta: float) -> void:
@@ -45,10 +41,11 @@ func move(dir):
 	ray.target_position = inputs[dir] * tile_size
 	ray.force_raycast_update()
 	
-	var clicked_cell = move_tilemap.local_to_map(ray.target_position + ray.global_position)
-	var data = move_tilemap.get_cell_source_id(clicked_cell)
-	if data == 0:
-		return
+	if Player.move_tilemap:
+		var clicked_cell = Player.move_tilemap.local_to_map(ray.target_position + ray.global_position)
+		var data = Player.move_tilemap.get_cell_source_id(clicked_cell)
+		if data == 0:
+			return
 	
 	if !ray.is_colliding():
 		# print(ray.get_collider())
