@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://xp2t18e3numq"]
+
+[ext_resource type="Script" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_2u8ih"]
+[ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="1_k1va0"]
+[ext_resource type="PackedScene" uid="uid://bl8pyk8h011n3" path="res://SF1/Characters/Gong/GongCharacterRoot.tscn" id="2_iy16n"]
+[ext_resource type="PackedScene" uid="uid://d4jf6o5cochxe" path="res://SF1/Characters/Gong/GongUnpromotedBattleScene.tscn" id="4_m8klj"]
+
+[node name="Gong" type="Node2D"]
+script = ExtResource("1_2u8ih")
+
+[node name="PlayerCharacterRoot" parent="." instance=ExtResource("1_k1va0")]
+actor_type = 1
+
+[node name="Gong" parent="PlayerCharacterRoot" instance=ExtResource("2_iy16n")]
+
+[node name="CharacterRoot" parent="PlayerCharacterRoot/Gong" index="0"]
+SF1_MEMBER_INDEX = 6
+battle__scene_unpromoted = ExtResource("4_m8klj")
+
+[editable path="PlayerCharacterRoot"]
+[editable path="PlayerCharacterRoot/Gong"]
+[editable path="PlayerCharacterRoot/Gong/CharacterRoot"]

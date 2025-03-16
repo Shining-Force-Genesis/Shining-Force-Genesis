@@ -22,6 +22,7 @@ config/windows_native_icon="res://Icon.ico"
 SceneManager="*res://Globals/SceneManager.gd"
 Player="*res://Globals/Player.gd"
 AudioManager="*res://Globals/AudioManager.gd"
+Singleton_CommonVariables="*res://Globals/CommonVariables.gd"
 
 [display]
 

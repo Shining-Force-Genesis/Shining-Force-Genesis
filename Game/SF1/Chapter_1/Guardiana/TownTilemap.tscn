@@ -1,10 +1,12 @@
-[gd_scene load_steps=15 format=4 uid="uid://da720jhkmfku3"]
+[gd_scene load_steps=22 format=4 uid="uid://da720jhkmfku3"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="0"]
 [ext_resource type="Script" uid="uid://0vliyr8w3m88" path="res://SF1/Chapter_1/Guardiana/town_tilemap.gd" id="1_354je"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="4_7m1bb"]
 [ext_resource type="PackedScene" uid="uid://dji1st2fd8pam" path="res://General/Door/door.tscn" id="5_aaxus"]
 [ext_resource type="Texture2D" uid="uid://bb2jwrq5it0w4" path="res://SF1/Assets/Tilesets/6.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="6_8cicr"]
+[ext_resource type="Texture2D" uid="uid://dkoqu4b08efg6" path="res://Assets/NPC/Man_Old_WhiteBeard.png" id="7_8tc18"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
 texture = ExtResource("0")
@@ -2088,6 +2090,77 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jf6yr"]
 size = Vector2(40, 16)
 
+[sub_resource type="Animation" id="Animation_8cicr"]
+resource_name = "Down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_wy8xx"]
+resource_name = "Left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_8tc18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_r18dk"]
+resource_name = "Up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wy8xx"]
+_data = {
+&"Down": SubResource("Animation_8cicr"),
+&"Left": SubResource("Animation_wy8xx"),
+&"RESET": SubResource("Animation_8tc18"),
+&"Up": SubResource("Animation_r18dk")
+}
+
 [node name="TownTilemap" type="Node2D"]
 script = ExtResource("1_354je")
 
@@ -2376,14 +2449,36 @@ position = Vector2(816, 636)
 shape = SubResource("RectangleShape2D_jf6yr")
 metadata/_edit_lock_ = true
 
+[node name="Interactables" type="Node" parent="."]
+
+[node name="Door" parent="Interactables" instance=ExtResource("5_aaxus")]
+z_index = 1
+position = Vector2(456, 192)
+
 [node name="CameraLimitsInfo" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="CameraLimitsInfo"]
 position = Vector2(1176, 1056)
 
-[node name="Door" parent="." instance=ExtResource("5_aaxus")]
-z_index = 1
-position = Vector2(456, 192)
+[node name="NPCS" type="Node" parent="."]
+
+[node name="NPCRoot" parent="NPCS" instance=ExtResource("6_8cicr")]
+position = Vector2(852, 828)
+
+[node name="AnimatableBody2D" parent="NPCS/NPCRoot" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/NPCRoot/AnimatableBody2D" index="2"]
+texture = ExtResource("7_8tc18")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPCS/NPCRoot/AnimatableBody2D" index="3"]
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="CollisionPolygon2D" parent="NPCS/NPCRoot/Area2D" index="0"]
+polygon = PackedVector2Array(-132, -36, -132, 36, -36, 36, -36, 12, -108, 12, -108, -36, 88, -36, 88, 12, -12, 12, -12, 36, 112, 36, 112, -56, -132, -60)
 
 [connection signal="body_entered" from="Areas/CastleEntranceArea2D" to="." method="_on_castle_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Areas/OverworldEntranceArea2D" to="." method="_on_overworld_entrance_area_2d_body_entered"]
@@ -2401,3 +2496,5 @@ position = Vector2(456, 192)
 [connection signal="body_entered" from="Roofs/BarExitArea2D" to="." method="_on_bar_exit_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/ShopEntranceArea2D" to="." method="_on_shop_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/ShopExitArea2D" to="." method="_on_shop_exit_area_2d_body_entered"]
+
+[editable path="NPCS/NPCRoot"]

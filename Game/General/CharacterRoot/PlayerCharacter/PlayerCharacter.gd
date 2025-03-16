@@ -1,0 +1,401 @@
+extends Node2D
+
+signal signal_action_finished
+
+signal signal_move_complete
+
+#
+@onready var ray: RayCast2D = $RayCast2D
+@onready var ray_interactables: RayCast2D = $InteractablesRayCast2D
+# @onready var _timer: Timer = $Timer
+
+@onready var collision_shape_cell_block: CollisionShape2D = $CollisionShape2D2
+
+# think about this more
+@export_enum("NOT SET", "Character", "Enemey") var actor_type: int
+
+var chracter_animation_player: AnimationPlayer
+var actor: Node2D
+
+#
+var GRID_BASED_MOVEMENT:bool = true
+var is_currently_moving:bool = false
+var is_active: bool = false # menu or interacting with an node
+
+var animation_speed = 4
+
+var rng = RandomNumberGenerator.new()
+
+
+#
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	# TODO: do something smarter for this setup
+	# maybe make leader a export and then check if set and then set this
+	Singleton_CommonVariables.main_character_active_kinematic_body_node = self
+	Singleton_CommonVariables.main_character_player_node = self
+	
+	actor = find_child("CharacterRoot")
+	if actor != null:
+		chracter_animation_player = actor.get_node("AnimationPlayer")
+	else:
+		actor = find_child("EnemeyRoot")
+		chracter_animation_player = actor.get_node("AnimationPlayer")
+		set_active_processing(false)
+	
+	pass
+
+
+#func npc_move() -> void:
+#	if !is_currently_moving:
+#		rng.randomize()
+#
+#		# animationPlayer.playback_speed = 1
+#		_timer.set_wait_time(rng.randf_range(1.5, 4))
+#		# _timer.set_wait_time(0.15)
+#		_timer.start()
+#		# random_move_direction(rng.randi_range(0, 3))
+#		random_move_direction(rng.randi_range(0, 3))
+#		# _timer.set_wait_time(1)
+#		# _timer.set_one_shot(false) # Make sure it loops
+#		_timer.start()
+#		await _timer.timeout
+#		npc_move()
+
+
+func random_move_direction(n: int) -> void:
+	match n:
+		0: attempt_to_move(Vector2(position.x + 24, position.y), e_directions.RIGHT)
+		1: attempt_to_move(Vector2(position.x - 24, position.y), e_directions.LEFT)
+		2: attempt_to_move(Vector2(position.x, position.y - 24), e_directions.UP)
+		3: attempt_to_move(Vector2(position.x, position.y + 24), e_directions.DOWN)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	if is_currently_moving || is_active:
+		# if actively moving don't allow for any additional processing until complete
+		return
+	
+#	# if Input.is_action_just_pressed("ui_c_key"):
+#	#	GRID_BASED_MOVEMENT = !GRID_BASED_MOVEMENT
+#	#	setup_animations_types_depending_on_movement()	
+	
+	
+	if !Singleton_CommonVariables.is_currently_in_battle_scene:
+		if Input.is_action_just_released("ui_a_key"):
+			is_active = false
+			Singleton_CommonVariables.ui__overworld_action_menu.show()
+			Singleton_CommonVariables.ui__gold_info_box.show_cust()
+			Singleton_CommonVariables.ui__actor_micro_info_box.show_cust()
+			
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			# Singleton_CommonVariables.menus_root_node.character_info_box_node().show()
+			
+			# TODO: add get character from player to help support different main character option
+			# var mcan = Singleton_Game_GlobalCommonVariables.main_character_player_node
+			var mcan = Singleton_CommonVariables.sf_game_data_node.ForceMembers[0]
+			Singleton_CommonVariables.ui__actor_micro_info_box.update_active_info(
+					mcan.name, 
+					mcan.class_short, 
+					mcan.level, 
+					mcan.stats.hp, 
+					mcan.stats.hp, 
+					mcan.stats.mp, 
+					mcan.stats.mp
+				)
+				
+			await get_tree().create_timer(0.1).timeout
+				
+			Singleton_CommonVariables.ui__overworld_action_menu.set_menu_active()
+			return
+			
+		if Input.is_action_just_released("ui_c_key"):
+			interaction_attempt_to_talk()
+			return
+		
+		if Input.is_action_just_released("ui_z_key"):
+			# CutscenePlayerTemp.play("Opening")
+			return
+	else:
+		if Input.is_action_just_released("ui_b_key"):
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+			await Signal(get_tree().create_timer(0.1), "timeout")
+			Singleton_CommonVariables.battle__cursor_node.set_active()
+		if Input.is_action_just_released("ui_a_key"):
+			var x = Singleton_CommonVariables.battle__logic_node.movement_logic_node.check_if_character_or_enemey_is_on_tile_excluding_current_actor(
+				Singleton_CommonVariables.battle__currently_active_actor.get_child(0).position,
+				Singleton_CommonVariables.battle__currently_active_actor.get_instance_id()
+			)
+			if x != null:
+				# print("Actor underneath - ", x)
+				Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+				return
+			
+			is_active = false
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+			
+			Singleton_CommonVariables.ui__battle_action_menu.show_cust()
+			await get_tree().create_timer(0.05).timeout
+			Singleton_CommonVariables.ui__battle_action_menu.set_menu_active()
+			return
+	
+	# Classic Genesis styled movement and battle movement
+	if GRID_BASED_MOVEMENT:
+		if Singleton_CommonVariables.is_currently_in_battle_scene:
+			if Input.is_action_pressed("ui_right"):
+				play_animation("RightMovement")
+				
+				if check_if_move_is_possible(Vector2(position.x + 24, position.y)):
+					update_land_effect_with_tile_at_pos(Vector2(position.x + 24, position.y))
+					attempt_to_move(Vector2(position.x + 24, position.y), e_directions.RIGHT)
+			elif Input.is_action_pressed("ui_left"):
+				play_animation("LeftMovement")
+				
+				if check_if_move_is_possible(Vector2(position.x - 24, position.y)):
+					update_land_effect_with_tile_at_pos(Vector2(position.x - 24, position.y))
+					attempt_to_move(Vector2(position.x - 24, position.y), e_directions.LEFT)
+			elif Input.is_action_pressed("ui_up"):
+				play_animation("UpMovement")
+				
+				if check_if_move_is_possible(Vector2(position.x, position.y - 24)):
+					update_land_effect_with_tile_at_pos(Vector2(position.x, position.y - 24))
+					attempt_to_move(Vector2(position.x, position.y - 24), e_directions.UP)
+			elif Input.is_action_pressed("ui_down"):
+				play_animation("DownMovement")
+				
+				if check_if_move_is_possible(Vector2(position.x, position.y + 24)):
+					update_land_effect_with_tile_at_pos(Vector2(position.x, position.y + 24))
+					attempt_to_move(Vector2(position.x, position.y + 24), e_directions.DOWN)
+		else:
+			if Input.is_action_pressed("ui_right"):
+				play_animation("RightMovement")
+				attempt_to_move(Vector2(position.x + 24, position.y), e_directions.RIGHT)
+			elif Input.is_action_pressed("ui_left"):
+				play_animation("LeftMovement")
+				attempt_to_move(Vector2(position.x - 24, position.y), e_directions.LEFT)
+			elif Input.is_action_pressed("ui_up"):
+				play_animation("UpMovement")
+				attempt_to_move(Vector2(position.x, position.y - 24), e_directions.UP)
+			elif Input.is_action_pressed("ui_down"):
+				play_animation("DownMovement")
+				attempt_to_move(Vector2(position.x, position.y + 24), e_directions.DOWN)
+	
+	
+	# TODO: ROTDD styled movement
+	# TODO: godot 3.4.x has better movement handling code 
+	# this is grossly outdated and should be replaced 
+#	else:
+#		var input_vector: Vector2 = Vector2.ZERO
+#
+#		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+#		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+#		input_vector = input_vector.normalized()
+#
+#		if input_vector != Vector2.ZERO:
+#			animationTree.set("parameters/Movement 4 Directions/blend_position", input_vector)
+#
+#			#velocity += input_vector * ACCELERATION * delta
+#			# Running
+#			if Input.is_action_pressed("ui_accept"):	
+#				# velocity = velocity.clamped(MAX_SPEED * RUNNING_SPEED_RATE * delta)
+#				velocity = velocity.move_toward(input_vector * MAX_SPEED * RUNNING_SPEED_RATE, ACCELERATION * delta)
+#			else:
+#				#velocity = velocity.clamped(MAX_SPEED * delta)
+#				velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+#		else:
+#			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+#
+#		velocity = kinematicBody.move_and_slide(velocity)
+#		colsh.disabled = true
+
+
+func check_if_move_is_possible(new_pos_arg: Vector2) -> bool:
+#	var enemey_children = Singleton_CommonVariables.enemey_nodes.get_children()
+#	for enemey in enemey_children:
+#		# print(new_pos_arg,  enemey.global_position)
+#		if new_pos_arg == enemey.global_position:
+#			return false
+
+	for sub_array in Singleton_CommonVariables.active_actor_move_point_representation:
+		for move_pos in sub_array:
+			if move_pos != null:
+				# print(new_pos_arg, " ", move_pos.position)
+				if new_pos_arg == move_pos.position && move_pos.walkable == "YES":
+					return true
+	
+	return false
+
+
+### Helpers
+
+func set_active(active_arg: bool) -> void:
+	is_active = active_arg
+
+
+func set_active_processing(active_arg: bool) -> void:
+	is_active = !active_arg
+	set_process(active_arg)
+
+
+func set_collision_shape_disabled_state(arg: bool) -> void:
+	$CollisionShape2D.disabled = arg
+
+
+### Interactions
+func interaction_attempt_to_talk() -> void:
+	if !Singleton_CommonVariables.is_currently_in_battle_scene:
+		
+		# print("Start")
+		var objects_collide = [] 
+		while ray_interactables.is_colliding():
+			var obj = ray_interactables.get_collider() 
+			# print(obj)
+			
+			objects_collide.append(obj) # add it to the array.
+			ray_interactables.add_exception(obj) # add to ray's exception. That way it could detect something being behind it.
+			ray_interactables.force_raycast_update() # update the ray's collision query.
+		
+		
+		for obj in objects_collide:
+			if obj.get_parent().get_parent().has_method("attempt_to_interact"):
+				obj.get_parent().get_parent().attempt_to_interact()
+			elif obj.get_parent().has_method("attempt_to_interact"):
+				obj.get_parent().attempt_to_interact()
+		
+		for obj in objects_collide:
+			ray_interactables.remove_exception(obj)
+			
+		# print("End\n")
+
+
+func interaction_attempt_to_search() -> void:
+	# if !Singleton_Game_GlobalCommonVariables.is_currently_in_battle_scene:
+	if ray_interactables.is_colliding():
+		# TODO: probably should add a helper function to get the parent element
+		# where the custom logic will live instead of going up for build v0.0.2 its fine
+		if ray_interactables.get_collider().get_parent().get_parent().has_method("attempt_to_interact_search"):
+			ray_interactables.get_collider().get_parent().get_parent().attempt_to_interact()
+		elif ray_interactables.get_collider().get_parent().has_method("attempt_to_interact_search"):
+			ray_interactables.get_collider().get_parent().attempt_to_interact()
+
+
+func PlayerFacingDirection() -> String:
+	return chracter_animation_player.current_animation
+
+
+func GetOppositePlayerFacingDirection() -> String:
+	var facing_direction = PlayerFacingDirection()
+	
+	match facing_direction:
+		"UpMovement": return "DownMovement"
+		"DownMovement": return "UpMovement"
+		"LeftMovement": return "RightMovement"
+		"RightMovement": return "LeftMovement"
+		_: return "DownMovement"
+
+
+func get_actor_name() -> String:
+	# TODO: FIXME: IMPL later
+	return "FIXME ALT FUNC"
+
+
+### Movement
+
+func play_animation(animation_name: String) ->  void:
+	if chracter_animation_player != null:
+		if chracter_animation_player.current_animation != animation_name:
+			if chracter_animation_player.has_animation(animation_name):
+				chracter_animation_player.play(animation_name)
+
+
+enum e_directions {
+	LEFT,
+	RIGHT,
+	DOWN,
+	UP
+}
+
+const ray_target_positions = {
+	e_directions.LEFT:  Vector2(-20, 0),
+	e_directions.RIGHT: Vector2(20, 0),
+	e_directions.UP:    Vector2(0, -20),
+	e_directions.DOWN:  Vector2(0, 20)
+}
+
+const collision_cell_blocker_positions = {
+	e_directions.LEFT:  Vector2(-24, 0),
+	e_directions.RIGHT: Vector2(24, 0),
+	e_directions.UP:    Vector2(0, -24),
+	e_directions.DOWN:  Vector2(0, 24)
+}
+
+func attempt_to_move(new_position_target: Vector2, direction: e_directions) -> void:
+	ray.target_position = ray_target_positions[direction] # inputs[dir] * tile_size
+	ray_interactables.target_position = ray_target_positions[direction]
+	ray.force_raycast_update()
+	
+	if chracter_animation_player != null:
+		chracter_animation_player.speed_scale = 2
+	
+	if !ray.is_colliding():
+		collision_shape_cell_block.position = collision_cell_blocker_positions[direction]
+		
+		var tween: Tween = create_tween()
+		tween.connect("finished", Callable(self, "emit_action_finished"))
+		tween.connect("finished", Callable(self, "call_signal_move_complete"))
+		tween.tween_property(self, "position",
+			new_position_target,
+			1.0 / animation_speed
+		).set_trans(Tween.TRANS_LINEAR)
+	
+		is_currently_moving = true
+		await tween.finished
+		is_currently_moving = false
+		
+		if chracter_animation_player != null:
+			chracter_animation_player.speed_scale = 1
+		
+		collision_shape_cell_block.position = Vector2.ZERO
+
+
+func emit_action_finished() -> void:
+	emit_signal("signal_action_finished")
+
+func call_signal_move_complete() -> void:
+	emit_signal("signal_move_complete")
+
+
+func MoveInDirection(move_direction_arg: String) -> void:
+	if move_direction_arg == "Right":
+		play_animation("RightMovement")
+		attempt_to_move(Vector2(position.x + 24, position.y), e_directions.RIGHT)
+	elif move_direction_arg == "Left":
+		play_animation("LeftMovement")
+		attempt_to_move(Vector2(position.x - 24, position.y), e_directions.LEFT)
+	elif move_direction_arg == "Up":
+		play_animation("UpMovement")
+		attempt_to_move(Vector2(position.x, position.y - 24), e_directions.UP)
+	elif move_direction_arg == "Down":
+		play_animation("DownMovement")
+		attempt_to_move(Vector2(position.x, position.y + 24), e_directions.DOWN)
+
+
+func play_facing_direction(move_direction_arg: String) -> void:
+	if move_direction_arg == "Right":
+		play_animation("RightMovement")
+	elif move_direction_arg == "Left":
+		play_animation("LeftMovement")
+	elif move_direction_arg == "Up":
+		play_animation("UpMovement")
+	elif move_direction_arg == "Down":
+		play_animation("DownMovement")
+
+
+func update_land_effect_with_tile_at_pos(pos_arg: Vector2) -> void:
+	var tile_info = Singleton_CommonVariables.battle__logic_node.movement_logic_node.get_land_effect_value_at_pos(pos_arg)
+	
+	if tile_info != null:
+		Singleton_CommonVariables.ui__land_effect_popup_node.set_land_effect_value_text(str(tile_info.value) + "%")
+	else:
+		Singleton_CommonVariables.ui__land_effect_popup_node.set_land_effect_value_text("BUG")

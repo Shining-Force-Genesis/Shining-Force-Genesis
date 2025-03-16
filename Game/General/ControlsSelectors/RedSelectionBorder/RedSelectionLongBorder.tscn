@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bvdpld8j7kgfr"]
+
+[node name="RedSelectionBorderRoot" type="Node2D"]
+
+[node name="LeftColorRect" type="ColorRect" parent="."]
+offset_top = 1.0
+offset_right = 1.0
+offset_bottom = 22.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true
+
+[node name="RightColorRect" type="ColorRect" parent="."]
+offset_left = 97.0
+offset_top = 1.0
+offset_right = 98.0
+offset_bottom = 22.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true
+
+[node name="BottomColorRect" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 22.0
+offset_right = 97.0
+offset_bottom = 23.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true
+
+[node name="TopColorRect" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_right = 97.0
+offset_bottom = 1.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true
+
+[node name="TopColorRect2" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 2.0
+offset_bottom = 2.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true
+
+[node name="TopColorRect3" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = 21.0
+offset_right = 2.0
+offset_bottom = 22.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true
+
+[node name="TopColorRect4" type="ColorRect" parent="."]
+offset_left = 96.0
+offset_top = 21.0
+offset_right = 97.0
+offset_bottom = 22.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true
+
+[node name="TopColorRect5" type="ColorRect" parent="."]
+offset_left = 96.0
+offset_top = 1.0
+offset_right = 97.0
+offset_bottom = 2.0
+color = Color(0.741176, 0.0862745, 0.0862745, 1)
+metadata/_edit_lock_ = true

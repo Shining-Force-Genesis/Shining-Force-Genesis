@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://eqokcgot3xrj"]
+
+[ext_resource type="Script" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_8b7r1"]
+[ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="1_rin1p"]
+[ext_resource type="PackedScene" uid="uid://6esp6v55rdf8" path="res://SF1/Characters/Lowe/LoweCharacterRoot.tscn" id="2_42kc6"]
+[ext_resource type="PackedScene" uid="uid://e7n2gb682327" path="res://SF1/Characters/Lowe/LoweUnpromotedBattleScene.tscn" id="4_roucb"]
+
+[node name="Lowe" type="Node2D"]
+script = ExtResource("1_8b7r1")
+
+[node name="PlayerCharacterRoot" parent="." instance=ExtResource("1_rin1p")]
+actor_type = 1
+
+[node name="Lowe" parent="PlayerCharacterRoot" instance=ExtResource("2_42kc6")]
+
+[node name="CharacterRoot" parent="PlayerCharacterRoot/Lowe" index="0"]
+SF1_MEMBER_INDEX = 5
+battle__scene_unpromoted = ExtResource("4_roucb")
+
+[editable path="PlayerCharacterRoot"]
+[editable path="PlayerCharacterRoot/Lowe"]
+[editable path="PlayerCharacterRoot/Lowe/CharacterRoot"]

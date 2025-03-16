@@ -1,0 +1,158 @@
+[gd_scene load_steps=12 format=3 uid="uid://bx7ggq3ugurnh"]
+
+[ext_resource type="Script" path="res://SF1/EnemiesAndBosses/GenericEnemeyBattleScene.gd" id="1_sf3se"]
+[ext_resource type="Texture2D" uid="uid://kwfkn0ewhrpm" path="res://Assets/SF1/EnemiesAndBosses/Rune Knight/Battle_Sprites.png" id="2_akom0"]
+[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="2_s8tsx"]
+[ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="3_quys3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0n35e"]
+shader = ExtResource("2_s8tsx")
+shader_parameter/dissolve_effect_amount = 0.0
+shader_parameter/noise_texture = ExtResource("3_quys3")
+
+[sub_resource type="Animation" id="Animation_xd71m"]
+resource_name = "Attack"
+length = 1.60001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.8, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"emit_attack_anticapation_frame_reached"
+}, {
+"args": [],
+"method": &"emit_attack_frame_reached"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sjvss"]
+resource_name = "Death"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/dissolve_effect_amount")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_1vnhv"]
+resource_name = "Idle"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_ejoj2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/dissolve_effect_amount")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(116, 92)]
+}
+
+[sub_resource type="Animation" id="Animation_1xnyx"]
+resource_name = "Shake"
+length = 0.30001
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(116, 92), Vector2(100, 92), Vector2(108, 88), Vector2(116, 96), Vector2(104, 92), Vector2(120, 100), Vector2(116, 92)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6b8o4"]
+_data = {
+"Attack": SubResource("Animation_xd71m"),
+"Death": SubResource("Animation_sjvss"),
+"Idle": SubResource("Animation_1vnhv"),
+"RESET": SubResource("Animation_ejoj2"),
+"Shake": SubResource("Animation_1xnyx")
+}
+
+[node name="RuneKnightBattleScene" type="Node2D"]
+script = ExtResource("1_sf3se")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_0n35e")
+position = Vector2(116, 92)
+texture = ExtResource("2_akom0")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_6b8o4")
+}

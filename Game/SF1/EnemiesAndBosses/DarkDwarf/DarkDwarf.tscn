@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://bynjur2gi5rto"]
+
+[ext_resource type="Script" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_mofw1"]
+[ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="1_suqvh"]
+[ext_resource type="PackedScene" uid="uid://cdklynul2msnf" path="res://SF1/EnemiesAndBosses/DarkDwarf/DarkDwarfEnemeyRoot.tscn" id="2_8hkqa"]
+[ext_resource type="PackedScene" uid="uid://dtroif3hpohkr" path="res://SF1/EnemiesAndBosses/DarkDwarf/DarkDwarfBattleScene.tscn" id="4_sty31"]
+[ext_resource type="Script" path="res://General/Actor_Helpers/Inventory.gd" id="5_numk5"]
+
+[sub_resource type="Resource" id="Resource_dxu5l"]
+script = ExtResource("5_numk5")
+resource = "res://SF1/Items/Weapons/HandAxe.tres"
+is_equipped = true
+
+[node name="DarkDwarf" type="Node2D"]
+script = ExtResource("1_mofw1")
+
+[node name="PlayerCharacterRoot" parent="." instance=ExtResource("1_suqvh")]
+actor_type = 2
+
+[node name="DarkDwarf" parent="PlayerCharacterRoot" instance=ExtResource("2_8hkqa")]
+
+[node name="EnemeyRoot" parent="PlayerCharacterRoot/DarkDwarf" index="0"]
+enemey_battle_scene = ExtResource("4_sty31")
+inventory = Array[ExtResource("5_numk5")]([SubResource("Resource_dxu5l")])
+
+[editable path="PlayerCharacterRoot"]
+[editable path="PlayerCharacterRoot/DarkDwarf"]
+[editable path="PlayerCharacterRoot/DarkDwarf/EnemeyRoot"]
