@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxgdtcnic5sv5"]
+[gd_scene load_steps=3 format=3 uid="uid://bxgdtcnic5sv5"]
 
-[ext_resource type="Script" path="res://General/ControlsBattle/ViewSelectedActorInfoPopup/ItemMicroView/ItemMicroView.gd" id="1_fsi3p"]
-[ext_resource type="Texture2D" uid="uid://duo737ik7pilg" path="res://Assets/SFCD/Items/Usables/MedicalHerb.png" id="1_gj6bh"]
-[ext_resource type="FontFile" uid="uid://dsvjkkfpt1rqd" path="res://Assets/SF1/ShiningForceMenuFont.tres" id="2_7eipj"]
+[ext_resource type="Script" uid="uid://di6kf57nyrstu" path="res://General/ControlsBattle/ViewSelectedActorInfoPopup/ItemMicroView/ItemMicroView.gd" id="1_fsi3p"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="2_7eipj"]
 
 [node name="ItemMicroView" type="Control"]
 layout_mode = 3
@@ -14,7 +13,6 @@ script = ExtResource("1_fsi3p")
 layout_mode = 0
 offset_right = 16.0
 offset_bottom = 24.0
-texture = ExtResource("1_gj6bh")
 
 [node name="ItemNameLabel" type="Label" parent="."]
 layout_mode = 0

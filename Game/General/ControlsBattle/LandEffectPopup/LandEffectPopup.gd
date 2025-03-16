@@ -11,6 +11,7 @@ const hidden_position: Vector2 = Vector2(-80, 8)
 
 func _ready() -> void:
 	Singleton_CommonVariables.ui__land_effect_popup_node = self
+	hide()
 
 
 func set_land_effect_value_text(str_arg: String) -> void:

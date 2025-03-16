@@ -41,6 +41,9 @@ const target_actor_bottom_right_pos: Vector2 = Vector2(200, 134)
 func _ready():
 	Singleton_CommonVariables.ui__target_actor_micro_info_box = self
 	calculate_hp_or_mp_bar_width_and_set(8, 12, 8, 8)
+	
+	hide()
+	
 	pass
 
 func calculate_hp_or_mp_bar_width_and_set(current_hp, total_hp, current_mp, total_mp):

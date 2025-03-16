@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Gong/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -14,11 +14,11 @@
 
 		{
 			"Text": "(Gong joins the Shining Force!)",
-			"Sound": "fx | res://Assets/SF1/SoundBank/Jingle - Comrades 1 (Happily).mp3 | yield"
+			"Sound": "fx | res://Assets/Music/SF1/Jingle - Comrades 1 (Happily).mp3 | yield"
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Gong/Assets/Unpromoted_Portraits.png"
 		},
 
 		{

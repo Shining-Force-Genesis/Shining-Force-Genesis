@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://b3jwmtbmk6vai"]
 
-[ext_resource type="Script" path="res://General/BattleLogic/BattleLogic.gd" id="1_ri34r"]
-[ext_resource type="Script" path="res://General/BattleLogic/TurnLogic.gd" id="2_6huta"]
-[ext_resource type="Script" path="res://General/BattleLogic/MovementLogic.gd" id="3_j12mi"]
-[ext_resource type="Script" path="res://General/BattleLogic/TargetSelectionLogic.gd" id="4_me10v"]
+[ext_resource type="Script" uid="uid://dfkae1kw83wix" path="res://General/BattleLogic/BattleLogic.gd" id="1_ri34r"]
+[ext_resource type="Script" uid="uid://cqsxvgnubqryq" path="res://General/BattleLogic/TurnLogic.gd" id="2_6huta"]
+[ext_resource type="Script" uid="uid://5v5pikupr3na" path="res://General/BattleLogic/MovementLogic.gd" id="3_j12mi"]
+[ext_resource type="Script" uid="uid://cnugql7lny1nf" path="res://General/BattleLogic/TargetSelectionLogic.gd" id="4_me10v"]
 [ext_resource type="PackedScene" uid="uid://d0ntm67m6na08" path="res://General/BattleLogic/Cursor/Cursor.tscn" id="5_4q7qq"]
 
 [sub_resource type="Animation" id="Animation_glrx3"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ch4y"]
 _data = {
-"RESET": SubResource("Animation_glrx3"),
-"TileFlashing": SubResource("Animation_03roy")
+&"RESET": SubResource("Animation_glrx3"),
+&"TileFlashing": SubResource("Animation_03roy")
 }
 
 [sub_resource type="Animation" id="Animation_usjcn"]
@@ -78,8 +78,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b1jfu"]
 _data = {
-"RESET": SubResource("Animation_usjcn"),
-"TilesFlashing": SubResource("Animation_m85wl")
+&"RESET": SubResource("Animation_usjcn"),
+&"TilesFlashing": SubResource("Animation_m85wl")
 }
 
 [node name="BattleLogic" type="Node"]
@@ -95,7 +95,7 @@ script = ExtResource("3_j12mi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1ch4y")
+&"": SubResource("AnimationLibrary_1ch4y")
 }
 
 [node name="TargetSelectionLogic" type="Node" parent="."]
@@ -105,7 +105,7 @@ script = ExtResource("4_me10v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TargetSelectionLogic"]
 libraries = {
-"": SubResource("AnimationLibrary_b1jfu")
+&"": SubResource("AnimationLibrary_b1jfu")
 }
 
 [node name="Cursor" parent="." instance=ExtResource("5_4q7qq")]

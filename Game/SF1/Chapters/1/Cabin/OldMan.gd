@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 
-func attempt_to_interact() -> void:
+func attempt_interaction_talk() -> void:
 	if interacting:
 		return
 	
@@ -32,8 +32,11 @@ func attempt_to_interact() -> void:
 	
 	await Signal(Singleton_CommonVariables.dialogue_box_node, "signal__dialogbox__finished_dialog")
 	
+	
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.set_active_processing(true)
-	# interacting = false
+	
+	interacting = false
+	npcBaseRoot.stationary = false
 
 
 func interaction_completed() -> void:

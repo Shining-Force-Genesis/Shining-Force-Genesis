@@ -63,8 +63,8 @@ func _process(_delta):
 		if currently_selected_option == e_menu_options.DEALS_OPTION:
 			is_menu_active = false
 			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_search()
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			
 			Singleton_CommonVariables.action_type = "SHOP_DEALS"
@@ -102,8 +102,8 @@ func _process(_delta):
 		elif currently_selected_option == e_menu_options.SELL_OPTION:
 			is_menu_active = false
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.interaction_attempt_to_talk()
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 			
@@ -126,8 +126,8 @@ func _process(_delta):
 		elif currently_selected_option == e_menu_options.REPAIR_OPTION:
 			is_menu_active = false
 			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_search()
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			
 			Singleton_CommonVariables.action_type = "SHOP_REPAIR"
@@ -165,8 +165,8 @@ func _process(_delta):
 		elif currently_selected_option == e_menu_options.BUY_OPTION:
 			is_menu_active = false
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.interaction_attempt_to_talk()
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 			
@@ -195,7 +195,7 @@ func _process(_delta):
 
 
 func menu_option_selected(e_menu_option_selected, animation_name: String, label_text: String) -> void:
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 	set_sprites_to_zero_frame()
 	currently_selected_option = e_menu_option_selected
 	animationPlayer.play(animation_name)
@@ -212,7 +212,7 @@ func set_sprites_to_zero_frame() -> void:
 func CancelShopMenu() -> void:
 	print("Cancel Overworld Action Menu")
 	is_menu_active = false
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	
 	# yield(get_tree().create_timer(0.02), "timeout")
 	

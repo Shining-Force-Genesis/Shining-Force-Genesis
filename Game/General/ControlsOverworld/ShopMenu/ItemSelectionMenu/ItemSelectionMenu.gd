@@ -57,7 +57,7 @@ func _process(_delta):
 			"SHOP_BUY":
 				
 				if Singleton_CommonVariables.gold < item_list[current_item_selected].price_buy:
-					Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+					AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 					return
 				
 				print("Attempt to buy item")

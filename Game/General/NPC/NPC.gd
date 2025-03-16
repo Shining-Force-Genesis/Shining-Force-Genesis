@@ -86,6 +86,9 @@ func attempt_to_search() -> void:
 
 
 func npc_move() -> void:
+	if stationary:
+		return
+	
 	# TODO: FIXME: should stop on stationary var change
 	# but also need a way to restart this after an interaction is complete
 	if !is_currently_moving: #  && !stationary:
@@ -214,3 +217,20 @@ func set_facing_direction(move_direction_arg: String) -> void:
 		FacingDirection = EFacingDirection.UP
 	elif move_direction_arg == "Down":
 		FacingDirection = EFacingDirection.DOWN
+
+
+# whats arg2 for ignore collisions ?
+func MoveInDirection(arg: String, arg2 = false) -> void:
+	match arg:
+		"Down": 
+			play_animation(down_movement)
+			attempt_to_move(Vector2(position.x, position.y + 24), e_directions.DOWN)
+		"Up": 
+			play_animation(up_movement)
+			attempt_to_move(Vector2(position.x, position.y - 24), e_directions.UP)
+		"Left": 
+			play_animation(left_movement)
+			attempt_to_move(Vector2(position.x - 24, position.y), e_directions.LEFT)
+		"Right": 
+			play_animation(right_movement)
+			attempt_to_move(Vector2(position.x + 24, position.y), e_directions.RIGHT)

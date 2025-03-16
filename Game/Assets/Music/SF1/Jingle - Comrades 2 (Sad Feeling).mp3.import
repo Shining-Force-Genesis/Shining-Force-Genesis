@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3rxiqt81vkr7"
+path="res://.godot/imported/Jingle - Comrades 2 (Sad Feeling).mp3-0e79ebdafc92cfb5a448feecf119b6ce.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Jingle - Comrades 2 (Sad Feeling).mp3"
+dest_files=["res://.godot/imported/Jingle - Comrades 2 (Sad Feeling).mp3-0e79ebdafc92cfb5a448feecf119b6ce.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

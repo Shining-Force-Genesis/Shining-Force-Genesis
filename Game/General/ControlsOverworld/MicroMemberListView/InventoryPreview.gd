@@ -173,8 +173,8 @@ func ConfirmSellOfItem() -> void:
 func CancelShopSellAction() -> void:
 	set_menu_inactive()
 	
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	
 	# Singleton_Game_GlobalCommonVariables.action_type = "SHOP_SELL"
 	

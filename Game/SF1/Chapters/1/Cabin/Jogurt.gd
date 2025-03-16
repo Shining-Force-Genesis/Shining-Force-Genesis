@@ -11,7 +11,7 @@ func _ready():
 	pass
 
 
-func attempt_to_interact() -> void:
+func attempt_interaction_talk() -> void:
 	if interacting:
 		return
 	
@@ -34,6 +34,7 @@ func attempt_to_interact() -> void:
 	
 	Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 	interacting = false
+	npcBaseRoot.stationary = false
 
 
 func interaction_completed() -> void:

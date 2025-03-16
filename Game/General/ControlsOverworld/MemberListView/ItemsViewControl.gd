@@ -37,7 +37,7 @@ func set_item_selection_menu_active():
 		selected_item = E_SelectedItem.UP
 		itemTextRedSelection.show()
 	else:
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 
 func set_item_selection_menu_inactive():
 	is_item_view_selection_menu_active = false
@@ -124,7 +124,7 @@ func UseItemFromCharacter() -> void:
 	# if Singleton_Game_GlobalCommonVariables.selected_character.inventory.size() >= selected_item:
 	#	Singleton_Game_GlobalCommonVariables.selected_character.inventory[selected_item]
 	
-	Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+	AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 	
 	# TODO: the rest of this when working on Chapter 2
 

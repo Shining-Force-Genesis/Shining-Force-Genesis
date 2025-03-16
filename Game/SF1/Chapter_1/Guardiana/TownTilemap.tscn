@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://da720jhkmfku3"]
+[gd_scene load_steps=23 format=4 uid="uid://da720jhkmfku3"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="0"]
 [ext_resource type="Script" uid="uid://0vliyr8w3m88" path="res://SF1/Chapter_1/Guardiana/town_tilemap.gd" id="1_354je"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bb2jwrq5it0w4" path="res://SF1/Assets/Tilesets/6.png" id="6"]
 [ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="6_8cicr"]
 [ext_resource type="Texture2D" uid="uid://dkoqu4b08efg6" path="res://Assets/NPC/Man_Old_WhiteBeard.png" id="7_8tc18"]
+[ext_resource type="Script" uid="uid://dhgul1nyapqxg" path="res://SF1/Chapter_1/Guardiana/Scripts/OldManWithBeard.gd" id="7_wy8xx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
 texture = ExtResource("0")
@@ -2462,22 +2463,24 @@ position = Vector2(1176, 1056)
 
 [node name="NPCS" type="Node" parent="."]
 
-[node name="NPCRoot" parent="NPCS" instance=ExtResource("6_8cicr")]
+[node name="OldManWithBeard" parent="NPCS" instance=ExtResource("6_8cicr")]
 position = Vector2(852, 828)
+script = ExtResource("7_wy8xx")
+talk_script = "res://SF1/Chapter_1/Guardiana/Scripts/OldManAroundTown.json"
 
-[node name="AnimatableBody2D" parent="NPCS/NPCRoot" index="0"]
+[node name="AnimatableBody2D" parent="NPCS/OldManWithBeard" index="0"]
 stationary = true
 
-[node name="Sprite2D" parent="NPCS/NPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="2"]
 texture = ExtResource("7_8tc18")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NPCS/NPCRoot/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="3"]
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="CollisionPolygon2D" parent="NPCS/NPCRoot/Area2D" index="0"]
+[node name="CollisionPolygon2D" parent="NPCS/OldManWithBeard/Area2D" index="0"]
 polygon = PackedVector2Array(-132, -36, -132, 36, -36, 36, -36, 12, -108, 12, -108, -36, 88, -36, 88, 12, -12, 12, -12, 36, 112, 36, 112, -56, -132, -60)
 
 [connection signal="body_entered" from="Areas/CastleEntranceArea2D" to="." method="_on_castle_entrance_area_2d_body_entered"]
@@ -2497,4 +2500,4 @@ polygon = PackedVector2Array(-132, -36, -132, 36, -36, 36, -36, 12, -108, 12, -1
 [connection signal="body_entered" from="Roofs/ShopEntranceArea2D" to="." method="_on_shop_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/ShopExitArea2D" to="." method="_on_shop_exit_area_2d_body_entered"]
 
-[editable path="NPCS/NPCRoot"]
+[editable path="NPCS/OldManWithBeard"]

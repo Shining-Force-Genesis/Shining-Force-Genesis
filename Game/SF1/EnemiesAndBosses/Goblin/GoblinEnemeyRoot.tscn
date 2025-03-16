@@ -1,6 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://bp5c8nvyck0mv"]
+[gd_scene load_steps=10 format=3 uid="uid://bp5c8nvyck0mv"]
 
 [ext_resource type="PackedScene" uid="uid://588imvwkbshk" path="res://General/CEnemeyRoot/EnemeyRoot.tscn" id="1_2x7t3"]
+[ext_resource type="Script" uid="uid://bv56w8vkurca3" path="res://General/Actor_Helpers/Inventory.gd" id="2_xgoi5"]
+
+[sub_resource type="Resource" id="Resource_fdrxn"]
+script = ExtResource("2_xgoi5")
+resource = "res://SF1/Items/Weapons/ShortSword.tres"
+is_equipped = true
+metadata/_custom_type_script = "uid://bv56w8vkurca3"
 
 [sub_resource type="Animation" id="Animation_hsv8d"]
 resource_name = "DownMovement"
@@ -123,11 +130,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mtp0"]
 _data = {
-"DownMovement": SubResource("Animation_hsv8d"),
-"LeftMovement": SubResource("Animation_udvjy"),
-"RESET": SubResource("Animation_8dntj"),
-"RightMovement": SubResource("Animation_qld85"),
-"UpMovement": SubResource("Animation_5ycmx")
+&"DownMovement": SubResource("Animation_hsv8d"),
+&"LeftMovement": SubResource("Animation_udvjy"),
+&"RESET": SubResource("Animation_8dntj"),
+&"RightMovement": SubResource("Animation_qld85"),
+&"UpMovement": SubResource("Animation_5ycmx")
 }
 
 [node name="Goblin" type="Node2D"]
@@ -136,6 +143,7 @@ _data = {
 enemey_name = "Goblin"
 coins_min = 12
 coins_max = 12
+inventory = Array[ExtResource("2_xgoi5")]([SubResource("Resource_fdrxn")])
 effective_level = 3
 move = 5
 attack = 4
@@ -149,9 +157,9 @@ position = Vector2(0, -8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemeyRoot"]
 root_node = NodePath("../..")
-autoplay = "DownMovement"
 libraries = {
-"": SubResource("AnimationLibrary_3mtp0")
+&"": SubResource("AnimationLibrary_3mtp0")
 }
+autoplay = "DownMovement"
 
 [editable path="EnemeyRoot"]

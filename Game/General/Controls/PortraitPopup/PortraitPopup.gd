@@ -1,11 +1,13 @@
 extends Node2D
 
+class_name PortraitPopup
+
 @onready var animationPlayer = $AnimationPlayer
 @onready var portraitTextureRect = $Sprite2D
 
 func _ready():
 	Singleton_CommonVariables.ui__portrait_popup = self
-	# hide()
+	hide()
 	# animationPlayer.speed_scale = 1.5
 	# animationPlayer.play("Default")
 

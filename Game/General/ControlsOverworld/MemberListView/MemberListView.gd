@@ -5,7 +5,7 @@ var active = false
 
 var cnode = null
 
-var EmptyItemSlotTexture = preload("res://Assets/SFCD/Items/EmptyItemSlot.png")
+var EmptyItemSlotTexture = preload("res://Assets/EmptyItemSlot.png")
 
 var MemberSelectionLine = preload("res://General/ControlsOverworld/MemberListView/MemberSelectionLine.tscn")
 
@@ -387,7 +387,7 @@ func SelectItemOrSelectItemReciever() -> void:
 	if Singleton_CommonVariables.selected_target_character.inventory.size() >= 4:
 		# TODO: display hands full message
 		
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 		
 		return
 	

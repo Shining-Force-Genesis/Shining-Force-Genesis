@@ -1,8 +1,22 @@
 extends Node2D
 
+class_name PlayerCharacterNode
+
+signal signal_action_finished
+
 @onready var cn = $Node2D
 @onready var ray = $RayCast2D
 @onready var camera = $Camera2D
+
+@onready var raycast: RayCast2D = $RayCast2D
+
+enum e_player_directions {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}
+var facing_direction: e_player_directions = e_player_directions.DOWN
 
 var tile_size = 24
 var inputs = {
@@ -19,23 +33,42 @@ var move_tween: Tween
 
 func _ready() -> void:
 	Player.character = self
+	
+	Singleton_CommonVariables.main_character_player_node = self
 	# print(Player.move_tilemap)
 
+func set_active_processing(arg: bool) -> void:
+	# TODO whatever this is supposed to be
+	pass
 
 func _process(delta: float) -> void:
 	if moving:
 		return
 	
+	if Input.is_action_just_pressed("ui_a_key"):
+		await Signal(get_tree().create_timer(0.1), "timeout")
+		Singleton_CommonVariables.ui__overworld_action_menu.set_menu_active()
+		await Signal(get_tree().create_timer(0.1), "timeout")
+		return
+	
+	if Input.is_action_just_pressed("ui_c_key"):
+		interaction_attempt_to_talk()
+		return
+	
 	if Input.is_action_pressed('ui_up'):
+		facing_direction = e_player_directions.UP
 		move('ui_up')
 		$Node2D/Max/AnimationPlayer.play("Up")
 	elif Input.is_action_pressed('ui_down'):
+		facing_direction = e_player_directions.DOWN
 		move('ui_down')
 		$Node2D/Max/AnimationPlayer.play("Down")
 	elif Input.is_action_pressed('ui_left'):
+		facing_direction = e_player_directions.LEFT
 		move('ui_left')
 		$Node2D/Max/AnimationPlayer.play("Left")
 	elif Input.is_action_pressed('ui_right'):
+		facing_direction = e_player_directions.RIGHT
 		move('ui_right')
 		$Node2D/Max/AnimationPlayer.play("Right")	
 		
@@ -62,3 +95,51 @@ func move(dir):
 		moving = true
 		await move_tween.finished
 		moving = false
+		
+		emit_signal("signal_action_finished")
+
+
+func interaction_attempt_to_talk() -> void:
+	if raycast.is_colliding():
+		var c = raycast.get_collider()
+		print(c)
+		
+		if c.get_parent().has_method("attempt_interaction_talk"):
+			c.get_parent().attempt_interaction_talk()
+
+
+func interaction_attempt_to_search() -> void:
+	if raycast.is_colliding():
+		var c = raycast.get_collider()
+		print(c)
+		
+		if c.get_parent().has_method("attempt_interaction_search"):
+			c.get_parent().attempt_interaction_search()
+
+
+func PlayerFacingDirection() -> String:
+	match facing_direction:
+		e_player_directions.UP: return "Up"
+		e_player_directions.DOWN: return "Down"
+		e_player_directions.LEFT: return "Left"
+		e_player_directions.RIGHT: return "Right"
+		_: return "Down"
+
+
+func GetOppositePlayerFacingDirection() -> String:
+	match facing_direction:
+		e_player_directions.UP: return "Down"
+		e_player_directions.DOWN: return "Up"
+		e_player_directions.LEFT: return "Right"
+		e_player_directions.RIGHT: return "Left"
+		_: return "Down"
+
+func get_actor_name() -> String:
+	return "MAX_STATIC"
+
+func MoveInDirection(arg: String) -> void:
+	match arg:
+		"Down": move('ui_down')
+		"Up": move('ui_up')
+		"Left": move('ui_left')
+		"Right": move('ui_right')

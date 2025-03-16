@@ -1,16 +1,15 @@
 [gd_scene load_steps=4 format=3 uid="uid://dli5v0yr835dl"]
 
-[ext_resource type="Texture2D" uid="uid://obn7lftu7567" path="res://Assets/SF1/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="1_4c8ip"]
-[ext_resource type="Texture2D" uid="uid://d0xfrqovmknjr" path="res://Assets/SF1/Weapons/Wooden_Rod.png" id="2_3wjt7"]
-[ext_resource type="Texture2D" uid="uid://bo5bvsm6yi0no" path="res://Assets/SF1/PlayableCharacters/Tao/Unpromoted_Battle_Sprites.png" id="3_p1nt5"]
+[ext_resource type="Texture2D" uid="uid://cn5tn286oppd" path="res://Assets/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="1_c7j4q"]
+[ext_resource type="Texture2D" uid="uid://boru68cnao7qq" path="res://Assets/SF1/Weapons/Wooden_Rod.png" id="2_3wjt7"]
+[ext_resource type="Texture2D" uid="uid://ck1w48ouqrpra" path="res://Characters/Luke/Assets/Unpromoted_Battle_Sprites.png" id="3_p1nt5"]
 
 [node name="CharacterScene" type="Node2D"]
 
 [node name="GroundSprite2D" type="Sprite2D" parent="."]
 position = Vector2(1.59999, -16)
-texture = ExtResource("1_4c8ip")
+texture = ExtResource("1_c7j4q")
 vframes = 9
-frame = 5
 
 [node name="WeaponSprite2D" type="Sprite2D" parent="."]
 position = Vector2(-40, -70.4)

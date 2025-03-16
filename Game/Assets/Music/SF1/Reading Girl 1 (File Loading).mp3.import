@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bydthph5vivn8"
+path="res://.godot/imported/Reading Girl 1 (File Loading).mp3-8af71e25a8a9a289a85b4bbfcc0f1822.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Reading Girl 1 (File Loading).mp3"
+dest_files=["res://.godot/imported/Reading Girl 1 (File Loading).mp3-8af71e25a8a9a289a85b4bbfcc0f1822.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

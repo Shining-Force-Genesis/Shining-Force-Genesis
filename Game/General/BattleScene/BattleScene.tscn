@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://cb1wai5uq2yyg"]
 
-[ext_resource type="Script" path="res://General/BattleScene/BattleScene.gd" id="1_mmtnn"]
+[ext_resource type="Script" uid="uid://corw8i72gsq7h" path="res://General/BattleScene/BattleScene.gd" id="1_mmtnn"]
 [ext_resource type="PackedScene" uid="uid://bcp6q8yok2yo3" path="res://General/BattleScene/BackgroundScene/BackgroundBattleScene.tscn" id="3_7dhk1"]
-[ext_resource type="Texture2D" uid="uid://2mk4yx4adk6b" path="res://Assets/BattleSceneTransitionTemp.png" id="4_r527i"]
+[ext_resource type="Texture2D" uid="uid://bxcrdve4xjjbu" path="res://Assets/BattleSceneTransitionTemp.png" id="4_r527i"]
 [ext_resource type="PackedScene" uid="uid://b6k3kv4hgim0" path="res://SF1/Spells/Blaze/Blaze_Level_1.tscn" id="6_i6eyo"]
 [ext_resource type="PackedScene" uid="uid://dli5v0yr835dl" path="res://General/BattleScene/CharacterScene/CharacterScene.tscn" id="8_pklxd"]
 [ext_resource type="PackedScene" uid="uid://obvgsw5adehj" path="res://General/BattleScene/EnemeyScene/EnemeyScene.tscn" id="8_waxw2"]
@@ -12,13 +12,12 @@ script = ExtResource("1_mmtnn")
 metadata/_edit_lock_ = true
 
 [node name="StaticBlackBackgroundColorRect" type="ColorRect" parent="."]
-offset_right = 320.0
-offset_bottom = 180.0
+offset_right = 484.0
+offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
 
 [node name="BattleSceneTransitionTemp" type="Sprite2D" parent="."]
-position = Vector2(434, 89)
+position = Vector2(483, 134)
 scale = Vector2(0.140741, 0.123684)
 texture = ExtResource("4_r527i")
 
@@ -28,38 +27,42 @@ metadata/_edit_lock_ = true
 [node name="BackgroundBattleScene" parent="BackgroundWrapper" instance=ExtResource("3_7dhk1")]
 
 [node name="EnemeyWrapper" type="Node2D" parent="."]
+scale = Vector2(1.5, 1.5)
 metadata/_edit_lock_ = true
 
 [node name="EnemeyScene" parent="EnemeyWrapper" instance=ExtResource("8_waxw2")]
+position = Vector2(21.3333, 0)
 
 [node name="CharacterWrapper" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
 
 [node name="CharacterScene" parent="CharacterWrapper" instance=ExtResource("8_pklxd")]
-position = Vector2(206, 160)
+position = Vector2(340, 232)
+scale = Vector2(1.5, 1.5)
 
 [node name="BackgroundStaticColorsControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 180.0
-metadata/_edit_lock_ = true
 
 [node name="LeftStaticBlackBackgroundColorRect" type="ColorRect" parent="BackgroundStaticColorsControl"]
 layout_mode = 0
-offset_right = 32.0
-offset_bottom = 180.0
+offset_right = 48.0
+offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
 
 [node name="RightStaticBlackBackgroundColorRect" type="ColorRect" parent="BackgroundStaticColorsControl"]
 layout_mode = 0
-offset_left = 288.0
-offset_right = 320.0
-offset_bottom = 180.0
+offset_left = 432.0
+offset_right = 480.0
+offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
-metadata/_edit_lock_ = true
 
 [node name="SpellsWrapper" type="Node2D" parent="."]
 
 [node name="Blaze_Level_1" parent="SpellsWrapper" instance=ExtResource("6_i6eyo")]
+
+[node name="BattleSceneTransitionTemp2" type="Sprite2D" parent="."]
+position = Vector2(624, 16)
+scale = Vector2(0.140741, 0.123684)
+texture = ExtResource("4_r527i")

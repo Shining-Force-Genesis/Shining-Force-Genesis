@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://385d8xt02qeq"
+path="res://.godot/imported/Event (Sad).mp3-8ec741113c02643d5020e13dc13f68bc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Event (Sad).mp3"
+dest_files=["res://.godot/imported/Event (Sad).mp3-8ec741113c02643d5020e13dc13f68bc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

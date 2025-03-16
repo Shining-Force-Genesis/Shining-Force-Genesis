@@ -1,0 +1,31 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://b8euyhgwarcdy"]
+
+[ext_resource type="Texture2D" uid="uid://c0hxcdygkkpbt" path="res://Assets/CustomTileStandInformation.png" id="1_8bel8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_heb3w"]
+texture = ExtResource("1_8bel8")
+texture_region_size = Vector2i(24, 24)
+0:0/0 = 0
+0:0/0/custom_data_0 = "SF1_Bridge"
+1:0/0 = 0
+1:0/0/custom_data_0 = "SF1_Building"
+2:0/0 = 0
+2:0/0/custom_data_0 = "SF1_Gravel"
+3:0/0 = 0
+3:0/0/custom_data_0 = "SF1_Dirt"
+3:1/0 = 0
+3:1/0/custom_data_0 = "SF1_DirtAndRocks"
+2:1/0 = 0
+2:1/0/custom_data_0 = "SF1_Desert"
+1:1/0 = 0
+1:1/0/custom_data_0 = "SF1_Mountain"
+0:1/0 = 0
+0:1/0/custom_data_0 = "SF1_Grass"
+0:2/0 = 0
+0:2/0/custom_data_0 = "SF1_Blue"
+
+[resource]
+tile_size = Vector2i(24, 24)
+custom_data_layer_0/name = ""
+custom_data_layer_0/type = 4
+sources/0 = SubResource("TileSetAtlasSource_heb3w")

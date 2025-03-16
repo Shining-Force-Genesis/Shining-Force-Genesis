@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://s6xwcdfkvrkt"]
 
-[ext_resource type="Script" path="res://General/Controls/ActorMicroInfoBox/TargetActorMicroInfoBox.gd" id="1_fd551"]
-[ext_resource type="Texture2D" uid="uid://cjy1pwbnlhjbu" path="res://Assets/SF1/ShiningForceTextBackground.png" id="2_bxhpe"]
-[ext_resource type="FontFile" uid="uid://dsvjkkfpt1rqd" path="res://Assets/SF1/ShiningForceMenuFont.tres" id="3_m77lp"]
+[ext_resource type="Script" uid="uid://cuwmr4dmxl0n0" path="res://General/Controls/ActorMicroInfoBox/TargetActorMicroInfoBox.gd" id="1_fd551"]
+[ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="2_bxhpe"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="3_m77lp"]
 
 [node name="TargetActorMicroInfoBox" type="Node2D"]
 script = ExtResource("1_fd551")

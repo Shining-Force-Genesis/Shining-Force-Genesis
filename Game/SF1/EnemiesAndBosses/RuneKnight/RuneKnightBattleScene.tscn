@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://bx7ggq3ugurnh"]
 
-[ext_resource type="Script" path="res://SF1/EnemiesAndBosses/GenericEnemeyBattleScene.gd" id="1_sf3se"]
-[ext_resource type="Texture2D" uid="uid://kwfkn0ewhrpm" path="res://Assets/SF1/EnemiesAndBosses/Rune Knight/Battle_Sprites.png" id="2_akom0"]
-[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="2_s8tsx"]
+[ext_resource type="Script" uid="uid://7tlt7n2ryq3j" path="res://SF1/EnemiesAndBosses/GenericEnemeyBattleScene.gd" id="1_sf3se"]
+[ext_resource type="Texture2D" uid="uid://kwfkn0ewhrpm" path="res://Assets/EnemiesAndBosses/Rune Knight/Battle_Sprites.png" id="2_akom0"]
+[ext_resource type="Shader" uid="uid://c8im77huolbmj" path="res://Shaders/Dissolve.gdshader" id="2_s8tsx"]
 [ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="3_quys3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0n35e"]
@@ -134,11 +134,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6b8o4"]
 _data = {
-"Attack": SubResource("Animation_xd71m"),
-"Death": SubResource("Animation_sjvss"),
-"Idle": SubResource("Animation_1vnhv"),
-"RESET": SubResource("Animation_ejoj2"),
-"Shake": SubResource("Animation_1xnyx")
+&"Attack": SubResource("Animation_xd71m"),
+&"Death": SubResource("Animation_sjvss"),
+&"Idle": SubResource("Animation_1vnhv"),
+&"RESET": SubResource("Animation_ejoj2"),
+&"Shake": SubResource("Animation_1xnyx")
 }
 
 [node name="RuneKnightBattleScene" type="Node2D"]
@@ -152,7 +152,7 @@ texture = ExtResource("2_akom0")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 libraries = {
-"": SubResource("AnimationLibrary_6b8o4")
+&"": SubResource("AnimationLibrary_6b8o4")
 }
+autoplay = "Idle"

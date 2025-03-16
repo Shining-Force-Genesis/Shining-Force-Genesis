@@ -44,6 +44,8 @@ const char_class_array = ["SDMN", "KNT",
 
 func _ready() -> void:
 	Singleton_CommonVariables.ui__view_selected_actor_info_node = self
+	
+	hide()
 
 
 func set_battle_view_selected_actor_info_menu_active() -> void:

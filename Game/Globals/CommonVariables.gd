@@ -7,13 +7,13 @@ var menu_tween_time = 0.05
 
 ## TODO: probably should make this an enum
 ## something like "in battle" "in cutscene" "overworld" "in battle cutscene" etc to smooth out behaviours and interactions
-var is_currently_in_battle_scene = true # false
+var is_currently_in_battle_scene = false
 
 # Node refs
 var game_management_wrapper_node = null
 var menus_root_node = null
 var camera_node = null
-var dialogue_box_node = null
+var dialogue_box_node: DialogueBox = null
 var scene_manager_node = null
 var top_level_fader_node = null
 
@@ -22,12 +22,12 @@ var top_level_fader_node = null
 
 # TODO: probably should make helpers to instace these scenes instead of having everything running
 # clean up after C1 release
-var ui__portrait_popup: Node2D = null
+var ui__portrait_popup: PortraitPopup = null
 var ui__gold_info_box: Node2D = null
 var ui__actor_micro_info_box: Node2D = null
 var ui__target_actor_micro_info_box: Node2D = null # only really used in battle
 var ui__yes_or_no_prompt: Node2D = null
-var ui__not_valid_box: Node2D = null
+var ui__not_valid_box: NoValidOptionUI = null
 
 var ui__priest_menu: Node2D = null
 var ui__hq_menu: Node2D = null
@@ -44,7 +44,7 @@ var ui__use_menu: Node2D = null
 
 var ui__member_list_menu: Node2D = null
 
-var ui__overworld_action_menu: Node2D = null
+var ui__overworld_action_menu: Actions_Menu_Overworld = null
 var ui__micro_member_list_view: Node2D = null
 
 var ui__battle_action_menu: Node2D = null
@@ -137,10 +137,10 @@ var active_actor_move_array_representation
 # TODO: NOTE: collapsed into move_array but still being used somewhere need to clean fully
 var active_actor_move_point_representation
 
-var battle__tilemap_info_group__background: TileMap
-var battle__tilemap_info_group__foreground: TileMap
-var battle__tilemap_info_group__stand: TileMap
-var battle__tilemap_info_group__terrain: TileMap
+var battle__tilemap_info_group__background: TileMapLayer
+var battle__tilemap_info_group__foreground: TileMapLayer
+var battle__tilemap_info_group__stand: TileMapLayer
+var battle__tilemap_info_group__terrain: TileMapLayer
 var battle__movement_tiles_wrapper_node: Node2D
-var battle__enemies: Node2D
-var battle__characters: Node2D
+var battle__enemies: Node
+var battle__characters: Node

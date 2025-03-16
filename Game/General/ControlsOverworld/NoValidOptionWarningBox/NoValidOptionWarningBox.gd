@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name NoValidOptionUI
+
 @onready var textLabel = $BackgroundNinePatchRect/TextLabel
 
 var internal_cleanup_timer: Timer

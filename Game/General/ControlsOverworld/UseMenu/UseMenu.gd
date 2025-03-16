@@ -122,7 +122,7 @@ func _input(event):
 			print("Cancel Use Inventory Menu")
 			is_battle_use_menu_active = false
 			
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			# Singleton_Game_GlobalBattleVariables.currently_active_character.get_node("CharacterRoot").active = true
 			# get_parent().get_parent().get_parent().s_hide_battle_inventory_menu()
@@ -146,7 +146,7 @@ func _input(event):
 			
 		if event.is_action_released("ui_a_key"): # event.is_action_released("ui_accept"):
 			print("Accept Action - ", currently_selected_option)
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			noValidOptionNode.set_no_cant_use_text()
 			noValidOptionNode.position = Vector2(165, 100)
 			noValidOptionNode.start_self_clear_timer()

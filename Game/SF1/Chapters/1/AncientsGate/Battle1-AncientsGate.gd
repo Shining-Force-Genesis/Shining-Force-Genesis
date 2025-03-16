@@ -16,6 +16,12 @@ func _ready() -> void:
 	
 	Singleton_CommonVariables.battle__movement_tiles_wrapper_node = $BattleLogic/MovementWrapper
 	
+	Singleton_CommonVariables.battle__tilemap_info_group__terrain = $Tiles/TileMapTerrianEffectInformation
+	
+	Singleton_CommonVariables.battle__tilemap_info_group__background  = $Tiles/TileMapTerrianBackground
+	Singleton_CommonVariables.battle__tilemap_info_group__foreground  = $Tiles/TileMapTerrianForeground
+	Singleton_CommonVariables.battle__tilemap_info_group__stand = $Tiles/TileMapTerrianStand
+	
 	# TODO: check if first time play cutscene
 	
 	# TODO: add rotdd menu before start battle at this point

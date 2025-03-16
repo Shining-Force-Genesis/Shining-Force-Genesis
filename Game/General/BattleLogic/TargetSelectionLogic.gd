@@ -755,7 +755,7 @@ func find_all_character_actors_and_append_to_actors_array() -> void:
 
 func get_land_effect_value_at_pos(pos_arg: Vector2):
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__terrain.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__terrain.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__terrain.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return {
@@ -769,7 +769,7 @@ func get_land_effect_value_at_pos(pos_arg: Vector2):
 # TODO: copied over in one other place remember to global replace
 func get_background_value_at_cell_at_pos(pos_arg: Vector2):
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__background.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__background.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__background.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return current_tile_posx.custom_data_0
@@ -778,7 +778,7 @@ func get_background_value_at_cell_at_pos(pos_arg: Vector2):
 
 func get_foreground_value_at_cell_at_pos(pos_arg: Vector2):
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__foreground.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__foreground.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__foreground.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return current_tile_posx.custom_data_0
@@ -787,7 +787,7 @@ func get_foreground_value_at_cell_at_pos(pos_arg: Vector2):
 
 func get_stand_value_at_cell_at_pos(pos_arg: Vector2):
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__stand.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__stand.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__stand.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return current_tile_posx.custom_data_0

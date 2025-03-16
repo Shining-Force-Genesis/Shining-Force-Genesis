@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=3 uid="uid://c6mpihptmyue8"]
 
-[ext_resource type="Texture2D" uid="uid://bta3lh8n2hffm" path="res://Assets/SFCD/Genesis 32X SCD - Shining Force CD Sega CD - Icons.png" id="1"]
-[ext_resource type="Script" path="res://General/ControlsOverworld/ShopMenu/ShopMenu.gd" id="1_7622j"]
-[ext_resource type="Texture2D" uid="uid://cjy1pwbnlhjbu" path="res://Assets/SF1/ShiningForceTextBackground.png" id="2"]
-[ext_resource type="FontFile" uid="uid://dsvjkkfpt1rqd" path="res://Assets/SF1/ShiningForceMenuFont.tres" id="3"]
+[ext_resource type="Texture2D" uid="uid://vb4y2fdefol6" path="res://Assets/Genesis 32X SCD - Shining Force CD Sega CD - Icons.png" id="1"]
+[ext_resource type="Script" uid="uid://d26ym68kus1ge" path="res://General/ControlsOverworld/ShopMenu/ShopMenu.gd" id="1_7622j"]
+[ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="2"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="3"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "BuyMenuOption"
@@ -75,10 +75,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egsec"]
 _data = {
-"BuyMenuOption": SubResource("1"),
-"DealsMenuOption": SubResource("4"),
-"RepairMenuOption": SubResource("3"),
-"SellMenuOption": SubResource("2")
+&"BuyMenuOption": SubResource("1"),
+&"DealsMenuOption": SubResource("4"),
+&"RepairMenuOption": SubResource("3"),
+&"SellMenuOption": SubResource("2")
 }
 
 [node name="ShopMenuRoot" type="Node2D"]
@@ -143,7 +143,7 @@ text = "TEST"
 vertical_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "BuyMenuOption"
 libraries = {
-"": SubResource("AnimationLibrary_egsec")
+&"": SubResource("AnimationLibrary_egsec")
 }
+autoplay = "BuyMenuOption"

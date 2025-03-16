@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://obvgsw5adehj"]
 
-[ext_resource type="Texture2D" uid="uid://cewhakxr2u6i1" path="res://Assets/SF1/EnemiesAndBosses/Dark Mage/Battle_Sprites.png" id="2_dnhm0"]
+[ext_resource type="Texture2D" uid="uid://cewhakxr2u6i1" path="res://Assets/EnemiesAndBosses/Dark Mage/Battle_Sprites.png" id="2_dnhm0"]
 
 [node name="EnemeyScene" type="Node2D"]
 

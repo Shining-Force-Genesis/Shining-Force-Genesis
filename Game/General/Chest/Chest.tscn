@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddkr5q87xwgw4"]
+
+[ext_resource type="Script" uid="uid://cnole62eqrjpw" path="res://General/Chest/Chest.gd" id="1_6qye7"]
+[ext_resource type="Shape2D" uid="uid://bh7uaaxfqc2lk" path="res://General/24x24_collision_shape.tres" id="1_hn1g1"]
+[ext_resource type="Texture2D" uid="uid://pycya0nb6y82" path="res://Assets/Objects/Chest.png" id="1_yrcc4"]
+
+[node name="Chest" type="Node2D"]
+script = ExtResource("1_6qye7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yrcc4")
+hframes = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = ExtResource("1_hn1g1")

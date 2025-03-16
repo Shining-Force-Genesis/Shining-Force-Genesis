@@ -5,7 +5,7 @@ var active = false
 
 var cnode = null
 
-var EmptyItemSlotTexture = preload("res://Assets/SFCD/Items/EmptyItemSlot.png")
+var EmptyItemSlotTexture = preload("res://Assets/EmptyItemSlot.png")
 
 var MemberSelectionLine = load("res://General/ControlsOverworld/MicroMemberListView/MemberSelectionLine.tscn")
 
@@ -266,7 +266,7 @@ func SelectItemOrSelectItemReciever() -> void:
 	if Singleton_CommonVariables.selected_target_character.inventory.size() >= 4:
 		# TODO: display hands full message
 		
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 		
 		return
 	
@@ -295,16 +295,16 @@ func SelectItemOrSelectItemReciever() -> void:
 func GoBackToShopItemSelectionMenu() -> void:
 	# is_menu_active = false
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.interaction_attempt_to_talk()
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	hide()
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 	# Singleton_CommonVariables.menus_root_node.ShopMenuWrapperNode.s_show_shop_item_selection_menu()
 	Singleton_CommonVariables.ui__shop_item_selection_menu.show_with_tween() #  s_show_shop_item_selection_menu()
 
 func GoBackToPriestMenu() -> void:
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	hide()
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 	Singleton_CommonVariables.dialogue_box_node.hide()
@@ -312,8 +312,8 @@ func GoBackToPriestMenu() -> void:
 
 
 func GoBackToHQMenu() -> void:
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	hide()
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 	Singleton_CommonVariables.dialogue_box_node.hide()
@@ -350,7 +350,7 @@ func CompletePurchaseAndGiveItemToSelectedCharacter() -> void:
 			"is_equipped": false
 		})
 	else:
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 		return
 	
 	Singleton_CommonVariables.gold = Singleton_CommonVariables.gold - Singleton_CommonVariables.selected_item.price_buy
@@ -401,7 +401,7 @@ func ConfirmRevieveCharacter() -> void:
 	var character = null
 	
 	if Singleton_CommonVariables.selected_character.alive:
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 		return
 	
 	var fmidx = 0
@@ -414,7 +414,7 @@ func ConfirmRevieveCharacter() -> void:
 			break
 	
 	if character == null:
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 		return
 		
 	print(character.name)
@@ -506,7 +506,7 @@ func ToggleActiveInForceStatusForCharacter() -> void:
 			break
 	
 	if character == null:
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 		return
 	
 	if Singleton_CommonVariables.sf_game_data_node.ForceMembers[character.character].active_in_force:
@@ -578,4 +578,3 @@ func CleanDisplayItemsFullInfoForNextDisplay() -> void:
 #	Singleton_Game_GlobalCommonVariables.selected_item = null
 #	Singleton_Game_GlobalCommonVariables.selected_character = null
 #	Singleton_Game_GlobalCommonVariables.selected_item_idx = null
-

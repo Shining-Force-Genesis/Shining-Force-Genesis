@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bir0jvrhqtlfo"
+path="res://.godot/imported/Town Theme.mp3-b8eed30dceb15a61406b11c9cc09c0d4.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Town Theme.mp3"
+dest_files=["res://.godot/imported/Town Theme.mp3-b8eed30dceb15a61406b11c9cc09c0d4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

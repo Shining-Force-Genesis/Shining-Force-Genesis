@@ -34,6 +34,8 @@ func _ready():
 	# animationPlayer.speed_scale = 2
 	animationPlayer.play("Attack")
 	label.text = "Attack"
+	
+	hide()
 
 
 func set_menu_active() -> void:
@@ -78,7 +80,7 @@ func _process(_delta):
 	if Input.is_action_just_released("ui_b_key"):
 		print("Cancel Battle Action Menu")
 		is_menu_active = false
-		Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+		AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 		await Signal(get_tree().create_timer(0.02), "timeout")
 		
 		# get_parent().get_parent().get_parent().s_show_battle_action_menu("down")
@@ -97,8 +99,8 @@ func _process(_delta):
 		
 		if currently_selected_option == e_menu_options.STAY_OPTION:
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			
 			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(true)
@@ -117,8 +119,8 @@ func _process(_delta):
 			return
 		elif currently_selected_option == e_menu_options.MAGIC_OPTION:
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			# Singleton_CommonVariables.ui__gold_info_box.hide()
 			# Singleton_CommonVariables.ui__actor_micro_info_box.hide()
@@ -140,8 +142,8 @@ func _process(_delta):
 			return
 		elif currently_selected_option == e_menu_options.ATTACK_OPTION:
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			
 			Singleton_CommonVariables.battle__target_actor_types = "Opposing" # TODO: clean this up later with an enum or something
@@ -171,7 +173,7 @@ func _process(_delta):
 
 
 func menu_option_selected(e_menu_option_selected, animation_name: String, label_text: String) -> void:
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 	set_sprites_to_zero_frame()
 	currently_selected_option = e_menu_option_selected
 	animationPlayer.play(animation_name)
@@ -188,8 +190,8 @@ func set_sprites_to_zero_frame() -> void:
 
 func OpenInventoryMenu() -> void:
 	is_menu_active = false
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	hide()
 	Singleton_CommonVariables.ui__gold_info_box.hide()
 	Singleton_CommonVariables.ui__actor_micro_info_box.hide()

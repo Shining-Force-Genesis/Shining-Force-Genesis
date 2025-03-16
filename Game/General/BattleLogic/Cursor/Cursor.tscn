@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d0ntm67m6na08"]
 
-[ext_resource type="Texture2D" uid="uid://7fbo52jw6n26" path="res://Assets/SF1/ShiningForceCursor.png" id="1_bo7ew"]
-[ext_resource type="Script" path="res://General/BattleLogic/Cursor/Cursor.gd" id="1_vddho"]
+[ext_resource type="Texture2D" uid="uid://cmvm6hupjmpp1" path="res://Assets/ShiningForceCursor.png" id="1_bo7ew"]
+[ext_resource type="Script" uid="uid://dldsgljwy3c6c" path="res://General/BattleLogic/Cursor/Cursor.gd" id="1_vddho"]
 
 [node name="Cursor" type="Node2D"]
 script = ExtResource("1_vddho")

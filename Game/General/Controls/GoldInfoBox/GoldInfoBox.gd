@@ -10,6 +10,7 @@ const hidden_position: Vector2 = Vector2(-80, 8)
 func _ready():
 	UpdateGoldAmountDisplay()
 	Singleton_CommonVariables.ui__gold_info_box = self
+	# hide()
 
 
 func UpdateGoldAmountDisplay() -> void:

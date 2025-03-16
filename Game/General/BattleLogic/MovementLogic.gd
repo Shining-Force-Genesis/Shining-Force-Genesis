@@ -80,7 +80,7 @@ func check_if_character_or_enemey_is_on_tile(chk_pos_arg):
 
 
 func get_tilename_at_pos(pos_arg: Vector2) -> String:
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__terrain.get_cell_tile_data(0, pos_arg)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__terrain.get_cell_tile_data(pos_arg)
 	
 	if current_tile_posx != null:
 		## TODO: see if its possible for godot to add actual custom data layer name as the getter property name this is nasty
@@ -95,8 +95,10 @@ func get_tilename_at_pos(pos_arg: Vector2) -> String:
 
 
 func get_land_effect_value_at_pos(pos_arg: Vector2):
+	return null
+	
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__terrain.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__terrain.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__terrain.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return {
@@ -145,6 +147,7 @@ func generate_movement_array_representation():
 	
 	print("Global POS- ", Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position)
 	print("POS - ", Singleton_CommonVariables.battle__currently_active_actor.get_child(0).position)
+	
 	
 	# converted world space to tilemap xy cordinates use this going forward
 	var current_tile_pos = Singleton_CommonVariables.battle__tilemap_info_group__terrain.local_to_map(actor_cur_pos)
@@ -441,5 +444,3 @@ func astar_connect_walkable_cells() -> void:
 
 func calculate_point_index(point: Vector2) -> int:
 	return point.x + map_size.x * point.y
-
-

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dpjogp4biat6k"
+path="res://.godot/imported/Castle (Guardiana and Others).mp3-e350ee3c502cdc7b9b9c4210a95bc038.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Castle (Guardiana and Others).mp3"
+dest_files=["res://.godot/imported/Castle (Guardiana and Others).mp3-e350ee3c502cdc7b9b9c4210a95bc038.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

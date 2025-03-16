@@ -181,7 +181,8 @@ func pre_activate_battle_setup() -> void:
 func activate_battle() -> void:
 	pre_activate_battle_setup()
 	
-	await Singleton_CommonVariables.top_level_fader_node.play_fade_in_quick()
+	# TODO
+	# await Singleton_CommonVariables.top_level_fader_node.play_fade_in_quick()
 	
 	Singleton_CommonVariables.battle__scene_node.show()
 	
@@ -222,6 +223,12 @@ func activate_battle() -> void:
 		
 		var bs = background_scene.instantiate()
 		background_wrapper.add_child(bs)
+		
+		var wuttt = get_foreground_value_at_cell_at_pos(
+				Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position
+			)
+		print(wuttt)
+		
 		bs.set_foreground_frame(tile_name_to_frame_mapping_dictionary[
 			get_foreground_value_at_cell_at_pos(
 				Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position
@@ -315,8 +322,9 @@ func activate_battle() -> void:
 			break
 	
 	
+	# TODO
 	# as fade out is playing should also tween background character and enemey
-	await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
+	# await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
 	
 	if battle__target_array_flattened[cur_idx].actor_type == "enemey":
 		# Do Battle Scene for current actors
@@ -619,21 +627,25 @@ func activate_battle() -> void:
 	
 	# cleanup
 	
-	await Singleton_CommonVariables.top_level_fader_node.play_fade_in_quick()
+	# TODO
+	# await Singleton_CommonVariables.top_level_fader_node.play_fade_in_quick()
+	
 	cleanup_wrappers()
 	
 	Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
 	Singleton_CommonVariables.ui__target_actor_micro_info_box.hide_cust_target_battle_scene()
 	
 	hide()
-	await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
+	
+	# TODO
+	# await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
 
 ### 
 
 # TODO: make TilesInformationGroup its own scene and move a lot of this logic into it directly 
 func get_background_value_at_cell_at_pos(pos_arg: Vector2):
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__background.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__background.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__background.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return current_tile_posx.custom_data_0
@@ -642,7 +654,7 @@ func get_background_value_at_cell_at_pos(pos_arg: Vector2):
 
 func get_foreground_value_at_cell_at_pos(pos_arg: Vector2):
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__foreground.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__foreground.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__foreground.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return current_tile_posx.custom_data_0
@@ -651,7 +663,7 @@ func get_foreground_value_at_cell_at_pos(pos_arg: Vector2):
 
 func get_stand_value_at_cell_at_pos(pos_arg: Vector2):
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__stand.local_to_map(pos_arg)
-	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__stand.get_cell_tile_data(0, local_pos)
+	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__stand.get_cell_tile_data(local_pos)
 	
 	if current_tile_posx != null:
 		return current_tile_posx.custom_data_0
@@ -691,7 +703,7 @@ func attack_anticapation_frame_reached() -> void:
 	if rng.randi_range(0, 99) < 10:
 		current_initiator_actor_battle_scene_node.pause_animation()
 		
-		Singleton_AudioManager.play_sfx("res://Assets/Sounds/CriticalSound.wav")
+		AudioManager.play_sfx("res://Assets/Sounds/CriticalSound.wav")
 		
 		is_critical_hit = true
 		
@@ -719,7 +731,7 @@ func attack_frame_reached() -> void:
 func cast_anticapation_frame_reached() -> void:
 	current_initiator_actor_battle_scene_node.pause_animation()
 	
-	Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Cast_Spell.wav")
+	AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Cast_Spell.wav")
 	
 	await get_tree().create_timer(0.3).timeout
 	
@@ -812,7 +824,7 @@ func calculate_damage_step() -> void:
 	
 	if not attack_missed:
 #		if using_spell:
-		Singleton_AudioManager.play_sfx("res://Assets/Sounds/HitSoundCut.wav")
+		AudioManager.play_sfx("res://Assets/Sounds/HitSoundCut.wav")
 #
 # 		target_actor Sprite.material.shader = shader_color_blend
 #		target_actor Sprite.material.set_shader_param("blend_strength_modifier", 0.35)

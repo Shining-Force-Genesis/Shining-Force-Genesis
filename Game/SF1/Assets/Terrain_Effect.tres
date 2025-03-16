@@ -1,0 +1,87 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cp0jvdbs5oc3t"]
+
+[ext_resource type="Texture2D" uid="uid://cu4um88xghey2" path="res://Assets/CustomTileTerrainInformation.png" id="1_6uuuw"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bo1ud"]
+texture = ExtResource("1_6uuuw")
+texture_region_size = Vector2i(24, 24)
+2:0/0 = 0
+2:0/0/custom_data_0 = "GROUND"
+2:0/0/custom_data_1 = 15
+3:0/0 = 0
+3:0/0/custom_data_0 = "GROUND"
+3:0/0/custom_data_1 = 30
+4:0/0 = 0
+4:0/0/custom_data_0 = "SKY"
+5:0/0 = 0
+5:0/0/custom_data_0 = "SKY"
+5:0/0/custom_data_1 = 15
+6:0/0 = 0
+6:0/0/custom_data_0 = "SKY"
+6:0/0/custom_data_1 = 30
+1:1/0 = 0
+1:1/0/custom_data_0 = "PATH_AND_BRIDGE"
+2:1/0 = 0
+2:1/0/custom_data_0 = "PATH_AND_BRIDGE"
+2:1/0/custom_data_1 = 15
+3:1/0 = 0
+3:1/0/custom_data_0 = "PATH_AND_BRIDGE"
+3:1/0/custom_data_1 = 30
+4:1/0 = 0
+4:1/0/custom_data_0 = "OVERGROWTH"
+5:1/0 = 0
+5:1/0/custom_data_0 = "OVERGROWTH"
+5:1/0/custom_data_1 = 15
+6:1/0 = 0
+6:1/0/custom_data_0 = "OVERGROWTH"
+6:1/0/custom_data_1 = 30
+1:2/0 = 0
+1:2/0/custom_data_0 = "FOREST"
+2:2/0 = 0
+2:2/0/custom_data_0 = "FOREST"
+2:2/0/custom_data_1 = 15
+3:2/0 = 0
+3:2/0/custom_data_0 = "FOREST"
+3:2/0/custom_data_1 = 30
+4:2/0 = 0
+4:2/0/custom_data_0 = "MOUNTAIN"
+5:2/0 = 0
+5:2/0/custom_data_0 = "MOUNTAIN"
+5:2/0/custom_data_1 = 15
+6:2/0 = 0
+6:2/0/custom_data_0 = "MOUNTAIN"
+6:2/0/custom_data_1 = 30
+1:3/0 = 0
+1:3/0/custom_data_0 = "SAND"
+2:3/0 = 0
+2:3/0/custom_data_0 = "SAND"
+2:3/0/custom_data_1 = 15
+3:3/0 = 0
+3:3/0/custom_data_0 = "SAND"
+3:3/0/custom_data_1 = 30
+4:3/0 = 0
+4:3/0/custom_data_0 = "HIGH_MOUNTAIN"
+5:3/0 = 0
+5:3/0/custom_data_0 = "HIGH_MOUNTAIN"
+5:3/0/custom_data_1 = 15
+6:3/0 = 0
+6:3/0/custom_data_0 = "HIGH_MOUNTAIN"
+6:3/0/custom_data_1 = 30
+1:4/0 = 0
+1:4/0/custom_data_0 = "WATER"
+2:4/0 = 0
+2:4/0/custom_data_0 = "WATER"
+2:4/0/custom_data_1 = 15
+3:4/0 = 0
+3:4/0/custom_data_0 = "WATER"
+3:4/0/custom_data_1 = 30
+1:0/0 = 0
+1:0/0/custom_data_0 = "GROUND"
+
+[resource]
+tile_size = Vector2i(24, 24)
+custom_data_layer_0/name = "land_type"
+custom_data_layer_0/type = 4
+custom_data_layer_1/name = "land_effect"
+custom_data_layer_1/type = 2
+sources/0 = SubResource("TileSetAtlasSource_bo1ud")

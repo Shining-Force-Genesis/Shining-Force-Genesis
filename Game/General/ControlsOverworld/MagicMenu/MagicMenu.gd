@@ -109,7 +109,7 @@ func _input(event):
 		if event.is_action_released("ui_b_key"):
 			print("Cancel Magic Inventory Menu")
 			is_battle_magic_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			# Singleton_Game_GlobalBattleVariables.currently_active_character.get_node("CharacterRoot").active = true
 			# get_parent().get_parent().get_parent().s_hide_battle_inventory_menu()
 			
@@ -142,7 +142,7 @@ func _input(event):
 			
 			await Signal(get_tree().create_timer(0.001), "timeout")
 			
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			# Singleton_Game_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			is_battle_magic_menu_active = false
@@ -211,7 +211,7 @@ func _input(event):
 			
 			if actor.get_mp_current() < spell_res_l.levels[spell_level_selected].mp_usage_cost:
 				print("No Use")
-				Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+				AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 				# Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 				# TODO: display not enough mana warning box
 #				noValidOptionNode.set_no_cant_use_text()
@@ -220,8 +220,8 @@ func _input(event):
 #				noValidOptionNode.re_show_action_menu = false
 				return
 			else:
-				Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-				Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+				AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+				AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 #			print(actor.magic_array[currently_selected_option].name)
 			if spell_res_l.name == "Egress":
@@ -230,7 +230,7 @@ func _input(event):
 			
 			if spell_res_l.name == "Heal":
 				print("Heal selected")
-				Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+				AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 				return
 			
 			is_battle_magic_menu_active = false
@@ -255,7 +255,7 @@ func _input(event):
 
 func select_spell(spell_select_idx, rs_pos, magic_menu_option) -> void:
 	if spell_select_idx <= character_spells.size() - 1:
-		Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
+		AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 		currently_selected_option = magic_menu_option
 		redSelection.position = rs_pos
 		spell_name_label.text = character_spells[spell_select_idx].name

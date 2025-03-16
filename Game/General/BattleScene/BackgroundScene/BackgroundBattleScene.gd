@@ -34,4 +34,3 @@ func set_background_frame(frame_idx: int) -> void:
 
 # TODO: LOW PRIORITY make a func that accepts a new image and a frame idx
 # so other images can be pulled for backgrounds and not just whats in the background mapping
-

@@ -1,7 +1,7 @@
 extends Control
 
-var EmptyItemSlotTexture = preload("res://Assets/SFCD/Items/EmptyItemSlot.png")
-var UnequipItemSlotTexture = preload("res://Assets/SFCD/Items/UnequipHand.png")
+var EmptyItemSlotTexture = preload("res://Assets/EmptyItemSlot.png")
+var UnequipItemSlotTexture = preload("res://Assets/UnequipHand.png")
 
 @onready var characterStatsPreviewControlNode = $CharacterStatsPreviewControlNode
 @onready var redSelectionNode = $RedSelectionBorderRoot
@@ -54,7 +54,7 @@ func set_equip_menu_active():
 		# selected_item = E_SelectedItem.UP
 		# itemTextRedSelection.show()
 	else:
-		Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 
 
 func CleanItemSlots() -> void:

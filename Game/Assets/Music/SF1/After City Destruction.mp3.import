@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b11onbn8mbpng"
+path="res://.godot/imported/After City Destruction.mp3-b0d2f1d62b845d04f84e853279188bb9.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/After City Destruction.mp3"
+dest_files=["res://.godot/imported/After City Destruction.mp3-b0d2f1d62b845d04f84e853279188bb9.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

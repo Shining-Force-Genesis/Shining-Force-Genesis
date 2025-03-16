@@ -129,7 +129,7 @@ func _process(_delta: float) -> void:
 			)
 			if x != null:
 				# print("Actor underneath - ", x)
-				Singleton_AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+				AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 				return
 			
 			is_active = false

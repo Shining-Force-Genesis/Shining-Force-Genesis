@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bcp6q8yok2yo3"]
 
-[ext_resource type="Script" path="res://General/BattleScene/BackgroundScene/BackgroundBattleScene.gd" id="1_4ma80"]
-[ext_resource type="Texture2D" uid="uid://yh38q8nh2lns" path="res://Assets/SF1/Genesis 32X SCD - Shining Force - Battle Backgrounds.png" id="1_acdgr"]
+[ext_resource type="Script" uid="uid://bqjwkpfm0pywp" path="res://General/BattleScene/BackgroundScene/BackgroundBattleScene.gd" id="1_4ma80"]
+[ext_resource type="Texture2D" uid="uid://dvprrjlx3lslk" path="res://Assets/Genesis 32X SCD - Shining Force - Battle Backgrounds.png" id="1_acdgr"]
 
 [node name="BackgroundBattleScene" type="Node2D"]
+position = Vector2(-120, -64)
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_4ma80")
 
 [node name="Left" type="Node2D" parent="."]
-position = Vector2(-256, 0)
-metadata/_edit_lock_ = true
+position = Vector2(-176, 44)
 
 [node name="Background" type="Sprite2D" parent="Left"]
 position = Vector2(160, 89.6)
@@ -16,7 +17,6 @@ texture = ExtResource("1_acdgr")
 hframes = 2
 vframes = 16
 frame = 17
-metadata/_edit_lock_ = true
 
 [node name="Foreground" type="Sprite2D" parent="Left"]
 position = Vector2(160, 89.6)
@@ -24,10 +24,9 @@ texture = ExtResource("1_acdgr")
 hframes = 2
 vframes = 16
 frame = 12
-metadata/_edit_lock_ = true
 
 [node name="Center" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
+position = Vector2(80, 44)
 
 [node name="Background" type="Sprite2D" parent="Center"]
 position = Vector2(160, 89.6)
@@ -35,7 +34,6 @@ texture = ExtResource("1_acdgr")
 hframes = 2
 vframes = 16
 frame = 17
-metadata/_edit_lock_ = true
 
 [node name="Foreground" type="Sprite2D" parent="Center"]
 position = Vector2(160, 89.6)
@@ -43,11 +41,9 @@ texture = ExtResource("1_acdgr")
 hframes = 2
 vframes = 16
 frame = 9
-metadata/_edit_lock_ = true
 
 [node name="Right" type="Node2D" parent="."]
-position = Vector2(256, 0)
-metadata/_edit_lock_ = true
+position = Vector2(336, 44)
 
 [node name="Background" type="Sprite2D" parent="Right"]
 position = Vector2(160, 89.6)
@@ -55,7 +51,6 @@ texture = ExtResource("1_acdgr")
 hframes = 2
 vframes = 16
 frame = 17
-metadata/_edit_lock_ = true
 
 [node name="Foreground" type="Sprite2D" parent="Right"]
 position = Vector2(160, 89.6)
@@ -63,4 +58,3 @@ texture = ExtResource("1_acdgr")
 hframes = 2
 vframes = 16
 frame = 12
-metadata/_edit_lock_ = true

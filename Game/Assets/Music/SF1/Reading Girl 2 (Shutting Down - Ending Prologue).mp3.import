@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b262svfqtikhr"
+path="res://.godot/imported/Reading Girl 2 (Shutting Down - Ending Prologue).mp3-94117a022af6da2ab441e2b6b21f1e3a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Reading Girl 2 (Shutting Down - Ending Prologue).mp3"
+dest_files=["res://.godot/imported/Reading Girl 2 (Shutting Down - Ending Prologue).mp3-94117a022af6da2ab441e2b6b21f1e3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

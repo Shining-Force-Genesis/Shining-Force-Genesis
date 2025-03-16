@@ -1,0 +1,20 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gort/Unpromoted_Portraits.png"
+		},
+
+		{
+			"Text": "You know, that little fracas made me want to fight again. {main_character_name}, I'm joining up!"
+		},
+		
+		{
+			"Text": "(Gort joins the Shining Force!)",
+			"Sound": "fx | res://Assets/SF1/SoundBank/Jingle - Comrades 2 (Sad Feeling).mp3 | yield"
+		},
+
+		{
+			"Text": "I'll be at headquarters."
+		}
+	]
+}

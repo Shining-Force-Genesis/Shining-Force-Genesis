@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://kbvv5tebe7yk" path="res://General/Controls/GoldInfoBox/GoldInfoBox.gd" id="1_0fqe5"]
 [ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="2_g20q2"]
-[ext_resource type="FontFile" uid="uid://b4yafyhqknoef" path="res://Assets/ShiningForceMenuFont.tres" id="3_6oiqs"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="3_jowi6"]
 
 [node name="GoldInfoBox" type="Node2D"]
 script = ExtResource("1_0fqe5")
@@ -19,20 +19,22 @@ patch_margin_bottom = 12
 [node name="GoldAmountStatic" type="Label" parent="NinePatchRect"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 6.0
+offset_top = 8.0
 offset_right = 88.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_6oiqs")
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("3_jowi6")
+theme_override_font_sizes/font_size = 18
 text = "Gold"
 vertical_alignment = 1
 
 [node name="GoldAmount" type="Label" parent="NinePatchRect"]
 layout_mode = 0
 offset_left = 8.0
-offset_top = 6.0
+offset_top = 8.0
 offset_right = 88.0
-offset_bottom = 29.0
-theme_override_fonts/font = ExtResource("3_6oiqs")
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("3_jowi6")
+theme_override_font_sizes/font_size = 18
 text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1

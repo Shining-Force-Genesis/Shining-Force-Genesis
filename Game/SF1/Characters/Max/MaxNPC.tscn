@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgffb4qtt5mm7"]
 
 [ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="1_m1efj"]
-[ext_resource type="Script" path="res://SF1/Characters/GenericHeadquartersNPC.gd" id="1_qhlip"]
+[ext_resource type="Script" uid="uid://d1vigovgr65b2" path="res://SF1/Characters/GenericHeadquartersNPC.gd" id="1_qhlip"]
 
 [sub_resource type="Animation" id="Animation_2hwjj"]
 resource_name = "DownMovement"
@@ -18,38 +18,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_2airu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="Animation" id="Animation_w6dj6"]
-resource_name = "UpMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_olbfg"]
@@ -69,6 +37,21 @@ tracks/0/keys = {
 "values": [4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_2airu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_cfkk3"]
 resource_name = "RightMovement"
 length = 0.80001
@@ -86,13 +69,30 @@ tracks/0/keys = {
 "values": [6, 7]
 }
 
+[sub_resource type="Animation" id="Animation_w6dj6"]
+resource_name = "UpMovement"
+length = 0.80001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xbdwk"]
 _data = {
-"DownMovement": SubResource("Animation_2hwjj"),
-"LeftMovement": SubResource("Animation_olbfg"),
-"RESET": SubResource("Animation_2airu"),
-"RightMovement": SubResource("Animation_cfkk3"),
-"UpMovement": SubResource("Animation_w6dj6")
+&"DownMovement": SubResource("Animation_2hwjj"),
+&"LeftMovement": SubResource("Animation_olbfg"),
+&"RESET": SubResource("Animation_2airu"),
+&"RightMovement": SubResource("Animation_cfkk3"),
+&"UpMovement": SubResource("Animation_w6dj6")
 }
 
 [node name="MaxNPC" type="Node2D"]
@@ -100,12 +100,11 @@ script = ExtResource("1_qhlip")
 
 [node name="NPCRoot" parent="." instance=ExtResource("1_m1efj")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="NPCRoot/AnimatableBody2D" index="0"]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="NPCRoot/AnimatableBody2D" index="0"]
 root_node = NodePath("../CharacterRoot")
-autoplay = "DownMovement"
 libraries = {
-"": SubResource("AnimationLibrary_xbdwk")
+&"": SubResource("AnimationLibrary_xbdwk")
 }
+autoplay = "DownMovement"
 
 [editable path="NPCRoot"]
-[editable path="NPCRoot/AnimatableBody2D/CharacterRoot"]

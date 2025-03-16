@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cdxx44qf6t5k8"
+path="res://.godot/imported/Battle 4 (Ship Deck).mp3-0c91298316c9aedfc82f08128603aae8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Battle 4 (Ship Deck).mp3"
+dest_files=["res://.godot/imported/Battle 4 (Ship Deck).mp3-0c91298316c9aedfc82f08128603aae8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

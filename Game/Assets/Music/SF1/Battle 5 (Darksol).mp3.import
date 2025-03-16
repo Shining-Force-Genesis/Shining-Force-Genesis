@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlqggp7bmjxej"
+path="res://.godot/imported/Battle 5 (Darksol).mp3-7b23f129b9f2db14d08e3459c13e7d6b.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Battle 5 (Darksol).mp3"
+dest_files=["res://.godot/imported/Battle 5 (Darksol).mp3-7b23f129b9f2db14d08e3459c13e7d6b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

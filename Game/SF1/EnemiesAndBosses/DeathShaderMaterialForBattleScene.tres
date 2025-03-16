@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://ckxk0pjhqodck"]
 
-[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="1_xswqc"]
+[ext_resource type="Shader" uid="uid://c8im77huolbmj" path="res://Shaders/Dissolve.gdshader" id="1_xswqc"]
 [ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="2_4fndi"]
 
 [resource]

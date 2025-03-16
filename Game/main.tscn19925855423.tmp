@@ -1,0 +1,80 @@
+[gd_scene load_steps=16 format=3 uid="uid://dlefd54ec4ccd"]
+
+[ext_resource type="Script" uid="uid://cec6dx1xogrhk" path="res://main.gd" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://ck7weiy086rpx" path="res://Characters/main.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b8f1gj7urnvyo" path="res://timescale.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://fuwcdgayut3r" path="res://SF1/SF1Node.gd" id="3_ycdy4"]
+[ext_resource type="Script" uid="uid://b0uo75wp4viqi" path="res://camera_2d.gd" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cja307vwntmy8" path="res://UI/SceneTransition.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d22vywrt5rx3p" path="res://General/Controls/DialogueBox/DialogueBox.tscn" id="6_272bh"]
+[ext_resource type="PackedScene" uid="uid://crb8hj2j7jav8" path="res://SF1/Chapters/1/AncientsGate/Battle1-AncientsGate.tscn" id="6_vivmo"]
+[ext_resource type="PackedScene" uid="uid://cqu54wxhekf6p" path="res://General/Controls/PortraitPopup/PortraitPopup.tscn" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://bjn64b22cl6ex" path="res://General/Controls/GoldInfoBox/GoldInfoBox.tscn" id="8_kek77"]
+[ext_resource type="PackedScene" uid="uid://c503ret6y3xep" path="res://General/Controls/ActorMicroInfoBox/ActorMicroInfoBox.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://r7q6cbglek3n" path="res://General/ControlsOverworld/ActionsMenu/ActionsMenu.tscn" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://b8ebym4vluj2q" path="res://General/ControlsOverworld/MagicMenu/MagicMenu.tscn" id="11_dg77c"]
+[ext_resource type="PackedScene" uid="uid://by5ykniuq56un" path="res://General/ControlsOverworld/NoValidOptionWarningBox/NoValidOptionWarningBox.tscn" id="13_w48qg"]
+[ext_resource type="PackedScene" uid="uid://dsabmddgh7hqp" path="res://General/ControlsBattle/LandEffectPopup/LandEffectPopup.tscn" id="14_vivmo"]
+
+[node name="MAIN" type="Node2D"]
+script = ExtResource("1_1bvp3")
+
+[node name="Timescale - speedup" type="Node2D" parent="."]
+script = ExtResource("2_h2yge")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_ycdy4")
+
+[node name="Character" parent="." instance=ExtResource("1_ig7tw")]
+z_index = 1
+position = Vector2(876, 900)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+limit_left = 0
+limit_top = 0
+limit_right = 1176
+limit_bottom = 1056
+script = ExtResource("5_7mycd")
+metadata/_edit_lock_ = true
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="AncientsGate" parent="Scene" instance=ExtResource("6_vivmo")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="DialogueBox" parent="UI" instance=ExtResource("6_272bh")]
+offset_left = 96.0
+offset_top = 184.0
+offset_right = 96.0
+offset_bottom = 183.96
+
+[node name="PortraitPopup" parent="UI" instance=ExtResource("7_5vw27")]
+z_index = 1
+position = Vector2(124, 60)
+
+[node name="GoldInfoBox" parent="UI" instance=ExtResource("8_kek77")]
+position = Vector2(8, 8)
+
+[node name="ActorMicroInfoBox" parent="UI" instance=ExtResource("9_4c57u")]
+position = Vector2(328, 8)
+
+[node name="ActionsMenu" parent="UI" instance=ExtResource("10_efxa6")]
+position = Vector2(204, 204)
+
+[node name="MagicMenu" parent="UI" instance=ExtResource("11_dg77c")]
+visible = false
+position = Vector2(216, 204)
+
+[node name="NoValidOptionWarningBoxRoot" parent="UI" instance=ExtResource("13_w48qg")]
+visible = false
+position = Vector2(156, 120)
+
+[node name="UI_Battle" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LandEffectPopup" parent="UI_Battle" instance=ExtResource("14_vivmo")]
+position = Vector2(8, 8)
+
+[node name="CanvasLayer" parent="." instance=ExtResource("5_lquwl")]
+visible = false

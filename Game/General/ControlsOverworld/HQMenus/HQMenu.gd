@@ -383,4 +383,3 @@ func CancelHQMenu() -> void:
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 	Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 	#get_parent().get_parent().get_parent().s_hide_action_menu()
-

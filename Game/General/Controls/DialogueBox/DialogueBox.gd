@@ -1,5 +1,7 @@
 extends Control
 
+class_name  DialogueBox
+
 # TODO if adding classname to node functions should be intelli sensed if they in a global variable right?
 # do that for all of these random nodes
 
@@ -17,7 +19,9 @@ var interaction_yes_or_no_selection: String = ""
 
 func _ready():
 	Singleton_CommonVariables.dialogue_box_node = self
-	self.hide()
+	# self.hide()
+	
+	hide()
 	
 	# dialogueTween.connect("tween_completed", self, "s_battle_message_complete")
 	# dialogueTween.connect("tween_completed", self, "_on_Tween_tween_completed")
@@ -181,7 +185,8 @@ func _process(_delta):
 
 	# if (Input.is_action_just_pressed("ui_a_key") || Input.is_action_just_pressed("ui_accept")) and !wait_for_user_input_end:
 	if (Input.is_action_just_pressed("ui_a_key") || Input.is_action_just_pressed("ui_accept")):
-		# yield(get_tree().create_timer(0.1), "timeout")
+		await get_tree().create_timer(0.1).timeout
+		
 		if finished:
 			load_dialog()
 		else:
@@ -194,10 +199,13 @@ func _process(_delta):
 
 
 func _input(event):
-	if(event.is_action_pressed("ui_hide")) and !wait_for_user_input_end:
-		if Singleton_CommonVariables.dialogue_box_is_currently_active:
-			visible = !dialogue_box_is_visible
-			dialogue_box_is_visible = visible
+	pass
+	
+	# why is the dialogue hideable as a separate input???????????
+	# if(event.is_action_pressed("ui_hide")) and !wait_for_user_input_end:
+	#	if Singleton_CommonVariables.dialogue_box_is_currently_active:
+	#		visible = !dialogue_box_is_visible
+	#		dialogue_box_is_visible = visible
 
 
 func load_dialog():
@@ -469,6 +477,8 @@ func ShowMenu(string_arg: String) -> void:
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 		Singleton_CommonVariables.ui__hq_menu.show_with_tween()
 	elif  string_arg == "PriestMenu":
+		print("early return TODO: priest menu")
+		return
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 		Singleton_CommonVariables.ui__priest_menu.s_show_priest_menu()
 	elif  string_arg == "ShopMenu":

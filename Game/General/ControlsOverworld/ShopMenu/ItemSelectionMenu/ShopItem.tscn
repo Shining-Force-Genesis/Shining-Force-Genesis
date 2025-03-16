@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://t423ah5ei6gl"]
 
-[ext_resource type="Script" path="res://General/ControlsOverworld/ShopMenu/ItemSelectionMenu/ShopItem.gd" id="1_gxuoh"]
+[ext_resource type="Script" uid="uid://foq3hi6i24mf" path="res://General/ControlsOverworld/ShopMenu/ItemSelectionMenu/ShopItem.gd" id="1_gxuoh"]
 
 [node name="ShopItemControl" type="Control"]
 layout_mode = 3

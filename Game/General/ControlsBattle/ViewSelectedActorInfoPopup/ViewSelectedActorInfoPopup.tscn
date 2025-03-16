@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://t0dmsvrjq8g7"]
 
-[ext_resource type="Script" path="res://General/ControlsBattle/ViewSelectedActorInfoPopup/ViewSelectedActorInfoPopup.gd" id="1_h5lu3"]
-[ext_resource type="Texture2D" uid="uid://cjy1pwbnlhjbu" path="res://Assets/SF1/ShiningForceTextBackground.png" id="1_v2fkm"]
-[ext_resource type="FontFile" uid="uid://dsvjkkfpt1rqd" path="res://Assets/SF1/ShiningForceMenuFont.tres" id="2_4kylk"]
+[ext_resource type="Script" uid="uid://dpxqagdfo6rdt" path="res://General/ControlsBattle/ViewSelectedActorInfoPopup/ViewSelectedActorInfoPopup.gd" id="1_h5lu3"]
+[ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="1_v2fkm"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="2_4kylk"]
 
 [node name="ViewSelectedActorInfoPopup" type="Node2D"]
 script = ExtResource("1_h5lu3")

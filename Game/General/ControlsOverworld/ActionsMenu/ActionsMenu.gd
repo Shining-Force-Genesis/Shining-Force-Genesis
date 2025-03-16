@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Actions_Menu_Overworld
+
 var is_menu_active: bool =  false
 
 enum e_menu_options {
@@ -32,21 +34,23 @@ func _ready():
 func set_menu_active() -> void:
 	is_menu_active = true
 	
+	show()
+	
 	set_sprites_to_zero_frame()
 	currently_selected_option = e_menu_options.TALK_OPTION
 	animationPlayer.play("Talk")
 	label.text = "Talk"
 
+
 # TODO: convert  to input when updateing to use process on and off states 
-# refactor after migration
-func _process(_delta):
+func _input(event: InputEvent) -> void:
 	if !is_menu_active:
 		return
 		
-	if Input.is_action_just_pressed("ui_b_key"):
+	if event.is_action_released("ui_b_key"):
 		print("Cancel Overworld Action Menu")
 		is_menu_active = false
-		Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+		AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 		await Signal(get_tree().create_timer(0.02), "timeout")
 		
 		# Singleton_BattleVariables.currently_active_character.get_actor_root_node_internal().active = true
@@ -60,15 +64,15 @@ func _process(_delta):
 		#get_parent().get_parent().get_parent().s_hide_action_menu()
 		return
 			
-	if Input.is_action_just_pressed("ui_a_key"):
+	if event.is_action_released("ui_a_key"):
 		await Signal(get_tree().create_timer(0.02), "timeout")
 		# event.is_action_released("ui_accept"):
 		print("Accept Action - ", currently_selected_option)
 		
 		if currently_selected_option == e_menu_options.SEARCH_OPTION:
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 			Singleton_CommonVariables.ui__gold_info_box.hide_cust()
@@ -77,12 +81,18 @@ func _process(_delta):
 			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_search()
 			return
 		elif currently_selected_option == e_menu_options.INVENTORY_OPTION:
+			# disabled for now fix later
+			return
+			
 			OpenInventoryMenu()
 			return
 		elif currently_selected_option == e_menu_options.MAGIC_OPTION:
+			# disabled for now fix later
+			return
+			
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			Singleton_CommonVariables.ui__gold_info_box.hide_cust()
 			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
@@ -103,9 +113,11 @@ func _process(_delta):
 				
 			return
 		elif currently_selected_option == e_menu_options.TALK_OPTION:
+			await Signal(get_tree().create_timer(0.02), "timeout")
+			
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 			Singleton_CommonVariables.ui__gold_info_box.hide_cust()
@@ -114,18 +126,18 @@ func _process(_delta):
 			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_talk()
 			return
 		
-	if Input.is_action_just_pressed("ui_down"):
+	if event.is_action_released("ui_down"):
 		menu_option_selected(e_menu_options.SEARCH_OPTION, "Search", "Search")
-	elif Input.is_action_just_pressed("ui_up"):
+	elif event.is_action_released("ui_up"):
 		menu_option_selected(e_menu_options.TALK_OPTION, "Talk", "Talk")
-	elif Input.is_action_just_pressed("ui_right"):
+	elif event.is_action_released("ui_right"):
 		menu_option_selected(e_menu_options.INVENTORY_OPTION, "Inventory", "Inventory")
-	elif Input.is_action_just_pressed("ui_left"):
+	elif event.is_action_released("ui_left"):
 		menu_option_selected(e_menu_options.MAGIC_OPTION, "Magic", "Magic")
 
 
 func menu_option_selected(e_menu_option_selected, animation_name: String, label_text: String) -> void:
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 	set_sprites_to_zero_frame()
 	currently_selected_option = e_menu_option_selected
 	animationPlayer.play(animation_name)
@@ -141,8 +153,8 @@ func set_sprites_to_zero_frame() -> void:
 
 func OpenInventoryMenu() -> void:
 	is_menu_active = false
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	hide()
 	Singleton_CommonVariables.ui__gold_info_box.hide_cust()
 	Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()

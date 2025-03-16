@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cyguo2jojvjpp"
+path="res://.godot/imported/Title Screen.mp3-266927d9d7aacd8c27e93750352d3032.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SF1/Title Screen.mp3"
+dest_files=["res://.godot/imported/Title Screen.mp3-266927d9d7aacd8c27e93750352d3032.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

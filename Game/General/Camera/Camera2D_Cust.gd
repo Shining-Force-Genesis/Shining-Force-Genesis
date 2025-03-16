@@ -99,8 +99,9 @@ func follow_actor() -> void:
 
 #
 func zoom():
-	if Input.is_action_just_released('ui_page_up'):
-		set_zoom(Vector2(1.5, 1.5)) 
+	pass
+	# if Input.is_action_just_released('ui_page_up'):
+	#	set_zoom(Vector2(1.5, 1.5)) 
 		#@ zoom.y += 1
 
 		# Singleton_Game_GlobalCommonVariables.sf_game_data_node.camera_zoom = zoom
@@ -108,8 +109,8 @@ func zoom():
 		#	zoom = Vector2(1.95, 1.95)
 		# stepify(zoom.x, 0.1)
 		# stepify(zoom.y, 0.1)
-	if Input.is_action_just_released('ui_page_down'):
-		set_zoom(Vector2(0.5, 0.5)) 
+	#if Input.is_action_just_released('ui_page_down'):
+	#	set_zoom(Vector2(0.5, 0.5)) 
 		# zoom.x -= 1
 		# zoom.y -= 1
 
@@ -121,8 +122,9 @@ func zoom():
 
 
 func rotate_cam():
-	if Input.is_action_just_pressed("ui_end"):
-		rotate(10)
+	# if Input.is_action_just_pressed("ui_end"):
+	# 	rotate(10)
+	pass
 
 
 func _physics_process(_delta):
