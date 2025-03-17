@@ -29,7 +29,7 @@ func show_movement_tiles() -> void:
 	Singleton_CommonVariables.battle__movement_tiles_wrapper_node.show()
 
 
-func draw_flashing_movement_square(acolor: Color, xpos: int, ypos: int) -> void:
+func draw_flashing_movement_square(_acolor: Color, xpos: int, ypos: int) -> void:
 	var cr = ColorRect.new()
 	# cr.color = acolor
 	cr.color = white_segment
@@ -95,8 +95,6 @@ func get_tilename_at_pos(pos_arg: Vector2) -> String:
 
 
 func get_land_effect_value_at_pos(pos_arg: Vector2):
-	return null
-	
 	var local_pos = Singleton_CommonVariables.battle__tilemap_info_group__terrain.local_to_map(pos_arg)
 	var current_tile_posx = Singleton_CommonVariables.battle__tilemap_info_group__terrain.get_cell_tile_data(local_pos)
 	

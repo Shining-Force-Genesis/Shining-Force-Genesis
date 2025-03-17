@@ -26,8 +26,8 @@ var _tween: Tween
 # actor box pos
 const actor_top_right_pos: Vector2 = Vector2(200, 8)
 # target actor pos for selections and battle
-const target_actor_bottom_left_pos: Vector2 = Vector2(8, 134)
-const target_actor_bottom_right_pos: Vector2 = Vector2(200, 134)
+const target_actor_bottom_left_pos: Vector2 = Vector2(8, 208)
+const target_actor_bottom_right_pos: Vector2 = Vector2(328, 208)
 
 # TODO: NOTE: plan for multi tierred hp and mp bars for values over 100 (??) in SF1
 # divide current hp by 100
@@ -198,8 +198,8 @@ func display_actor_info(node_arg) -> void:
 
 ## Show Hide Cust with tween
 
-const default_position: Vector2 = Vector2(200, 8)
-const hidden_position: Vector2 = Vector2(320, 8)
+const default_position: Vector2 = Vector2(328, 208)
+const hidden_position: Vector2 = Vector2(380, 208)
 
 func show_cust() -> void: 
 	position = hidden_position
@@ -228,7 +228,7 @@ func hide_cust() -> void:
 # const target_actor_bottom_right_pos: Vector2 = Vector2(200, 134)
 
 func show_cust_target() -> void: 
-	position = Vector2(320, 134) # hidden_position
+	position = Vector2(480, 308) # hidden_position
 	show()
 	
 	if _tween:
@@ -244,13 +244,13 @@ func hide_cust_target() -> void:
 		_tween.kill()
 	
 	_tween = get_tree().create_tween()
-	_tween.tween_property(self, "position", Vector2(320, 134), Singleton_CommonVariables.menu_tween_time)
+	_tween.tween_property(self, "position", Vector2(328, 308), Singleton_CommonVariables.menu_tween_time)
 	_tween.set_trans(Tween.TRANS_LINEAR)
 	_tween.tween_callback(hide)
 
 
-const hidden_target_battle_scene = Vector2(-120, 134)
-const target_battle_scene = Vector2(8, 134)
+const hidden_target_battle_scene = Vector2(-120, 308)
+const target_battle_scene = Vector2(8, 308)
 
 func show_cust_target_battle_scene() -> void: 
 	position = hidden_target_battle_scene

@@ -36,7 +36,7 @@ const center_segment = Color("7de1e1e1") # default tile color when not debugging
 const white_segment = Color("FFFFFF") # actor
 const tile_size: int = 24
 const half_tile_size: int = 12
-func draw_flashing_movement_square(acolor: Color, xpos: int, ypos: int) -> void:
+func draw_flashing_movement_square(_acolor: Color, xpos: int, ypos: int) -> void:
 	var cr = ColorRect.new()
 	# cr.color = acolor
 	cr.color = white_segment

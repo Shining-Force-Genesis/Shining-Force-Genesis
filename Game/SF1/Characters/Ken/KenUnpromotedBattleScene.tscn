@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://cgmraextjjjpy"]
 
-[ext_resource type="Script" path="res://SF1/Characters/GenericBattleScene.gd" id="1_ofxr3"]
-[ext_resource type="Texture2D" uid="uid://obn7lftu7567" path="res://Assets/SF1/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="2_ll7x3"]
-[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="3_8vks6"]
-[ext_resource type="Texture2D" uid="uid://ctnp3m1jf342e" path="res://Assets/SF1/Weapons/Spear.png" id="3_a2kyj"]
-[ext_resource type="Texture2D" uid="uid://b6j8gs4m5fbun" path="res://Assets/SF1/PlayableCharacters/Ken/Unpromoted_Battle_Spear_Sprites.png" id="4_dd56r"]
+[ext_resource type="Script" uid="uid://dks6y6k2oba01" path="res://SF1/Characters/GenericBattleScene.gd" id="1_ofxr3"]
+[ext_resource type="Texture2D" uid="uid://cn5tn286oppd" path="res://Assets/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="2_ll7x3"]
+[ext_resource type="Shader" uid="uid://c8im77huolbmj" path="res://Shaders/Dissolve.gdshader" id="3_8vks6"]
+[ext_resource type="Texture2D" uid="uid://im8nxme8ktuq" path="res://Assets/SF1/Weapons/Spear.png" id="3_a2kyj"]
+[ext_resource type="Texture2D" uid="uid://dcu6ceq3grhlb" path="res://Characters/Ken/Assets/Unpromoted_Battle_Spear_Sprites.png" id="4_dd56r"]
 [ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="4_e1ubk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4fx7u"]
@@ -297,11 +297,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0my03"]
 _data = {
-"Attack": SubResource("Animation_f5igr"),
-"Death": SubResource("Animation_jdh63"),
-"Idle": SubResource("Animation_sf84d"),
-"RESET": SubResource("Animation_wihvo"),
-"Shake": SubResource("Animation_kxsye")
+&"Attack": SubResource("Animation_f5igr"),
+&"Death": SubResource("Animation_jdh63"),
+&"Idle": SubResource("Animation_sf84d"),
+&"RESET": SubResource("Animation_wihvo"),
+&"Shake": SubResource("Animation_kxsye")
 }
 
 [node name="KenUnpromotedBattleScene" type="Node2D"]
@@ -330,7 +330,7 @@ texture = ExtResource("4_dd56r")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 libraries = {
-"": SubResource("AnimationLibrary_0my03")
+&"": SubResource("AnimationLibrary_0my03")
 }
+autoplay = "Idle"

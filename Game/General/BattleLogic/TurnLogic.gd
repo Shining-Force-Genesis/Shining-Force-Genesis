@@ -16,9 +16,10 @@ func generate_actor_order_for_current_turn():
 	rng.randomize()
 	# ordered_turn_array.sort_custom(Callable(self, "sort_actors_by_agility"))
 	
+	# is the error cause of the random or is this incorrect usage
 	ordered_turn_array.sort_custom(
-	func(a, b): 
-		return (a.speed + rng.randi_range(-1, 1)) > (b.speed + rng.randi_range(-1, 1))
+		func(a, b): 
+			return (a.speed + rng.randi_range(-1, 1)) > (b.speed + rng.randi_range(-1, 1))
 	)
 	
 	print("\nOrdered Array\n")

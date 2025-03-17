@@ -22,7 +22,7 @@ var GRID_BASED_MOVEMENT:bool = true
 var is_currently_moving:bool = false
 var is_active: bool = false # menu or interacting with an node
 
-var animation_speed = 4
+var animation_speed = 5
 
 var rng = RandomNumberGenerator.new()
 

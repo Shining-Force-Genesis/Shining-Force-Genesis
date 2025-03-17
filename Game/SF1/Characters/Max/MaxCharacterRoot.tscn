@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://12nby2m8fegb"]
 
-[ext_resource type="Script" path="res://SF1/Characters/GenericCharacter.gd" id="1_2ln1y"]
+[ext_resource type="Script" uid="uid://c0swmf6skjf4p" path="res://SF1/Characters/GenericCharacter.gd" id="1_2ln1y"]
 [ext_resource type="PackedScene" uid="uid://dhunrlyvi8mod" path="res://General/CharacterRoot/CharacterRoot.tscn" id="2_jjht6"]
-[ext_resource type="Texture2D" uid="uid://c5k05u34xnnts" path="res://Assets/SF1/PlayableCharacters/Max/Unpromoted_Map_Sprites.png" id="5_h0861"]
-[ext_resource type="Texture2D" uid="uid://dbcenl20q6pns" path="res://Assets/SF1/PlayableCharacters/Max/Unpromoted_Battle_Sprites.png" id="6_ph8jh"]
-[ext_resource type="Texture2D" uid="uid://be8wx6cawojlj" path="res://Assets/SF1/PlayableCharacters/Max/Unpromoted_Portraits.png" id="7_mde6q"]
+[ext_resource type="Texture2D" uid="uid://tabdg6h6djtk" path="res://Characters/Max/Assets/Unpromoted_Map_Sprites.png" id="5_h0861"]
+[ext_resource type="Texture2D" uid="uid://cpkudxf2w7tga" path="res://Characters/Max/Assets/Unpromoted_Battle_Sprites.png" id="6_ph8jh"]
+[ext_resource type="Texture2D" uid="uid://d28cmriajn3ti" path="res://Characters/Max/Assets/Unpromoted_Portraits.png" id="7_mde6q"]
 
 [sub_resource type="Animation" id="Animation_k5rrw"]
 resource_name = "DownMovement"
@@ -91,11 +91,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p7otq"]
 _data = {
-"DownMovement": SubResource("Animation_k5rrw"),
-"LeftMovement": SubResource("Animation_jn0cm"),
-"RESET": SubResource("Animation_l48xp"),
-"RightMovement": SubResource("Animation_tmwxi"),
-"UpMovement": SubResource("Animation_1f6tn")
+&"DownMovement": SubResource("Animation_k5rrw"),
+&"LeftMovement": SubResource("Animation_jn0cm"),
+&"RESET": SubResource("Animation_l48xp"),
+&"RightMovement": SubResource("Animation_tmwxi"),
+&"UpMovement": SubResource("Animation_1f6tn")
 }
 
 [node name="Max" type="Node2D"]
@@ -112,9 +112,9 @@ hframes = 10
 frame = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterRoot"]
-autoplay = "DownMovement"
 libraries = {
-"": SubResource("AnimationLibrary_p7otq")
+&"": SubResource("AnimationLibrary_p7otq")
 }
+autoplay = "DownMovement"
 
 [editable path="CharacterRoot"]

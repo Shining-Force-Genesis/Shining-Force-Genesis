@@ -1,16 +1,14 @@
 [gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=4 format=3 uid="uid://bmmv68np23pvb"]
 
 [ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="1"]
-
-[sub_resource type="Resource" id="Resource_snfb1"]
-metadata/__load_path__ = "res://Assets/SF1/Weapons/Short_Sword.png"
+[ext_resource type="Texture2D" uid="uid://dlgq7r82hmcn0" path="res://Assets/SF1/Weapons/Short_Sword.png" id="1_4uf7c"]
 
 [sub_resource type="Resource" id="Resource_4uf7c"]
 metadata/__load_path__ = "res://Assets/SFCD/Items/Weapons/Short_Sword.png"
 
 [resource]
 script = ExtResource("1")
-battle_texture = SubResource("Resource_snfb1")
+battle_texture = ExtResource("1_4uf7c")
 chance_to_crack = false
 equippable_by = 0
 item_type = "WEAPON"

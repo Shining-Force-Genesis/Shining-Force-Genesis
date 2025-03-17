@@ -1,11 +1,11 @@
 [gd_scene load_steps=15 format=3 uid="uid://e7n2gb682327"]
 
-[ext_resource type="Script" path="res://SF1/Characters/GenericBattleScene.gd" id="1_v3qkk"]
-[ext_resource type="Texture2D" uid="uid://obn7lftu7567" path="res://Assets/SF1/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="2_rkmc5"]
-[ext_resource type="Texture2D" uid="uid://d0xfrqovmknjr" path="res://Assets/SF1/Weapons/Wooden_Rod.png" id="3_21n3q"]
-[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="3_gyh2l"]
+[ext_resource type="Script" uid="uid://dks6y6k2oba01" path="res://SF1/Characters/GenericBattleScene.gd" id="1_v3qkk"]
+[ext_resource type="Texture2D" uid="uid://cn5tn286oppd" path="res://Assets/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="2_rkmc5"]
+[ext_resource type="Texture2D" uid="uid://boru68cnao7qq" path="res://Assets/SF1/Weapons/Wooden_Rod.png" id="3_21n3q"]
+[ext_resource type="Shader" uid="uid://c8im77huolbmj" path="res://Shaders/Dissolve.gdshader" id="3_gyh2l"]
 [ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="4_1rgss"]
-[ext_resource type="Texture2D" uid="uid://bkoi0o21fd446" path="res://Assets/SF1/PlayableCharacters/Lowe/Unpromoted_Battle_Sprites.png" id="4_ukjc6"]
+[ext_resource type="Texture2D" uid="uid://dksrfl2woplok" path="res://Characters/Lowe/Assets/Unpromoted_Battle_Sprites.png" id="4_ukjc6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j1qvt"]
 shader = ExtResource("3_gyh2l")
@@ -237,11 +237,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0my03"]
 _data = {
-"Attack": SubResource("Animation_f5igr"),
-"Death": SubResource("Animation_ohk7x"),
-"Idle": SubResource("Animation_sf84d"),
-"RESET": SubResource("Animation_wihvo"),
-"Shake": SubResource("Animation_kxsye")
+&"Attack": SubResource("Animation_f5igr"),
+&"Death": SubResource("Animation_ohk7x"),
+&"Idle": SubResource("Animation_sf84d"),
+&"RESET": SubResource("Animation_wihvo"),
+&"Shake": SubResource("Animation_kxsye")
 }
 
 [node name="TaoUnpromotedBattleScene" type="Node2D"]
@@ -268,7 +268,7 @@ texture = ExtResource("4_ukjc6")
 hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 libraries = {
-"": SubResource("AnimationLibrary_0my03")
+&"": SubResource("AnimationLibrary_0my03")
 }
+autoplay = "Idle"

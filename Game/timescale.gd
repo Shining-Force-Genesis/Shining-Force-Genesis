@@ -2,7 +2,7 @@ extends Node
 
 var gotta_go_fast: bool = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_released("ui_page_down"):
 		print("here")
 		

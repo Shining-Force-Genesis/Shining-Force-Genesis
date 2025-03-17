@@ -84,8 +84,8 @@ func _input(event: InputEvent) -> void:
 			# disabled for now fix later
 			return
 			
-			OpenInventoryMenu()
-			return
+			# OpenInventoryMenu()
+			# return
 		elif currently_selected_option == e_menu_options.MAGIC_OPTION:
 			# disabled for now fix later
 			return

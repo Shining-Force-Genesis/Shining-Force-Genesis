@@ -12,7 +12,7 @@ func _ready():
 # and modify its texture and position when targeting
 # default cursor node is the single select and can handle all basic needs
 # more thought needed
-func draw_cursor_at_position(position_arg: Vector2):
+func draw_cursor_at_position(_position_arg: Vector2):
 	pass
 
 

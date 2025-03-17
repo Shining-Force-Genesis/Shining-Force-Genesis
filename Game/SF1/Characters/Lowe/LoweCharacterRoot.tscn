@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://6esp6v55rdf8"]
+[gd_scene load_steps=13 format=3 uid="uid://6esp6v55rdf8"]
 
-[ext_resource type="Script" path="res://SF1/Characters/GenericCharacter.gd" id="1_in78h"]
+[ext_resource type="Script" uid="uid://c0swmf6skjf4p" path="res://SF1/Characters/GenericCharacter.gd" id="1_in78h"]
 [ext_resource type="PackedScene" uid="uid://dhunrlyvi8mod" path="res://General/CharacterRoot/CharacterRoot.tscn" id="2_mbt44"]
-[ext_resource type="Texture2D" uid="uid://bkbn0vvo53svu" path="res://Assets/SF1/PlayableCharacters/Lowe/Unpromoted_Map_Sprites.png" id="3_y0t36"]
-[ext_resource type="Texture2D" uid="uid://bkoi0o21fd446" path="res://Assets/SF1/PlayableCharacters/Lowe/Unpromoted_Battle_Sprites.png" id="4_bu0tq"]
-[ext_resource type="Texture2D" uid="uid://7pj0cag61h8f" path="res://Assets/SF1/PlayableCharacters/Lowe/Unpromoted_Portraits.png" id="5_xmsi0"]
+[ext_resource type="Texture2D" uid="uid://cnq2x78ikgvv3" path="res://Characters/Lowe/Assets/Unpromoted_Map_Sprites.png" id="3_y0t36"]
+[ext_resource type="Texture2D" uid="uid://dksrfl2woplok" path="res://Characters/Lowe/Assets/Unpromoted_Battle_Sprites.png" id="4_bu0tq"]
+[ext_resource type="Texture2D" uid="uid://cs2a8ayo6x6o" path="res://Characters/Lowe/Assets/Unpromoted_Portraits.png" id="5_xmsi0"]
+[ext_resource type="PackedScene" uid="uid://e7n2gb682327" path="res://SF1/Characters/Lowe/LoweUnpromotedBattleScene.tscn" id="6_ink2s"]
 
 [sub_resource type="Animation" id="Animation_cxr2c"]
 resource_name = "DownMovement"
@@ -91,11 +92,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ndtq"]
 _data = {
-"DownMovement": SubResource("Animation_cxr2c"),
-"LeftMovement": SubResource("Animation_ivcbg"),
-"RESET": SubResource("Animation_xxtse"),
-"RightMovement": SubResource("Animation_rdbsm"),
-"UpMovement": SubResource("Animation_ehmfx")
+&"DownMovement": SubResource("Animation_cxr2c"),
+&"LeftMovement": SubResource("Animation_ivcbg"),
+&"RESET": SubResource("Animation_xxtse"),
+&"RightMovement": SubResource("Animation_rdbsm"),
+&"UpMovement": SubResource("Animation_ehmfx")
 }
 
 [node name="Lowe" type="Node2D"]
@@ -105,15 +106,15 @@ script = ExtResource("1_in78h")
 texture_sprite_overworld_unpromoted = ExtResource("3_y0t36")
 texture_sprite_battle_unpromoted = ExtResource("4_bu0tq")
 texture_sprite_portrait_unpromoted = ExtResource("5_xmsi0")
+battle__scene_unpromoted = ExtResource("6_ink2s")
 
 [node name="Sprite2D" parent="CharacterRoot" index="0"]
-texture = ExtResource("3_y0t36")
-hframes = 8
+frame = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterRoot"]
-autoplay = "DownMovement"
 libraries = {
-"": SubResource("AnimationLibrary_3ndtq")
+&"": SubResource("AnimationLibrary_3ndtq")
 }
+autoplay = "DownMovement"
 
 [editable path="CharacterRoot"]

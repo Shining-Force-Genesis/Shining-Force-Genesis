@@ -363,8 +363,8 @@ var ForceMembers = [
 		## 0 unpromoted - 1 promoted - 2 or higher as possible options for different stages
 		"promotion_stage": 0,
 		
-		"unlocked": false,
-		"active_in_force": false,
+		"unlocked": true,
+		"active_in_force": true,
 		"alive": true,
 		
 		"name": "Luke",
@@ -536,8 +536,8 @@ var ForceMembers = [
 		## 0 unpromoted - 1 promoted - 2 or higher as possible options for different stages
 		"promotion_stage": 0,
 		
-		"unlocked": false,
-		"active_in_force": false,
+		"unlocked": true,
+		"active_in_force": true,
 		"alive": true,
 		
 		"name": "Ken",
@@ -929,8 +929,8 @@ var ForceMembers = [
 		## 0 unpromoted - 1 promoted - 2 or higher as possible options for different stages
 		"promotion_stage": 0,
 		
-		"unlocked": false,
-		"active_in_force": false,
+		"unlocked": true,
+		"active_in_force": true,
 		"alive": true,
 		
 		"name": "Hans",

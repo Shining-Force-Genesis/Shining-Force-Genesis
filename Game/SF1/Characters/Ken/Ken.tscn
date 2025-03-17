@@ -1,101 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dr0yt82a41ytu"]
+[gd_scene load_steps=4 format=3 uid="uid://dr0yt82a41ytu"]
 
-[ext_resource type="Script" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_d8p01"]
+[ext_resource type="Script" uid="uid://liywel3tglch" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_d8p01"]
 [ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="2_fxh5k"]
 [ext_resource type="PackedScene" uid="uid://ukgydxdq01m1" path="res://SF1/Characters/Ken/KenCharacterRoot.tscn" id="3_mdf6c"]
-[ext_resource type="PackedScene" uid="uid://cgmraextjjjpy" path="res://SF1/Characters/Ken/KenUnpromotedBattleScene.tscn" id="4_6gcqm"]
-
-[sub_resource type="Animation" id="Animation_tkt0i"]
-resource_name = "DownMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterRoot/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_y24rk"]
-resource_name = "UpMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterRoot/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_3kewm"]
-resource_name = "LeftMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterRoot/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 5]
-}
-
-[sub_resource type="Animation" id="Animation_msuwm"]
-resource_name = "RightMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterRoot/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [6, 7]
-}
-
-[sub_resource type="Animation" id="Animation_x5ey5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CharacterRoot/Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_iev4g"]
-_data = {
-"DownMovement": SubResource("Animation_tkt0i"),
-"LeftMovement": SubResource("Animation_3kewm"),
-"RESET": SubResource("Animation_x5ey5"),
-"RightMovement": SubResource("Animation_msuwm"),
-"UpMovement": SubResource("Animation_y24rk")
-}
 
 [node name="Ken" type="Node2D"]
 script = ExtResource("1_d8p01")
@@ -104,20 +11,6 @@ script = ExtResource("1_d8p01")
 actor_type = 1
 
 [node name="Ken" parent="PlayerCharacterRoot" instance=ExtResource("3_mdf6c")]
-
-[node name="CharacterRoot" parent="PlayerCharacterRoot/Ken" index="0"]
-SF1_MEMBER_INDEX = 2
-battle__scene_unpromoted = ExtResource("4_6gcqm")
-
-[node name="Sprite2D" parent="PlayerCharacterRoot/Ken/CharacterRoot" index="0"]
-frame = 0
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerCharacterRoot/Ken/CharacterRoot" index="2"]
-root_node = NodePath("../..")
-autoplay = "DownMovement"
-libraries = {
-"": SubResource("AnimationLibrary_iev4g")
-}
 
 [editable path="PlayerCharacterRoot"]
 [editable path="PlayerCharacterRoot/Ken"]

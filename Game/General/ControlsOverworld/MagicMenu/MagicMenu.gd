@@ -147,18 +147,18 @@ func _input(event):
 			
 			is_battle_magic_menu_active = false
 			
-			var actor
+			var i_actor
 			if Singleton_CommonVariables.is_currently_in_battle_scene:
-				actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+				i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
 			else:
-				actor = Singleton_CommonVariables.main_character_player_node.actor
+				i_actor = Singleton_CommonVariables.main_character_player_node.actor
 			
 			magicLevelSelectorWrapper.show()
 			
 			# print(actor.get_magic())
-			print(actor.get_magic_array())
+			print(i_actor.get_magic_array())
 			
-			display_magic_from_magic_array(actor.get_magic_array())
+			display_magic_from_magic_array(i_actor.get_magic_array())
 			
 			# await Signal(get_tree().create_timer(0.1), "timeout")
 			spell_level_selected = 0

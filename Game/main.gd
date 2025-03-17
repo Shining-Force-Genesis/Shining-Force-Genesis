@@ -11,7 +11,7 @@ func _ready() -> void:
 	# n.add_child(s)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	# if Input.is_action_just_pressed("ui_accept"):
 	# SceneManager.ChangeScene(SceneManager.SF1.C1.GongCabin)
 	pass

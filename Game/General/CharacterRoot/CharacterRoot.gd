@@ -254,6 +254,8 @@ func generate_stat_gain(cur_lv: int, stat: int, stat_target: int, growth_curve):
 	# var stat = Singleton_CommonVariables.sf_game_data_node.ForceMembers[SF1_MEMBER_INDEX].stats.attack
 	# var stat_target = Singleton_CommonVariables.sf_game_data_node.ForceMembers[SF1_MEMBER_INDEX].stats.attack_target_unpromoted
 	
+	print(growth_curve)
+	
 	if stat_target == 0:
 		return 0
 	

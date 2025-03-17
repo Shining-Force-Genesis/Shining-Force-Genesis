@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bl8pyk8h011n3"]
+[gd_scene load_steps=13 format=3 uid="uid://bl8pyk8h011n3"]
 
-[ext_resource type="Script" path="res://SF1/Characters/GenericCharacter.gd" id="1_g2rf3"]
+[ext_resource type="Script" uid="uid://c0swmf6skjf4p" path="res://SF1/Characters/GenericCharacter.gd" id="1_g2rf3"]
 [ext_resource type="PackedScene" uid="uid://dhunrlyvi8mod" path="res://General/CharacterRoot/CharacterRoot.tscn" id="2_2f2q2"]
-[ext_resource type="Texture2D" uid="uid://c6xdmbyy3ssey" path="res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Map_Sprites.png" id="4_sw74h"]
-[ext_resource type="Texture2D" uid="uid://dh6ucis8t4ev1" path="res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Battle_Sprites.png" id="5_612yl"]
-[ext_resource type="Texture2D" uid="uid://b2lv1nufy5i4s" path="res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png" id="6_6tiln"]
+[ext_resource type="Texture2D" uid="uid://7lrkhvl0pk54" path="res://Characters/Gong/Assets/Unpromoted_Map_Sprites.png" id="4_sw74h"]
+[ext_resource type="Texture2D" uid="uid://fduhmj2qpijq" path="res://Characters/Gong/Assets/Unpromoted_Battle_Sprites.png" id="5_612yl"]
+[ext_resource type="Texture2D" uid="uid://sr2buojxtf3y" path="res://Characters/Gong/Assets/Unpromoted_Portraits.png" id="6_6tiln"]
+[ext_resource type="PackedScene" uid="uid://d4jf6o5cochxe" path="res://SF1/Characters/Gong/GongUnpromotedBattleScene.tscn" id="6_jxlpf"]
 
 [sub_resource type="Animation" id="Animation_pavl2"]
 resource_name = "DownMovement"
@@ -21,33 +22,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_mback"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_u4v1h"]
@@ -77,6 +51,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_mback"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_wegr1"]
@@ -127,11 +128,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ks3x4"]
 _data = {
-"DownMovement": SubResource("Animation_pavl2"),
-"LeftMovement": SubResource("Animation_u4v1h"),
-"RESET": SubResource("Animation_mback"),
-"RightMovement": SubResource("Animation_wegr1"),
-"UpMovement": SubResource("Animation_ou27v")
+&"DownMovement": SubResource("Animation_pavl2"),
+&"LeftMovement": SubResource("Animation_u4v1h"),
+&"RESET": SubResource("Animation_mback"),
+&"RightMovement": SubResource("Animation_wegr1"),
+&"UpMovement": SubResource("Animation_ou27v")
 }
 
 [node name="Gong" type="Node2D"]
@@ -141,16 +142,18 @@ script = ExtResource("1_g2rf3")
 texture_sprite_overworld_unpromoted = ExtResource("4_sw74h")
 texture_sprite_battle_unpromoted = ExtResource("5_612yl")
 texture_sprite_portrait_unpromoted = ExtResource("6_6tiln")
+battle__scene_unpromoted = ExtResource("6_jxlpf")
 
 [node name="Sprite2D" parent="CharacterRoot" index="0"]
 texture = ExtResource("4_sw74h")
 flip_h = true
 hframes = 6
+frame = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterRoot"]
-autoplay = "DownMovement"
 libraries = {
-"": SubResource("AnimationLibrary_ks3x4")
+&"": SubResource("AnimationLibrary_ks3x4")
 }
+autoplay = "DownMovement"
 
 [editable path="CharacterRoot"]

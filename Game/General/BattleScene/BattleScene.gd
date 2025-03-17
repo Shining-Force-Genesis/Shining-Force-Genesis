@@ -5,7 +5,7 @@ signal signal__function_completed
 signal signal__current_actor_exchange_completed
 
 const enemey_position: Vector2 = Vector2(0, 0)
-const character_position: Vector2 = Vector2(206, 160)
+const character_position: Vector2 = Vector2(340, 232)
 
 var rng = RandomNumberGenerator.new()
 
@@ -248,6 +248,7 @@ func activate_battle() -> void:
 		current_initiator_actor_parent_node = Singleton_CommonVariables.battle__currently_active_actor
 		cur_actor_node = a
 		caa_bs = a.battle__scene_unpromoted.instantiate()
+		caa_bs.scale = Vector2(1.5, 1.5)
 		caa_bs.position = character_position # spot where all actor stands should reach to
 		
 		caa_bs.get_child(0).frame = tile_name_stand_to_frame_mapping_dictionary[
@@ -300,6 +301,7 @@ func activate_battle() -> void:
 			current_target_actor_parent_node = battle__target_array_flattened[i].node
 			
 			var a_bs = a.battle__scene_unpromoted.instantiate()
+			a_bs.scale = Vector2(1.5, 1.5)
 			a_bs.position = character_position
 			
 			current_target_actor_battle_scene_node = a_bs
@@ -335,7 +337,7 @@ func activate_battle() -> void:
 			# await Signal(self, "signal__function_completed")
 			await get_tree().create_timer(0.2).timeout
 			
-		# play animation for attack or spell or use item here
+			# play animation for attack or spell or use item here
 			# await 
 			
 			print("attack normal")
@@ -517,6 +519,7 @@ func activate_battle() -> void:
 			current_target_actor_parent_node = battle__target_array_flattened[i].node
 			
 			var a_bs = a.battle__scene_unpromoted.instantiate()
+			a_bs.scale = Vector2(1.5, 1.5)
 			a_bs.position = character_position
 			
 			current_target_actor_battle_scene_node = a_bs

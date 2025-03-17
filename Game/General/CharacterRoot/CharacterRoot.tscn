@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhunrlyvi8mod"]
 
-[ext_resource type="Script" path="res://General/CharacterRoot/CharacterRoot.gd" id="1_e5p2l"]
-[ext_resource type="Texture2D" uid="uid://dbxxhir1wluh8" path="res://Assets/SF1/PlayableCharacters/Hans/Unpromoted_Map_Sprites.png" id="2_o5m4a"]
+[ext_resource type="Script" uid="uid://biynauswd6nqx" path="res://General/CharacterRoot/CharacterRoot.gd" id="1_e5p2l"]
+[ext_resource type="Texture2D" uid="uid://cnq2x78ikgvv3" path="res://Characters/Lowe/Assets/Unpromoted_Map_Sprites.png" id="2_o5m4a"]
 
 [node name="CharacterRoot" type="Node2D"]
 script = ExtResource("1_e5p2l")

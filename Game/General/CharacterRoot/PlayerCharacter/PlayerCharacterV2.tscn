@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdkexl3twcqsr"]
 
-[ext_resource type="Script" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.gd" id="1_h8i6a"]
+[ext_resource type="Script" uid="uid://dg8eueh5u4brf" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.gd" id="1_h8i6a"]
 [ext_resource type="Shape2D" uid="uid://bh7uaaxfqc2lk" path="res://General/24x24_collision_shape.tres" id="3_b6lvg"]
 
 [node name="PlayerCharacterRoot" type="AnimatableBody2D"]

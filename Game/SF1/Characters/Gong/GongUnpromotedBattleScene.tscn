@@ -1,10 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://d4jf6o5cochxe"]
 
-[ext_resource type="Script" path="res://SF1/Characters/GenericBattleScene.gd" id="1_12ay8"]
-[ext_resource type="Texture2D" uid="uid://obn7lftu7567" path="res://Assets/SF1/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="2_hmbx8"]
-[ext_resource type="Texture2D" uid="uid://d0xfrqovmknjr" path="res://Assets/SF1/Weapons/Wooden_Rod.png" id="3_1a1nm"]
-[ext_resource type="Shader" path="res://Shaders/Dissolve.gdshader" id="4_3dhg6"]
-[ext_resource type="Texture2D" uid="uid://dh6ucis8t4ev1" path="res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Battle_Sprites.png" id="4_j8bni"]
+[ext_resource type="Script" uid="uid://dks6y6k2oba01" path="res://SF1/Characters/GenericBattleScene.gd" id="1_12ay8"]
+[ext_resource type="Texture2D" uid="uid://cn5tn286oppd" path="res://Assets/Genesis 32X SCD - Shining Force - Battle Foregrounds.png" id="2_hmbx8"]
+[ext_resource type="Texture2D" uid="uid://boru68cnao7qq" path="res://Assets/SF1/Weapons/Wooden_Rod.png" id="3_1a1nm"]
+[ext_resource type="Shader" uid="uid://c8im77huolbmj" path="res://Shaders/Dissolve.gdshader" id="4_3dhg6"]
+[ext_resource type="Texture2D" uid="uid://fduhmj2qpijq" path="res://Characters/Gong/Assets/Unpromoted_Battle_Sprites.png" id="4_j8bni"]
 [ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="5_xhi6r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qg4uy"]
@@ -160,11 +160,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0my03"]
 _data = {
-"Attack": SubResource("Animation_f5igr"),
-"Death": SubResource("Animation_pby7t"),
-"Idle": SubResource("Animation_sf84d"),
-"RESET": SubResource("Animation_wihvo"),
-"Shake": SubResource("Animation_kxsye")
+&"Attack": SubResource("Animation_f5igr"),
+&"Death": SubResource("Animation_pby7t"),
+&"Idle": SubResource("Animation_sf84d"),
+&"RESET": SubResource("Animation_wihvo"),
+&"Shake": SubResource("Animation_kxsye")
 }
 
 [node name="GongUnpromotedBattleScene" type="Node2D"]
@@ -192,7 +192,7 @@ hframes = 3
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 libraries = {
-"": SubResource("AnimationLibrary_0my03")
+&"": SubResource("AnimationLibrary_0my03")
 }
+autoplay = "Idle"
