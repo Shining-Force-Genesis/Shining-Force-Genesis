@@ -225,54 +225,56 @@ func _input(event):
 	
 	
 	if is_target_selection_active:
-		if event.is_action_released("ui_b_key"):
-			emit_signal("signal_completed_item_use_action")
-			Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
-			Singleton_BattleVariables.field_logic_node.show_movement_tiles()
-			Singleton_BattleVariables.field_logic_node.hide_use_target_tiles()
-			target_range.cleanup_cursor()
-			
-		if event.is_action_released("ui_a_key"):
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			print("TODO: trigger battle action scene and play out the item use effect")
-			Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
+		return
 		
-		if event.is_action_pressed("ui_down"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			var vpos = Vector2(pos.x, pos.y + 24)
-			var n = get_character_at_tile_position(vpos)
-			if n != null:
-				print("New Target Selection")
-				Singleton_BattleVariables.currently_selected_actor = n
-				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
-				target_range.draw_cursor_at_position(vpos)
-			
-			# is_target_selection_active = false
-			# emit_signal("signal_completed_item_use_action")
-		elif event.is_action_pressed("ui_up"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			get_character_at_tile_position(Vector2(pos.x, pos.y - 24))
-			
-			# is_target_selection_active = false
-			# emit_signal("signal_completed_item_use_action")
-		elif event.is_action_pressed("ui_right"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			var vpos = Vector2(pos.x + 24, pos.y)
-			var n = get_character_at_tile_position(vpos)
-			if n != null:
-				print("New Target Selection")
-				Singleton_BattleVariables.currently_selected_actor = n
-				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
-				target_range.draw_cursor_at_position(vpos)
-			
-			# is_target_selection_active = false
-			# emit_signal("signal_completed_item_use_action")
-		elif event.is_action_pressed("ui_left"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			get_character_at_tile_position(Vector2(pos.x - 24, pos.y))
-			
-			# is_target_selection_active = false
-			# emit_signal("signal_completed_item_use_action")
+		#if event.is_action_released("ui_b_key"):
+			#emit_signal("signal_completed_item_use_action")
+			#Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
+			#Singleton_BattleVariables.field_logic_node.show_movement_tiles()
+			#Singleton_BattleVariables.field_logic_node.hide_use_target_tiles()
+			#target_range.cleanup_cursor()
+			#
+		#if event.is_action_released("ui_a_key"):
+			#Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			#print("TODO: trigger battle action scene and play out the item use effect")
+			#Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
+		#
+		#if event.is_action_pressed("ui_down"):
+			#var pos = Singleton_BattleVariables.currently_active_character.position
+			#var vpos = Vector2(pos.x, pos.y + 24)
+			#var n = get_character_at_tile_position(vpos)
+			#if n != null:
+				#print("New Target Selection")
+				#Singleton_BattleVariables.currently_selected_actor = n
+				#Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
+				#target_range.draw_cursor_at_position(vpos)
+			#
+			## is_target_selection_active = false
+			## emit_signal("signal_completed_item_use_action")
+		#elif event.is_action_pressed("ui_up"):
+			#var pos = Singleton_BattleVariables.currently_active_character.position
+			#get_character_at_tile_position(Vector2(pos.x, pos.y - 24))
+			#
+			## is_target_selection_active = false
+			## emit_signal("signal_completed_item_use_action")
+		#elif event.is_action_pressed("ui_right"):
+			#var pos = Singleton_BattleVariables.currently_active_character.position
+			#var vpos = Vector2(pos.x + 24, pos.y)
+			#var n = get_character_at_tile_position(vpos)
+			#if n != null:
+				#print("New Target Selection")
+				#Singleton_BattleVariables.currently_selected_actor = n
+				#Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
+				#target_range.draw_cursor_at_position(vpos)
+			#
+			## is_target_selection_active = false
+			## emit_signal("signal_completed_item_use_action")
+		#elif event.is_action_pressed("ui_left"):
+			#var pos = Singleton_BattleVariables.currently_active_character.position
+			#get_character_at_tile_position(Vector2(pos.x - 24, pos.y))
+			#
+			## is_target_selection_active = false
+			## emit_signal("signal_completed_item_use_action")
 		
 func set_sprites_to_zero_frame() -> void:
 	up_slot_spirte.frame = 0
@@ -295,20 +297,20 @@ func setup_use_range_and_target_range_selection(item_arg) -> void:
 	print(item_arg.target_actor_type)
 	if item_arg.target_actor_type == 4:
 		print("Self and Characters")
-		print(Singleton_BattleVariables.character_wrapper_node)
-		
-		print(Singleton_BattleVariables.currently_active_character)
-		print(Singleton_BattleVariables.currently_active_character.position)
-		
-		print(Singleton_BattleVariables.currently_selected_actor)
-		
-		target_node_children = Singleton_BattleVariables.character_wrapper_node.get_children()
-		for child in target_node_children:
-			print(child)
-			print(child.position)
+		#print(Singleton_BattleVariables.character_wrapper_node)
+		#
+		#print(Singleton_BattleVariables.currently_active_character)
+		#print(Singleton_BattleVariables.currently_active_character.position)
+		#
+		#print(Singleton_BattleVariables.currently_selected_actor)
+		#
+		#target_node_children = Singleton_BattleVariables.character_wrapper_node.get_children()
+		#for child in target_node_children:
+			#print(child)
+			#print(child.position)
 		
 	#emit_signal("signal_completed_item_use_action")
-	# return
+	return
 
 func get_character_at_tile_position(pos_arg):
 	for child in target_node_children:

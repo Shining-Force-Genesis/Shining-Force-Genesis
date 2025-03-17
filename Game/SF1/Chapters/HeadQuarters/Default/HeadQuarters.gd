@@ -23,7 +23,8 @@ var using_original_tiles: bool = true
 #var ten_ic_tres = load("res://SF1/TileSet_Resources/Ivan_Cal_Graphic_Upgrade/10.tres")
 
 func _ready():
-	Singleton_AudioManager.play_music_n(Singleton_DevToolingManager.base_path + "Assets/SF1/SoundBank/Headquarters.mp3")
+	# AudioManager.play_music_n(Singleton_DevToolingManager.base_path + "Assets/SF1/SoundBank/Headquarters.mp3")
+	AudioManager.play_music_n("res://Assets/SF1/SoundBank/Headquarters.mp3")
 	
 	var active_pos = ActivePositionsRootNode.get_children()
 	var inactive_pos = InactivePositionsRootNode.get_children()
@@ -112,4 +113,3 @@ func _ready():
 
 
 ### ActionSpots Start
-

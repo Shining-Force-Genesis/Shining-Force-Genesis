@@ -139,21 +139,21 @@ func _input(event):
 			#	get_parent().get_parent().s_hide_action_menu()
 			#	return
 					
-			var actor = Singleton_BattleVariables.currently_active_character.get_actor_root_node_internal()
+##########			var actor = Singleton_BattleVariables.currently_active_character.get_actor_root_node_internal()
 			
-			print(actor.inventory_items_id[currently_selected_option].item_name)
-			print(actor.is_item_equipped[currently_selected_option])
+##########			print(actor.inventory_items_id[currently_selected_option].item_name)
+##########			print(actor.is_item_equipped[currently_selected_option])
 			
 			# actor.inventory_items_id[currently_selected_option].item_use_range_path
 			# actor.inventory_items_id[currently_selected_option].item_use_target_path
 			
 			is_battle_give_menu_active = false
 			is_target_selection_active = true
-			Singleton_BattleVariables.field_logic_node.hide_movement_tiles()
-			Singleton_BattleVariables.field_logic_node.show_use_target_tiles()
+##########			Singleton_BattleVariables.field_logic_node.hide_movement_tiles()
+##########			Singleton_BattleVariables.field_logic_node.show_use_target_tiles()
 			
 			get_parent().get_parent().get_parent().s_hide_battle_give_menu()
-			setup_use_range_and_target_range_selection(actor.inventory_items_id[currently_selected_option])
+##########			setup_use_range_and_target_range_selection(actor.inventory_items_id[currently_selected_option])
 			await Signal(self, "signal_completed_item_give_action")
 			
 			# Todo check if cancelled cancelled
@@ -175,13 +175,13 @@ func _input(event):
 				# get_parent().get_parent().get_parent().s_show_battle_give_menu()
 			
 				print("Complete")
-				Singleton_BattleVariables.currently_selected_actor = null
-				Singleton_BattleVariables.currently_active_character.get_node("CharacterRoot").get_node("AnimationPlayer").play("DownMovement")
+##########				Singleton_BattleVariables.currently_selected_actor = null
+##########				Singleton_BattleVariables.currently_active_character.get_node("CharacterRoot").get_node("AnimationPlayer").play("DownMovement")
 				target_range.cleanup_cursor()
 				get_parent().get_parent().get_parent().s_hide_battle_give_menu()
-				Singleton_BattleVariables.field_logic_node.show_movement_tiles()
-				Singleton_BattleVariables.field_logic_node.hide_use_target_tiles()
-				Singleton_BattleVariables.s_completed_turn()
+##########				Singleton_BattleVariables.field_logic_node.show_movement_tiles()
+##########				Singleton_BattleVariables.field_logic_node.hide_use_target_tiles()
+##########				Singleton_BattleVariables.s_completed_turn()
 		
 		if event.is_action_pressed("ui_down"):
 			if 3 <= inventory_items.size() - 1:
@@ -214,10 +214,10 @@ func _input(event):
 	
 	if is_target_selection_active:
 		if event.is_action_released("ui_b_key"):
-			Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
-			Singleton_BattleVariables.battle_base.s_hide_micro_actor_inventory_view()
-			Singleton_BattleVariables.field_logic_node.show_movement_tiles()
-			Singleton_BattleVariables.field_logic_node.hide_use_target_tiles()
+##########			Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
+##########			Singleton_BattleVariables.battle_base.s_hide_micro_actor_inventory_view()
+##########			Singleton_BattleVariables.field_logic_node.show_movement_tiles()
+##########			Singleton_BattleVariables.field_logic_node.hide_use_target_tiles()
 			target_range.cleanup_cursor()
 			is_target_selection_active = false
 			is_battle_give_menu_active = true
@@ -226,16 +226,16 @@ func _input(event):
 			emit_signal("signal_completed_item_give_action")
 			
 		if event.is_action_released("ui_a_key"):
-			if Singleton_BattleVariables.currently_selected_actor == null:
-				print("No target TODO: do this check prior")
-			else:
+##########			if Singleton_BattleVariables.currently_selected_actor == null:
+##########				print("No target TODO: do this check prior")
+##########			else:
 				# emit_signal("signal_completed_item_give_action")
 				# TODO: fully complete turn after give has been completed
 				
-				AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+##########				AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 				
-				Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
-				Singleton_BattleVariables.battle_base.s_hide_micro_actor_inventory_view()
+##########				Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
+##########				Singleton_BattleVariables.battle_base.s_hide_micro_actor_inventory_view()
 			
 				var r = attempt_to_give_item_to_character_actor()
 			
@@ -247,54 +247,54 @@ func _input(event):
 			
 		
 		if event.is_action_pressed("ui_down"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			var vpos = Vector2(pos.x, pos.y + 24)
-			var n = get_character_at_tile_position(vpos)
-			if n != null:
+##########			var pos = Singleton_BattleVariables.currently_active_character.position
+##########			var vpos = Vector2(pos.x, pos.y + 24)
+##########			var n = get_character_at_tile_position(vpos)
+##########			if n != null:
 				print("New Target Selection")
-				Singleton_BattleVariables.currently_selected_actor = n
-				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
-				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
-				target_range.draw_cursor_at_position(vpos)
+##########				Singleton_BattleVariables.currently_selected_actor = n
+##########				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
+##########				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
+##########				target_range.draw_cursor_at_position(vpos)
 			
 			# is_target_selection_active = false
 			# emit_signal("signal_completed_item_use_action")
 		elif event.is_action_pressed("ui_up"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			var vpos = Vector2(pos.x, pos.y - 24)
-			var n = get_character_at_tile_position(vpos)
-			if n != null:
+##########			var pos = Singleton_BattleVariables.currently_active_character.position
+##########			var vpos = Vector2(pos.x, pos.y - 24)
+##########			var n = get_character_at_tile_position(vpos)
+##########			if n != null:
 				print("New Target Selection")
-				Singleton_BattleVariables.currently_selected_actor = n
-				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
-				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
-				target_range.draw_cursor_at_position(vpos)
+##########				Singleton_BattleVariables.currently_selected_actor = n
+##########				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
+##########				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
+##########				target_range.draw_cursor_at_position(vpos)
 				
 			# is_target_selection_active = false
 			# emit_signal("signal_completed_item_use_action")
 		elif event.is_action_pressed("ui_right"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			var vpos = Vector2(pos.x + 24, pos.y)
-			var n = get_character_at_tile_position(vpos)
-			if n != null:
+##########			var pos = Singleton_BattleVariables.currently_active_character.position
+##########			var vpos = Vector2(pos.x + 24, pos.y)
+##########			var n = get_character_at_tile_position(vpos)
+##########			if n != null:
 				print("New Target Selection")
-				Singleton_BattleVariables.currently_selected_actor = n
-				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
-				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
-				target_range.draw_cursor_at_position(vpos)
+##########				Singleton_BattleVariables.currently_selected_actor = n
+##########				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
+##########				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
+##########				target_range.draw_cursor_at_position(vpos)
 			
 			# is_target_selection_active = false
 			# emit_signal("signal_completed_item_use_action")
 		elif event.is_action_pressed("ui_left"):
-			var pos = Singleton_BattleVariables.currently_active_character.position
-			var vpos = Vector2(pos.x - 24, pos.y)
-			var n = get_character_at_tile_position(vpos)
-			if n != null:
+##########			var pos = Singleton_BattleVariables.currently_active_character.position
+##########			var vpos = Vector2(pos.x - 24, pos.y)
+##########			var n = get_character_at_tile_position(vpos)
+##########			if n != null:
 				print("New Target Selection")
-				Singleton_BattleVariables.currently_selected_actor = n
-				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
-				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
-				target_range.draw_cursor_at_position(vpos)
+##########				Singleton_BattleVariables.currently_selected_actor = n
+##########				Singleton_BattleVariables.battle_base.s_show_micro_actor_inventory_view()
+##########				Singleton_BattleVariables.battle_base.s_show_target_actor_micro()
+##########				target_range.draw_cursor_at_position(vpos)
 			# is_target_selection_active = false
 			# emit_signal("signal_completed_item_use_action")
 
@@ -316,7 +316,7 @@ func setup_use_range_and_target_range_selection(item_arg) -> void:
 	# TODO create cleanup function for this to remove the curosr
 	target_range.draw_cursor_and_get_targets("test arg 123")
 	
-	target_node_children = Singleton_BattleVariables.character_wrapper_node.get_children()
+##########	target_node_children = Singleton_BattleVariables.character_wrapper_node.get_children()
 	#for child in target_node_children:
 	#	print(child)
 	#	print(child.position)
@@ -337,28 +337,30 @@ func attempt_to_give_item_to_character_actor() -> bool:
 	# if Singleton_Game_GlobalBattleVariables.currently_selected_actor == null:
 	# 	return false
 	
-	var cac = Singleton_BattleVariables.currently_active_character.get_node("CharacterRoot")
-	var csa = Singleton_BattleVariables.currently_selected_actor.get_node("CharacterRoot")
+##########	var cac = Singleton_BattleVariables.currently_active_character.get_node("CharacterRoot")
+##########	var csa = Singleton_BattleVariables.currently_selected_actor.get_node("CharacterRoot")
+	#
+	#if csa.inventory_items_id.size() < 4:
+		#print("Give Item")
+		#
+		#print(csa.inventory_items_id)
+		#for i in csa.inventory_items_id:
+			#print(i)
+		#print(selected_item_idx)
+		#for i in cac.inventory_items_id:
+			#print(i)
+		#print(cac.inventory_items_id[selected_item_idx])
+		#
+		#csa.inventory_items_id.append(cac.inventory_items_id[selected_item_idx])
+		#csa.is_item_equipped.append(false)
+		#
+		#cac.inventory_items_id.remove(selected_item_idx)
+		#cac.is_item_equipped.remove(selected_item_idx)
+		#
+		#return true
+	#else:
+		#print("Full Inventory can't give Item")
+		#return false
 	
-	if csa.inventory_items_id.size() < 4:
-		print("Give Item")
-		
-		print(csa.inventory_items_id)
-		for i in csa.inventory_items_id:
-			print(i)
-		print(selected_item_idx)
-		for i in cac.inventory_items_id:
-			print(i)
-		print(cac.inventory_items_id[selected_item_idx])
-		
-		csa.inventory_items_id.append(cac.inventory_items_id[selected_item_idx])
-		csa.is_item_equipped.append(false)
-		
-		cac.inventory_items_id.remove(selected_item_idx)
-		cac.is_item_equipped.remove(selected_item_idx)
-		
-		return true
-	else:
-		print("Full Inventory can't give Item")
-		return false
-	
+	return false
+	pass
