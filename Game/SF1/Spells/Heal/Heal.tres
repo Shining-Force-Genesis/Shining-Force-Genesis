@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CN_SF1_Spell" load_steps=5 format=3 uid="uid://ct5078lg71blj"]
 
-[ext_resource type="Script" path="res://SF1/Spells/Spell.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://bx05pm43s0cws" path="res://Assets/SFCD/Spells/Heal.png" id="2"]
+[ext_resource type="Script" uid="uid://dwr53yhnk42eo" path="res://SF1/Spells/Spell.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://ceyqqix2wtfe" path="res://Assets/SFCD/Spells/Heal.png" id="2"]
 [ext_resource type="Resource" uid="uid://pi3fyjwrbj27" path="res://SF1/Spells/Heal/Heal_Level_1.tres" id="3"]
 [ext_resource type="Resource" path="res://SF1/Spells/Heal/HealAnimation.tres" id="4"]
 

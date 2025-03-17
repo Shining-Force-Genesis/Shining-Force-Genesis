@@ -42,7 +42,7 @@ func _input(event):
 		if event.is_action_released("ui_b_key"):
 			print("Cancel Battle Inventory Menu")
 			is_battle_inventory_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			Singleton_CommonVariables.ui__inventory_menu.hide()
 			# Singleton_BattleVariables.battle_base.s_hide_battle_inventory_menu()
@@ -149,15 +149,15 @@ func _input(event):
 
 func cleanup_for_sub_menu_navigation() -> void:
 	is_battle_inventory_menu_active = false
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	Singleton_CommonVariables.ui__inventory_menu.hide()
 	# Singleton_BattleVariables.battle_base.s_hide_battle_inventory_menu("right")
 
 
 func select_sub_inventory_menu(sub_menu_name: String, animation_name: String, sub_menu_option) -> void:
 	# print(sub_menu_name)
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 	set_sprites_to_zero_frame()
 	currently_selected_option = sub_menu_option
 	animationPlayer.play(animation_name)

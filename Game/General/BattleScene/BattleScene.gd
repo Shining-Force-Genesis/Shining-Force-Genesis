@@ -4,8 +4,10 @@ extends Node2D
 signal signal__function_completed
 signal signal__current_actor_exchange_completed
 
+signal signal__battle_scene_completed
+
 const enemey_position: Vector2 = Vector2(0, 0)
-const character_position: Vector2 = Vector2(340, 232)
+const character_position: Vector2 = Vector2(340, 226)
 
 var rng = RandomNumberGenerator.new()
 
@@ -640,8 +642,16 @@ func activate_battle() -> void:
 	
 	hide()
 	
+	await get_tree().create_timer(1).timeout
+	
+	print("TODO FADE HERE")
+	
 	# TODO
 	# await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
+	
+	emit_signal("signal__battle_scene_completed")
+	
+	Singleton_CommonVariables.battle__currently_active_actor.end_turn()
 
 ### 
 

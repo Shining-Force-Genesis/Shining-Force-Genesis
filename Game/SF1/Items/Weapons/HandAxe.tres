@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=3 format=3 uid="uid://cbt5med0rrtjh"]
 
 [ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="1"]
-
-[sub_resource type="Resource" id="Resource_kksvc"]
-metadata/__load_path__ = "res://Assets/SFCD/Items/Weapons/Hand_Axe.png"
+[ext_resource type="Texture2D" uid="uid://cyvhmt1qunudr" path="res://Assets/SFCD/Items/Weapons/Hand_Axe.png" id="2_68u25"]
 
 [resource]
 script = ExtResource("1")
@@ -11,7 +9,7 @@ chance_to_crack = false
 equippable_by = 0
 item_type = "WEAPON"
 item_name = "Hand Axe"
-texture = SubResource("Resource_kksvc")
+texture = ExtResource("2_68u25")
 target_actor_type = 2
 attribute = 0
 attribute_bonus = Array[int]([7])

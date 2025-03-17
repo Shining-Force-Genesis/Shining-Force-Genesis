@@ -2,9 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dlgq7r82hmcn0" path="res://Assets/SF1/Weapons/Short_Sword.png" id="1_4uf7c"]
-
-[sub_resource type="Resource" id="Resource_4uf7c"]
-metadata/__load_path__ = "res://Assets/SFCD/Items/Weapons/Short_Sword.png"
+[ext_resource type="Texture2D" uid="uid://dycl3sxk4a0r7" path="res://Assets/SFCD/Items/Weapons/Short_Sword.png" id="3_atxwn"]
 
 [resource]
 script = ExtResource("1")
@@ -13,7 +11,7 @@ chance_to_crack = false
 equippable_by = 0
 item_type = "WEAPON"
 item_name = "Short Sword"
-texture = SubResource("Resource_4uf7c")
+texture = ExtResource("3_atxwn")
 target_actor_type = 2
 attribute = 0
 attribute_bonus = Array[int]([5])

@@ -63,22 +63,22 @@ func _process(_delta):
 			
 			hide()
 			
-			Singleton_Game_GlobalCommonVariables.action_type = "PRIEST_PROMOTION"
+			Singleton_CommonVariables.action_type = "PRIEST_PROMOTION"
 			
-			Singleton_Game_GlobalCommonVariables.menus_root_node.character_info_box_node().hide()
-			Singleton_Game_GlobalCommonVariables.menus_root_node.gold_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.character_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.gold_info_box_node().hide()
 	
 			# Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable("What would you like?")
-			Singleton_Game_GlobalCommonVariables.dialogue_box_node.show()
+			Singleton_CommonVariables.dialogue_box_node.show()
 			
 			var display_str = "No one seems to deserve a promotion.\nDo you need anything else?"
-			Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
-			Singleton_Game_GlobalCommonVariables.menus_root_node.UserInteractionPromptsRoot.s_show__yes_or_no_prompt()
+			Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
+			Singleton_CommonVariables.menus_root_node.UserInteractionPromptsRoot.s_show__yes_or_no_prompt()
 			
-			# var result = yield(Singleton_Game_GlobalCommonVariables.menus_root_node.UserInteractionPromptsRoot.YesOrNoPromptRoot, "signal__yes_or_no_prompt__choice")
+			var result = await Singleton_CommonVariables.menus_root_node.UserInteractionPromptsRoot.YesOrNoPromptRoot.callable("signal__yes_or_no_prompt__choice")
 			
 			if result == "NO":
-				Singleton_Game_GlobalCommonVariables.dialogue_box_node.hide()
+				Singleton_CommonVariables.dialogue_box_node.hide()
 				CancelPriestMenu()
 				return
 		
@@ -88,8 +88,8 @@ func _process(_delta):
 				# Singleton_Game_GlobalCommonVariables.menus_root_node.GoldInfoBox.UpdateGoldAmountDisplay()
 				# Singleton_Game_GlobalCommonVariables.menus_root_node.MicroMemberListViewMenu.DisplayNewlySelectedCharacterInfo(Singleton_Game_GlobalCommonVariables.selected_character)
 				
-				Singleton_Game_GlobalCommonVariables.dialogue_box_node.hide()
-				Singleton_Game_GlobalCommonVariables.menus_root_node.GoldInfoBox.hide()
+				Singleton_CommonVariables.dialogue_box_node.hide()
+				Singleton_CommonVariables.menus_root_node.GoldInfoBox.hide()
 				show()
 				
 				is_menu_active = true
@@ -101,16 +101,16 @@ func _process(_delta):
 			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			
-			Singleton_Game_GlobalCommonVariables.action_type = "PRIEST_DEAD"
+			Singleton_CommonVariables.action_type = "PRIEST_DEAD"
 			
-			Singleton_Game_GlobalCommonVariables.menus_root_node.character_info_box_node().hide()
-			Singleton_Game_GlobalCommonVariables.menus_root_node.gold_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.character_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.gold_info_box_node().hide()
 			
-			Singleton_Game_GlobalCommonVariables.dialogue_box_node.show()
+			Singleton_CommonVariables.dialogue_box_node.show()
 			
-			Singleton_Game_GlobalCommonVariables.menus_root_node.MicroMemberListViewMenu.set_menu_active()
-			Singleton_Game_GlobalCommonVariables.menus_root_node.MicroMemberListViewMenu.HideInventoryPreview()
-			Singleton_Game_GlobalCommonVariables.menus_root_node.MicroMemberListViewMenu.show()
+			Singleton_CommonVariables.menus_root_node.MicroMemberListViewMenu.set_menu_active()
+			Singleton_CommonVariables.menus_root_node.MicroMemberListViewMenu.HideInventoryPreview()
+			Singleton_CommonVariables.menus_root_node.MicroMemberListViewMenu.show()
 			
 			return
 		elif currently_selected_option == e_menu_options.CURE_OPTION:
@@ -120,22 +120,22 @@ func _process(_delta):
 			
 			hide()
 			
-			Singleton_Game_GlobalCommonVariables.action_type = "PRIEST_CURE"
+			Singleton_CommonVariables.action_type = "PRIEST_CURE"
 			
-			Singleton_Game_GlobalCommonVariables.menus_root_node.character_info_box_node().hide()
-			Singleton_Game_GlobalCommonVariables.menus_root_node.gold_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.character_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.gold_info_box_node().hide()
 	
 			# Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable("What would you like?")
-			Singleton_Game_GlobalCommonVariables.dialogue_box_node.show()
+			Singleton_CommonVariables.dialogue_box_node.show()
 			
 			var display_str = "No one seems to need my help.\nDo you need anything else?"
-			Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
-			Singleton_Game_GlobalCommonVariables.menus_root_node.UserInteractionPromptsRoot.s_show__yes_or_no_prompt()
+			Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
+			Singleton_CommonVariables.menus_root_node.UserInteractionPromptsRoot.s_show__yes_or_no_prompt()
 			
-			# var result = yield(Singleton_Game_GlobalCommonVariables.menus_root_node.UserInteractionPromptsRoot.YesOrNoPromptRoot, "signal__yes_or_no_prompt__choice")
+			var result = await Singleton_CommonVariables.menus_root_node.UserInteractionPromptsRoot.YesOrNoPromptRoot.callable("signal__yes_or_no_prompt__choice")
 			
 			if result == "NO":
-				Singleton_Game_GlobalCommonVariables.dialogue_box_node.hide()
+				Singleton_CommonVariables.dialogue_box_node.hide()
 				CancelPriestMenu()
 				return
 		
@@ -145,8 +145,8 @@ func _process(_delta):
 				# Singleton_Game_GlobalCommonVariables.menus_root_node.GoldInfoBox.UpdateGoldAmountDisplay()
 				# Singleton_Game_GlobalCommonVariables.menus_root_node.MicroMemberListViewMenu.DisplayNewlySelectedCharacterInfo(Singleton_Game_GlobalCommonVariables.selected_character)
 				
-				Singleton_Game_GlobalCommonVariables.dialogue_box_node.hide()
-				Singleton_Game_GlobalCommonVariables.menus_root_node.GoldInfoBox.hide()
+				Singleton_CommonVariables.dialogue_box_node.hide()
+				Singleton_CommonVariables.menus_root_node.GoldInfoBox.hide()
 				show()
 				
 				is_menu_active = true
@@ -159,22 +159,22 @@ func _process(_delta):
 			
 			hide()
 			
-			Singleton_Game_GlobalCommonVariables.action_type = "PRIEST_PROMOTION"
+			Singleton_CommonVariables.action_type = "PRIEST_PROMOTION"
 			
-			Singleton_Game_GlobalCommonVariables.menus_root_node.character_info_box_node().hide()
-			Singleton_Game_GlobalCommonVariables.menus_root_node.gold_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.character_info_box_node().hide()
+			Singleton_CommonVariables.menus_root_node.gold_info_box_node().hide()
 	
 			# Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable("What would you like?")
-			Singleton_Game_GlobalCommonVariables.dialogue_box_node.show()
+			Singleton_CommonVariables.dialogue_box_node.show()
 			
 			var display_str = "DISABLED FOR DEMO!\nDo you need anything else?"
-			Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
-			Singleton_Game_GlobalCommonVariables.menus_root_node.UserInteractionPromptsRoot.s_show__yes_or_no_prompt()
+			Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
+			Singleton_CommonVariables.menus_root_node.UserInteractionPromptsRoot.s_show__yes_or_no_prompt()
 			
-			# var result = yield(Singleton_Game_GlobalCommonVariables.menus_root_node.UserInteractionPromptsRoot.YesOrNoPromptRoot, "signal__yes_or_no_prompt__choice")
+			var result = await Singleton_CommonVariables.menus_root_node.UserInteractionPromptsRoot.YesOrNoPromptRoot.callable("signal__yes_or_no_prompt__choice")
 			
 			if result == "NO":
-				Singleton_Game_GlobalCommonVariables.dialogue_box_node.hide()
+				Singleton_CommonVariables.dialogue_box_node.hide()
 				CancelPriestMenu()
 				return
 		
@@ -184,8 +184,8 @@ func _process(_delta):
 				# Singleton_Game_GlobalCommonVariables.menus_root_node.GoldInfoBox.UpdateGoldAmountDisplay()
 				# Singleton_Game_GlobalCommonVariables.menus_root_node.MicroMemberListViewMenu.DisplayNewlySelectedCharacterInfo(Singleton_Game_GlobalCommonVariables.selected_character)
 				
-				Singleton_Game_GlobalCommonVariables.dialogue_box_node.hide()
-				Singleton_Game_GlobalCommonVariables.menus_root_node.GoldInfoBox.hide()
+				Singleton_CommonVariables.dialogue_box_node.hide()
+				Singleton_CommonVariables.menus_root_node.GoldInfoBox.hide()
 				show()
 				
 				is_menu_active = true
@@ -254,9 +254,9 @@ func CancelPriestMenu() -> void:
 	
 	return
 	
-	Singleton_Game_GlobalCommonVariables.action_type = null
+	Singleton_CommonVariables.action_type = null
 	
-	Singleton_Game_GlobalCommonVariables.interaction_node_reference.interaction_completed()
+	Singleton_CommonVariables.interaction_node_reference.interaction_completed()
 	
 	# Singleton_Game_GlobalBattleVariables.currently_active_character.get_actor_root_node_internal().active = true
 	# get_parent().get_parent().get_parent().s_show_battle_action_menu("down")
@@ -264,7 +264,7 @@ func CancelPriestMenu() -> void:
 	hide()
 	
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
-	Singleton_Game_GlobalCommonVariables.main_character_player_node.set_active_processing(true)
-	Singleton_Game_GlobalCommonVariables.menus_root_node.gold_info_box_node().hide()
-	Singleton_Game_GlobalCommonVariables.menus_root_node.character_info_box_node().hide()
+	Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+	Singleton_CommonVariables.menus_root_node.gold_info_box_node().hide()
+	Singleton_CommonVariables.menus_root_node.character_info_box_node().hide()
 	#get_parent().get_parent().get_parent().s_hide_action_menu()

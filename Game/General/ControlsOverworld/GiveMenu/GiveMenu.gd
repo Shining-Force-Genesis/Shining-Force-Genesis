@@ -111,7 +111,7 @@ func _input(event):
 			print("Cancel Use Inventory Menu")
 			is_battle_give_menu_active = false
 			
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			# Singleton_Game_GlobalBattleVariables.currently_active_character.get_node("CharacterRoot").active = true
 			# get_parent().get_parent().get_parent().s_hide_battle_inventory_menu()
@@ -128,7 +128,7 @@ func _input(event):
 		if event.is_action_released("ui_a_key"): # event.is_action_released("ui_accept"):
 			print("Accept Action - ", currently_selected_option)
 			
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			
 			#if currently_selected_option == e_menu_options.STAY_OPTION:
 			#	print("Currently Active Character Node - ", Singleton_Game_GlobalBattleVariables.currently_active_character)
@@ -232,7 +232,7 @@ func _input(event):
 				# emit_signal("signal_completed_item_give_action")
 				# TODO: fully complete turn after give has been completed
 				
-				Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+				AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 				
 				Singleton_BattleVariables.battle_base.s_hide_target_actor_micro()
 				Singleton_BattleVariables.battle_base.s_hide_micro_actor_inventory_view()

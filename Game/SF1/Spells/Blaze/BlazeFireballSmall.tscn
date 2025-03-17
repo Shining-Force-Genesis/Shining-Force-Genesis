@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bm2kc8llbd63r"]
 
-[ext_resource type="Texture2D" uid="uid://by4yr87yjwxc2" path="res://Assets/Internal_SFR_Cust/Blaze/Blaze_Fireball_Small.png" id="1_2h63e"]
-[ext_resource type="Script" path="res://SF1/Spells/Blaze/BlazeFireballSmall.gd" id="1_vvfjp"]
+[ext_resource type="Texture2D" uid="uid://cgunxstkc3o3m" path="res://Assets/Internal_SFR_Cust/Blaze/Blaze_Fireball_Small.png" id="1_2h63e"]
+[ext_resource type="Script" uid="uid://dk1hnx2b8u1uy" path="res://SF1/Spells/Blaze/BlazeFireballSmall.gd" id="1_vvfjp"]
 
 [sub_resource type="Animation" id="Animation_45by5"]
 resource_name = "Default"
@@ -61,8 +61,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k0tv2"]
 _data = {
-"Default": SubResource("Animation_45by5"),
-"RESET": SubResource("Animation_wxoqt")
+&"Default": SubResource("Animation_45by5"),
+&"RESET": SubResource("Animation_wxoqt")
 }
 
 [node name="BlazeFireballSmall" type="Node2D"]
@@ -74,7 +74,7 @@ hframes = 4
 frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Default"
 libraries = {
-"": SubResource("AnimationLibrary_k0tv2")
+&"": SubResource("AnimationLibrary_k0tv2")
 }
+autoplay = "Default"

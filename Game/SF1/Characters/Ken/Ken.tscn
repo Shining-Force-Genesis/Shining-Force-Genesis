@@ -12,6 +12,9 @@ actor_type = 1
 
 [node name="Ken" parent="PlayerCharacterRoot" instance=ExtResource("3_mdf6c")]
 
+[node name="CharacterRoot" parent="PlayerCharacterRoot/Ken" index="0"]
+SF1_MEMBER_INDEX = 2
+
 [editable path="PlayerCharacterRoot"]
 [editable path="PlayerCharacterRoot/Ken"]
 [editable path="PlayerCharacterRoot/Ken/CharacterRoot"]

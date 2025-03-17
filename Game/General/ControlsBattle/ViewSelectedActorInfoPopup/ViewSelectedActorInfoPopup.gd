@@ -178,6 +178,7 @@ func display_actor_info(actor: Node2D) -> void:
 		
 		for n in range(spells_size):
 			var spellInfoN = spellInfoNode.instantiate()
+			print(magic[n].resource)
 			spellInfoN.spell_obj = load(magic[n].resource)
 			spellInfoN.cust_scale = Vector2(0.8, 0.8)
 			magic_vbox.add_child(spellInfoN)

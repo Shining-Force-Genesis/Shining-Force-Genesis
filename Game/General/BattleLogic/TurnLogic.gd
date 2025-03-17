@@ -149,6 +149,7 @@ func generate_and_launch_new_turn_order():
 func play_death_animation_for_all_defeated_actors() -> void:
 	for b_idx in Singleton_CommonVariables.battle__turn_order_array.size():
 		if Singleton_CommonVariables.battle__turn_order_array[b_idx].alive == false:
+			
 			# play death animations then delete them when complete
 			
 			if Singleton_CommonVariables.battle__turn_order_array[b_idx].id != null:

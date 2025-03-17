@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=5 format=3 uid="uid://cgxf3xnr852h5"]
 
-[ext_resource type="Script" path="res://SF1/Items/Usable.gd" id="1"]
-[ext_resource type="Script" path="res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1_plus_Self.gd" id="2"]
-[ext_resource type="Script" path="res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd" id="3"]
-[ext_resource type="Texture2D" uid="uid://dhwjfc07n57qq" path="res://Assets/SFCD/Items/Usables/PowerPotion.png" id="4"]
+[ext_resource type="Script" uid="uid://5xbou2ipksxe" path="res://SF1/Items/Usable.gd" id="1"]
+[ext_resource type="Script" uid="uid://8l6h3ksn3a1k" path="res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1_plus_Self.gd" id="2"]
+[ext_resource type="Script" uid="uid://dp6auj7qlt42u" path="res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://rynjhwpl1dp1" path="res://Assets/SFCD/Usables/PowerPotion.png" id="4"]
 
 [resource]
 script = ExtResource("1")

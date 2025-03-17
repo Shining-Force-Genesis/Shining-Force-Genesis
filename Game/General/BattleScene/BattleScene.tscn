@@ -25,18 +25,19 @@ texture = ExtResource("4_r527i")
 metadata/_edit_lock_ = true
 
 [node name="BackgroundBattleScene" parent="BackgroundWrapper" instance=ExtResource("3_7dhk1")]
+position = Vector2(-120, -73)
 
 [node name="EnemeyWrapper" type="Node2D" parent="."]
 scale = Vector2(1.5, 1.5)
 metadata/_edit_lock_ = true
 
 [node name="EnemeyScene" parent="EnemeyWrapper" instance=ExtResource("8_waxw2")]
-position = Vector2(21.3333, 0)
+position = Vector2(21.3333, -6)
 
 [node name="CharacterWrapper" type="Node2D" parent="."]
 
 [node name="CharacterScene" parent="CharacterWrapper" instance=ExtResource("8_pklxd")]
-position = Vector2(340, 232)
+position = Vector2(340, 223)
 scale = Vector2(1.5, 1.5)
 
 [node name="BackgroundStaticColorsControl" type="Control" parent="."]

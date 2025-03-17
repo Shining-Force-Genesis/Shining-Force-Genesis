@@ -1,9 +1,7 @@
 [gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=3 format=3 uid="uid://csvxes4ersrm"]
 
 [ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="1_rfor6"]
-
-[sub_resource type="Resource" id="Resource_qa1vq"]
-metadata/__load_path__ = "res://Assets/SFCD/Items/Weapons/Hand_Axe.png"
+[ext_resource type="Texture2D" uid="uid://brhaqyiph1q8b" path="res://Assets/SFCD/Items/Weapons/Brozne_Lance.png" id="2_o2kri"]
 
 [resource]
 script = ExtResource("1_rfor6")
@@ -11,7 +9,7 @@ chance_to_crack = false
 equippable_by = 1
 item_type = "WEAPON"
 item_name = "Bronze Lance"
-texture = SubResource("Resource_qa1vq")
+texture = ExtResource("2_o2kri")
 target_actor_type = 2
 attribute = 0
 attribute_bonus = Array[int]([7])

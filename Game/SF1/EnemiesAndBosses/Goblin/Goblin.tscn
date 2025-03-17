@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_skf0q"]
 script = ExtResource("5_cg015")
 resource = "res://SF1/Items/Weapons/ShortSword.tres"
-is_equipped = false
+is_equipped = true
 metadata/_custom_type_script = "uid://bv56w8vkurca3"
 
 [node name="Goblin" type="Node2D"]

@@ -87,6 +87,36 @@ func set_battle_magic_menu_active() -> void:
 		print("Magic Menu Spells", Singleton_CommonVariables.main_character_player_node.actor.magic_array)
 		character_spells = Singleton_CommonVariables.main_character_player_node.actor.magic_array
 	
+	if character_spells.size() == 0:
+		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+		
+		# cancel magic menu if no spells
+		# TODO move this out into its own function cause this is the same as pressing B when magic menu is open
+		is_battle_magic_menu_active = false
+		
+		Singleton_CommonVariables.battle__target_actor_types = null
+			
+		Singleton_CommonVariables.battle__resource_animation_scene_path = null
+			
+		Singleton_CommonVariables.ui__magic_menu.hide()
+			
+		if Singleton_CommonVariables.is_currently_in_battle_scene:
+			Singleton_CommonVariables.ui__battle_action_menu.show()
+		else: 
+			Singleton_CommonVariables.ui__overworld_action_menu.show()
+				
+			# get_parent().get_parent().get_parent().s_show_battle_action_menu("right")
+			
+			# TODO: HACK: FIXME: Dirty hack need a better way to gurantee when action is completed to prevent retrigger
+			# yield on signal seems busted sometimes gets double called or falls through?
+		await Signal(get_tree().create_timer(0.1), "timeout")
+			
+		if Singleton_CommonVariables.is_currently_in_battle_scene:
+			Singleton_CommonVariables.ui__battle_action_menu.set_menu_active()
+		else: 
+			Singleton_CommonVariables.ui__overworld_action_menu.set_menu_active()
+		return
+	
 	for idx in (character_spells.size()):
 		# print("Spell - ", spell)
 		var spell_res = load(character_spells[idx].resource)
@@ -150,6 +180,11 @@ func _input(event):
 			var i_actor
 			if Singleton_CommonVariables.is_currently_in_battle_scene:
 				i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+				
+				# if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == "Character":
+				#	i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+				# elif Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == "Enemey":
+				#	i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot")
 			else:
 				i_actor = Singleton_CommonVariables.main_character_player_node.actor
 			

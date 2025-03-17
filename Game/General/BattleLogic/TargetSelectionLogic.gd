@@ -282,8 +282,8 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_released("ui_a_key"):
 		if Singleton_CommonVariables.battle__target_selection_actor != null:
-			pass
-			# is_target_selection_active = false
+			# pass
+			is_target_selection_active = false
 			
 #			print(Singleton_CommonVariables.battle__cursor_node.position)
 #
@@ -318,6 +318,25 @@ func _process(_delta: float) -> void:
 			
 			Singleton_CommonVariables.battle__scene_node.activate_battle()
 			
+			
+			## 
+			
+			is_target_selection_active = false
+			Singleton_CommonVariables.battle__target_selection_actor = null
+			# Singleton_CommonVariables.ui__target_actor_micro_info_box.hide_cust_target()
+			
+			# Singleton_CommonVariables.battle_base.s_hide_target_actor_micro()
+			
+			if Singleton_CommonVariables.battle__target_selection_cursor != null:
+				Singleton_CommonVariables.battle__target_selection_cursor.queue_free()
+			
+			Singleton_CommonVariables.battle__cursor_node.hide()
+			
+			target_selection_wrapper.hide()
+			
+			## 
+			
+			await Singleton_CommonVariables.battle__scene_node.signal__battle_scene_completed
 			
 			# Singleton_CommonVariables.battle__target_selection_cursor = null
 			
@@ -369,7 +388,7 @@ func change_direction_based_on_position() -> void:
 	
 	if(cur_gp.x < tar_gp.x and cur_gp.y == tar_gp.y):
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).play_facing_direction("Right")
-	elif(cur_gp.x > tar_gp.x and cur_gp.x == tar_gp.x):
+	elif(cur_gp.x > tar_gp.x and cur_gp.y == tar_gp.y):
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).play_facing_direction("Left")
 	elif(cur_gp.y > tar_gp.y):
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).play_facing_direction("Up")

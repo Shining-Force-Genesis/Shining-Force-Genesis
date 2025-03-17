@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=3 format=3 uid="uid://ctu2kx35ve7cv"]
 
-[ext_resource type="Script" path="res://SF1/Items/Usable.gd" id="1"]
-[ext_resource type="Texture2D" uid="uid://b5k8uc1hda070" path="res://Assets/SFCD/Items/Usables/HealingSeed.png" id="2"]
+[ext_resource type="Script" uid="uid://5xbou2ipksxe" path="res://SF1/Items/Usable.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://du5d65aq4npnk" path="res://Assets/SFCD/Usables/HealingSeed.png" id="2"]
 
 [resource]
 script = ExtResource("1")

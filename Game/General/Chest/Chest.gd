@@ -27,11 +27,11 @@ func attempt_to_interact() -> void:
 
 func attempt_to_open_chest() -> void:
 	if !preopend_chest && !opened:
-		Singleton_Game_GlobalCommonVariables.interaction_node_reference = self
-		Singleton_Game_GlobalCommonVariables.main_character_player_node.set_active_processing(false)
+		Singleton_CommonVariables.interaction_node_reference = self
+		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 		opened = true
 		print("Trying to open chest")
-		Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message(Singleton_Game_GlobalCommonVariables.main_character_player_node.get_actor_name() + " opens the treasure chest!")
+		Singleton_CommonVariables.dialogue_box_node.play_message(Singleton_CommonVariables.main_character_player_node.get_actor_name() + " opens the treasure chest!")
 		textureRectNode.region_rect.position.x = TILE_SIZE
 		show()
 	# else: 
@@ -43,11 +43,11 @@ func interaction_completed() -> void:
 	if opened && !retrieved_chest_resources:
 		retrieve_chest_contents()
 	else:
-		Singleton_Game_GlobalCommonVariables.main_character_player_node.set_active_processing(true)
+		Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 
 
 func retrieve_chest_contents() -> void:
-	var ma = Singleton_Game_GlobalCommonVariables.main_character_player_node.get_actor_name()
+	var ma = Singleton_CommonVariables.main_character_player_node.get_actor_name()
 	var display_str = ""
 	
 	if item_resource == null && gold == 0:
@@ -57,7 +57,7 @@ func retrieve_chest_contents() -> void:
 			display_str += ma + " discovered: " + str(item_resource.item_name) + "!"
 			
 			var found = false
-			for character in Singleton_Game_GlobalCommonVariables.sf_game_data_node.ForceMembers:
+			for character in Singleton_CommonVariables.sf_game_data_node.ForceMembers:
 				if character.unlocked && character.inventory.size() < 4:
 					# if Singleton_Game_GlobalCommonVariables.main_character_player_node.name == character.name
 					#
@@ -74,12 +74,12 @@ func retrieve_chest_contents() -> void:
 			
 			if !found:
 				display_str += "\n" + ma + " passes it to item box!"
-				Singleton_Game_GlobalCommonVariables.item_box.push_back(item_resource.resource_path)
+				Singleton_CommonVariables.item_box.push_back(item_resource.resource_path)
 			
 		if gold != 0:
 			display_str += ma + " gains " + str(gold) + " coins."
-			Singleton_Game_GlobalCommonVariables.gold = gold + Singleton_Game_GlobalCommonVariables.gold
-			Singleton_Game_GlobalCommonVariables.menus_root_node.GoldInfoBox.UpdateGoldAmountDisplay()
+			Singleton_CommonVariables.gold = gold + Singleton_CommonVariables.gold
+			Singleton_CommonVariables.menus_root_node.GoldInfoBox.UpdateGoldAmountDisplay()
 	
 	retrieved_chest_resources = true
-	Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message(display_str)
+	Singleton_CommonVariables.dialogue_box_node.play_message(display_str)

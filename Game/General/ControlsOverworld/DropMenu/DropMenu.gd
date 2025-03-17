@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var redSelection = $RedSelectionBorderRoot
 
-@onready var empty_slot_texture = preload("res://Assets/SFCD/Items/EmptyItemSlot.png")
+@onready var empty_slot_texture = preload("res://General/ControlsOverworld/DropMenu/DropMenu.gd")
 
 const rs_top_pos    = Vector2(16, 0)
 const rs_left_pos   = Vector2(0, 12)
@@ -90,7 +90,7 @@ func _input(event):
 		if event.is_action_released("ui_b_key"):
 			print("Cancel Use Inventory Menu")
 			is_battle_drop_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			hide()
 			
@@ -108,7 +108,7 @@ func _input(event):
 		if event.is_action_released("ui_a_key"): # event.is_action_released("ui_accept"):
 			print("Accept Action - ", currently_selected_option)
 			
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			
 			var actor
 			if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == 1: #char

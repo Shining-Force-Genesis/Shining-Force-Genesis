@@ -249,8 +249,8 @@ func hide_cust_target() -> void:
 	_tween.tween_callback(hide)
 
 
-const hidden_target_battle_scene = Vector2(-120, 308)
-const target_battle_scene = Vector2(8, 308)
+const hidden_target_battle_scene = Vector2(-120, 208)
+const target_battle_scene = Vector2(8, 208)
 
 func show_cust_target_battle_scene() -> void: 
 	position = hidden_target_battle_scene

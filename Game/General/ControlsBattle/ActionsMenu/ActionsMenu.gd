@@ -4,8 +4,8 @@ var is_menu_active: bool =  false
 var _tween: Tween
 
 # TODO: look into something better - hard coding position values doesnt seem like the best that can be done
-const default_position: Vector2 = Vector2(131, 136)
-const hidden_position: Vector2 = Vector2(131, 184)
+const default_position: Vector2 = Vector2(204, 204)
+const hidden_position: Vector2 = Vector2(331, 204)
 
 enum e_menu_options {
 	ATTACK_OPTION,
@@ -129,18 +129,22 @@ func _process(_delta):
 			
 			Singleton_CommonVariables.ui__magic_menu.show_cust()
 			
-#			if Singleton_Game_GlobalBattleVariables.currently_active_character.get_actor_root_node_internal().spells_id.size() == 0:
-#				noValidOptionNode.re_show_action_menu = true
-#				noValidOptionNode.set_no_maigc_text()
-#				# get_parent().get_parent().get_parent().s_hide_action_menu()
-#				get_parent().get_parent().get_parent().s_hide_character_action_menu()
-#				get_parent().get_parent().get_parent().s_show_no_valid_option_warning_box()
-#			else:
-#				get_parent().get_parent().get_parent().s_hide_action_menu()
-#				get_parent().get_parent().get_parent().s_show_battle_magic_menu()
+			# print(Singleton_CommonVariables.battle__currently_active_actor)
+			
+			#if Singleton_CommonVariables.battle__currently_active_actor.spells_id.size() == 0:
+				# noValidOptionNode.re_show_action_menu = true
+				# noValidOptionNode.set_no_maigc_text()
+				# get_parent().get_parent().get_parent().s_hide_action_menu()
+			#	get_parent().get_parent().get_parent().s_hide_character_action_menu()
+			#	get_parent().get_parent().get_parent().s_show_no_valid_option_warning_box()
+			#else:
+			#	Singleton_CommonVariables.ui__magic_menu.show_cust()
+				# get_parent().get_parent().get_parent().s_hide_action_menu()
+				# get_parent().get_parent().get_parent().s_show_battle_magic_menu()
 				
 			return
 		elif currently_selected_option == e_menu_options.ATTACK_OPTION:
+			await get_tree().create_timer(0.1).timeout
 			is_menu_active = false
 			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
@@ -152,11 +156,14 @@ func _process(_delta):
 			
 			Singleton_CommonVariables.battle__logic__target_selection_node.set_attack_target_selection()
 			
+			await get_tree().create_timer(0.1).timeout
 			# Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(true)
-			
+			# Singleton_CommonVariables.battle__currently_active_actor.end_turn()
 			
 			# Singleton_CommonVariables.ui__gold_info_box.hide()
 			# Singleton_CommonVariables.ui__actor_micro_info_box.hide()
+			
+			# Singleton_CommonVariables.battle__currently_active_actor.end_turn()
 			
 			# Singleton_CommonVariables.battle__currently_active_actor.get_child(0).interaction_attempt_to_talk()
 			return
@@ -189,6 +196,8 @@ func set_sprites_to_zero_frame() -> void:
 
 
 func OpenInventoryMenu() -> void:
+	return
+	
 	is_menu_active = false
 	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")

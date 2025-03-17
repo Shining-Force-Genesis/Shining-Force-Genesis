@@ -89,7 +89,7 @@ func _input(event):
 			print("Cancel Equip Inventory Menu")
 			is_battle_equip_menu_active = false
 			
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			hide() # hide_cust TODO:
 			
@@ -103,7 +103,7 @@ func _input(event):
 		if event.is_action_released("ui_a_key"): # event.is_action_released("ui_accept"):
 			print("Accept Action - ", currently_selected_option)
 			is_battle_equip_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			
 			update_weapon_equip()
 			

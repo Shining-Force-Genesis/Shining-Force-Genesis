@@ -6,6 +6,9 @@ extends Node
 @onready var player_scene = preload("res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn")
 
 func _ready() -> void:
+	# TODO rename this singleton to globals and then divide overworld battle and other into sub scripts with classnames
+	# for better intellisense
+	
 	Singleton_CommonVariables.battle__tilemap_info_group__background = $Tiles/TileMapTerrianBackground
 	Singleton_CommonVariables.battle__tilemap_info_group__foreground = $Tiles/TileMapTerrianForeground
 	Singleton_CommonVariables.battle__tilemap_info_group__stand = $Tiles/TileMapTerrianStand
@@ -59,6 +62,9 @@ func start_battle() -> void:
 		if c.active_in_force && !c.leader:
 			var x = load(c.textures_and_scenes[c.promotion_stage].player_scene).instantiate()
 			# x.position = char_positions.get_child(cp_idx).position
+			
+			print(x.name)
+			
 			x.get_child(0).position = char_positions.get_child(cp_idx).position
 			x.get_child(0).set_active_processing(false)
 			x.get_child(0).set_collision_shape_disabled_state(true)

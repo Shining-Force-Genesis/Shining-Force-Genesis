@@ -55,8 +55,8 @@ func _process(_delta):
 		print("Accept Action - ", currently_selected_option)
 		if currently_selected_option == e_menu_options.STATS_OPTION:
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			hide()
 			
@@ -83,8 +83,8 @@ func _process(_delta):
 			return
 		elif currently_selected_option == e_menu_options.INVENTORY_OPTION:
 			is_menu_active = false
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			hide()
 			
@@ -111,8 +111,8 @@ func _process(_delta):
 		elif currently_selected_option == e_menu_options.JOIN_OPTION:
 			is_menu_active = false
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.interaction_attempt_to_talk()
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			hide()
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 			
@@ -136,8 +136,8 @@ func _process(_delta):
 			is_menu_active = false
 			hide()
 			
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 			
 			await Signal(get_tree().create_timer(0.2), "timeout")
 			
@@ -165,7 +165,7 @@ func _process(_delta):
 
 
 func menu_option_selected(e_menu_option_selected, animation_name: String, label_text: String) -> void:
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 	set_sprites_to_zero_frame()
 	currently_selected_option = e_menu_option_selected
 	animationPlayer.play(animation_name)
@@ -369,7 +369,7 @@ func CancelHQMenu() -> void:
 	print("Cancel HQ Menu")
 	is_menu_active = false
 	await Signal(get_tree().create_timer(0.02), "timeout")
-	Singleton_AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	
 	Singleton_CommonVariables.interaction_node_reference.interaction_completed()
 	
