@@ -39,6 +39,10 @@ func _ready() -> void:
 
 func set_active_processing(arg: bool) -> void:
 	# TODO whatever this is supposed to be
+	set_process(arg)
+	
+	moving = !arg
+	
 	pass
 
 func _process(delta: float) -> void:
@@ -47,6 +51,7 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("ui_a_key"):
 		await Signal(get_tree().create_timer(0.1), "timeout")
+		set_active_processing(false)
 		Singleton_CommonVariables.ui__overworld_action_menu.set_menu_active()
 		await Signal(get_tree().create_timer(0.1), "timeout")
 		return

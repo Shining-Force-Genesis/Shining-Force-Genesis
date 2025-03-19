@@ -81,11 +81,13 @@ position = Vector2(156, 120)
 [node name="CanvasLayer" parent="." instance=ExtResource("5_lquwl")]
 visible = false
 
-[node name="Character" parent="." instance=ExtResource("17_074og")]
+[node name="Node" type="Node" parent="."]
+
+[node name="Character" parent="Node" instance=ExtResource("17_074og")]
 z_index = 1
 position = Vector2(252, 420)
 
-[node name="Camera2D" type="Camera2D" parent="Character"]
+[node name="Camera2D" type="Camera2D" parent="Node/Character"]
 position = Vector2(0, -1)
 
 [node name="Scene" type="Node" parent="."]

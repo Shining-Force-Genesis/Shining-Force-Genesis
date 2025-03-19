@@ -11,6 +11,8 @@ signal signal__dialogbox__finished_dialog
 @onready var dialogueRichTextLabel = $NinePatchRect/RichTextLabel
 # @onready var dialogueTween = $DialogueTween
 
+var dialogueTween: Tween
+
 var active: bool = false
 
 var connection_status: bool = true
@@ -193,7 +195,8 @@ func _process(_delta):
 			# dialogueTween.stop(dialogueRichTextLabel, "percent_visible")
 			# dialogueTween.emit_signal("tween_completed", self, "DialogueLineRevealComplete")
 			# DialogueLineRevealComplete()
-			# dialogueRichTextLabel.percent_visible = 1
+			dialogueTween.pause()
+			dialogueTween.custom_step(tweenTime)
 			finished = true
 			# Singleton_AudioManager.stop_dialogue_sfx()
 
@@ -233,7 +236,7 @@ func load_dialog():
 				# Singleton_CommonVariables.ui__portrait_popup.PlayTalkingAnimation()
 
 				dialogueRichTextLabel.set_visible_characters(0)
-				var dialogueTween = create_tween()
+				dialogueTween = create_tween()
 				# dialogueTween.connect("finished", Callable(self, "s_battle_message_complete"))
 				dialogueTween.connect("finished", Callable(Singleton_CommonVariables.dialogue_box_node, "_on_Tween_tween_completed"))
 				dialogueTween.set_trans(Tween.TRANS_LINEAR)
@@ -487,9 +490,9 @@ func ShowMenu(string_arg: String) -> void:
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 		Singleton_CommonVariables.ui__shop_menu.s_show_shop_menu()
 
-
+var tweenTime
 func GetTweenTimeForText(text_str: String) -> float:
-	var tweenTime = text_str.length() / 40.0
+	tweenTime = text_str.length() / 40.0
 	if tweenTime == 0:
 		tweenTime = 0.5
 	
