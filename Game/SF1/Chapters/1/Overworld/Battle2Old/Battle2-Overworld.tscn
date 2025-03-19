@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://473n2laxu7br"]
 
-[ext_resource type="Script" uid="uid://d0k8e7vuobgpp" path="res://SF1/Chapters/1/Overworld/Battle2/Battle2-Overworld.gd" id="1_eb1bq"]
+[ext_resource type="Script" uid="uid://d0k8e7vuobgpp" path="res://SF1/Chapters/1/Overworld/Battle2Old/Battle2-Overworld.gd" id="1_eb1bq"]
 [ext_resource type="PackedScene" uid="uid://b3jwmtbmk6vai" path="res://General/BattleLogic/BattleLogic.tscn" id="2_8anlv"]
 [ext_resource type="PackedScene" uid="uid://cyw8ri3jdrriy" path="res://General/Camera/Camera2D_Cust.tscn" id="3_xk7wn"]
 [ext_resource type="Texture2D" uid="uid://cu4um88xghey2" path="res://Assets/CustomTileTerrainInformation.png" id="8_a3ygl"]

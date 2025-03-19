@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cohtbojleyib1"]
 
-[ext_resource type="FontFile" uid="uid://dsvjkkfpt1rqd" path="res://Assets/SF1/ShiningForceMenuFont.tres" id="1_t3eh6"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="1_t3eh6"]
 
 [node name="MemberItemLineControl" type="Control"]
 layout_mode = 3

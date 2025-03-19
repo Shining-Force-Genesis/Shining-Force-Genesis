@@ -1,11 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlefd54ec4ccd"]
+[gd_scene load_steps=19 format=3 uid="uid://dlefd54ec4ccd"]
 
 [ext_resource type="Script" uid="uid://cec6dx1xogrhk" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://b8f1gj7urnvyo" path="res://timescale.gd" id="2_h2yge"]
 [ext_resource type="Script" uid="uid://fuwcdgayut3r" path="res://SF1/SF1Node.gd" id="3_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://cja307vwntmy8" path="res://UI/SceneTransition.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d22vywrt5rx3p" path="res://General/Controls/DialogueBox/DialogueBox.tscn" id="6_272bh"]
-[ext_resource type="PackedScene" uid="uid://crb8hj2j7jav8" path="res://SF1/Chapters/1/AncientsGate/Battle1-AncientsGate.tscn" id="6_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cqu54wxhekf6p" path="res://General/Controls/PortraitPopup/PortraitPopup.tscn" id="7_5vw27"]
 [ext_resource type="PackedScene" uid="uid://bjn64b22cl6ex" path="res://General/Controls/GoldInfoBox/GoldInfoBox.tscn" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://c503ret6y3xep" path="res://General/Controls/ActorMicroInfoBox/ActorMicroInfoBox.tscn" id="9_4c57u"]
@@ -17,6 +16,8 @@
 [ext_resource type="PackedScene" uid="uid://t0dmsvrjq8g7" path="res://General/ControlsBattle/ViewSelectedActorInfoPopup/ViewSelectedActorInfoPopup.tscn" id="14_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://dsabmddgh7hqp" path="res://General/ControlsBattle/LandEffectPopup/LandEffectPopup.tscn" id="14_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cb1wai5uq2yyg" path="res://General/BattleScene/BattleScene.tscn" id="15_yaehf"]
+[ext_resource type="PackedScene" uid="uid://ck7weiy086rpx" path="res://Characters/main.tscn" id="17_074og"]
+[ext_resource type="PackedScene" uid="uid://nn55jt1wlyai" path="res://SF1/Chapter_1/Gong_Cabin/Gongs_House.tscn" id="17_yaehf"]
 
 [node name="MAIN" type="Node2D"]
 script = ExtResource("1_1bvp3")
@@ -62,6 +63,7 @@ visible = false
 position = Vector2(8, 8)
 
 [node name="ActorMicroInfoBox" parent="UI" instance=ExtResource("9_4c57u")]
+visible = false
 position = Vector2(328, 8)
 
 [node name="ActionsMenu" parent="UI" instance=ExtResource("10_efxa6")]
@@ -79,6 +81,13 @@ position = Vector2(156, 120)
 [node name="CanvasLayer" parent="." instance=ExtResource("5_lquwl")]
 visible = false
 
+[node name="Character" parent="." instance=ExtResource("17_074og")]
+z_index = 1
+position = Vector2(252, 420)
+
+[node name="Camera2D" type="Camera2D" parent="Character"]
+position = Vector2(0, -1)
+
 [node name="Scene" type="Node" parent="."]
 
-[node name="AncientsGate" parent="Scene" instance=ExtResource("6_vivmo")]
+[node name="Gongs_House" parent="Scene" instance=ExtResource("17_yaehf")]

@@ -13,6 +13,9 @@ func _ready() -> void:
 	Player.character.camera.limit_right = $CameraLimitsInfo.get_child(0).position.x
 	Player.character.camera.limit_bottom = $CameraLimitsInfo.get_child(0).position.y
 	
+	Player.character.camera.limit_left = 0
+	Player.character.camera.limit_top = 0
+	
 	# get map move tilelayer
 	Player.move_tilemap = move_tilemap
 	

@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://cnqqh7aek4elb"]
 
-[ext_resource type="Script" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.gd" id="1_4xly6"]
+[ext_resource type="Script" uid="uid://dg8eueh5u4brf" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.gd" id="1_4xly6"]
 [ext_resource type="PackedScene" uid="uid://12nby2m8fegb" path="res://SF1/Characters/Max/MaxCharacterRoot.tscn" id="2_4qkp2"]
 [ext_resource type="Shape2D" uid="uid://bh7uaaxfqc2lk" path="res://General/24x24_collision_shape.tres" id="3_vipec"]
 

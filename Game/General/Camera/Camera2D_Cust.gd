@@ -2,6 +2,8 @@ extends Camera2D
 
 # signal signal_camera_move_complete
 
+@onready var c_limits = $"../CameraLimitsInfo/Marker2D"
+
 # onready var playerNode = get_parent().get_node("Characters/MaxRoot/CharacterRoot/KinematicBody2D")
 
 # @onready var playerNode = get_parent().get_parent().get_node("SubViewport/PlayerCharacterRoot")
@@ -28,6 +30,10 @@ var is_following_cursor: bool = false
 
 func _ready():
 	Singleton_CommonVariables.camera_node = self
+	
+	limit_right = c_limits.position.x
+	limit_bottom = c_limits.position.y
+	
 	# zoom = Singleton_Game_GlobalCommonVariables.sf_game_data_node.camera_zoom
 
 func _process(_delta):
