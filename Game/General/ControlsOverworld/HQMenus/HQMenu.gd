@@ -54,8 +54,8 @@ func _process(_delta):
 		# event.is_action_released("ui_accept"):
 		print("Accept Action - ", currently_selected_option)
 		if currently_selected_option == e_menu_options.STATS_OPTION:
-			print("TODO STATS")
-			return
+			# print("TODO STATS")
+			# return
 			
 			is_menu_active = false
 			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
@@ -115,8 +115,8 @@ func _process(_delta):
 				is_menu_active = true
 			return
 		elif currently_selected_option == e_menu_options.JOIN_OPTION:
-			print("TODO JOIN")
-			return
+			# print("TODO JOIN")
+			# return
 			
 			is_menu_active = false
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.interaction_attempt_to_talk()

@@ -32,7 +32,10 @@ enum EFacingDirection { DOWN, UP, LEFT, RIGHT }
 
 # Not accurate Error - its okay when npcs scenes are built the animation player will be manually placed 
 # TODO: even though this works should see if godot will offer a better way to handle none shared animation players
-@onready var chracter_animation_player: AnimationPlayer = $AnimationPlayer
+@onready var chracter_animation_player_normal: AnimationPlayer = $AnimationPlayer
+@onready var chracter_animation_player_mirror: AnimationPlayer = $AnimationPlayerMirrorMovement
+@export var use_mirror_animation: bool = false
+var chracter_animation_player: AnimationPlayer
 
 const down_movement = "Down" # old raw strings were `${direction}Movement`
 const left_movement = "Left" 
@@ -56,6 +59,11 @@ var parent_node: Node = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	parent_node = get_parent()
+	
+	if use_mirror_animation:
+		chracter_animation_player = chracter_animation_player_mirror
+	else:
+		chracter_animation_player = chracter_animation_player_normal
 	
 	if is_npc && !stationary:
 		npc_move()
@@ -234,12 +242,16 @@ func reset_movement_speed_timer() -> void:
 func set_facing_direction(move_direction_arg: String) -> void:
 	if move_direction_arg == "Right":
 		FacingDirection = EFacingDirection.RIGHT
+		play_animation(right_movement)
 	elif move_direction_arg == "Left":
 		FacingDirection = EFacingDirection.LEFT
+		play_animation(left_movement)
 	elif move_direction_arg == "Up":
 		FacingDirection = EFacingDirection.UP
+		play_animation(up_movement)
 	elif move_direction_arg == "Down":
 		FacingDirection = EFacingDirection.DOWN
+		play_animation(down_movement)
 
 
 # whats arg2 for ignore collisions ?

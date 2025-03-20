@@ -179,7 +179,7 @@ var ForceMembers = [
 				# textures
 				"overworld_texture": "",
 				"battle_texture": "",
-				"portrait_texture": "",
+				"portrait_texture": "res://Characters/Max/Assets/Unpromoted_Portraits.png",
 				# scenes
 				"battle_scene": "",
 				"player_scene": "res://SF1/Characters/Max/Max.tscn",
@@ -383,7 +383,7 @@ var ForceMembers = [
 				# textures
 				"overworld_texture": "",
 				"battle_texture": "",
-				"portrait_texture": "",
+				"portrait_texture": "res://Characters/Luke/Assets/Unpromoted_Portraits.png",
 				# scenes
 				"battle_scene": "",
 				"player_scene": "res://SF1/Characters/Luke/Luke.tscn",
@@ -556,7 +556,7 @@ var ForceMembers = [
 				# textures
 				"overworld_texture": "",
 				"battle_texture": "",
-				"portrait_texture": "",
+				"portrait_texture": "res://Characters/Ken/Assets/Unpromoted_Portraits.png",
 				# scenes
 				"battle_scene": "",
 				"player_scene": "res://SF1/Characters/Ken/Ken.tscn",
@@ -733,7 +733,7 @@ var ForceMembers = [
 				# textures
 				"overworld_texture": "",
 				"battle_texture": "",
-				"portrait_texture": "",
+				"portrait_texture": "res://Characters/Tao/Assets/Unpromoted_Portraits.png",
 				# scenes
 				"battle_scene": "",
 				"player_scene": "res://SF1/Characters/Tao/Tao.tscn",
@@ -949,7 +949,7 @@ var ForceMembers = [
 				# textures
 				"overworld_texture": "",
 				"battle_texture": "",
-				"portrait_texture": "",
+				"portrait_texture": "res://Characters/Hans/Assets/Unpromoted_Portraits.png",
 				# scenes
 				"battle_scene": "",
 				"player_scene": "res://SF1/Characters/Hans/Hans.tscn",
@@ -1126,7 +1126,7 @@ var ForceMembers = [
 				# textures
 				"overworld_texture": "",
 				"battle_texture": "",
-				"portrait_texture": "",
+				"portrait_texture": "res://Characters/Lowe/Assets/Unpromoted_Portraits.png",
 				# scenes
 				"battle_scene": "",
 				"player_scene": "res://SF1/Characters/Lowe/Lowe.tscn",
@@ -1354,7 +1354,7 @@ var ForceMembers = [
 				# textures
 				"overworld_texture": "",
 				"battle_texture": "",
-				"portrait_texture": "",
+				"portrait_texture": "res://Characters/Gong/Assets/Unpromoted_Portraits.png",
 				# scenes
 				"battle_scene": "",
 				"player_scene": "res://SF1/Characters/Gong/Gong.tscn",

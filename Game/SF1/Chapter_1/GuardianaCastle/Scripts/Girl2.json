@@ -1,0 +1,18 @@
+{
+	"script": [
+		{
+			"Text": "Princess Anri is away in Manarina. Do you know about the land of Manarina?",
+			"InteractionPrompt": "YesOrNo"
+		},
+
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl2_Yes.json"
+		},
+
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl2_No.json"
+		}
+	]
+}

@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://kqvcybrnvh8r"]
+[gd_scene load_steps=13 format=3 uid="uid://kqvcybrnvh8r"]
 
 [ext_resource type="Texture2D" uid="uid://dps562lsbmfai" path="res://Assets/ShiningForceMenuBorder.png" id="1"]
 [ext_resource type="Script" uid="uid://doeybsiru8r60" path="res://General/ControlsOverworld/MemberListView/MemberListView.gd" id="1_sf37m"]
 [ext_resource type="Texture2D" uid="uid://d28cmriajn3ti" path="res://Characters/Max/Assets/Unpromoted_Portraits.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="3"]
-[ext_resource type="FontFile" uid="uid://b4yafyhqknoef" path="res://Assets/ShiningForceMenuFont.tres" id="5_3uefk"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="5_3uefk"]
+[ext_resource type="Script" uid="uid://dgcnfc2g4juk6" path="res://General/ControlsOverworld/MemberListView/overview_magic_and_inventory_control_node.gd" id="6_2j5ie"]
 [ext_resource type="Script" uid="uid://c4gh0wohyvorw" path="res://General/ControlsOverworld/MemberListView/ItemsViewControl.gd" id="6_m7bmv"]
 [ext_resource type="Texture2D" uid="uid://d35uukjs780wk" path="res://Assets/EmptyItemSlot.png" id="7"]
 [ext_resource type="Script" uid="uid://b2jbjlvq6g6gy" path="res://General/ControlsOverworld/MemberListView/EquipItemsViewControl.gd" id="8_8y73f"]
@@ -103,6 +104,7 @@ offset_left = 8.0
 offset_top = 11.0
 offset_right = 8.0
 offset_bottom = 11.0
+script = ExtResource("6_2j5ie")
 metadata/_edit_lock_ = true
 
 [node name="MagicStaticLabel" type="Label" parent="StatNinePatchRect/OverviewMagicAndInventoryControlNode"]
@@ -212,6 +214,29 @@ offset_bottom = 10.0
 theme_override_fonts/font = ExtResource("5_3uefk")
 text = "ITEM"
 metadata/_edit_lock_ = true
+
+[node name="RedSelectionBorderRoot" parent="StatNinePatchRect/OverviewMagicAndInventoryControlNode" instance=ExtResource("8_hcp6x")]
+visible = false
+position = Vector2(88, 16)
+scale = Vector2(1.95, 0.5)
+
+[node name="RightColorRect" parent="StatNinePatchRect/OverviewMagicAndInventoryControlNode/RedSelectionBorderRoot" index="1"]
+offset_left = 84.1795
+offset_right = 85.1795
+
+[node name="BottomColorRect" parent="StatNinePatchRect/OverviewMagicAndInventoryControlNode/RedSelectionBorderRoot" index="2"]
+offset_right = 84.0
+
+[node name="TopColorRect" parent="StatNinePatchRect/OverviewMagicAndInventoryControlNode/RedSelectionBorderRoot" index="3"]
+offset_right = 84.0
+
+[node name="TopColorRect4" parent="StatNinePatchRect/OverviewMagicAndInventoryControlNode/RedSelectionBorderRoot" index="6"]
+offset_left = 83.1795
+offset_right = 84.1795
+
+[node name="TopColorRect5" parent="StatNinePatchRect/OverviewMagicAndInventoryControlNode/RedSelectionBorderRoot" index="7"]
+offset_left = 83.1795
+offset_right = 84.1795
 
 [node name="ItemsViewControl" type="Control" parent="StatNinePatchRect"]
 visible = false
@@ -706,7 +731,7 @@ position = Vector2(-144, 12)
 [node name="StatNinePatchRect2" type="NinePatchRect" parent="."]
 offset_top = 80.0
 offset_right = 312.0
-offset_bottom = 172.0
+offset_bottom = 176.0
 texture = ExtResource("3")
 patch_margin_left = 12
 patch_margin_top = 12
@@ -812,3 +837,5 @@ text = "SELECT"
 [node name="RedSelectionBorderRoot" parent="." instance=ExtResource("8_hcp6x")]
 position = Vector2(20, 97)
 scale = Vector2(2.9, 0.484)
+
+[editable path="StatNinePatchRect/OverviewMagicAndInventoryControlNode/RedSelectionBorderRoot"]

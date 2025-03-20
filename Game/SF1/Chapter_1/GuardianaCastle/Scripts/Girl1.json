@@ -1,0 +1,18 @@
+{
+	"script": [
+		{
+			"Text": "Grrr! I'm so mad! Do you want to know why?",
+			"InteractionPrompt": "YesOrNo"
+		},
+
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl1_Yes.json"
+		},
+
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl1_No.json"
+		}
+	]
+}

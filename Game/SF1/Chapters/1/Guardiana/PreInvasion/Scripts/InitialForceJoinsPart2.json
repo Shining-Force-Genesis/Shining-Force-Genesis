@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Lowe/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Lowe/Assets/Unpromoted_Portraits.png"
 		},
 
 		{

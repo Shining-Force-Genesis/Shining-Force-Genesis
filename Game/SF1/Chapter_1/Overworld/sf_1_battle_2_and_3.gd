@@ -47,8 +47,12 @@ func _on_guardiana_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_ancients_gate_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AncientGate)
-		n.marker = n.marker_entrance
+		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AncientGate)
+		# n.marker = n.marker_entrance
+		
+		Singleton_CommonVariables.main_character_player_node.queue_free()
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1)
+		
 		SceneManager.ChangeSceneNode(n)
 
 

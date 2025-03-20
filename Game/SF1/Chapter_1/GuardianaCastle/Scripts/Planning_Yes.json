@@ -1,0 +1,11 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/King_Gaurdiana_Portraits.png"
+		},
+
+		{
+			"Text": "Very well! Now, return to town and gather your troops. Come back when you're ready."
+		}
+	]
+}

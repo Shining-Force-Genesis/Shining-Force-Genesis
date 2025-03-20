@@ -1,0 +1,18 @@
+{
+	"script": [
+		{
+			"Text": "The king seems very worried. Do you know why?",
+			"InteractionPrompt": "YesOrNo"
+		},
+
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan_Yes.json"
+		},
+
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan_No.json"
+		}
+	]
+}

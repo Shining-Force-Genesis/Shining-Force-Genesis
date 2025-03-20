@@ -8,10 +8,10 @@ var UnequipItemSlotTexture = preload("res://Assets/UnequipHand.png")
 @onready var selectedItemLabel = $SelectedItemLabel
 
 const ITEM_TEXT_SELECTION_POSITIONS = [
-	Vector2(30, 14),
-	Vector2(4, 30),
-	Vector2(58, 30),
-	Vector2(30, 47),
+	Vector2(-144, -12),
+	Vector2(-160, 0),
+	Vector2(-128, 0),
+	Vector2(-144, 12),
 ]
 
 enum E_SelectedItem {
@@ -99,7 +99,7 @@ func _process(_delta):
 		return
 	
 	# UI navigation based on icons
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_released("ui_down"):
 		#if Singleton_Game_GlobalCommonVariables.selected_character.inventory.size() >= 4:
 		
 		# Unequip
@@ -108,23 +108,23 @@ func _process(_delta):
 		
 		redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[3]
 		selected_item = E_SelectedItem.DOWN
-	elif Input.is_action_just_pressed("ui_up"):
+	elif Input.is_action_just_released("ui_up"):
 		if weapons_array.size() >= 1:
 			redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[0]
 			selected_item = E_SelectedItem.UP
 			PreviewDisplayCharacterStatsWithNewEquipSelection(weapons_array[0].resource)
-	elif Input.is_action_just_pressed("ui_left"):
+	elif Input.is_action_just_released("ui_left"):
 		if weapons_array.size() >= 2:
 			redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[1]
 			selected_item = E_SelectedItem.LEFT
 			PreviewDisplayCharacterStatsWithNewEquipSelection(weapons_array[1].resource)
-	elif Input.is_action_just_pressed("ui_right"):
+	elif Input.is_action_just_released("ui_right"):
 		if weapons_array.size() >= 3:
 			redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[2]
 			selected_item = E_SelectedItem.RIGHT
 			PreviewDisplayCharacterStatsWithNewEquipSelection(weapons_array[2].resource)
 	
-	if Input.is_action_just_pressed("ui_a_key"):
+	if Input.is_action_just_released("ui_a_key"):
 		if selected_item == E_SelectedItem.DOWN:
 			for i in Singleton_CommonVariables.selected_character.inventory.size():
 				Singleton_CommonVariables.selected_character.inventory[i].is_equipped = false
@@ -158,7 +158,7 @@ func _process(_delta):
 		get_parent().get_parent().itemsViewControlNode.show()
 		get_parent().get_parent().DisplayItemsFullInfo(Singleton_CommonVariables.selected_character)
 		
-	elif Input.is_action_just_pressed("ui_b_key"):
+	elif Input.is_action_just_released("ui_b_key"):
 		selectedItemLabel.text = "NOTHING"
 		set_equip_menu_inactive()
 		get_parent().get_parent().active = true

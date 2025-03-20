@@ -1,6 +1,6 @@
 extends Node2D
 
-var EmptyItemSlotTexture = load("res://Assets/SFCD/Items/EmptyItemSlot.png")
+var EmptyItemSlotTexture = load("res://Assets/EmptyItemSlot.png")
 
 @onready var SlotUpSprite = $SlotUpSprite
 @onready var SlotLeftSprite = $SlotLeftSprite

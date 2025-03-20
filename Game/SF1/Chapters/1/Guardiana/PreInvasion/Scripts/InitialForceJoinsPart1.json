@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Luke/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Luke/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -9,7 +9,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Ken/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Ken/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -17,7 +17,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Tao/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Tao/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -25,7 +25,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Hans/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Hans/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -41,7 +41,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Luke/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Luke/Assets/Unpromoted_Portraits.png"
 		},
 
 		{

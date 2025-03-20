@@ -20,6 +20,15 @@ func _ready() -> void:
 	# get map move tilelayer
 	Player.move_tilemap = move_tilemap
 	
+	if Singleton_CommonVariables.sf_game_data_node.c1.entered_kings_throne:
+		var varios = $NPCS/Varios
+		varios.position = Vector2(684, 492)
+		varios.get_child(0).set_facing_direction("Left")
+	
+	if Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined:
+		var guard_hq = $NPCS/SoliderHQ
+		guard_hq.position = Vector2(420, 852)
+	
 	# position player at navigation marker per previous location
 	match marker:
 		marker_town:
@@ -120,3 +129,42 @@ func _on_castle_entrance_area_2d_body_entered(body: Node2D) -> void:
 func _on_castle_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
 		roof_tilemap.show()
+
+### Actions
+
+# Cutscene
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		pass
+	else:
+		return
+		
+	if !Singleton_CommonVariables.sf_game_data_node.c1.entered_kings_throne:
+		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+		Singleton_CommonVariables.sf_game_data_node.c1.entered_kings_throne = true
+		
+		var varios = $NPCS/Varios.get_child(0)
+		
+		varios.set_movement_speed_timer(0.15)
+		
+		# varios.change_facing_direction_string("RightMovement")
+		# Singleton_Game_GlobalCommonVariables.main_character_player_node.change_facing_direction_string("LeftMovement")
+		
+		Singleton_CommonVariables.dialogue_box_is_currently_active = true
+		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapter_1/GuardianaCastle/Scripts/MeetingWithTheKing.json"
+		Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+		
+		await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+		Singleton_CommonVariables.dialogue_box_is_currently_active = false
+		Singleton_CommonVariables.dialogue_box_node.external_file = ""
+		
+		for i in 1:
+			varios.MoveInDirection("Down")
+			await varios.signal_action_finished
+		for i in 2:
+			varios.MoveInDirection("Right")
+			await varios.signal_action_finished
+		
+		varios.set_facing_direction("Left")
+		
+		Singleton_CommonVariables.main_character_player_node.set_active_processing(true)

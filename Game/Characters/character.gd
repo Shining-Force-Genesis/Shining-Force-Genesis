@@ -53,6 +53,8 @@ func _process(delta: float) -> void:
 		await Signal(get_tree().create_timer(0.1), "timeout")
 		set_active_processing(false)
 		Singleton_CommonVariables.ui__overworld_action_menu.set_menu_active()
+		Singleton_CommonVariables.ui__gold_info_box.show_cust()
+		Singleton_CommonVariables.ui__actor_micro_info_box.show_cust()
 		await Signal(get_tree().create_timer(0.1), "timeout")
 		return
 	

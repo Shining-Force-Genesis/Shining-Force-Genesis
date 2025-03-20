@@ -1,0 +1,22 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/King_Gaurdiana_Portraits.png"
+		},
+
+		{
+			"Text": "Have you reconsidered? Will you go to the Gate of the Ancients and investigate?",
+			"InteractionPrompt": "YesOrNo"
+		},
+
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Planning_Yes.json"
+		},
+		
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Planning_No.json"
+		}
+	]
+}

@@ -1,14 +1,14 @@
 extends Control
 
-var EmptyItemSlotTexture = load("res://Assets/SFCD/Items/EmptyItemSlot.png")
+var EmptyItemSlotTexture = load("res://Assets/EmptyItemSlot.png")
 
 @onready var itemTextRedSelection = $RedSelectionBorderRoot
 
 const ITEM_TEXT_SELECTION_POSITIONS = [
-	Vector2(155, 8),
-	Vector2(155, 22),
-	Vector2(155, 38),
-	Vector2(155, 54),
+	Vector2(64, -3),
+	Vector2(64, 9),
+	Vector2(64, 21),
+	Vector2(64, 33),
 ]
 
 enum E_SelectedItem {
@@ -27,8 +27,10 @@ func _ready():
 
 
 func set_item_selection_menu_active():
+	show()
+	
 	# CleanItemSlots()
-	# DisplayItems()
+	DisplayItems()
 	
 	if Singleton_CommonVariables.selected_character.inventory.size() > 0:
 		get_parent().get_parent().active = false
@@ -39,10 +41,14 @@ func set_item_selection_menu_active():
 	else:
 		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
 
+
 func set_item_selection_menu_inactive():
 	is_item_view_selection_menu_active = false
 	itemTextRedSelection.hide()
 	# CleanItemSlots()
+	
+	get_parent().get_parent().set_overvview_view_active()
+
 
 func CleanItemSlots() -> void:
 	var iicn = get_node("ItemIconsControlNode")
@@ -82,31 +88,34 @@ func _process(_delta):
 #			selected_item = E_SelectedItem.RIGHT
 	
 	
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_released("ui_down"):
 		if (selected_item + 1) < 4 && (Singleton_CommonVariables.selected_character.inventory.size() > (selected_item + 1)):
 			itemTextRedSelection.position = ITEM_TEXT_SELECTION_POSITIONS[selected_item + 1]
 			selected_item = selected_item + 1
-	elif Input.is_action_just_pressed("ui_up"):
+	elif Input.is_action_just_released("ui_up"):
 		if (selected_item - 1) > -1:
 			itemTextRedSelection.position = ITEM_TEXT_SELECTION_POSITIONS[selected_item - 1]
 			selected_item = selected_item - 1
 	
-	if Input.is_action_just_pressed("ui_a_key"):
+	if Input.is_action_just_released("ui_a_key"):
 		print("")
 		
 		match Singleton_CommonVariables.action_type:
-			"GIVE": SetFindTargetOfGiveItem()
+			"GIVE": 
+				SetFindTargetOfGiveItem()
 			"EQUIP": SetEquipMenuActiveForCharacter()
 			"DROP": DropItemFromCharacter()
 			"USE": UseItemFromCharacter()
 			
 		return
-	elif Input.is_action_just_pressed("ui_b_key"):
+	elif Input.is_action_just_released("ui_b_key"):
 		set_item_selection_menu_inactive()
 		get_parent().get_parent().active = true
+		hide()
+		# active = false
 #		Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 #		hide()
-# 		active = false
+ 		
 
 
 func DropItemFromCharacter() -> void:
@@ -114,11 +123,15 @@ func DropItemFromCharacter() -> void:
 	Singleton_CommonVariables.selected_character.inventory.remove_at(selected_item)
 	itemTextRedSelection.position = ITEM_TEXT_SELECTION_POSITIONS[0]
 	selected_item = E_SelectedItem.UP
-	get_parent().get_parent().DisplayItemsFullInfo(Singleton_CommonVariables.selected_character)
+	# get_parent().get_parent().DisplayItemsFullInfo(Singleton_CommonVariables.selected_character)
 	
 	if Singleton_CommonVariables.selected_character.inventory.size() == 0:
 		set_item_selection_menu_inactive()
 		get_parent().get_parent().active = true
+	
+	# DisplayItems()
+	
+	get_parent().get_parent().set_overvview_view_active()
 
 func UseItemFromCharacter() -> void:
 	# if Singleton_Game_GlobalCommonVariables.selected_character.inventory.size() >= selected_item:
@@ -160,7 +173,7 @@ func SetFindTargetOfGiveItem() -> void:
 	
 	set_item_selection_menu_inactive()
 	get_parent().get_parent().active = true
-	
+	# get_parent().get_parent().set_overvview_view_active()
 	# pass
 
 ### none of these should really be globals

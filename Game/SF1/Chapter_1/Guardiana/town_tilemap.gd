@@ -14,6 +14,9 @@ func _ready() -> void:
 	Player.character.camera.limit_right = $CameraLimitsInfo.get_child(0).position.x
 	Player.character.camera.limit_bottom = $CameraLimitsInfo.get_child(0).position.y
 	
+	Player.character.camera.limit_left = 0
+	Player.character.camera.limit_top = 0
+	
 	# get map move tilelayer
 	Player.move_tilemap = move_tilemap
 	
@@ -26,7 +29,7 @@ func _ready() -> void:
 		marker_gortbasement:
 			Player.set_character_position($Markers/GortBasementMarker2D.position)
 		_:
-			Player.set_character_position($Markers/OverworldMarker2D.position)
+			Player.set_character_position($Markers/StartMarker2D.position)
 	
 	# enable player
 	if SceneManager.changing_scene:
@@ -122,3 +125,107 @@ func _on_shop_entrance_area_2d_body_entered(body: Node2D) -> void:
 func _on_shop_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
 		$Map/Shop.show()
+
+
+### Actions / Cutscenes
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		if Singleton_CommonVariables.sf_game_data_node.c1.accepted_kings_plan && !Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined:
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined = true
+			
+			var pn = get_parent()
+			
+			var luke = $NPCsForceJoin/Luke.get_child(0)
+			var ken  = $NPCsForceJoin/Ken.get_child(0)
+			var tao  = $NPCsForceJoin/Tao.get_child(0)
+			var hans = $NPCsForceJoin/Hans.get_child(0)
+			var lowe = $NPCsForceJoin/Lowe.get_child(0)
+			var nova = $NPCsForceJoin/Nova.get_child(0)
+			
+			luke.set_movement_speed_timer(0.1)
+			ken.set_movement_speed_timer(0.1)
+			tao.set_movement_speed_timer(0.1)
+			hans.set_movement_speed_timer(0.1)
+			lowe.set_movement_speed_timer(0.1)
+			nova.set_movement_speed_timer(0.1)
+			
+			Singleton_CommonVariables.main_character_player_node.set_facing_direction("Up")
+			
+			for i in 14:
+				luke.MoveInDirection("Down")
+				ken.MoveInDirection("Down")
+				tao.MoveInDirection("Down")
+				await tao.signal_action_finished
+				hans.MoveInDirection("Down")
+				# await hans.signal_action_finished
+			
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
+			Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/InitialForceJoinsPart1.json"
+			Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+			
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.dialogue_box_is_currently_active = false
+			Singleton_CommonVariables.dialogue_box_node.external_file = ""
+			
+			for i in 14:
+				hans.MoveInDirection("Up")
+				await hans.signal_action_finished
+				luke.MoveInDirection("Up")
+				ken.MoveInDirection("Up")
+				tao.MoveInDirection("Up")
+				await tao.signal_action_finished
+			
+			hans.queue_free()
+			tao.queue_free()
+			luke.queue_free()
+			ken.queue_free()
+			
+			for i in 14:
+				lowe.MoveInDirection("Down")
+				await lowe.signal_action_finished
+			
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
+			Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/InitialForceJoinsPart2.json"
+			Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+			
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.dialogue_box_is_currently_active = false
+			Singleton_CommonVariables.dialogue_box_node.external_file = ""
+			
+			for i in 14:
+				nova.MoveInDirection("Down")
+				await nova.signal_action_finished
+			
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
+			Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/InitialForceJoinsPart3.json"
+			Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+			
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.dialogue_box_is_currently_active = false
+			Singleton_CommonVariables.dialogue_box_node.external_file = ""
+			
+			for i in 16:
+				lowe.MoveInDirection("Up")
+				nova.MoveInDirection("Up")
+				await nova.signal_action_finished
+			
+			var fm_idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.LUKE
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
+			fm_idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.KEN
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
+			fm_idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.TAO
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
+			fm_idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.HANS
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
+			fm_idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.LOWE
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
+			
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)

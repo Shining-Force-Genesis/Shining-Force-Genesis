@@ -12,7 +12,7 @@ var MemberSelectionLine = preload("res://General/ControlsOverworld/MemberListVie
 var MemberMagicLine = preload("res://General/ControlsOverworld/MemberListView/MemberMagicLine.tscn")
 var MemberItemLine = preload("res://General/ControlsOverworld/MemberListView/MemberItemLine.tscn")
 
-@onready var ScollbarContainerNode = $StatNinePatchRect2/ScrollContainer
+@onready var ScollbarContainerNode: ScrollContainer = $StatNinePatchRect2/ScrollContainer
 
 @onready var portrait_sprite = $PortraitWrapperNode/PortraitSprite
 
@@ -53,8 +53,8 @@ func _ready():
 	var empty_stylebox = StyleBoxEmpty.new()
 	invisible_scrollbar_theme.set_stylebox("scroll", "VScrollBar", empty_stylebox)
 	invisible_scrollbar_theme.set_stylebox("scroll", "HScrollBar", empty_stylebox)
-	# ScollbarContainerNode.get_v_scrollbar().theme = invisible_scrollbar_theme
-	# ScollbarContainerNode.get_h_scrollbar().theme = invisible_scrollbar_theme
+	ScollbarContainerNode.get_v_scroll_bar().theme = invisible_scrollbar_theme
+	ScollbarContainerNode.get_h_scroll_bar().theme = invisible_scrollbar_theme
 	
 	DisplayNewlySelectedCharacterInfo(Singleton_CommonVariables.sf_game_data_node.ForceMembers[0])
 	
@@ -76,8 +76,8 @@ func set_menu_active() -> void:
 func set_items_view_active():
 	overview_mangic_and_inventory_control_node.hide()
 	DisplayNewlySelectedCharacterInfo(Singleton_CommonVariables.sf_game_data_node.ForceMembers[0])
-#	itemsViewControlNode.CleanItemSlots()
-#	itemsViewControlNode.DisplayItems()
+	itemsViewControlNode.CleanItemSlots()
+	itemsViewControlNode.DisplayItems()
 	
 	current_selection = Singleton_CommonVariables.sf_game_data_node.ForceMembers[0].name
 	red_selection.position = Vector2(21, 94)
@@ -90,6 +90,8 @@ func set_overvview_view_active():
 	itemsViewControlNode.hide()
 	itemsViewControlNode.CleanItemSlots()
 	overview_mangic_and_inventory_control_node.show()
+	
+	# Singleton_CommonVariables.sf_game_data_node.ForceMembers[i].name, current_selection
 
 
 func load_character_lines() -> void:
@@ -131,7 +133,7 @@ func _input(event):
 #	if event.is_action_pressed("test_key_z"):
 #		load_character_lines()
 	
-	if event.is_action_pressed("ui_down"):
+	if event.is_action_released("ui_down"):
 		var fm_size = Singleton_CommonVariables.sf_game_data_node.ForceMembers.size()
 		
 		var idx = 0
@@ -170,7 +172,7 @@ func _input(event):
 				scroll_container_move_down_line()
 		
 		return
-	elif event.is_action_pressed("ui_up"):
+	elif event.is_action_released("ui_up"):
 		var fm_size = Singleton_CommonVariables.sf_game_data_node.ForceMembers.size()
 		
 		var idx = 0
@@ -210,7 +212,7 @@ func _input(event):
 		
 		return
 	
-	elif event.is_action_pressed("ui_a_key"):
+	elif event.is_action_released("ui_a_key"):
 		var fm_size = Singleton_CommonVariables.sf_game_data_node.ForceMembers.size()
 		
 		for i in fm_size:
@@ -222,16 +224,25 @@ func _input(event):
 				else:
 					Singleton_CommonVariables.selected_character = Singleton_CommonVariables.sf_game_data_node.ForceMembers[i]
 			
-				await Signal(get_tree().create_timer(0.1), "timeout")
+				await get_tree().create_timer(0.1).timeout
 				match Singleton_CommonVariables.action_type:
-					"GIVE": SelectItemOrSelectItemReciever()
+					"GIVE": 
+						overview_mangic_and_inventory_control_node.hide()
+						# itemsViewControlNode.set_item_selection_menu_active()
+						# set_items_view_active()
+						SelectItemOrSelectItemReciever()
 					
 					"EQUIP": 
+						AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+						return 
 						equipItemsControlNode.DisplayCharacterStats(Singleton_CommonVariables.sf_game_data_node.ForceMembers[i])
 						itemsViewControlNode.hide()
 						equipItemsControlNode.set_equip_menu_active()
 						
-					_: itemsViewControlNode.set_item_selection_menu_active()
+					_: 
+						overview_mangic_and_inventory_control_node.hide()
+						itemsViewControlNode.set_item_selection_menu_active()
+						# set_items_view_active()
 				
 				# active = false
 				
@@ -239,7 +250,7 @@ func _input(event):
 		# active = false
 		return
 		
-	elif event.is_action_pressed("ui_b_key"):
+	elif event.is_action_released("ui_b_key"):
 		# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 		hide()
 		active = false
@@ -289,16 +300,17 @@ func DisplayNewlySelectedCharacterInfo(force_member) -> void:
 	
 	
 	cnode = load(c.textures_and_scenes[c.promotion_stage].player_scene).instantiate();
+	portrait_sprite.texture = load(c.textures_and_scenes[c.promotion_stage].portrait_texture)
 	
-	print("Premature return fixme later")
-	return
+	print("TODO portrait")
+	# return
 	
-	var cnode_actor = cnode.get_actor_root_node_internal()
+	# var cnode_actor = cnode.get_child(0)
 	
 	# print(cnode, cnode_actor)
 	
-	if cnode_actor.promotion_stage == 0:
-		portrait_sprite.texture = cnode_actor.texture_sprite_portrait_unpromoted
+	# if cnode_actor.promotion_stage == 0:
+	#	portrait_sprite.texture = cnode_actor.texture_sprite_portrait_unpromoted
 	
 	selected_character_info_name_label.text = c.name
 	selected_character_info_class_label.text = c.class_full
@@ -406,3 +418,11 @@ func SelectItemOrSelectItemReciever() -> void:
 	Singleton_CommonVariables.selected_item = null
 	Singleton_CommonVariables.selected_character = null
 	Singleton_CommonVariables.selected_item_idx = null
+	
+	set_overvview_view_active()
+
+
+func refresh_overview_for_current_character() -> void:
+	# DisplayNewlySelectedCharacterInfo(Singleton_CommonVariables.sf_game_data_node.ForceMembers[current_selection])
+	# DisplayNewlySelectedCharacterInfo(Singleton_CommonVariables.selected_target_character)
+	pass

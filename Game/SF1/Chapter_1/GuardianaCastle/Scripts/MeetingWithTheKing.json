@@ -1,0 +1,23 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/King_Gaurdiana_Portraits.png"
+		},
+
+		{
+			"Text": "...that is the story, Varios."
+		},
+
+		{
+			"ShowPortrait": "res://Assets/NPC/Varios_Portraits.png"
+		},
+
+		{
+			"Text": "Mmmm...Then, your majesty, we have no choice but to send {main_character_name}, a young fighter."
+		},
+
+		{
+			"Text": "Oh, {main_character_name}. Good. I was going to look for you. First, listen to the King."
+		}
+	]
+}
