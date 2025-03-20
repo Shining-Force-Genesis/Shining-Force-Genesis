@@ -2239,7 +2239,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="GortsHouse" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 use_parent_material = true
 position = Vector2(168, 240)
@@ -2248,7 +2247,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="FamilyHome" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 use_parent_material = true
 position = Vector2(168, 240)
@@ -2257,7 +2255,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="Inn" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 use_parent_material = true
 position = Vector2(168, 240)
@@ -2266,7 +2263,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="SoldierHouse" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 use_parent_material = true
 position = Vector2(168, 240)
@@ -2275,7 +2271,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="Shop" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 use_parent_material = true
 position = Vector2(168, 240)
@@ -2284,7 +2279,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="Bar" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 use_parent_material = true
 position = Vector2(168, 240)
@@ -2293,7 +2287,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="Church" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 2
 use_parent_material = true
 position = Vector2(168, 240)

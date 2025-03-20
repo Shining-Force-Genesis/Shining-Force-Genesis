@@ -12,7 +12,8 @@ signal spell_cast_frame_reached
 
 func _ready() -> void:
 	character_sprite.material.set("shader_parameter/dissolve_effect_amount", 0.0)
-	weapon_sprite.material.set("shader_parameter/dissolve_effect_amount", 0.0)
+	if weapon_sprite.material:
+		weapon_sprite.material.set("shader_parameter/dissolve_effect_amount", 0.0)
 
 # TODO: maybe make these exports as strings so its easy to reuse idle for mutliple types
 # probably wont need more than this
