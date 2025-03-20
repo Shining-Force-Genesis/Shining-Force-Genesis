@@ -1,0 +1,15 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Characters/Luke/Assets/Unpromoted_Portraits.png"
+		},
+
+		{
+			"Text": "I'm ready, {main_character_name}. You line 'em up, and I'll chop 'em down!"
+		},
+
+		{
+			"HidePortrait": ""
+		}
+	]
+}

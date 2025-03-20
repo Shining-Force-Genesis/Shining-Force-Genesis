@@ -4,6 +4,8 @@ signal signal_action_finished
 
 signal signal_move_complete
 
+signal 
+
 #
 @onready var ray: RayCast2D = $RayCast2D
 @onready var ray_interactables: RayCast2D = $InteractablesRayCast2D

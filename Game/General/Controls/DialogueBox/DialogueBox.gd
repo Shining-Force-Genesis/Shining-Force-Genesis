@@ -480,12 +480,12 @@ func ShowMenu(string_arg: String) -> void:
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 		Singleton_CommonVariables.ui__hq_menu.show_with_tween()
 	elif  string_arg == "PriestMenu":
-		print("early return TODO: priest menu")
-		return
-		# Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
-		# Singleton_CommonVariables.ui__priest_menu.s_show_priest_menu()
+		# print("early return TODO: priest menu")
+		# return
+		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+		Singleton_CommonVariables.ui__priest_menu.s_show_priest_menu()
 	elif  string_arg == "ShopMenu":
-		# print(Singleton_Game_GlobalCommonVariables.interaction_node_reference.ITEM_LIST)
+		print(Singleton_CommonVariables.interaction_node_reference.ITEM_LIST)
 		Singleton_CommonVariables.ui__shop_item_selection_menu.insert_item_list(Singleton_CommonVariables.interaction_node_reference.ITEM_LIST)
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 		Singleton_CommonVariables.ui__shop_menu.s_show_shop_menu()

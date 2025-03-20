@@ -1,0 +1,15 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Characters/Ken/Assets/Unpromoted_Portraits.png"
+		},
+
+		{
+			"Text": "At last! A chance to become a real knight! Count me in!"
+		},
+
+		{
+			"HidePortrait": ""
+		}
+	]
+}

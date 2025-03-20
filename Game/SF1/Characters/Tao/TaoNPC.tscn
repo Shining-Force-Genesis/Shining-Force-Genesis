@@ -1,146 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgd0ogfipug0n"]
+[gd_scene load_steps=4 format=3 uid="uid://dgd0ogfipug0n"]
 
 [ext_resource type="Script" uid="uid://d1vigovgr65b2" path="res://SF1/Characters/GenericHeadquartersNPC.gd" id="1_osq2y"]
 [ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="1_r4riw"]
-
-[sub_resource type="Animation" id="Animation_n4dn6"]
-resource_name = "DownMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
-[sub_resource type="Animation" id="Animation_nmbc3"]
-resource_name = "LeftMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_waxmj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_073hd"]
-resource_name = "RightMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [4, 5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_gxkde"]
-resource_name = "UpMovement"
-length = 0.80001
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [2, 3]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_lcwfw"]
-_data = {
-&"DownMovement": SubResource("Animation_n4dn6"),
-&"LeftMovement": SubResource("Animation_nmbc3"),
-&"RESET": SubResource("Animation_waxmj"),
-&"RightMovement": SubResource("Animation_073hd"),
-&"UpMovement": SubResource("Animation_gxkde")
-}
+[ext_resource type="Texture2D" uid="uid://byy3nqh0ev8s6" path="res://Characters/Tao/Assets/Unpromoted_Map_Sprites.png" id="3_ynbcg"]
 
 [node name="TaoNPC" type="Node2D"]
 script = ExtResource("1_osq2y")
 
 [node name="NPCRoot" parent="." instance=ExtResource("1_r4riw")]
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="NPCRoot/AnimatableBody2D" index="0"]
-root_node = NodePath("../CharacterRoot")
-libraries = {
-&"": SubResource("AnimationLibrary_lcwfw")
-}
-autoplay = "DownMovement"
+[node name="AnimatableBody2D" parent="NPCRoot" index="0"]
+higher_order_npc = true
+
+[node name="Sprite2D" parent="NPCRoot/AnimatableBody2D" index="2"]
+texture = ExtResource("3_ynbcg")
 
 [editable path="NPCRoot"]

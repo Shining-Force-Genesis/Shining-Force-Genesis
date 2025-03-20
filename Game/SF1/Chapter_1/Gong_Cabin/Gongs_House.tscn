@@ -3150,7 +3150,6 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="Roof" type="TileMapLayer" parent="Map"]
-visible = false
 z_index = 1
 use_parent_material = true
 position = Vector2(224, 176)
@@ -3205,48 +3204,51 @@ metadata/_edit_lock_ = true
 [node name="Marker2D" type="Marker2D" parent="CameraLimitsInfo"]
 position = Vector2(680, 528)
 
-[node name="Node" type="Node" parent="."]
+[node name="NPCs" type="Node" parent="."]
 
-[node name="GongNPCRoot" parent="Node" instance=ExtResource("6_2mcm1")]
+[node name="GongNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
 position = Vector2(156, 204)
 script = ExtResource("7_80hnj")
 
-[node name="AnimatableBody2D" parent="Node/GongNPCRoot" index="0"]
+[node name="AnimatableBody2D" parent="NPCs/GongNPCRoot" index="0"]
 stationary = true
 FacingDirection = 2
 
-[node name="Sprite2D" parent="Node/GongNPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCs/GongNPCRoot/AnimatableBody2D" index="2"]
 texture = ExtResource("7_i7u8f")
 hframes = 6
 
-[node name="JogurtNPCRoot" parent="Node" instance=ExtResource("6_2mcm1")]
+[node name="JogurtNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
 position = Vector2(420, 324)
 script = ExtResource("9_oygon")
 
-[node name="AnimatableBody2D" parent="Node/JogurtNPCRoot" index="0"]
+[node name="AnimatableBody2D" parent="NPCs/JogurtNPCRoot" index="0"]
 stationary = true
 FacingDirection = 3
 
-[node name="Sprite2D" parent="Node/JogurtNPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCs/JogurtNPCRoot/AnimatableBody2D" index="2"]
 texture = ExtResource("8_i7u8f")
 hframes = 6
 
-[node name="WomanNPCRoot" parent="Node" instance=ExtResource("6_2mcm1")]
+[node name="WomanNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
 position = Vector2(228, 156)
 script = ExtResource("11_77mdt")
 
-[node name="Sprite2D" parent="Node/WomanNPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCs/WomanNPCRoot/AnimatableBody2D" index="2"]
 texture = ExtResource("9_qwvxi")
 hframes = 6
 
-[node name="OldManNPCRoot" parent="Node" instance=ExtResource("6_2mcm1")]
+[node name="PathConstraintsTileMapLayer" parent="NPCs/WomanNPCRoot" index="2"]
+position = Vector2(-228, -156)
+
+[node name="OldManNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
 position = Vector2(276, 156)
 script = ExtResource("13_mxaof")
 
-[node name="AnimatableBody2D" parent="Node/OldManNPCRoot" index="0"]
+[node name="AnimatableBody2D" parent="NPCs/OldManNPCRoot" index="0"]
 stationary = true
 
-[node name="Sprite2D" parent="Node/OldManNPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCs/OldManNPCRoot/AnimatableBody2D" index="2"]
 texture = ExtResource("10_lw88g")
 hframes = 6
 
@@ -3254,7 +3256,7 @@ hframes = 6
 [connection signal="body_entered" from="RoofAreas/HQEntranceArea2D" to="." method="_on_hq_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="RoofAreas/HQExitArea2D" to="." method="_on_hq_exit_area_2d_body_entered"]
 
-[editable path="Node/GongNPCRoot"]
-[editable path="Node/JogurtNPCRoot"]
-[editable path="Node/WomanNPCRoot"]
-[editable path="Node/OldManNPCRoot"]
+[editable path="NPCs/GongNPCRoot"]
+[editable path="NPCs/JogurtNPCRoot"]
+[editable path="NPCs/WomanNPCRoot"]
+[editable path="NPCs/OldManNPCRoot"]

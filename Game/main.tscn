@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlefd54ec4ccd"]
+[gd_scene load_steps=25 format=3 uid="uid://dlefd54ec4ccd"]
 
 [ext_resource type="Script" uid="uid://cec6dx1xogrhk" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://b8f1gj7urnvyo" path="res://timescale.gd" id="2_h2yge"]
@@ -16,8 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://t0dmsvrjq8g7" path="res://General/ControlsBattle/ViewSelectedActorInfoPopup/ViewSelectedActorInfoPopup.tscn" id="14_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://dsabmddgh7hqp" path="res://General/ControlsBattle/LandEffectPopup/LandEffectPopup.tscn" id="14_vivmo"]
 [ext_resource type="PackedScene" uid="uid://cb1wai5uq2yyg" path="res://General/BattleScene/BattleScene.tscn" id="15_yaehf"]
+[ext_resource type="PackedScene" uid="uid://2c2ps8or2nf3" path="res://General/ControlsOverworld/PriestMenu/PriestMenu.tscn" id="16_cegan"]
 [ext_resource type="PackedScene" uid="uid://ck7weiy086rpx" path="res://Characters/main.tscn" id="17_074og"]
-[ext_resource type="PackedScene" uid="uid://nn55jt1wlyai" path="res://SF1/Chapter_1/Gong_Cabin/Gongs_House.tscn" id="17_yaehf"]
+[ext_resource type="PackedScene" uid="uid://h4qib203h5ag" path="res://General/ControlsOverworld/HQMenus/HQMenu.tscn" id="17_82xsv"]
+[ext_resource type="PackedScene" uid="uid://de2qtm5baxn5l" path="res://General/Controls/YesOrNoPrompt/YesOrNoPrompt.tscn" id="18_getpj"]
+[ext_resource type="PackedScene" uid="uid://c6mpihptmyue8" path="res://General/ControlsOverworld/ShopMenu/ShopMenu.tscn" id="18_ryguw"]
+[ext_resource type="PackedScene" uid="uid://bv43e0jmlifoi" path="res://General/ControlsOverworld/ShopMenu/ItemSelectionMenu/ItemSelectionMenu.tscn" id="19_d13ii"]
+[ext_resource type="PackedScene" uid="uid://dv3qaqslut63l" path="res://General/ControlsOverworld/MicroMemberListView/MicroMemberListView.tscn" id="20_1u8w0"]
+[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/Chapter_1/Guardiana/TownTilemap.tscn" id="20_82xsv"]
 
 [node name="MAIN" type="Node2D"]
 script = ExtResource("1_1bvp3")
@@ -34,20 +40,25 @@ script = ExtResource("3_ycdy4")
 visible = false
 
 [node name="LandEffectPopup" parent="UI_Battle" instance=ExtResource("14_vivmo")]
+visible = false
 position = Vector2(8, 8)
 
 [node name="BattleActionsMenu" parent="UI_Battle" instance=ExtResource("12_w48qg")]
+visible = false
 position = Vector2(204, 204)
 
 [node name="TargetActorMicroInfoBox" parent="UI_Battle" instance=ExtResource("13_vivmo")]
+visible = false
 position = Vector2(8, 208)
 
 [node name="ViewSelectedActorInfoPopup" parent="UI_Battle" instance=ExtResource("14_2cqfq")]
+visible = false
 position = Vector2(108, 56)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DialogueBox" parent="UI" instance=ExtResource("6_272bh")]
+visible = false
 z_index = 3
 offset_left = 96.0
 offset_top = 184.0
@@ -55,6 +66,7 @@ offset_right = 96.0
 offset_bottom = 183.96
 
 [node name="PortraitPopup" parent="UI" instance=ExtResource("7_5vw27")]
+visible = false
 z_index = 1
 position = Vector2(124, 60)
 
@@ -78,6 +90,30 @@ position = Vector2(216, 204)
 visible = false
 position = Vector2(156, 120)
 
+[node name="PriestMenuRoot" parent="UI" instance=ExtResource("16_cegan")]
+visible = false
+position = Vector2(204, 204)
+
+[node name="HQMenuRoot" parent="UI" instance=ExtResource("17_82xsv")]
+visible = false
+position = Vector2(204, 204)
+
+[node name="ShopMenuRoot" parent="UI" instance=ExtResource("18_ryguw")]
+visible = false
+position = Vector2(204, 204)
+
+[node name="ShopItemSelectionMenuNode" parent="UI" instance=ExtResource("19_d13ii")]
+visible = false
+position = Vector2(88, 12)
+
+[node name="MicroMemberListViewNodeRoot" parent="UI" instance=ExtResource("20_1u8w0")]
+visible = false
+position = Vector2(80, 12)
+
+[node name="YesOrNoPrompt" parent="UI" instance=ExtResource("18_getpj")]
+visible = false
+position = Vector2(204, 152)
+
 [node name="CanvasLayer" parent="." instance=ExtResource("5_lquwl")]
 visible = false
 
@@ -92,4 +128,4 @@ position = Vector2(0, -1)
 
 [node name="Scene" type="Node" parent="."]
 
-[node name="Gongs_House" parent="Scene" instance=ExtResource("17_yaehf")]
+[node name="TownTilemap" parent="Scene" instance=ExtResource("20_82xsv")]

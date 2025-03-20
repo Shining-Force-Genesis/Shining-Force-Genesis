@@ -111,6 +111,10 @@ func interaction_attempt_to_talk() -> void:
 		
 		if c.get_parent().has_method("attempt_interaction_talk"):
 			c.get_parent().attempt_interaction_talk()
+		# TODO clean this and refactor there should be a much cleaner way of doing this without
+		# having multiple special paths and configurations
+		elif c.get_parent().get_parent().has_method("attempt_interaction_talk"):
+			c.get_parent().get_parent().attempt_interaction_talk()
 
 
 func interaction_attempt_to_search() -> void:
@@ -144,7 +148,27 @@ func get_actor_name() -> String:
 
 func MoveInDirection(arg: String) -> void:
 	match arg:
-		"Down": move('ui_down')
-		"Up": move('ui_up')
-		"Left": move('ui_left')
-		"Right": move('ui_right')
+		"Down": 
+			$Node2D/Max/AnimationPlayer.play("Down")
+			move('ui_down')
+		"Up": 
+			$Node2D/Max/AnimationPlayer.play("Up")
+			move('ui_up')
+		"Left": 
+			$Node2D/Max/AnimationPlayer.play("Left")
+			move('ui_left')
+		"Right": 
+			$Node2D/Max/AnimationPlayer.play("Right")
+			move('ui_right')
+
+
+func set_facing_direction(arg: String) -> void:
+	match arg:
+		"Down": 
+			$Node2D/Max/AnimationPlayer.play("Down")
+		"Up": 
+			$Node2D/Max/AnimationPlayer.play("Up")
+		"Left": 
+			$Node2D/Max/AnimationPlayer.play("Left")
+		"Right": 
+			$Node2D/Max/AnimationPlayer.play("Right")

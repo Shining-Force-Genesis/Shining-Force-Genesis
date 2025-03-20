@@ -1,0 +1,15 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Characters/Lowe/Assets/Unpromoted_Portraits.png"
+		},
+
+		{
+			"Text": "ZZZZZZzzzzzZZZZZzzzzz...."
+		},
+
+		{
+			"HidePortrait": ""
+		}
+	]
+}

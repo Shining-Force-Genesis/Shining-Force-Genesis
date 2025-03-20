@@ -2,12 +2,23 @@ extends Node2D
 
 @onready var move_tilemap = $Map/MoveTileMapLayer
 
+# var NpcBaseScene = preload("res://SF1/NPC/NPCBase.tscn")
+@onready var NpcRootNode = $NPCs
+
+@onready var ActivePositionsRootNode = $ActiveForceMarkers
+# @onready var InactivePositionsRootNode = $InactiveForcePositionsNode2D
+
 ### Navigation Markers
 var marker
 var marker_entrance = "Entrance"
 
 
 func _ready() -> void:
+	AudioManager.play_music_n(
+		# Singleton_Dev_Internal.base_path + "Assets/SF1/SoundBank/Headquarters.mp3"
+		"res://Assets/Music/SF1/Headquarters.mp3"
+	)
+	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
 	Player.character.camera.limit_right = $CameraLimitsInfo.get_child(0).position.x
 	Player.character.camera.limit_bottom = $CameraLimitsInfo.get_child(0).position.y
@@ -27,6 +38,78 @@ func _ready() -> void:
 		SceneManager.SceneFadeOut()
 		Player.enable()
 
+	var active_pos = ActivePositionsRootNode.get_children()
+	# var inactive_pos = InactivePositionsRootNode.get_children()
+	
+	# Singleton_Game_GlobalCommonVariables.sf_game_data_node.E_SF1_FM 
+	
+	var npc_fm
+	var npc_fm_chr
+	var i = 0
+	var apn
+	for fm in Singleton_CommonVariables.sf_game_data_node.ForceMembers:
+		if fm.leader:
+			continue
+		
+		print(fm.name)
+		
+		# TODO create gort npc scene and update force members after this point
+		# TODO create resource class for characters a giant json blob is terrible 
+		if fm.name == "Gort":
+			return
+		
+		print(fm.textures_and_scenes[0].npc_scene)
+		npc_fm = load(fm.textures_and_scenes[0].npc_scene).instantiate()
+		# TODO: stationary
+		npc_fm_chr = npc_fm.get_child(0).get_child(0)
+		npc_fm_chr.stationary = true
+		
+		
+		# TODO: when there's more than 12 characters in total need to add checks 
+		# to not overflow the active_pos
+		
+		if fm.active_in_force:
+			npc_fm.position = active_pos[i].position
+		#else:
+			#npc_fm.position = inactive_pos[i].position
+			#
+			#apn = inactive_pos[i].name
+			#if "Facing-Down" in apn:
+				#print("Down")
+				#npc_fm_chr.default_facing_direction = 0
+			#elif "Facing-Left" in apn:
+				#print("Left")
+				#npc_fm_chr.default_facing_direction = 1
+			#elif "Facing-Right" in apn:
+				#print("Right")
+				#npc_fm_chr.default_facing_direction = 2
+			#elif "Facing-Up" in apn:
+				#print("Up")
+				#npc_fm_chr.default_facing_direction = 3
+			#
+			#print(npc_fm_chr.default_facing_direction, " ", apn)
+			
+			# npc_fm.default_facing_direction_setup()
+		
+		NpcRootNode.add_child(npc_fm)
+		i = i + 1
+	
+# TODO move this into a test function to easily be able to confirm all active and inactive positions
+#		for fm in Singleton_Game_GlobalCommonVariables.sf_game_data_node.ForceMembers:
+#		npc_fm = NpcBaseScene.instance()
+#		npc_fm.get_child(0).stationary = true
+#
+#		if fm.active_in_force:
+#			npc_fm.position = active_pos[i].position
+#		else: #!fm.active_in_force:
+#			npc_fm.position = inactive_pos[i].position
+#
+#		var npc_fm_sprite = npc_fm.get_child(0).get_child(0).get_node("Sprite")	
+#		npc_fm_sprite.texture = load("res://Assets/SF1/PlayableCharacters/Arthur/Unpromoted_Map_Sprites.png")
+#		npc_fm_sprite.hframes = 6
+#
+#		NpcRootNode.add_child(npc_fm)
+#		i = i + 1
 
 ### Navigations
 

@@ -22,8 +22,9 @@ var currently_selected_option: int = e_menu_options.SAVE_OPTION
 # onready var noValidOptionNode = get_parent().get_node("NoValidOptionWarningBoxRoot")
 
 func _ready():
+	Singleton_CommonVariables.ui__priest_menu = self
 	set_sprites_to_zero_frame()
-	$AnimationPlayer.playback_speed = 2
+	$AnimationPlayer.set_speed_scale(2)
 	animationPlayer.play("AttackMenuOption")
 	label.text = "Save"
 
@@ -252,7 +253,7 @@ func CancelPriestMenu() -> void:
 	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	await get_tree().create_timer(0.02).timeout
 	
-	return
+	# return
 	
 	Singleton_CommonVariables.action_type = null
 	
@@ -265,6 +266,22 @@ func CancelPriestMenu() -> void:
 	
 	# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 	Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
-	Singleton_CommonVariables.menus_root_node.gold_info_box_node().hide()
-	Singleton_CommonVariables.menus_root_node.character_info_box_node().hide()
+	# Singleton_CommonVariables.menus_root_node.gold_info_box_node().hide()
+	# Singleton_CommonVariables.menus_root_node.character_info_box_node().hide()
 	#get_parent().get_parent().get_parent().s_hide_action_menu()
+
+
+func s_show_priest_menu() -> void:
+	is_menu_active = true
+	
+	show()
+	
+	set_sprites_to_zero_frame()
+	
+	menu_option_selected(e_menu_options.SAVE_OPTION, "AttackMenuOption", "Save")
+	
+	# currently_selected_option = e_menu_options.TALK_OPTION
+	# animationPlayer.play("Talk")
+	# label.text = "Talk"
+	
+	pass

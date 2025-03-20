@@ -2,6 +2,8 @@ extends Node2D
 
 signal signal_action_finished
 
+@onready var constraints_map = $"../PathConstraintsTileMapLayer"
+
 # probably should have a state machine for npcs
 # instead of whatever this setup is supposed to be
 
@@ -10,6 +12,10 @@ signal signal_action_finished
 # 
 # @export var is_npc: bool = true
 var is_npc: bool = true
+
+## Set this to true if this npc is prebuilt and saved and the parent node contains the logic instead of the npc base root node
+## clean this up disugsting but okay for getting things working
+@export var higher_order_npc: bool = false
 
 ## If true npc won't move away from their current spot.
 @export var stationary: bool
@@ -44,7 +50,7 @@ var tween_animation_time_speed_const: float = 0.5
 
 var rng = RandomNumberGenerator.new()
 
-var parent_node = null
+var parent_node: Node = null
 
 #
 # Called when the node enters the scene tree for the first time.
@@ -70,6 +76,12 @@ func attempt_interaction_talk() -> void:
 		parent_node.attempt_interaction_talk()
 	else:
 		attempt_to_talk()
+	
+	# print("here")
+	
+	if higher_order_npc:
+		if parent_node.get_parent().has_meta("attempt_interaction_talk"):
+			parent_node.attempt_interaction_talk()
 
 func attempt_interaction_search() -> void:
 	# TODO: check if move in progress 
@@ -88,6 +100,15 @@ func attempt_to_search() -> void:
 func npc_move() -> void:
 	if stationary:
 		return
+	
+	# TODO remove the area2d collision polygon npc limits with the tilemap (create differetn tilemap color too)
+	#ray.force_raycast_update()
+	#if constraints_map:
+		#var clicked_cell = constraints_map.local_to_map(ray.target_position + ray.global_position)
+		#var data = constraints_map.get_cell_source_id(clicked_cell)
+		#if data == 0:
+			#random_move_direction(rng.randi_range(0, 3))
+			#return
 	
 	# TODO: FIXME: should stop on stationary var change
 	# but also need a way to restart this after an interaction is complete
@@ -183,6 +204,8 @@ func attempt_to_move(new_position_target: Vector2, direction: e_directions) -> v
 		collision_shape_cell_block.position = collision_cell_blocker_positions[direction]
 		action_move(new_position_target)
 		collision_shape_cell_block.position = Vector2.ZERO
+	#else:
+		#random_move_direction(rng.randi_range(0, 3))
 
 func action_move(new_position_target: Vector2) -> void:
 	var tween = create_tween()

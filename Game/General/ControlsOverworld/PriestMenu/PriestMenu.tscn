@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://2c2ps8or2nf3"]
+[gd_scene load_steps=10 format=3 uid="uid://2c2ps8or2nf3"]
 
 [ext_resource type="Texture2D" uid="uid://vb4y2fdefol6" path="res://Assets/Genesis 32X SCD - Shining Force CD Sega CD - Icons.png" id="1"]
 [ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="2"]
 [ext_resource type="Script" uid="uid://cl6gy1c6ncexy" path="res://General/ControlsOverworld/PriestMenu/PriestMenu.gd" id="4"]
+[ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="4_fvqhm"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "AttackMenuOption"
@@ -113,6 +114,10 @@ region_enabled = true
 region_rect = Rect2(584, 136, 24, 48)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_left = 80.0
+offset_top = 24.0
+offset_right = 192.0
+offset_bottom = 48.0
 texture = ExtResource("2")
 patch_margin_left = 10
 patch_margin_top = 10
@@ -120,9 +125,16 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 
 [node name="Label" type="Label" parent="NinePatchRect"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 8.0
+offset_right = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_fvqhm")
+theme_override_font_sizes/font_size = 24
 text = "TEST"
 vertical_alignment = 1
 

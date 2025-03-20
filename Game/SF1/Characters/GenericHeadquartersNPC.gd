@@ -1,9 +1,13 @@
 extends Node2D
 
+# @export var DefaultScript: String
+
 var stationary
 var facing_direction
+var interacting: bool = false
 
 @onready var npcBaseRoot = get_child(0).get_child(0)
+# @onready var npcBaseRoot = get_child(0)
 
 var actor_name_pulled_from_node: String
 
@@ -13,7 +17,12 @@ func _ready():
 	pass
 
 
-func attempt_to_interact() -> void:
+func attempt_interaction_talk() -> void:
+	if interacting:
+		return
+	
+	interacting = true
+	
 	Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 	
 	# get facing direction prior to talk interaction
@@ -26,16 +35,23 @@ func attempt_to_interact() -> void:
 	
 	var idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.HANS
 	if Singleton_CommonVariables.sf_game_data_node.ForceMembers[idx].active_in_force:
-		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/HeadQuarters/Scripts/ActiveForceQuotes/" + actor_name_pulled_from_node + ".json"
+		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/HQ/Scripts/ActiveForceQuotes/" + actor_name_pulled_from_node + ".json"
 	else:
-		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/HeadQuarters/Scripts/InactiveForceQuotes/" + actor_name_pulled_from_node + ".json"
+		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/HQ/Scripts/InactiveForceQuotes/" + actor_name_pulled_from_node + ".json"
+	
+	# Singleton_CommonVariables.dialogue_box_node.external_file = DefaultScript # res://SF1/Chapters/1/Guardiana/Scripts/WomanRedHeadChurch.json
 	
 	Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+	
+	await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+	
+	# Singleton_Game_GlobalCommonVariables.main_character_player_node.set_active_processing(true)
+	# interacting = false
 
 
 func interaction_completed() -> void:
 	Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
-	
+	interacting = false
 	npcBaseRoot.stationary = stationary
 	npcBaseRoot.change_facing_direction_string(facing_direction)
 	Singleton_CommonVariables.dialogue_box_is_currently_active = false

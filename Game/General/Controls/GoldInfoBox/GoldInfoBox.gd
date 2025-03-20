@@ -23,8 +23,8 @@ func DefaultPosition() -> void:
 
 func ShopMenuPosition() -> void:
 	# TODO: CLEAN: do something better than magic numbers for positioning
-	position.x = 202
-	position.y = 91
+	position.x = 288
+	position.y = 144
 
 
 ## Show Hide Normal Position

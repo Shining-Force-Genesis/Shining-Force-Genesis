@@ -54,6 +54,9 @@ func _process(_delta):
 		# event.is_action_released("ui_accept"):
 		print("Accept Action - ", currently_selected_option)
 		if currently_selected_option == e_menu_options.STATS_OPTION:
+			print("TODO STATS")
+			return
+			
 			is_menu_active = false
 			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
@@ -82,6 +85,9 @@ func _process(_delta):
 			
 			return
 		elif currently_selected_option == e_menu_options.INVENTORY_OPTION:
+			print("TODO INVENTORY")
+			return
+			
 			is_menu_active = false
 			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
@@ -109,6 +115,9 @@ func _process(_delta):
 				is_menu_active = true
 			return
 		elif currently_selected_option == e_menu_options.JOIN_OPTION:
+			print("TODO JOIN")
+			return
+			
 			is_menu_active = false
 			# Singleton_Game_GlobalCommonVariables.main_character_player_node.interaction_attempt_to_talk()
 			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
@@ -143,10 +152,10 @@ func _process(_delta):
 			
 			# TODO: refactor should have this more predictable and just pass the number in the path param
 			match Singleton_CommonVariables.upcoming_battle_number:
-				1: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/HeadQuarters/Scripts Nova/Battle1_Advice.json"
+				1: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/HQ/Scripts Nova/Battle1_Advice.json"
 				# no advice for battle 2 - 2: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/HQ/Default/Scripts/ActiveForceQuotes/Tao.json"
-				3: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/HeadQuarters/Scripts Nova/Battle3_Advice.json"
-				4: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/HeadQuarters/Scripts Nova/Battle4_Advice.json"
+				3: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/HQ/Scripts Nova/Battle3_Advice.json"
+				4: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/HQ/Scripts Nova/Battle4_Advice.json"
 				# 5: Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/HQ/Default/Scripts/ActiveForceQuotes/Tao.json"
 				_: pass # TODO: create generic good luck in battle message to have as a fallback in case of no advice present
 			

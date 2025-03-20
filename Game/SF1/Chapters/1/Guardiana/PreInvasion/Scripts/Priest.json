@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/NPC/Priest_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/Priest_Portraits.png"
 		},
 
 		{

@@ -1,10 +1,21 @@
-[gd_scene load_steps=18 format=4 uid="uid://c4bbxku3rhy1c"]
+[gd_scene load_steps=34 format=4 uid="uid://c4bbxku3rhy1c"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="0"]
 [ext_resource type="Script" uid="uid://dw1xjnj53lj5c" path="res://SF1/Chapter_1/Guardiana/kings_castle_tilemap.gd" id="1_8i5q1"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="4_kqqdt"]
 [ext_resource type="Texture2D" uid="uid://bb2jwrq5it0w4" path="res://SF1/Assets/Tilesets/6.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="6_t0x2g"]
 [ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="7"]
+[ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/Chapter_1/Guardiana/NPCs/GenericOneDialogueNPC.gd" id="7_bwfno"]
+[ext_resource type="Texture2D" uid="uid://dkoqu4b08efg6" path="res://Assets/NPC/Man_Old_WhiteBeard.png" id="8_f023a"]
+[ext_resource type="Texture2D" uid="uid://crk5refjaoje8" path="res://Assets/NPC/Woman_Blonde_GreenDress.png" id="9_75pk4"]
+[ext_resource type="Texture2D" uid="uid://v6ew4ihbmngo" path="res://Assets/NPC/Lord_Varios.png" id="10_0ot5g"]
+[ext_resource type="Texture2D" uid="uid://5qxw13ilj8h0" path="res://Characters/Mae/Assets/Unpromoted_Map_Sprites.png" id="11_ycb3y"]
+[ext_resource type="Texture2D" uid="uid://df5pc7pth6tax" path="res://Characters/Arthur/Assets/Promoted_Map_Sprites.png" id="12_087s1"]
+[ext_resource type="Texture2D" uid="uid://ca1xibywmhgm1" path="res://Assets/NPC/King Guardiana.png" id="13_087s1"]
+[ext_resource type="Texture2D" uid="uid://buuvlshs68ehi" path="res://Assets/NPC/Nova.png" id="15_bot6t"]
+[ext_resource type="Texture2D" uid="uid://bgnskiw73wjn6" path="res://Assets/NPC/Chancellor.png" id="16_etloh"]
+[ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="25_mjmit"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
 texture = ExtResource("0")
@@ -3123,6 +3134,77 @@ size = Vector2(16, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rxhl4"]
 size = Vector2(64, 16)
 
+[sub_resource type="Animation" id="Animation_8cicr"]
+resource_name = "Down"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_wy8xx"]
+resource_name = "Left"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_8tc18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_r18dk"]
+resource_name = "Up"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wy8xx"]
+_data = {
+&"Down": SubResource("Animation_8cicr"),
+&"Left": SubResource("Animation_wy8xx"),
+&"RESET": SubResource("Animation_8tc18"),
+&"Up": SubResource("Animation_r18dk")
+}
+
 [node name="KingsCastleTilemap" type="Node2D"]
 script = ExtResource("1_8i5q1")
 
@@ -3166,6 +3248,7 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="MoveTileMapLayer" type="TileMapLayer" parent="Map"]
+visible = false
 z_index = 8
 tile_map_data = PackedByteArray("AAAYACMAAAAAAAAAAAAYACQAAAAAAAAAAAAYACUAAAAAAAAAAAAYACYAAAAAAAAAAAAYACcAAAAAAAAAAAAYACgAAAAAAAAAAAAYACkAAAAAAAAAAAAYACoAAAAAAAAAAAAYACsAAAAAAAAAAAAYACwAAAAAAAAAAAAZACwAAAAAAAAAAAAaACwAAAAAAAAAAAAbACwAAAAAAAAAAAAcACwAAAAAAAAAAAAcACsAAAAAAAAAAAAcACoAAAAAAAAAAAAcACkAAAAAAAAAAAAcACgAAAAAAAAAAAAcACcAAAAAAAAAAAAcACYAAAAAAAAAAAAcACUAAAAAAAAAAAAcACQAAAAAAAAAAAAcACMAAAAAAAAAAAAdACMAAAAAAAAAAAAeACMAAAAAAAAAAAAfACMAAAAAAAAAAAAfACIAAAAAAAAAAAAgACIAAAAAAAAAAAAhACIAAAAAAAAAAAAhACEAAAAAAAAAAAAhACAAAAAAAAAAAAAgACAAAAAAAAAAAAAhAB8AAAAAAAAAAAAdAB8AAAAAAAAAAAAcAB8AAAAAAAAAAAAcAB4AAAAAAAAAAAAcAB0AAAAAAAAAAAAdAB4AAAAAAAAAAAAdAB0AAAAAAAAAAAAdABwAAAAAAAAAAAAeABwAAAAAAAAAAAAfABwAAAAAAAAAAAAgABwAAAAAAAAAAAAhABwAAAAAAAAAAAAiABwAAAAAAAAAAAAjABwAAAAAAAAAAAAkABwAAAAAAAAAAAAlABwAAAAAAAAAAAAmABwAAAAAAAAAAAAnABwAAAAAAAAAAAAnAB0AAAAAAAAAAAAnAB4AAAAAAAAAAAAmAB4AAAAAAAAAAAAlAB4AAAAAAAAAAAAkAB4AAAAAAAAAAAAjAB4AAAAAAAAAAAAeAB4AAAAAAAAAAAAeAB0AAAAAAAAAAAAfAB0AAAAAAAAAAAAgAB0AAAAAAAAAAAAhAB0AAAAAAAAAAAAhAB4AAAAAAAAAAAAiAB4AAAAAAAAAAAAjAB0AAAAAAAAAAAAkAB0AAAAAAAAAAAAlAB0AAAAAAAAAAAAmAB0AAAAAAAAAAAAiAB0AAAAAAAAAAAAgAB4AAAAAAAAAAAAfAB4AAAAAAAAAAAAnABsAAAAAAAAAAAAnABoAAAAAAAAAAAAnABkAAAAAAAAAAAAmABsAAAAAAAAAAAAlABsAAAAAAAAAAAAkABsAAAAAAAAAAAAnABgAAAAAAAAAAAAnABcAAAAAAAAAAAAnABYAAAAAAAAAAAAnABUAAAAAAAAAAAAnABQAAAAAAAAAAAAnABMAAAAAAAAAAAAnABIAAAAAAAAAAAAnABEAAAAAAAAAAAAnABAAAAAAAAAAAAAnAA8AAAAAAAAAAAAnAA4AAAAAAAAAAAAnAA0AAAAAAAAAAAAnAAwAAAAAAAAAAAAmAA0AAAAAAAAAAAAmAA4AAAAAAAAAAAAmAA8AAAAAAAAAAAAmABAAAAAAAAAAAAAnAAsAAAAAAAAAAAAnAAoAAAAAAAAAAAAnAAkAAAAAAAAAAAAmAAoAAAAAAAAAAAAkAAoAAAAAAAAAAAAjAAoAAAAAAAAAAAAiAAoAAAAAAAAAAAAhAAoAAAAAAAAAAAAhAAkAAAAAAAAAAAAhAAgAAAAAAAAAAAAhAAcAAAAAAAAAAAAhAAYAAAAAAAAAAAANAA4AAAAAAAAAAAANAA0AAAAAAAAAAAANAAwAAAAAAAAAAAANAAsAAAAAAAAAAAANAAoAAAAAAAAAAAAOAAoAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAPAAwAAAAAAAAAAAAPAA0AAAAAAAAAAAAPAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAARAA4AAAAAAAAAAAARAA8AAAAAAAAAAAASAA8AAAAAAAAAAAATAA8AAAAAAAAAAAAUAA8AAAAAAAAAAAAVAA8AAAAAAAAAAAAWAA8AAAAAAAAAAAAWABAAAAAAAAAAAAAWABEAAAAAAAAAAAAWABIAAAAAAAAAAAAWABMAAAAAAAAAAAAWABQAAAAAAAAAAAAWABUAAAAAAAAAAAAWABYAAAAAAAAAAAAXABYAAAAAAAAAAAAXABUAAAAAAAAAAAAXABQAAAAAAAAAAAAXABcAAAAAAAAAAAAXABgAAAAAAAAAAAAXABkAAAAAAAAAAAAYABkAAAAAAAAAAAAYABgAAAAAAAAAAAAYABcAAAAAAAAAAAAcABcAAAAAAAAAAAAcABgAAAAAAAAAAAAcABkAAAAAAAAAAAAdABkAAAAAAAAAAAAdABgAAAAAAAAAAAAdABcAAAAAAAAAAAAdABYAAAAAAAAAAAAdABUAAAAAAAAAAAAdABQAAAAAAAAAAAAeABQAAAAAAAAAAAAeABUAAAAAAAAAAAAeABYAAAAAAAAAAAAeABMAAAAAAAAAAAAeABIAAAAAAAAAAAAeABEAAAAAAAAAAAAgABEAAAAAAAAAAAAjABEAAAAAAAAAAAAjABIAAAAAAAAAAAAjABQAAAAAAAAAAAAiABQAAAAAAAAAAAAhABQAAAAAAAAAAAAgABQAAAAAAAAAAAAfABQAAAAAAAAAAAAfABMAAAAAAAAAAAAgABMAAAAAAAAAAAAgABIAAAAAAAAAAAAhABMAAAAAAAAAAAAiABMAAAAAAAAAAAAjABMAAAAAAAAAAAAiABIAAAAAAAAAAAAhABIAAAAAAAAAAAAfABIAAAAAAAAAAAAjABAAAAAAAAAAAAAjAA8AAAAAAAAAAAAjAA4AAAAAAAAAAAAjAA0AAAAAAAAAAAAkAA0AAAAAAAAAAAAkAA4AAAAAAAAAAAAkAA8AAAAAAAAAAAAkABAAAAAAAAAAAAAXACMAAAAAAAAAAAAXACQAAAAAAAAAAAAWACQAAAAAAAAAAAAVACQAAAAAAAAAAAAUACQAAAAAAAAAAAATACQAAAAAAAAAAAASACQAAAAAAAAAAAARACQAAAAAAAAAAAAQACQAAAAAAAAAAAAPACQAAAAAAAAAAAAOACQAAAAAAAAAAAANACQAAAAAAAAAAAANACMAAAAAAAAAAAANACIAAAAAAAAAAAAOACIAAAAAAAAAAAAMACEAAAAAAAAAAAAMACAAAAAAAAAAAAAMAB8AAAAAAAAAAAANAB8AAAAAAAAAAAANACAAAAAAAAAAAAAOAB8AAAAAAAAAAAAPAB4AAAAAAAAAAAAOAB4AAAAAAAAAAAANAB4AAAAAAAAAAAAMAB4AAAAAAAAAAAAMAB0AAAAAAAAAAAANAB0AAAAAAAAAAAAOAB0AAAAAAAAAAAAPAB0AAAAAAAAAAAAQAB0AAAAAAAAAAAAQAB4AAAAAAAAAAAAQAB8AAAAAAAAAAAAQACAAAAAAAAAAAAAQACEAAAAAAAAAAAARACEAAAAAAAAAAAARACIAAAAAAAAAAAAQACIAAAAAAAAAAAATACEAAAAAAAAAAAATACIAAAAAAAAAAAAUACIAAAAAAAAAAAAUACEAAAAAAAAAAAAUACAAAAAAAAAAAAAUAB8AAAAAAAAAAAAUAB4AAAAAAAAAAAAUAB0AAAAAAAAAAAAVAB0AAAAAAAAAAAAWAB0AAAAAAAAAAAAXAB0AAAAAAAAAAAAYAB0AAAAAAAAAAAAYAB4AAAAAAAAAAAAYAB8AAAAAAAAAAAAXAB8AAAAAAAAAAAAXAB4AAAAAAAAAAAAWAB4AAAAAAAAAAAAVAB4AAAAAAAAAAAAVAB8AAAAAAAAAAAAVACAAAAAAAAAAAAAVACEAAAAAAAAAAAAXABwAAAAAAAAAAAAWABwAAAAAAAAAAAAVABwAAAAAAAAAAAAUABwAAAAAAAAAAAATABwAAAAAAAAAAAASABwAAAAAAAAAAAARABwAAAAAAAAAAAAQABwAAAAAAAAAAAAPABwAAAAAAAAAAAAOABwAAAAAAAAAAAANABwAAAAAAAAAAAAMABwAAAAAAAAAAAAMABsAAAAAAAAAAAAMABoAAAAAAAAAAAAMABkAAAAAAAAAAAAMABgAAAAAAAAAAAAMABcAAAAAAAAAAAAMABYAAAAAAAAAAAAMABUAAAAAAAAAAAAMABQAAAAAAAAAAAANABAAAAAAAAAAAAANAA8AAAAAAAAAAAAMAA0AAAAAAAAAAAAMAA4AAAAAAAAAAAAMAA8AAAAAAAAAAAAMABAAAAAAAAAAAAAMABEAAAAAAAAAAAAMABIAAAAAAAAAAAAMABMAAAAAAAAAAAANABEAAAAAAAAAAAANABsAAAAAAAAAAAAOABsAAAAAAAAAAAASABIAAAAAAAAAAAATABIAAAAAAAAAAAAUABIAAAAAAAAAAAASABAAAAAAAAAAAAARABAAAAAAAAAAAAAQABAAAAAAAAAAAAAQAA8AAAAAAAAAAAAPAA8AAAAAAAAAAAAOABkAAAAAAAAAAAAOABgAAAAAAAAAAAAOABcAAAAAAAAAAAAOABYAAAAAAAAAAAAOABUAAAAAAAAAAAAOABQAAAAAAAAAAAAOABMAAAAAAAAAAAAPABMAAAAAAAAAAAAQABMAAAAAAAAAAAAQABQAAAAAAAAAAAAPABQAAAAAAAAAAAARABQAAAAAAAAAAAASABQAAAAAAAAAAAATABQAAAAAAAAAAAAUABQAAAAAAAAAAAAUABMAAAAAAAAAAAATABMAAAAAAAAAAAASABMAAAAAAAAAAAARABMAAAAAAAAAAAAUABUAAAAAAAAAAAAUABYAAAAAAAAAAAAUABcAAAAAAAAAAAAUABgAAAAAAAAAAAAUABkAAAAAAAAAAAATABkAAAAAAAAAAAATABgAAAAAAAAAAAARABgAAAAAAAAAAAARABkAAAAAAAAAAAAQABkAAAAAAAAAAAAPABkAAAAAAAAAAAAPABgAAAAAAAAAAAAQABgAAAAAAAAAAAAQABcAAAAAAAAAAAAQABUAAAAAAAAAAAARABUAAAAAAAAAAAASABUAAAAAAAAAAAATABUAAAAAAAAAAAATAB4AAAAAAAAAAAASAB4AAAAAAAAAAAARAB4AAAAAAAAAAAASAB0AAAAAAAAAAAATAB0AAAAAAAAAAAARAB0AAAAAAAAAAAAZABEAAAAAAAAAAAAaABEAAAAAAAAAAAAbABEAAAAAAAAAAAAYAA8AAAAAAAAAAAAYAA4AAAAAAAAAAAAYAA0AAAAAAAAAAAAZAA0AAAAAAAAAAAAZAA4AAAAAAAAAAAAZAA8AAAAAAAAAAAAaAA8AAAAAAAAAAAAaAA4AAAAAAAAAAAAaAA0AAAAAAAAAAAAbAA0AAAAAAAAAAAAcAA0AAAAAAAAAAAAcAA4AAAAAAAAAAAAbAA4AAAAAAAAAAAAbAA8AAAAAAAAAAAAcAA8AAAAAAAAAAAAeABAAAAAAAAAAAAAeAA8AAAAAAAAAAAAeAA4AAAAAAAAAAAAeAA0AAAAAAAAAAAAiAA8AAAAAAAAAAAAhAA8AAAAAAAAAAAAhAA4AAAAAAAAAAAAgAA4AAAAAAAAAAAAgAA0AAAAAAAAAAAAhAA0AAAAAAAAAAAAiAA0AAAAAAAAAAAAiAA4AAAAAAAAAAAAWAA4AAAAAAAAAAAAWAA0AAAAAAAAAAAAVAA0AAAAAAAAAAAAVAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAATAA4AAAAAAAAAAAASAA4AAAAAAAAAAAASAA0AAAAAAAAAAAARAA0AAAAAAAAAAAATAA0AAAAAAAAAAAAUAA0AAAAAAAAAAAARAAwAAAAAAAAAAAARAAsAAAAAAAAAAAARAAoAAAAAAAAAAAARAAkAAAAAAAAAAAARAAgAAAAAAAAAAAASAAgAAAAAAAAAAAATAAgAAAAAAAAAAAAUAAgAAAAAAAAAAAAVAAgAAAAAAAAAAAAWAAgAAAAAAAAAAAAXAAgAAAAAAAAAAAAYAAgAAAAAAAAAAAAYAAkAAAAAAAAAAAAZAAkAAAAAAAAAAAAaAAkAAAAAAAAAAAAXAAkAAAAAAAAAAAAWAAkAAAAAAAAAAAAVAAkAAAAAAAAAAAAUAAkAAAAAAAAAAAATAAkAAAAAAAAAAAASAAkAAAAAAAAAAAASAAoAAAAAAAAAAAATAAoAAAAAAAAAAAAXAAoAAAAAAAAAAAAYAAoAAAAAAAAAAAAZAAgAAAAAAAAAAAAaAAgAAAAAAAAAAAAaAAoAAAAAAAAAAAAaAAsAAAAAAAAAAAAaAAwAAAAAAAAAAAAbAAkAAAAAAAAAAAAcAAkAAAAAAAAAAAAdAAkAAAAAAAAAAAAeAAkAAAAAAAAAAAAfAAkAAAAAAAAAAAAfAAgAAAAAAAAAAAAgAAgAAAAAAAAAAAAgAAkAAAAAAAAAAAAgAAoAAAAAAAAAAAAfAAoAAAAAAAAAAAAeAAoAAAAAAAAAAAAdAAoAAAAAAAAAAAAcAAoAAAAAAAAAAAAcAAwAAAAAAAAAAAAbAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAdAAgAAAAAAAAAAAAeAAgAAAAAAAAAAAAhAAsAAAAAAAAAAAAiAAsAAAAAAAAAAAAjAAsAAAAAAAAAAAAkAAsAAAAAAAAAAAAmAAsAAAAAAAAAAAAlAAgAAAAAAAAAAAAkAAkAAAAAAAAAAAAkAAgAAAAAAAAAAAAmAAgAAAAAAAAAAAAmAAkAAAAAAAAAAAAVAAwAAAAAAAAAAAAOAAsAAAAAAAAAAAAlAAkAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_u1xtx")
@@ -3319,6 +3402,384 @@ metadata/_edit_lock_ = true
 [node name="Marker2D" type="Marker2D" parent="CameraLimitsInfo"]
 position = Vector2(1152, 1008)
 
+[node name="NPCS" type="Node" parent="."]
+
+[node name="OldManWithBeard" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(420, 564)
+script = ExtResource("7_bwfno")
+
+[node name="AnimatableBody2D" parent="NPCS/OldManWithBeard" index="0"]
+stationary = true
+FacingDirection = 2
+
+[node name="Sprite2D" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="2"]
+texture = ExtResource("8_f023a")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="MaidLeft" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(444, 276)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/WomanRedHeadChurch.json"
+
+[node name="AnimatableBody2D" parent="NPCS/MaidLeft" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/MaidLeft/AnimatableBody2D" index="2"]
+texture = ExtResource("9_75pk4")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/MaidLeft/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="CollisionPolygon2D" parent="NPCS/MaidLeft/Area2D" index="0"]
+position = Vector2(36, 24)
+
+[node name="MaidRight" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(588, 276)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/WomanRedHeadChurch.json"
+
+[node name="AnimatableBody2D" parent="NPCS/MaidRight" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/MaidRight/AnimatableBody2D" index="2"]
+texture = ExtResource("9_75pk4")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/MaidRight/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="CollisionPolygon2D" parent="NPCS/MaidRight/Area2D" index="0"]
+position = Vector2(36, 24)
+
+[node name="SoliderTreasure" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(348, 372)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/SoliderTreasure" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="2"]
+texture = ExtResource("25_mjmit")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="SoliderHQ" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(444, 852)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/SoliderHQ" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/SoliderHQ/AnimatableBody2D" index="2"]
+texture = ExtResource("25_mjmit")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/SoliderHQ/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="SoliderLeft" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(588, 780)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/SoliderLeft" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/SoliderLeft/AnimatableBody2D" index="2"]
+texture = ExtResource("25_mjmit")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/SoliderLeft/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="SoliderRight" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(684, 780)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/SoliderRight" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/SoliderRight/AnimatableBody2D" index="2"]
+texture = ExtResource("25_mjmit")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/SoliderRight/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Mae" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(372, 564)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Mae" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Mae/AnimatableBody2D" index="2"]
+texture = ExtResource("11_ycb3y")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Mae/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Centaur" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(780, 540)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Centaur" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Centaur/AnimatableBody2D" index="2"]
+texture = ExtResource("12_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Centaur/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Centaur2" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(828, 540)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Centaur2" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Centaur2/AnimatableBody2D" index="2"]
+texture = ExtResource("12_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Centaur2/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Centaur3" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(876, 540)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Centaur3" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Centaur3/AnimatableBody2D" index="2"]
+texture = ExtResource("12_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Centaur3/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Centaur4" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(780, 588)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Centaur4" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Centaur4/AnimatableBody2D" index="2"]
+texture = ExtResource("12_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Centaur4/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Centaur5" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(828, 588)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Centaur5" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Centaur5/AnimatableBody2D" index="2"]
+texture = ExtResource("12_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Centaur5/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Centaur6" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(876, 588)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Centaur6" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Centaur6/AnimatableBody2D" index="2"]
+texture = ExtResource("12_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Centaur6/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Centaur7" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(756, 372)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Centaur7" index="0"]
+stationary = true
+FacingDirection = 3
+
+[node name="Sprite2D" parent="NPCS/Centaur7/AnimatableBody2D" index="2"]
+texture = ExtResource("12_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Centaur7/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="SoliderRight2" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(732, 564)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/SoliderRight2" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/SoliderRight2/AnimatableBody2D" index="2"]
+texture = ExtResource("25_mjmit")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/SoliderRight2/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="King" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(636, 444)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/King" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/King/AnimatableBody2D" index="2"]
+texture = ExtResource("13_087s1")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/King/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Varios" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(684, 492)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Varios" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/Varios/AnimatableBody2D" index="2"]
+texture = ExtResource("10_0ot5g")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Varios/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Nova" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(588, 444)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Nova" index="0"]
+stationary = true
+FacingDirection = 2
+
+[node name="Sprite2D" parent="NPCS/Nova/AnimatableBody2D" index="2"]
+texture = ExtResource("15_bot6t")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Nova/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
+[node name="Chancellor" parent="NPCS" instance=ExtResource("6_t0x2g")]
+position = Vector2(684, 444)
+script = ExtResource("7_bwfno")
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+
+[node name="AnimatableBody2D" parent="NPCS/Chancellor" index="0"]
+stationary = true
+
+[node name="Sprite2D" parent="NPCS/Chancellor/AnimatableBody2D" index="2"]
+texture = ExtResource("16_etloh")
+hframes = 6
+
+[node name="AnimationPlayer" parent="NPCS/Chancellor/AnimatableBody2D" index="3"]
+root_node = NodePath("..")
+libraries = {
+&"": SubResource("AnimationLibrary_wy8xx")
+}
+
 [connection signal="body_entered" from="Areas/TownEntranceArea2D" to="." method="_on_town_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Areas/HQArea2D" to="." method="_on_hq_area_2d_body_entered"]
 [connection signal="body_entered" from="Areas/TreasureArea2D" to="." method="_on_treasure_area_2d_body_entered"]
@@ -3332,3 +3793,24 @@ position = Vector2(1152, 1008)
 [connection signal="body_entered" from="RoofAreas/RightExitArea2D" to="." method="_on_right_exit_area_2d_body_entered"]
 [connection signal="body_entered" from="RoofAreas/CastleExitArea2D" to="." method="_on_castle_exit_area_2d_body_entered"]
 [connection signal="body_entered" from="RoofAreas/CastleEntranceArea2D" to="." method="_on_castle_entrance_area_2d_body_entered"]
+
+[editable path="NPCS/OldManWithBeard"]
+[editable path="NPCS/MaidLeft"]
+[editable path="NPCS/MaidRight"]
+[editable path="NPCS/SoliderTreasure"]
+[editable path="NPCS/SoliderHQ"]
+[editable path="NPCS/SoliderLeft"]
+[editable path="NPCS/SoliderRight"]
+[editable path="NPCS/Mae"]
+[editable path="NPCS/Centaur"]
+[editable path="NPCS/Centaur2"]
+[editable path="NPCS/Centaur3"]
+[editable path="NPCS/Centaur4"]
+[editable path="NPCS/Centaur5"]
+[editable path="NPCS/Centaur6"]
+[editable path="NPCS/Centaur7"]
+[editable path="NPCS/SoliderRight2"]
+[editable path="NPCS/King"]
+[editable path="NPCS/Varios"]
+[editable path="NPCS/Nova"]
+[editable path="NPCS/Chancellor"]

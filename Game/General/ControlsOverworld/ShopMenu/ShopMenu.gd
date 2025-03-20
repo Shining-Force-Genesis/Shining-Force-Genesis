@@ -225,7 +225,7 @@ func CancelShopMenu() -> void:
 	# TODO add animation
 	hide()
 		
-	Singleton_CommonVariables.main_character_player_node.set_active(false)
+	Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 	Singleton_CommonVariables.ui__gold_info_box.hide()
 	Singleton_CommonVariables.ui__gold_info_box.DefaultPosition()
 	

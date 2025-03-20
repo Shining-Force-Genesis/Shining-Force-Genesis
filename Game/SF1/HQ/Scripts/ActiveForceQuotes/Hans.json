@@ -1,0 +1,15 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Characters/Hans/Assets/Unpromoted_Portraits.png"
+		},
+
+		{
+			"Text": "Please don't put me in front. I can't stand being hit."
+		},
+
+		{
+			"HidePortrait": ""
+		}
+	]
+}

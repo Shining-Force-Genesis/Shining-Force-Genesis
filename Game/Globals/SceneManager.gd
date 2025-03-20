@@ -12,6 +12,7 @@ const SF1 = {
 		"Overworld": "res://SF1/Chapter_1/Overworld/SF1-Battle2And3.tscn",
 		"GongCabin": "res://SF1/Chapter_1/Gong_Cabin/Gongs_House.tscn",
 		"AncientGate": "res://SF1/Chapter_1/Anicents_Gate/Battle_1_Map.tscn",
+		"AlteroneNoEntry": "res://SF1/Chapter_1/Alterone/NoEntry/AlteroneNoEntry.tscn",
 		"Alterone": "res://SF1/Chapter_1/Alterone/AlteroneOverpassLayerTilemap.tscn",
 		"AlteroneCastle":"res://SF1/Chapter_1/Alterone/AlteroneCastleTilemap.tscn"
 	},

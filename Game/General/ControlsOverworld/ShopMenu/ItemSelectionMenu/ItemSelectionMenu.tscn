@@ -8,7 +8,7 @@
 [ext_resource type="Resource" uid="uid://dp75hglt5xcrf" path="res://SF1/Items/Weapons/WoodenStaff.tres" id="6"]
 [ext_resource type="Resource" uid="uid://cbt5med0rrtjh" path="res://SF1/Items/Weapons/HandAxe.tres" id="7"]
 [ext_resource type="Resource" uid="uid://76uom5mi1lj6" path="res://SF1/Items/Weapons/WoodenArrow.tres" id="8"]
-[ext_resource type="Resource" uid="uid://bnmg707g7yfeo" path="res://SF1/Items/Weapons/BronzeLance.tres" id="9"]
+[ext_resource type="Resource" uid="uid://csvxes4ersrm" path="res://SF1/Items/Weapons/BronzeLance.tres" id="9"]
 [ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="9_j34us"]
 [ext_resource type="PackedScene" uid="uid://b451lgd0islao" path="res://General/ControlsSelectors/RedSelectionBorder/RedSelectionBorder.tscn" id="11_0udcv"]
 
