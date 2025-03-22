@@ -22,12 +22,12 @@ func _ready() -> void:
 	
 	if Singleton_CommonVariables.sf_game_data_node.c1.entered_kings_throne:
 		var varios = $NPCS/Varios
-		varios.position = Vector2(684, 492)
+		varios.position = varios.position + Vector2(24 + 24, +24)
 		varios.get_child(0).set_facing_direction("Left")
 	
 	if Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined:
 		var guard_hq = $NPCS/SoliderHQ
-		guard_hq.position = Vector2(420, 852)
+		guard_hq.position = guard_hq.position + Vector2(-24, 0)
 	
 	# position player at navigation marker per previous location
 	match marker:
@@ -71,21 +71,24 @@ func _on_hq_area_2d_body_entered(body: Node2D) -> void:
 
 
 func _on_treasure_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		pass
 	# TODO:
 	# SceneManager.ChangeScene(SceneManager.SF1.C1.HQ)
-	pass 
 
 
 func _on_tower_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		pass
 	# TODO:
 	# SceneManager.ChangeScene(SceneManager.SF1.C1.HQ)
-	pass 
 
 
 func _on_throne_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		pass
 	# TODO:
 	# SceneManager.ChangeScene(SceneManager.SF1.C1.HQ)
-	pass
 
 
 ### Roof Areas

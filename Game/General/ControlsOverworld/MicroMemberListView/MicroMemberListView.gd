@@ -51,13 +51,14 @@ func load_force_members() -> void:
 	
 	internal_sfgdn_force_members_array = []
 	
+	var CLine
 	for character in Singleton_CommonVariables.sf_game_data_node.ForceMembers:
 		if !character.unlocked:
 			continue
 		
 		internal_sfgdn_force_members_array.push_back(character)
 		
-		var CLine = MemberSelectionLine.instantiate()
+		CLine = MemberSelectionLine.instantiate()
 		
 		if character.active_in_force:
 			CLine.get_node("ActiveForceStaticLabel").show()
@@ -77,7 +78,7 @@ func load_force_members() -> void:
 	
 	# Remove this if Godot 4 fixes this
 	# fake last item to prevent godot clipping issues
-	var CLine = MemberSelectionLine.instantiate()
+	CLine = MemberSelectionLine.instantiate()
 	CLine.hide()
 	flist_vbox_container.add_child(CLine)
 

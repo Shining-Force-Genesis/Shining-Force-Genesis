@@ -2,7 +2,7 @@ extends Node2D
 
 signal signal_action_finished
 
-@onready var constraints_map = $"../PathConstraintsTileMapLayer"
+# @onready var constraints_map: TileMapLayer = $"../PathConstraintsTileMapLayer"
 
 # probably should have a state machine for npcs
 # instead of whatever this setup is supposed to be
@@ -18,7 +18,7 @@ var is_npc: bool = true
 @export var higher_order_npc: bool = false
 
 ## If true npc won't move away from their current spot.
-@export var stationary: bool
+@export var stationary: bool = true
 
 ## Which direction the npc should be facing when the scene loads.
 @export var FacingDirection: EFacingDirection
@@ -66,6 +66,7 @@ func _ready() -> void:
 		chracter_animation_player = chracter_animation_player_normal
 	
 	if is_npc && !stationary:
+		await get_tree().create_timer(2).timeout
 		npc_move()
 	
 	if chracter_animation_player != null:
@@ -110,10 +111,17 @@ func npc_move() -> void:
 		return
 	
 	# TODO remove the area2d collision polygon npc limits with the tilemap (create differetn tilemap color too)
-	#ray.force_raycast_update()
 	#if constraints_map:
+		#ray.force_raycast_update()
 		#var clicked_cell = constraints_map.local_to_map(ray.target_position + ray.global_position)
+		#print(ray.global_position)
+		#print(ray.target_position)
+		#print(clicked_cell)
+		#
 		#var data = constraints_map.get_cell_source_id(clicked_cell)
+		#print(data)
+		#print("\n")
+		#
 		#if data == 0:
 			#random_move_direction(rng.randi_range(0, 3))
 			#return
@@ -203,7 +211,34 @@ const collision_cell_blocker_positions = {
 	e_directions.DOWN:  Vector2(0, 24)
 }
 
+
 func attempt_to_move(new_position_target: Vector2, direction: e_directions) -> void:
+	#if constraints_map:
+		#var tpos 
+		#
+		## this recenters the target to get center of a collision to a tilemap confinement zone
+		## so much disgusting code pukes
+		#if direction == e_directions.DOWN:
+			#tpos = parent_node.position + new_position_target + Vector2(+12, -12)
+		#elif direction == e_directions.UP:
+			#tpos = parent_node.position + new_position_target + Vector2(+12, -12)
+		#elif direction == e_directions.LEFT:
+			#tpos = parent_node.position + new_position_target + Vector2(+12, -12)
+		#elif direction == e_directions.RIGHT:
+			#tpos = parent_node.position + new_position_target + Vector2(+12, -12)
+		#
+		#var clicked_cell = constraints_map.local_to_map(tpos)
+		#var data = constraints_map.get_cell_source_id(clicked_cell)
+		##print(data)
+		##
+		##var c = ColorRect.new()
+		##c.set_size(Vector2(24, 24))
+		##c.position = tpos
+		##parent_node.get_parent().add_child.call_deferred(c)
+		#
+		#if data == 0:
+			#return
+	
 	ray.target_position = ray_target_positions[direction] # inputs[dir] * tile_size
 	ray.force_raycast_update()
 	chracter_animation_player.speed_scale = 2
@@ -255,7 +290,7 @@ func set_facing_direction(move_direction_arg: String) -> void:
 
 
 # whats arg2 for ignore collisions ?
-func MoveInDirection(arg: String, arg2 = false) -> void:
+func MoveInDirection(arg: String, _arg2 = false) -> void:
 	match arg:
 		"Down": 
 			play_animation(down_movement)

@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=5 format=3 uid="uid://76uom5mi1lj6"]
 
-[ext_resource type="Script" path="res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd" id="1"]
-[ext_resource type="Script" path="res://SF1/Items/Weapon.gd" id="2"]
-[ext_resource type="Texture2D" uid="uid://cb683cmxcamvd" path="res://Assets/SFCD/Items/Weapons/Wooden_Arrow.png" id="3"]
-[ext_resource type="Texture2D" uid="uid://yk6r4qh86mik" path="res://Assets/SF1/Weapons/Wooden_Arrow.png" id="4"]
+[ext_resource type="Script" uid="uid://huwgu556ry2n" path="res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd" id="1"]
+[ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://xfm3sq1314mi" path="res://Assets/SFCD/Items/Weapons/Wooden_Arrow.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://b26tv6uy3e6au" path="res://Assets/SF1/Weapons/Wooden_Arrow.png" id="4"]
 
 [resource]
 script = ExtResource("2")

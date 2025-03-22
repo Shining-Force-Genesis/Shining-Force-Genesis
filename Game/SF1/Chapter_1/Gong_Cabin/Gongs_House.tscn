@@ -3207,48 +3207,50 @@ position = Vector2(680, 528)
 [node name="NPCs" type="Node" parent="."]
 
 [node name="GongNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
-position = Vector2(156, 204)
+position = Vector2(144, 216)
 script = ExtResource("7_80hnj")
 
 [node name="AnimatableBody2D" parent="NPCs/GongNPCRoot" index="0"]
-stationary = true
 FacingDirection = 2
 
-[node name="Sprite2D" parent="NPCs/GongNPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCs/GongNPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("7_i7u8f")
 hframes = 6
 
 [node name="JogurtNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
-position = Vector2(420, 324)
+position = Vector2(408, 336)
 script = ExtResource("9_oygon")
 
 [node name="AnimatableBody2D" parent="NPCs/JogurtNPCRoot" index="0"]
-stationary = true
 FacingDirection = 3
 
-[node name="Sprite2D" parent="NPCs/JogurtNPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCs/JogurtNPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("8_i7u8f")
 hframes = 6
 
 [node name="WomanNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
-position = Vector2(228, 156)
+position = Vector2(216, 168)
 script = ExtResource("11_77mdt")
 
-[node name="Sprite2D" parent="NPCs/WomanNPCRoot/AnimatableBody2D" index="2"]
+[node name="AnimatableBody2D" parent="NPCs/WomanNPCRoot" index="0"]
+stationary = false
+
+[node name="Sprite2D" parent="NPCs/WomanNPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("9_qwvxi")
 hframes = 6
 
-[node name="PathConstraintsTileMapLayer" parent="NPCs/WomanNPCRoot" index="2"]
-position = Vector2(-228, -156)
+[node name="TileMapLayer" parent="NPCs/WomanNPCRoot" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAACAAEAAAAAAAAAAAA=")
 
 [node name="OldManNPCRoot" parent="NPCs" instance=ExtResource("6_2mcm1")]
-position = Vector2(276, 156)
+position = Vector2(264, 168)
 script = ExtResource("13_mxaof")
 
-[node name="AnimatableBody2D" parent="NPCs/OldManNPCRoot" index="0"]
-stationary = true
+[node name="ExtensionCollisionShape2D" parent="NPCs/OldManNPCRoot/AnimatableBody2D" index="2"]
+position = Vector2(0, 24)
 
-[node name="Sprite2D" parent="NPCs/OldManNPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCs/OldManNPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("10_lw88g")
 hframes = 6
 

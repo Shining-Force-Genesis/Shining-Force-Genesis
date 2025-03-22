@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctkclixg2ar35"]
 
 [ext_resource type="PackedScene" uid="uid://cyw8ri3jdrriy" path="res://General/Camera/Camera2D_Cust.tscn" id="1_cuenl"]
-[ext_resource type="PackedScene" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn" id="3_dd6x2"]
+[ext_resource type="PackedScene" uid="uid://cnqqh7aek4elb" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn" id="3_dd6x2"]
 
 [node name="AncientsGate" type="Node"]
 

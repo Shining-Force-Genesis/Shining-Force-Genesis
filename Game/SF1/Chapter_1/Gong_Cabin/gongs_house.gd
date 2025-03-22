@@ -19,6 +19,10 @@ func _ready() -> void:
 	# get map move tilelayer
 	Player.move_tilemap = move_tilemap
 	
+	if Singleton_CommonVariables.sf_game_data_node.ForceMembers[Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.GONG].active_in_force:
+		$NPCs/GongNPCRoot.queue_free()
+		pass
+	
 	# position player at navigation marker per previous location
 	match marker:
 		marker_entrance:

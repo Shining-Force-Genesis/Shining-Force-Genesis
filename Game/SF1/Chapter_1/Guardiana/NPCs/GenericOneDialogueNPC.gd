@@ -19,6 +19,13 @@ func attempt_interaction_talk() -> void:
 	if interacting:
 		return
 	
+	if DefaultScript == null || DefaultScript == "":
+		Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable("TODO add script")
+		await get_tree().create_timer(1).timeout
+		Singleton_CommonVariables.dialogue_box_node.Clean()
+		Singleton_CommonVariables.dialogue_box_node.hide()
+		return
+	
 	interacting = true
 	
 	Singleton_CommonVariables.main_character_player_node.set_active_processing(false)

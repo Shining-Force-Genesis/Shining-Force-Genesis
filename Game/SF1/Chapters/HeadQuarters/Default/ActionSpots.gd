@@ -18,4 +18,3 @@ func _on_hq_exit_area_2d_body_entered(body: Node2D) -> void:
 			_:
 				print("Change Scene Guardiana Kings Castle HQ Entrance")
 				Singleton_CommonVariables.scene_manager_node.change_scene("res://SF1/Chapters/1/Guardiana/Castle/Castle.tscn")
-

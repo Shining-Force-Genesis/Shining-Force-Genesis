@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var move_tilemap = $Map/MoveTileMapLayer
 
+@onready var gl = $NPCS/LeftGuard.get_child(0)
+@onready var gr = $NPCS/RightGuard.get_child(0)
+
 ### Navigation Markers
 var marker
 var marker_start = "Start"
@@ -19,6 +22,9 @@ func _ready() -> void:
 	
 	# get map move tilelayer
 	Player.move_tilemap = move_tilemap
+	
+	if Singleton_CommonVariables.sf_game_data_node.c1.spoken_to_lowe && Singleton_CommonVariables.sf_game_data_node.c1.spoken_to_varios:
+		$NPCsGameStart.queue_free()
 	
 	# position player at navigation marker per previous location
 	match marker:
@@ -158,9 +164,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				luke.MoveInDirection("Down")
 				ken.MoveInDirection("Down")
 				tao.MoveInDirection("Down")
-				await tao.signal_action_finished
 				hans.MoveInDirection("Down")
-				# await hans.signal_action_finished
+				await hans.signal_action_finished
 			
 			Singleton_CommonVariables.dialogue_box_is_currently_active = true
 			Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/InitialForceJoinsPart1.json"
@@ -170,9 +175,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Singleton_CommonVariables.dialogue_box_is_currently_active = false
 			Singleton_CommonVariables.dialogue_box_node.external_file = ""
 			
+			hans.set_facing_direction("Up")
+			luke.set_facing_direction("Up")
+			ken.set_facing_direction("Up")
+			tao.set_facing_direction("Up")
+			
 			for i in 14:
 				hans.MoveInDirection("Up")
-				await hans.signal_action_finished
 				luke.MoveInDirection("Up")
 				ken.MoveInDirection("Up")
 				tao.MoveInDirection("Up")
@@ -183,7 +192,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			luke.queue_free()
 			ken.queue_free()
 			
-			for i in 14:
+			for i in 15:
 				lowe.MoveInDirection("Down")
 				await lowe.signal_action_finished
 			
@@ -195,7 +204,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Singleton_CommonVariables.dialogue_box_is_currently_active = false
 			Singleton_CommonVariables.dialogue_box_node.external_file = ""
 			
-			for i in 14:
+			for i in 15:
 				nova.MoveInDirection("Down")
 				await nova.signal_action_finished
 			
@@ -207,10 +216,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Singleton_CommonVariables.dialogue_box_is_currently_active = false
 			Singleton_CommonVariables.dialogue_box_node.external_file = ""
 			
-			for i in 16:
+			for i in 14:
 				lowe.MoveInDirection("Up")
 				nova.MoveInDirection("Up")
 				await nova.signal_action_finished
+			
+			lowe.queue_free()
+			nova.queue_free()
 			
 			var fm_idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.LUKE
 			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
@@ -229,3 +241,23 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
 			
 			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+
+var guards_moved: bool = false
+func _on_guard_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		if !Singleton_CommonVariables.sf_game_data_node.c1.kings_permission:
+			if guards_moved:
+				return
+			
+			guards_moved = true
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			gl.MoveInDirection("Right")
+			gr.MoveInDirection("Left")
+			gl.set_facing_direction("Up")
+			gr.set_facing_direction("Up")
+			await gl.signal_action_finished
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+		#else:
+			#gl.MoveInDirection("Right")
+			#gr.MoveInDirection("Left")
+			#gl.signal_action_finished

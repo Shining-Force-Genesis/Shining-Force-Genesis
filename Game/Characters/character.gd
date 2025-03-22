@@ -45,7 +45,7 @@ func set_active_processing(arg: bool) -> void:
 	
 	pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if moving:
 		return
 	
@@ -111,12 +111,17 @@ func interaction_attempt_to_talk() -> void:
 		var c = raycast.get_collider()
 		print(c)
 		
+		#if c is TileMapLayer:
+			#raycast.add_exception(c)
+		
 		if c.get_parent().has_method("attempt_interaction_talk"):
 			c.get_parent().attempt_interaction_talk()
 		# TODO clean this and refactor there should be a much cleaner way of doing this without
 		# having multiple special paths and configurations
 		elif c.get_parent().get_parent().has_method("attempt_interaction_talk"):
 			c.get_parent().get_parent().attempt_interaction_talk()
+		elif c.get_parent().get_child(0).has_method("attempt_interaction_talk"):
+			c.get_parent().attempt_interaction_talk()
 
 
 func interaction_attempt_to_search() -> void:

@@ -23,9 +23,9 @@
 [ext_resource type="PackedScene" uid="uid://c6mpihptmyue8" path="res://General/ControlsOverworld/ShopMenu/ShopMenu.tscn" id="18_ryguw"]
 [ext_resource type="PackedScene" uid="uid://bv43e0jmlifoi" path="res://General/ControlsOverworld/ShopMenu/ItemSelectionMenu/ItemSelectionMenu.tscn" id="19_d13ii"]
 [ext_resource type="PackedScene" uid="uid://dv3qaqslut63l" path="res://General/ControlsOverworld/MicroMemberListView/MicroMemberListView.tscn" id="20_1u8w0"]
-[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/Chapter_1/Guardiana/TownTilemap.tscn" id="20_82xsv"]
 [ext_resource type="PackedScene" uid="uid://bwmkktkirrfbc" path="res://General/ControlsOverworld/InventoryMenu/InventoryMenu.tscn" id="21_0odxb"]
 [ext_resource type="PackedScene" uid="uid://kqvcybrnvh8r" path="res://General/ControlsOverworld/MemberListView/MemberListView.tscn" id="22_lswn8"]
+[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/Chapter_1/Guardiana/TownTilemap.tscn" id="26_lswn8"]
 
 [node name="MAIN" type="Node2D"]
 script = ExtResource("1_1bvp3")
@@ -60,6 +60,7 @@ position = Vector2(108, 56)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DialogueBox" parent="UI" instance=ExtResource("6_272bh")]
+visible = false
 z_index = 3
 offset_left = 96.0
 offset_top = 184.0
@@ -138,4 +139,4 @@ position = Vector2(0, -1)
 
 [node name="Scene" type="Node" parent="."]
 
-[node name="TownTilemap" parent="Scene" instance=ExtResource("20_82xsv")]
+[node name="TownTilemap" parent="Scene" instance=ExtResource("26_lswn8")]

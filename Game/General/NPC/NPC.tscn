@@ -1,8 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://itpvlgqdm3kt"]
+[gd_scene load_steps=13 format=3 uid="uid://itpvlgqdm3kt"]
 
 [ext_resource type="Script" uid="uid://durevvv2u6hay" path="res://General/NPC/NPC.gd" id="1_ghay4"]
 [ext_resource type="Shape2D" uid="uid://bh7uaaxfqc2lk" path="res://General/24x24_collision_shape.tres" id="2_gsdfh"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="3_y7t01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7t01"]
+size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_ymspq"]
 resource_name = "Down"
@@ -152,27 +155,38 @@ _data = {
 &"Up": SubResource("Animation_uqsuh")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rp1w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y7t01"]
 texture = ExtResource("3_y7t01")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
-[sub_resource type="TileSet" id="TileSet_dnsko"]
+[sub_resource type="TileSet" id="TileSet_0rp1w"]
 tile_size = Vector2i(24, 24)
-sources/0 = SubResource("TileSetAtlasSource_0rp1w")
+physics_layer_0/collision_layer = 2147483648
+physics_layer_0/collision_mask = 2147483648
+sources/0 = SubResource("TileSetAtlasSource_y7t01")
 
 [node name="NPCRoot" type="Node2D"]
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-collision_layer = 3
+[node name="AnimatableBody2D" type="AnimatableBody2D" parent="." groups=["Interactables"]]
+position = Vector2(12, -12)
+collision_layer = 2147483651
+collision_mask = 2147483649
 sync_to_physics = false
 script = ExtResource("1_ghay4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" groups=["Interactables"]]
 shape = ExtResource("2_gsdfh")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatableBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatableBody2D" groups=["Interactables"]]
 shape = ExtResource("2_gsdfh")
+
+[node name="ExtensionCollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D" groups=["Interactables"]]
+light_mask = 3
+visibility_layer = 3
+z_index = 10
+shape = SubResource("RectangleShape2D_y7t01")
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 position = Vector2(0, -8)
@@ -195,13 +209,9 @@ libraries = {
 
 [node name="RayCast2D" type="RayCast2D" parent="AnimatableBody2D"]
 target_position = Vector2(0, 20)
+collision_mask = 2147483649
 
 [node name="Timer" type="Timer" parent="AnimatableBody2D"]
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
-
-[node name="PathConstraintsTileMapLayer" type="TileMapLayer" parent="."]
-z_index = 8
-tile_set = SubResource("TileSet_dnsko")
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_0rp1w")

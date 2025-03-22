@@ -3113,9 +3113,11 @@ sources/2 = SubResource("TileSetAtlasSource_2")
 texture = ExtResource("4_kqqdt")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
 [sub_resource type="TileSet" id="TileSet_u1xtx"]
 tile_size = Vector2i(24, 24)
+physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kqqdt")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nlkgn"]
@@ -3424,388 +3426,403 @@ position = Vector2(888, 264)
 [node name="NPCS" type="Node" parent="."]
 
 [node name="OldManWithBeard" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(420, 564)
+position = Vector2(408, 576)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/OldManWithBeard" index="0"]
-stationary = true
 FacingDirection = 2
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="3"]
 texture = ExtResource("8_f023a")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="MaidLeft" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(444, 276)
+position = Vector2(432, 288)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl1.json"
 
 [node name="AnimatableBody2D" parent="NPCS/MaidLeft" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/MaidLeft/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/MaidLeft/AnimatableBody2D" index="3"]
 texture = ExtResource("9_75pk4")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/MaidLeft/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/MaidLeft/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="CollisionPolygon2D" parent="NPCS/MaidLeft/Area2D" index="0"]
-position = Vector2(36, 24)
+[node name="TileMapLayer" parent="NPCS/MaidLeft" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAAFAAAAAAAAAAAAAAA=")
 
 [node name="MaidRight" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(588, 276)
+position = Vector2(576, 288)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/MaidRight" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/MaidRight/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/MaidRight/AnimatableBody2D" index="3"]
 texture = ExtResource("9_75pk4")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/MaidRight/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/MaidRight/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="CollisionPolygon2D" parent="NPCS/MaidRight/Area2D" index="0"]
-position = Vector2(36, 24)
+[node name="TileMapLayer" parent="NPCS/MaidRight" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAA=")
 
 [node name="SoliderTreasure" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(348, 372)
+position = Vector2(336, 384)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearTreasure.json"
 
-[node name="AnimatableBody2D" parent="NPCS/SoliderTreasure" index="0"]
-stationary = true
-
-[node name="Sprite2D" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="3"]
 texture = ExtResource("25_mjmit")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="SoliderHQ" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(444, 852)
+position = Vector2(432, 864)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearHeadquarters.json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderHQ" index="0"]
-stationary = true
 FacingDirection = 3
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/SoliderHQ/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/SoliderHQ/AnimatableBody2D" index="3"]
 texture = ExtResource("25_mjmit")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/SoliderHQ/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/SoliderHQ/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="SoliderLeft" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(588, 780)
+position = Vector2(576, 792)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearHeadquarters (2).json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderLeft" index="0"]
-stationary = true
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/SoliderLeft/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/SoliderLeft/AnimatableBody2D" index="3"]
 texture = ExtResource("25_mjmit")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/SoliderLeft/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/SoliderLeft/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="SoliderRight" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(684, 780)
+position = Vector2(672, 792)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/CastleGuard2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderRight" index="0"]
-stationary = true
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/SoliderRight/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/SoliderRight/AnimatableBody2D" index="3"]
 texture = ExtResource("25_mjmit")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/SoliderRight/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/SoliderRight/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="Mae" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(372, 564)
+position = Vector2(360, 576)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Mae.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Mae" index="0"]
-stationary = true
 FacingDirection = 3
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Mae/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Mae/AnimatableBody2D" index="3"]
 texture = ExtResource("11_ycb3y")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Mae/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Mae/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="Centaur" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(780, 540)
+position = Vector2(768, 552)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight1.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Centaur/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Centaur/AnimatableBody2D" index="3"]
 texture = ExtResource("12_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Centaur/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Centaur/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
+[node name="TileMapLayer" parent="NPCS/Centaur" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAGAP3/AAAAAAAAAAA=")
+
 [node name="Centaur2" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(828, 540)
+position = Vector2(816, 552)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur2" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Centaur2/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Centaur2/AnimatableBody2D" index="3"]
 texture = ExtResource("12_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Centaur2/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Centaur2/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
+[node name="TileMapLayer" parent="NPCS/Centaur2" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wQAAAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAA=")
+
 [node name="Centaur3" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(876, 540)
+position = Vector2(864, 552)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight3.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur3" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Centaur3/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Centaur3/AnimatableBody2D" index="3"]
 texture = ExtResource("12_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Centaur3/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Centaur3/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
+[node name="TileMapLayer" parent="NPCS/Centaur3" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD6/wQAAAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAA=")
+
 [node name="Centaur4" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(780, 588)
+position = Vector2(768, 600)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight4.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur4" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Centaur4/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Centaur4/AnimatableBody2D" index="3"]
 texture = ExtResource("12_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Centaur4/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Centaur4/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
+[node name="TileMapLayer" parent="NPCS/Centaur4" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAAEAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAPv/AAAAAAAAAAA=")
+
 [node name="Centaur5" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(828, 588)
+position = Vector2(816, 600)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight5.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur5" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Centaur5/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Centaur5/AnimatableBody2D" index="3"]
 texture = ExtResource("12_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Centaur5/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Centaur5/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
+[node name="TileMapLayer" parent="NPCS/Centaur5" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAA=")
+
 [node name="Centaur6" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(876, 588)
+position = Vector2(864, 600)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight6.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur6" index="0"]
-stationary = true
+stationary = false
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Centaur6/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Centaur6/AnimatableBody2D" index="3"]
 texture = ExtResource("12_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Centaur6/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Centaur6/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
+[node name="TileMapLayer" parent="NPCS/Centaur6" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAA=")
+
 [node name="Centaur7" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(756, 372)
+position = Vector2(744, 384)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/KnightInsideTheCastle.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur7" index="0"]
-stationary = true
+stationary = false
 FacingDirection = 1
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Centaur7/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Centaur7/AnimatableBody2D" index="3"]
 texture = ExtResource("12_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Centaur7/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Centaur7/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
+[node name="TileMapLayer" parent="NPCS/Centaur7" index="1"]
+visible = false
+tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAA=")
+
 [node name="SoliderRight2" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(732, 564)
+position = Vector2(720, 576)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearTheKnights.json"
 
-[node name="AnimatableBody2D" parent="NPCS/SoliderRight2" index="0"]
-stationary = true
-
-[node name="Sprite2D" parent="NPCS/SoliderRight2/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/SoliderRight2/AnimatableBody2D" index="3"]
 texture = ExtResource("25_mjmit")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/SoliderRight2/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/SoliderRight2/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="King" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(636, 444)
+position = Vector2(624, 456)
 script = ExtResource("14_ljluk")
 
 [node name="AnimatableBody2D" parent="NPCS/King" index="0"]
-stationary = true
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/King/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/King/AnimatableBody2D" index="3"]
 texture = ExtResource("13_087s1")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/King/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/King/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="Varios" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(636, 468)
+position = Vector2(624, 480)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Varios.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Varios" index="0"]
-stationary = true
 FacingDirection = 1
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Varios/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Varios/AnimatableBody2D" index="3"]
 texture = ExtResource("10_0ot5g")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Varios/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Varios/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="Nova" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(588, 444)
+position = Vector2(576, 456)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/TalkToTheKing.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Nova" index="0"]
-stationary = true
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Nova/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Nova/AnimatableBody2D" index="3"]
 texture = ExtResource("15_bot6t")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Nova/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Nova/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
 [node name="Chancellor" parent="NPCS" instance=ExtResource("6_t0x2g")]
-position = Vector2(684, 444)
+position = Vector2(672, 456)
 script = ExtResource("7_bwfno")
 DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Minister.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Chancellor" index="0"]
-stationary = true
 use_mirror_animation = true
 
-[node name="Sprite2D" parent="NPCS/Chancellor/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCS/Chancellor/AnimatableBody2D" index="3"]
 texture = ExtResource("16_etloh")
 hframes = 6
 
-[node name="AnimationPlayer" parent="NPCS/Chancellor/AnimatableBody2D" index="3"]
+[node name="AnimationPlayer" parent="NPCS/Chancellor/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")

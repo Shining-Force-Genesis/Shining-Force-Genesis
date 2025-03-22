@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Mae/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Mae/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
