@@ -49,7 +49,7 @@ func _process(_delta: float) -> void:
 	if moving:
 		return
 	
-	if Input.is_action_just_pressed("ui_a_key"):
+	if Input.is_action_just_released("ui_a_key"):
 		await Signal(get_tree().create_timer(0.1), "timeout")
 		set_active_processing(false)
 		Singleton_CommonVariables.ui__overworld_action_menu.set_menu_active()
@@ -58,7 +58,7 @@ func _process(_delta: float) -> void:
 		await Signal(get_tree().create_timer(0.1), "timeout")
 		return
 	
-	if Input.is_action_just_pressed("ui_c_key"):
+	if Input.is_action_just_released("ui_c_key"):
 		interaction_attempt_to_talk()
 		return
 	

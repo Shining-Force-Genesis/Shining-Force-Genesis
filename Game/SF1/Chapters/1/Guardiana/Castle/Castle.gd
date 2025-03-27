@@ -41,4 +41,3 @@ func _input(event: InputEvent) -> void:
 		else:
 			TilemapSceneRoot.tile_set = og_tres
 			using_original_tiles = true
-

@@ -35,7 +35,7 @@ func _ready() -> void:
 		Singleton_CommonVariables.dialogue_box_is_currently_active = true
 		Singleton_CommonVariables.interaction_node_reference = self
 		
-		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapter_1/Alterone/NoEntry/PreBattle3.json"
+		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/Alterone/NoEntry/PreBattle3.json"
 		Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
 		
 		await Signal(Singleton_CommonVariables.dialogue_box_node, "signal__dialogbox__finished_dialog")

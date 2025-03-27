@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=4 uid="uid://btvg5nr0u4ocd"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="1_cyr6r"]
-[ext_resource type="Script" uid="uid://cceohfw4y51wo" path="res://SF1/Chapter_1/Alterone/NoEntry/alterone_no_entry.gd" id="1_iru4u"]
+[ext_resource type="Script" uid="uid://cceohfw4y51wo" path="res://SF1/Chapters/1/Alterone/NoEntry/alterone_no_entry.gd" id="1_iru4u"]
 [ext_resource type="Texture2D" uid="uid://dupkuyown15rx" path="res://SF1/Assets/Tilesets/10.png" id="2_iru4u"]
 [ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="3_4qs80"]
 [ext_resource type="Texture2D" uid="uid://bdbp5rognaut0" path="res://SF1/Assets/Tilesets/8.png" id="4_uw7rw"]

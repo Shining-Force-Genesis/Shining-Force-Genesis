@@ -12,14 +12,14 @@ var c1 = {
 	# story flags - in order
 	
 	# opening cutscene
-	"spoken_to_varios": false,
-	"spoken_to_lowe": false,
-	"entered_kings_throne": false,
-	"spoken_to_the_king": false,
-	"accepted_kings_plan": false,
-	"initial_force_joined": false,
-	"kings_permission": false,
-	"exited_guardiana_once": false,
+	"spoken_to_varios": true,
+	"spoken_to_lowe": true,
+	"entered_kings_throne": true,
+	"spoken_to_the_king": true,
+	"accepted_kings_plan": true,
+	"initial_force_joined": true,
+	"kings_permission": true,
+	"exited_guardiana_once": true,
 	#
 	
 	"battle_1_complete": false,

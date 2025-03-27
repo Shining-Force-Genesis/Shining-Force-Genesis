@@ -3,7 +3,7 @@ extends Node
 var gotta_go_fast: bool = false
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_released("ui_page_down"):
+	if Input.is_action_just_released("ui_page_down") || Input.is_action_just_pressed("ui_tab"):
 		print("here")
 		
 		if !gotta_go_fast:
