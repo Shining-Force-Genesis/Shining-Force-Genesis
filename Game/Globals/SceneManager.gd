@@ -7,15 +7,24 @@ var changing_scene: bool = false
 const SF1 = {
 	"C1": {
 		"Guardiana": "res://SF1/Chapter_1/Guardiana/TownTilemap.tscn",
-		"GuardianaInvaded": "res://SF1/Chapter_1/Guardiana/TownTilemap.tscn",
+		"GuardianaInvaded": "res://SF1/Chapters/1/Guardiana/Invaded/GuardianaInvaded.tscn",
 		"GuardianaCastle": "res://SF1/Chapter_1/Guardiana/KingsCastleTilemap.tscn",
-		"Overworld": "res://SF1/Chapter_1/Overworld/SF1-Battle2And3.tscn",
-		"GongCabin": "res://SF1/Chapter_1/Gong_Cabin/Gongs_House.tscn",
-		"AncientGate": "res://SF1/Chapter_1/Anicents_Gate/Battle_1_Map.tscn",
-		"Battle1": "res://SF1/Chapters/1/AncientsGate/Battle1-AncientsGate.tscn",
+		"GuardianaCastleInvaded": "res://SF1/Chapters/1/GuardianaCastle/Invaded/GuardianaCastleInvaded.tscn",
+		
+		"Overworld": "res://SF1/Chapters/1/Overworld/Overworld.tscn",
+		
+		"GongCabin": "res://SF1/Chapters/1/Cabin/Gongs_House.tscn",
+		
+		"AncientGate": "res://SF1/Chapters/1/AncientsGate/AncientsGate.tscn",
+		
 		"AlteroneNoEntry": "res://SF1/Chapters/1/Alterone/NoEntry/AlteroneNoEntry.tscn",
-		"Alterone": "res://SF1/Chapter_1/Alterone/AlteroneOverpassLayerTilemap.tscn",
-		"AlteroneCastle":"res://SF1/Chapter_1/Alterone/AlteroneCastleTilemap.tscn"
+		"Alterone": "res://SF1/Chapters/1/Alterone/Alterone.tscn",
+		"AlteroneCastle":"res://SF1/Chapters/1/AlteroneCastle/AlteroneCastle.tscn",
+		
+		"Battle1": "res://SF1/Chapters/1/_Battles/1/Battle1-AncientsGate.tscn",
+		"Battle2": "res://SF1/Chapters/1/Overworld/Battle2/Battle2_Overworld.tscn",
+		"Battle3": "res://SF1/Chapters/1/AncientsGate/Battle1-AncientsGate.tscn",
+		"Battle4": "res://SF1/Chapters/1/AncientsGate/Battle1-AncientsGate.tscn",
 	},
 	
 	"HQ": "res://SF1/HQ/HeadQuarters.tscn"

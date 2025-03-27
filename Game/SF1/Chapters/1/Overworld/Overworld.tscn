@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=4 uid="uid://5gdthe0r2vmf"]
 
-[ext_resource type="Texture2D" uid="uid://yk0b0dfq0lkm" path="res://SF1/Assets/Tilesets/1.png" id="1"]
-[ext_resource type="Script" uid="uid://beuhg446xwhhj" path="res://SF1/Chapter_1/Overworld/sf_1_battle_2_and_3.gd" id="1_mye15"]
-[ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="3_jp3yd"]
-[ext_resource type="Texture2D" uid="uid://bdfouxyl826ir" path="res://SF1/Assets/Tilesets/16.png" id="16"]
+[ext_resource type="Script" uid="uid://beuhg446xwhhj" path="res://SF1/Chapters/1/Overworld/sf_1_battle_2_and_3.gd" id="1_aevc8"]
+[ext_resource type="Texture2D" uid="uid://yk0b0dfq0lkm" path="res://SF1/Assets/Tilesets/1.png" id="2_h484q"]
+[ext_resource type="Texture2D" uid="uid://bdfouxyl826ir" path="res://SF1/Assets/Tilesets/16.png" id="3_x726i"]
+[ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="4_hlc1x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
-texture = ExtResource("1")
+texture = ExtResource("2_h484q")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -1034,7 +1034,7 @@ texture_region_size = Vector2i(4, 4)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
-texture = ExtResource("16")
+texture = ExtResource("3_x726i")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -2067,7 +2067,7 @@ sources/0 = SubResource("TileSetAtlasSource_0")
 sources/1 = SubResource("TileSetAtlasSource_1")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mye15"]
-texture = ExtResource("3_jp3yd")
+texture = ExtResource("4_hlc1x")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 
@@ -2088,7 +2088,7 @@ size = Vector2(16, 16)
 size = Vector2(40, 40)
 
 [node name="SF1-Battle2And3" type="Node2D"]
-script = ExtResource("1_mye15")
+script = ExtResource("1_aevc8")
 metadata/_edit_lock_ = true
 
 [node name="Map" type="Node" parent="."]
