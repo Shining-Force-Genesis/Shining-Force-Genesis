@@ -23,8 +23,10 @@ func _ready() -> void:
 	
 	# TODO: add rotdd menu before start battle at this point
 	# otherwise start battle if not cleared
+	
 	Singleton_CommonVariables.is_currently_in_battle_scene = true
 	start_battle()
+	
 	# end_battle()
 	
 	# if cleared do nothing with battle state

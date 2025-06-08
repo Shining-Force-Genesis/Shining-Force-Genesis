@@ -41,6 +41,7 @@ func _ready() -> void:
 	if SceneManager.changing_scene:
 		SceneManager.SceneFadeOut()
 		Player.enable()
+	
 
 
 ### Navigation

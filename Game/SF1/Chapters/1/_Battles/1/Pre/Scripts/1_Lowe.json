@@ -1,0 +1,11 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Characters/Lowe/Assets/Unpromoted_Portraits.png"
+		},
+		
+		{
+			"Text": "{main_character_name}!\nGoblins! Runefaust must be up to something!"
+		}
+	]
+}

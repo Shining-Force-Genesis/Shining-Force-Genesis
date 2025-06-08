@@ -12,6 +12,7 @@ var x_tile_move = 0
 var tile_move_time: float = 0.1
 var actor_g_pos: Vector2
 
+var cursor_move_speed_default: float = 0.025
 
 func _ready() -> void:
 	Singleton_CommonVariables.battle__cursor_node = self
@@ -50,29 +51,30 @@ func _process(_delta) -> void:
 				await move_to_new_position(Vector2(self.position.x + x_tile_move, self.position.y + y_tile_move), tile_move_time)
 
 
+func cancel_cursor(): 
+#	if position == actor_g_pos:
+#	# print("Same Pos")
+#	# Why did I have this in the godot 3 version again?
+#	pass
+	
+	Singleton_CommonVariables.camera_node.follow_actor()
+	
+	var distance = actor_g_pos.distance_to(position)
+	
+	# TODO: create different movement speed choices
+	var tween_time = distance * 0.00125
+	
+	await move_to_new_position(actor_g_pos, tween_time)
+	await Signal(get_tree().create_timer(0.05), "timeout")
+	
+	active = false
+	hide()
+	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(true)
+
 func _input(_event: InputEvent) -> void:
 	if active:
 		if Input.is_action_just_released("ui_b_key"):
-#			if position == actor_g_pos:
-#				# print("Same Pos")
-#				# Why did I have this in the godot 3 version again?
-#				pass
-			
-			Singleton_CommonVariables.camera_node.follow_actor()
-			
-			var distance = actor_g_pos.distance_to(position)
-			
-			# TODO: create different movement speed choices
-			var tween_time = distance * 0.00125
-			
-			await move_to_new_position(actor_g_pos, tween_time)
-			await Signal(get_tree().create_timer(0.05), "timeout")
-			
-			active = false
-			hide()
-			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(true)
-		
-		
+			cancel_cursor()
 		
 		##elif event.is_action_released("ui_a_key"):
 		##	print("A key")
@@ -98,11 +100,13 @@ func _input(_event: InputEvent) -> void:
 					Singleton_CommonVariables.ui__view_selected_actor_info_node.set_battle_view_selected_actor_info_menu_active()
 
 
-func move_to_new_position(new_pos: Vector2, t: float = 0.025) -> void:
+func move_to_new_position(new_pos: Vector2, t: float = cursor_move_speed_default, activate_at_end: bool = true) -> void:
+	show()
 	movementTween = create_tween()
 	movementTween.tween_property(self, "position", new_pos, t)
 	movementTween.set_trans(Tween.TRANS_LINEAR)
 	movementTween.set_ease(Tween.EASE_OUT)
 	active = false
 	await movementTween.finished
-	active = true
+	if activate_at_end:
+		active = true
