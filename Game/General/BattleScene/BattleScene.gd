@@ -807,7 +807,7 @@ func calculate_damage_step() -> void:
 			damage = 1
 		
 		if is_critical_hit:
-			damage = floor(damage * 1.5)
+			damage = int(floor(damage * 1.5))
 		
 		if attack_missed:
 			damage = 0

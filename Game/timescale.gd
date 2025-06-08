@@ -15,6 +15,7 @@ func _process(_delta: float) -> void:
 			
 	if Input.is_action_just_pressed("ui_text_backspace"):
 		# Singleton_CommonVariables.main_character_player_node.queue_free()
+		Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 		Singleton_CommonVariables.main_character_player_node.hide()
 		Singleton_CommonVariables.main_character_player_node.camera_current(false)
