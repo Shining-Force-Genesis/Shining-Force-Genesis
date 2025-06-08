@@ -1,0 +1,12 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Nova_Portraits.png"
+		},
+		
+		{
+			"Text": "{main_character_name}!Do you really want to retreat from this battle?",
+			"InteractionPrompt": "YesOrNo"
+		}
+	]
+}

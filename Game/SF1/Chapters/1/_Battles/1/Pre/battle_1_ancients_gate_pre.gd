@@ -40,6 +40,64 @@ func _ready() -> void:
 	pass
 
 
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print(area)
+	# for c in Singleton_CommonVariables.sf_game_data_node.ForceMembers:
+	# if c.leader:
+	print("here")
+	
+	if true:
+		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+		
+		Singleton_CommonVariables.dialogue_box_node.show()
+		Singleton_CommonVariables.ui__portrait_popup.show()
+		Singleton_CommonVariables.ui__portrait_popup.load_portrait("res://Assets/NPC/Nova_Portraits.png")
+		var display_str = "{main_character_name}!Do you really want to retreat from this battle?"
+		Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
+		Singleton_CommonVariables.ui__yes_or_no_prompt.s_show__yes_or_no_prompt()
+		var result = await Signal(Singleton_CommonVariables.ui__yes_or_no_prompt, "signal__yes_or_no_prompt__choice")
+		
+		# Singleton_CommonVariables.dialogue_box_is_currently_active = true
+		# Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/_Battles/1/Pre/Scripts/NovaLeaveBattle.json"
+		# Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+		# await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+		
+		if result == "NO": 
+			Singleton_CommonVariables.dialogue_box_node.hide()
+			Singleton_CommonVariables.ui__portrait_popup.hide()
+			
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(true)
+		elif result == "YES":
+			Singleton_CommonVariables.dialogue_box_node.hide()
+			Singleton_CommonVariables.ui__portrait_popup.hide()
+			
+			Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
+			
+			Singleton_CommonVariables.battle__target_actor_types = null
+			Singleton_CommonVariables.battle__resource_animation_scene_path = null
+			Singleton_CommonVariables.ui__magic_menu.hide()
+			
+			Singleton_CommonVariables.is_currently_in_battle_scene = false
+			# Singleton_CommonVariables.main_character_player_node.queue_free()
+			Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
+			Singleton_CommonVariables.ui__battle_action_menu.is_menu_active = false
+			Singleton_CommonVariables.ui__battle_action_menu.hide_cust()
+			
+			Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+			
+			var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
+			SceneManager.ChangeSceneNode(n)
+			
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+			Singleton_CommonVariables.main_character_player_node.show()
+			Singleton_CommonVariables.main_character_player_node.camera_current(true)
+			
+			Singleton_CommonVariables.interaction_yes_or_no_selection = null
+		
+	pass
+
 func StartCutscene():
 	Singleton_CommonVariables.battle__cursor_node.active = false
 	Singleton_CommonVariables.camera_node.position = Vector2(500,500)

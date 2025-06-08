@@ -24,7 +24,7 @@ var c1 = {
 	"exited_guardiana_once": true,
 	#
 	
-	"battle_1_opening_cutscene": false,
+	"battle_1_opening_cutscene": true,
 	"battle_1_complete": false,
 	
 	# second major cutscene

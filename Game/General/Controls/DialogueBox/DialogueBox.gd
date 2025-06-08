@@ -186,7 +186,7 @@ func _process(_delta):
 		return
 
 	# if (Input.is_action_just_pressed("ui_a_key") || Input.is_action_just_pressed("ui_accept")) and !wait_for_user_input_end:
-	if (Input.is_action_just_pressed("ui_a_key") || Input.is_action_just_pressed("ui_accept")):
+	if (Input.is_action_just_released("ui_a_key") || Input.is_action_just_released("ui_c_key") || Input.is_action_just_released("ui_accept")):
 		await get_tree().create_timer(0.1).timeout
 		
 		if finished:
