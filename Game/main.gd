@@ -4,6 +4,8 @@ extends Node2D
 func _ready() -> void:
 	SceneManager.scene_node = $Scene
 	
+	
+	
 	#var n = get_node("Scene")
 	#for child in n.get_children():
 	#	child.queue_free()

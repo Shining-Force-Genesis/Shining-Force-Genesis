@@ -20,6 +20,9 @@ func _ready() -> void:
 	Player.character.camera.limit_left = 0
 	Player.character.camera.limit_top = 0
 	
+	Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.Guardiana
+	# Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
+	
 	# get map move tilelayer
 	Player.move_tilemap = move_tilemap
 	
@@ -27,15 +30,19 @@ func _ready() -> void:
 		$NPCsGameStart.queue_free()
 	
 	# position player at navigation marker per previous location
-	match marker:
-		marker_overworld:
-			Player.set_character_position($Markers/OverworldMarker2D.position)
-		marker_castle:
-			Player.set_character_position($Markers/CastleMarker2D.position)
-		marker_gortbasement:
-			Player.set_character_position($Markers/GortBasementMarker2D.position)
-		_:
-			Player.set_character_position($Markers/StartMarker2D.position)
+	if Singleton_CommonVariables.sf_game_data_node.egress_marker_set:
+		Singleton_CommonVariables.sf_game_data_node.egress_marker_set = false
+		Player.set_character_position($Markers/EgressMarker.position)
+	else:
+		match marker:
+			marker_overworld:
+				Player.set_character_position($Markers/OverworldMarker2D.position)
+			marker_castle:
+				Player.set_character_position($Markers/CastleMarker2D.position)
+			marker_gortbasement:
+				Player.set_character_position($Markers/GortBasementMarker2D.position)
+			_:
+				Player.set_character_position($Markers/StartMarker2D.position)
 	
 	# enable player
 	if SceneManager.changing_scene:

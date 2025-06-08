@@ -133,6 +133,7 @@ func set_battle_magic_menu_active() -> void:
 		elif idx == 3:
 			spell_down_slot_spirte.texture = spell_res.spell_texture
 
+
 var actor
 func _input(event):
 	if is_battle_magic_menu_active:
@@ -261,6 +262,33 @@ func _input(event):
 #			print(actor.magic_array[currently_selected_option].name)
 			if spell_res_l.name == "Egress":
 				print("Egress selected")
+				
+				is_battle_magic_menu_active = false
+				is_select_magic_level_active = false
+				magicLevelSelectorWrapper.hide()
+				
+				Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
+				
+				Singleton_CommonVariables.battle__target_actor_types = null
+				Singleton_CommonVariables.battle__resource_animation_scene_path = null
+				Singleton_CommonVariables.ui__magic_menu.hide()
+				
+				Singleton_CommonVariables.is_currently_in_battle_scene = false
+				# Singleton_CommonVariables.main_character_player_node.queue_free()
+				Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
+				Singleton_CommonVariables.ui__battle_action_menu.is_menu_active = false
+				Singleton_CommonVariables.ui__battle_action_menu.hide_cust()
+				
+				Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+				Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+				
+				var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
+				SceneManager.ChangeSceneNode(n)
+				
+				Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+				Singleton_CommonVariables.main_character_player_node.show()
+				Singleton_CommonVariables.main_character_player_node.camera_current(true)
+				
 				return
 			
 			if spell_res_l.name == "Heal":

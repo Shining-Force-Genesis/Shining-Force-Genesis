@@ -34,8 +34,12 @@ var move_tween: Tween
 func _ready() -> void:
 	Player.character = self
 	
+	Singleton_CommonVariables.main_character_player_node_ref = self
 	Singleton_CommonVariables.main_character_player_node = self
 	# print(Player.move_tilemap)
+
+func camera_current(arg: bool) -> void:
+	camera.enabled = arg
 
 func set_active_processing(arg: bool) -> void:
 	# TODO whatever this is supposed to be

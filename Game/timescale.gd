@@ -14,6 +14,9 @@ func _process(_delta: float) -> void:
 			Engine.time_scale = 1
 			
 	if Input.is_action_just_pressed("ui_text_backspace"):
-		Singleton_CommonVariables.main_character_player_node.queue_free()
+		# Singleton_CommonVariables.main_character_player_node.queue_free()
+		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+		Singleton_CommonVariables.main_character_player_node.hide()
+		Singleton_CommonVariables.main_character_player_node.camera_current(false)
 		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
 		SceneManager.ChangeSceneNode(n)

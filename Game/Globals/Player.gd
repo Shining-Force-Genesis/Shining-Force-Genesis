@@ -14,8 +14,9 @@ func disable() -> void:
 		# force tween to completion
 		# weird position happens without ensuring tween movement completed
 		# killing the tween or awaiting it isn't reliable 
-		character.move_tween.pause()
-		character.move_tween.custom_step(999)
+		if character.move_tween:
+			character.move_tween.pause()
+			character.move_tween.custom_step(999)
 
 
 func enable() -> void:

@@ -2299,6 +2299,7 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="Church" type="TileMapLayer" parent="Map"]
+visible = false
 z_index = 2
 use_parent_material = true
 position = Vector2(168, 240)
@@ -2329,6 +2330,10 @@ metadata/_edit_lock_ = true
 
 [node name="GortBasementMarker2D" type="Marker2D" parent="Markers"]
 position = Vector2(348, 636)
+metadata/_edit_lock_ = true
+
+[node name="EgressMarker" type="Marker2D" parent="Markers"]
+position = Vector2(372, 228)
 metadata/_edit_lock_ = true
 
 [node name="Areas" type="Node" parent="."]

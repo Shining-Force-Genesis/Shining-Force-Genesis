@@ -7,6 +7,8 @@ func _ready():
 
 var camera_zoom: Vector2 = Vector2(1, 1)
 
+var egress_location = null
+var egress_marker_set = false
 
 var c1 = {
 	# story flags - in order

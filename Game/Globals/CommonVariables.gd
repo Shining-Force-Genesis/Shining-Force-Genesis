@@ -60,6 +60,7 @@ var interaction_yes_or_no_selection = null
 # TODO: for selectable main character and party leader
 var main_character_resource_pck = null
 
+var main_character_player_node_ref = null
 var main_character_player_node = null
 
 var priest_egress_location = null
