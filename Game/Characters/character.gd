@@ -36,6 +36,11 @@ func _ready() -> void:
 	
 	Singleton_CommonVariables.main_character_player_node_ref = self
 	Singleton_CommonVariables.main_character_player_node = self
+	
+	Singleton_CommonVariables.ui__actor_micro_info_box.display_micro_info_for_force_member_actor(
+		Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.MAX
+	)
+	
 	# print(Player.move_tilemap)
 
 func camera_current(arg: bool) -> void:

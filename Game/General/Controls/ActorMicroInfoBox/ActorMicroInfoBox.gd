@@ -119,6 +119,17 @@ func update_active_info(name_arg, class_arg, level, current_hp, total_hp, curren
 	current_hp_label.text = str(current_hp) + "/" + hp_spacing + str(total_hp)
 	current_mp_label.text = str(current_mp) + "/" + mp_spacing + str(total_mp)
 
+func display_micro_info_for_force_member_actor(member_idx) -> void:
+	var a = Singleton_CommonVariables.sf_game_data_node.ForceMembers[member_idx]
+	
+	update_active_info(a.name, 
+	a.class_short, 
+	a.level, 
+	a.stats.hp_current, 
+	a.stats.hp, 
+	a.stats.mp_current, 
+	a.stats.mp)
+
 func display_micro_info_for_actor(node_arg) -> void:
 	# TODO: simply this charcter and enemey are so much closer now in logic
 	# the distinctions seem larger unneeded now
