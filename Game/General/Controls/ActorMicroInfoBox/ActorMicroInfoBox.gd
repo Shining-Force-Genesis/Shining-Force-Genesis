@@ -197,8 +197,8 @@ func display_actor_info(node_arg) -> void:
 
 ## Show Hide Cust with tween
 
-const default_position: Vector2 = Vector2(328, 8)
-const hidden_position: Vector2 = Vector2(380, 8)
+const default_position: Vector2 = Vector2(420, 8)
+const hidden_position: Vector2 = Vector2(620, 8)
 
 func show_cust() -> void: 
 	position = hidden_position

@@ -3,6 +3,17 @@ extends Node
 var gotta_go_fast: bool = false
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_released("ui_f11"):
+		var current_mode = DisplayServer.window_get_mode()
+		var target_mode: DisplayServer.WindowMode
+		
+		if current_mode == DisplayServer.WINDOW_MODE_FULLSCREEN:
+			target_mode = DisplayServer.WINDOW_MODE_WINDOWED
+		else:
+			target_mode = DisplayServer.WINDOW_MODE_FULLSCREEN
+		
+		DisplayServer.window_set_mode(target_mode)
+	
 	if Input.is_action_just_released("ui_page_down") || Input.is_action_just_pressed("ui_tab"):
 		print("here")
 		

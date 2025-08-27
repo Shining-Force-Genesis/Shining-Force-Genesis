@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b451lgd0islao" path="res://General/ControlsSelectors/RedSelectionBorder/RedSelectionBorder.tscn" id="11_0udcv"]
 
 [node name="ShopItemSelectionMenuNode" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_oghv3")
 item_list = Array[Resource]([ExtResource("2"), ExtResource("9"), ExtResource("7"), ExtResource("3"), ExtResource("5"), ExtResource("8"), ExtResource("6")])
 

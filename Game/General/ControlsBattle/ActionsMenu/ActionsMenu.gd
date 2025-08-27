@@ -4,8 +4,8 @@ var is_menu_active: bool =  false
 var _tween: Tween
 
 # TODO: look into something better - hard coding position values doesnt seem like the best that can be done
-const default_position: Vector2 = Vector2(204, 204)
-const hidden_position: Vector2 = Vector2(331, 204)
+const default_position: Vector2 = Vector2(240, 280)
+const hidden_position: Vector2 = Vector2(240, 360)
 
 enum e_menu_options {
 	ATTACK_OPTION,

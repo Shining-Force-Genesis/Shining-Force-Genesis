@@ -82,6 +82,7 @@ _data = {
 }
 
 [node name="HQMenuRoot" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_bj76u")
 
 [node name="AdviceActionSprite" type="Sprite2D" parent="."]

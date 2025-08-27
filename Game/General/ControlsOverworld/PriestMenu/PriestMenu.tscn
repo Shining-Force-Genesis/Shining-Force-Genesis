@@ -81,6 +81,7 @@ _data = {
 }
 
 [node name="PriestMenuRoot" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("4")
 
 [node name="SaveActionSprite" type="Sprite2D" parent="."]

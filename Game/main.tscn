@@ -40,6 +40,7 @@ script = ExtResource("3_ycdy4")
 
 [node name="BattleScene" parent="UI_Battle" instance=ExtResource("15_yaehf")]
 visible = false
+scale = Vector2(1.5, 1.5)
 
 [node name="LandEffectPopup" parent="UI_Battle" instance=ExtResource("14_vivmo")]
 visible = false
@@ -47,30 +48,31 @@ position = Vector2(8, 8)
 
 [node name="BattleActionsMenu" parent="UI_Battle" instance=ExtResource("12_w48qg")]
 visible = false
-position = Vector2(204, 204)
+position = Vector2(240, 280)
 
 [node name="TargetActorMicroInfoBox" parent="UI_Battle" instance=ExtResource("13_vivmo")]
 visible = false
-position = Vector2(8, 208)
+position = Vector2(8, 280)
 
 [node name="ViewSelectedActorInfoPopup" parent="UI_Battle" instance=ExtResource("14_2cqfq")]
 visible = false
-position = Vector2(108, 56)
+position = Vector2(120, 60)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="DialogueBox" parent="UI" instance=ExtResource("6_272bh")]
 visible = false
 z_index = 3
-offset_left = 96.0
-offset_top = 184.0
-offset_right = 96.0
-offset_bottom = 183.96
+offset_left = 120.0
+offset_top = 240.0
+offset_right = 120.0
+offset_bottom = 239.96
+scale = Vector2(1.5, 1.5)
 
 [node name="PortraitPopup" parent="UI" instance=ExtResource("7_5vw27")]
 visible = false
 z_index = 1
-position = Vector2(124, 60)
+position = Vector2(179, 60)
 
 [node name="GoldInfoBox" parent="UI" instance=ExtResource("8_kek77")]
 visible = false
@@ -78,52 +80,53 @@ position = Vector2(8, 8)
 
 [node name="ActorMicroInfoBox" parent="UI" instance=ExtResource("9_4c57u")]
 visible = false
-position = Vector2(328, 8)
+position = Vector2(420, 8)
 
 [node name="ActionsMenu" parent="UI" instance=ExtResource("10_efxa6")]
 visible = false
-position = Vector2(204, 204)
+position = Vector2(240, 280)
 
 [node name="MagicMenu" parent="UI" instance=ExtResource("11_dg77c")]
 visible = false
-position = Vector2(216, 204)
+position = Vector2(240, 280)
 
 [node name="NoValidOptionWarningBoxRoot" parent="UI" instance=ExtResource("13_w48qg")]
 visible = false
-position = Vector2(156, 120)
+position = Vector2(180, 160)
 
 [node name="PriestMenuRoot" parent="UI" instance=ExtResource("16_cegan")]
 visible = false
-position = Vector2(204, 204)
+position = Vector2(240, 280)
 
 [node name="HQMenuRoot" parent="UI" instance=ExtResource("17_82xsv")]
 visible = false
-position = Vector2(204, 204)
+position = Vector2(240, 280)
 
 [node name="ShopMenuRoot" parent="UI" instance=ExtResource("18_ryguw")]
 visible = false
-position = Vector2(204, 204)
+position = Vector2(240, 280)
 
 [node name="ShopItemSelectionMenuNode" parent="UI" instance=ExtResource("19_d13ii")]
 visible = false
-position = Vector2(88, 12)
+position = Vector2(80, 8)
 
 [node name="MicroMemberListViewNodeRoot" parent="UI" instance=ExtResource("20_1u8w0")]
 visible = false
 z_index = 1
-position = Vector2(80, 12)
+position = Vector2(80, 8)
 
 [node name="BattleInventoryMenuRoot" parent="UI" instance=ExtResource("21_0odxb")]
 visible = false
-position = Vector2(204, 204)
+position = Vector2(240, 280)
 
 [node name="MemberListViewNodeRoot" parent="UI" instance=ExtResource("22_lswn8")]
 visible = false
-position = Vector2(84, 4)
+position = Vector2(80, 0)
 
 [node name="YesOrNoPrompt" parent="UI" instance=ExtResource("18_getpj")]
 visible = false
-position = Vector2(204, 152)
+position = Vector2(280, 200)
+scale = Vector2(1, 1)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_lquwl")]
 visible = false
@@ -136,6 +139,7 @@ position = Vector2(252, 420)
 
 [node name="Camera2D" type="Camera2D" parent="Node/Character"]
 position = Vector2(0, -1)
+zoom = Vector2(1.5, 1.5)
 
 [node name="Scene" type="Node" parent="."]
 

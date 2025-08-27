@@ -22,19 +22,20 @@ scale = Vector2(0.140741, 0.123684)
 texture = ExtResource("4_r527i")
 
 [node name="BackgroundWrapper" type="Node2D" parent="."]
-metadata/_edit_lock_ = true
+position = Vector2(-1, -2)
 
 [node name="BackgroundBattleScene" parent="BackgroundWrapper" instance=ExtResource("3_7dhk1")]
-position = Vector2(-120, -73)
 
 [node name="EnemeyWrapper" type="Node2D" parent="."]
+position = Vector2(-25, -11)
 scale = Vector2(1.5, 1.5)
-metadata/_edit_lock_ = true
 
 [node name="EnemeyScene" parent="EnemeyWrapper" instance=ExtResource("8_waxw2")]
-position = Vector2(21.3333, -6)
+position = Vector2(22, -6)
 
 [node name="CharacterWrapper" type="Node2D" parent="."]
+position = Vector2(-54, -4)
+metadata/_edit_lock_ = true
 
 [node name="CharacterScene" parent="CharacterWrapper" instance=ExtResource("8_pklxd")]
 position = Vector2(340, 223)
@@ -45,25 +46,30 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 320.0
 offset_bottom = 180.0
+metadata/_edit_lock_ = true
 
 [node name="LeftStaticBlackBackgroundColorRect" type="ColorRect" parent="BackgroundStaticColorsControl"]
 layout_mode = 0
-offset_right = 48.0
+offset_left = -28.0
+offset_right = 20.0
 offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="RightStaticBlackBackgroundColorRect" type="ColorRect" parent="BackgroundStaticColorsControl"]
 layout_mode = 0
-offset_left = 432.0
-offset_right = 480.0
+offset_left = 404.333
+offset_right = 452.333
 offset_bottom = 272.0
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="SpellsWrapper" type="Node2D" parent="."]
+position = Vector2(44, 56)
 
 [node name="Blaze_Level_1" parent="SpellsWrapper" instance=ExtResource("6_i6eyo")]
 
 [node name="BattleSceneTransitionTemp2" type="Sprite2D" parent="."]
-position = Vector2(624, 16)
-scale = Vector2(0.140741, 0.123684)
+position = Vector2(632, 114)
+scale = Vector2(0.223465, 0.203807)
 texture = ExtResource("4_r527i")

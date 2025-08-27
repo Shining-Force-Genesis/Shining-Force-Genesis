@@ -59,6 +59,7 @@ _data = {
 }
 
 [node name="PortraitPopup" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_8yal4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

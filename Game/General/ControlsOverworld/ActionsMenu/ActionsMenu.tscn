@@ -2206,6 +2206,7 @@ _data = {
 }
 
 [node name="ActionsMenu" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_4vb0g")
 
 [node name="TalkAction" type="Sprite2D" parent="."]

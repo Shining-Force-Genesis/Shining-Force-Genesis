@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://cc5n6y2b245fa" path="res://General/ControlsOverworld/MicroMemberListView/MicroMemberListView.gd" id="11"]
 
 [node name="MicroMemberListViewNodeRoot" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("11")
 
 [node name="PortraitWrapperNode" type="Node2D" parent="."]

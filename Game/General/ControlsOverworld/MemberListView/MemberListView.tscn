@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b451lgd0islao" path="res://General/ControlsSelectors/RedSelectionBorder/RedSelectionBorder.tscn" id="11_3x4f5"]
 
 [node name="MemberListViewNodeRoot" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_sf37m")
 
 [node name="PortraitWrapperNode" type="Node2D" parent="."]

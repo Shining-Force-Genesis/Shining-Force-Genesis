@@ -26,8 +26,8 @@ var _tween: Tween
 # actor box pos
 const actor_top_right_pos: Vector2 = Vector2(200, 8)
 # target actor pos for selections and battle
-const target_actor_bottom_left_pos: Vector2 = Vector2(8, 208)
-const target_actor_bottom_right_pos: Vector2 = Vector2(328, 208)
+const target_actor_bottom_left_pos: Vector2 = Vector2(8, 280)
+const target_actor_bottom_right_pos: Vector2 = Vector2(420, 280)
 
 # TODO: NOTE: plan for multi tierred hp and mp bars for values over 100 (??) in SF1
 # divide current hp by 100
@@ -198,8 +198,8 @@ func display_actor_info(node_arg) -> void:
 
 ## Show Hide Cust with tween
 
-const default_position: Vector2 = Vector2(328, 208)
-const hidden_position: Vector2 = Vector2(380, 208)
+const default_position: Vector2 = Vector2(328, 280)
+const hidden_position: Vector2 = Vector2(380, 280)
 
 func show_cust() -> void: 
 	position = hidden_position
@@ -249,8 +249,8 @@ func hide_cust_target() -> void:
 	_tween.tween_callback(hide)
 
 
-const hidden_target_battle_scene = Vector2(-120, 208)
-const target_battle_scene = Vector2(8, 208)
+const hidden_target_battle_scene = Vector2(-120, 280)
+const target_battle_scene = Vector2(8, 280)
 
 func show_cust_target_battle_scene() -> void: 
 	position = hidden_target_battle_scene

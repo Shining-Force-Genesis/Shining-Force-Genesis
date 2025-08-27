@@ -51,7 +51,7 @@ func _on_ancients_gate_area_2d_body_entered(body: Node2D) -> void:
 		# n.marker = n.marker_entrance
 		
 		Singleton_CommonVariables.main_character_player_node.queue_free()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
 		
 		SceneManager.ChangeSceneNode(n)
 

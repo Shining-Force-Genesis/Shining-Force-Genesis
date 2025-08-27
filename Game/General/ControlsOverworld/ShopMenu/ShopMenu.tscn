@@ -82,6 +82,7 @@ _data = {
 }
 
 [node name="ShopMenuRoot" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_7622j")
 
 [node name="BuyActionSprite" type="Sprite2D" parent="."]

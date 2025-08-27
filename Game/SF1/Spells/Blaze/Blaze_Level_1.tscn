@@ -41,6 +41,7 @@ _data = {
 }
 
 [node name="Blaze_Level_2" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_rm3v7")
 
 [node name="BaseFlame" type="Sprite2D" parent="."]

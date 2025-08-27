@@ -2224,6 +2224,7 @@ _data = {
 }
 
 [node name="BattleActionsMenu" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_lxip6")
 
 [node name="AttackAction" type="Sprite2D" parent="."]

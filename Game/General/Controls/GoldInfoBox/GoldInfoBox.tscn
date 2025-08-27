@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://dwop1lnk6vqty" path="res://Assets/Shining-Force-Menu.ttf" id="3_jowi6"]
 
 [node name="GoldInfoBox" type="Node2D"]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_0fqe5")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]

@@ -22,7 +22,7 @@ const shader_texture__noise_pixelated = preload("res://Shaders/ShaderTextureImag
 @onready var scene_transition = $BattleSceneTransitionTemp
 @onready var spells_wrapper = $SpellsWrapper
 
-const transition_screen_default_position = Vector2(448, 90)
+const transition_screen_default_position = Vector2(448, 110)
 
 var current_initiator_actor_parent_node
 var current_initiator_actor_node
@@ -435,8 +435,8 @@ func activate_battle() -> void:
 			
 			
 			# do transition
-			bs.position = Vector2(640, 0)
-			ebs.position = Vector2(640, 0)
+			bs.position = Vector2(0, 0)
+			ebs.position = Vector2(0, 0)
 			
 			var bc = background_wrapper.get_child(0)
 			var ec = enemeyWrapper.get_child(0)
@@ -453,11 +453,11 @@ func activate_battle() -> void:
 			
 			var tween_tim = 0.25
 			var _t = create_tween().set_parallel(true)
-			_t.tween_property(bc, "position", Vector2(bc.position.x -320, bc.position.y), tween_tim)
-			_t.tween_property(ec, "position", Vector2(ec.position.x -320, ec.position.y), tween_tim)
+			_t.tween_property(bc, "position", Vector2(bc.position.x - 320, bc.position.y), tween_tim)
+			_t.tween_property(ec, "position", Vector2(ec.position.x - 320, ec.position.y), tween_tim)
 			_t.tween_property(scene_transition, "position", Vector2(transition_screen_default_position.x - 448, transition_screen_default_position.y), tween_tim)
-			_t.tween_property(bs, "position", Vector2(bs.position.x -640, bs.position.y), tween_tim)
-			_t.tween_property(ebs, "position", Vector2(ebs.position.x -640, ebs.position.y), tween_tim)
+			_t.tween_property(bs, "position", Vector2(bs.position.x - 640, bs.position.y), tween_tim)
+			_t.tween_property(ebs, "position", Vector2(ebs.position.x - 640, ebs.position.y), tween_tim)
 			
 			await _t.finished
 			bc.queue_free()
@@ -549,7 +549,7 @@ func activate_battle() -> void:
 			
 			var tween_tim = 0.25
 			var _t = create_tween().set_parallel(true)
-			_t.tween_property(cc, "position", Vector2(cc.position.x -320, cc.position.y), tween_tim)
+			_t.tween_property(cc, "position", Vector2(cc.position.x - 320, cc.position.y), tween_tim)
 			_t.tween_property(scene_transition, "position", Vector2(transition_screen_default_position.x - 448, transition_screen_default_position.y), tween_tim)
 			_t.tween_property(a_bs, "position", character_position, tween_tim)
 			
@@ -636,6 +636,13 @@ func activate_battle() -> void:
 	# await Singleton_CommonVariables.top_level_fader_node.play_fade_in_quick()
 	
 	cleanup_wrappers()
+	
+	# Cleanup Magic selection information so the following character doesnt cast the previously selected spell during their normal attack
+	# how and why was this even a thing in this codebase????????
+	Singleton_CommonVariables.battle__resource_animation_scene_path = null
+	Singleton_CommonVariables.battle__target_actor_types = null
+	Singleton_CommonVariables.battle__magic_spell_level_selected = null
+	
 	
 	Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
 	Singleton_CommonVariables.ui__target_actor_micro_info_box.hide_cust_target_battle_scene()
