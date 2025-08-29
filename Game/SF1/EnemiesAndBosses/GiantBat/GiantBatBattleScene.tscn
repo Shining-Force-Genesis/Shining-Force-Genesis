@@ -1,16 +1,16 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtroif3hpohkr"]
+[gd_scene load_steps=12 format=3 uid="uid://ca0wytaphx5dm"]
 
-[ext_resource type="Script" uid="uid://7tlt7n2ryq3j" path="res://SF1/EnemiesAndBosses/GenericEnemeyBattleScene.gd" id="1_as3hl"]
-[ext_resource type="Texture2D" uid="uid://dnpi0hu6tpq3g" path="res://Assets/EnemiesAndBosses/Dark Dwarf/Battle_Sprites.png" id="2_e7nyu"]
-[ext_resource type="Shader" uid="uid://c8im77huolbmj" path="res://Shaders/Dissolve.gdshader" id="2_pchmu"]
-[ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="3_p0jrt"]
-[ext_resource type="Animation" uid="uid://skmgdy4gvcda" path="res://SF1/EnemiesAndBosses/Death.res" id="3_xqb5x"]
-[ext_resource type="Animation" uid="uid://bvq6yk607d7a5" path="res://SF1/EnemiesAndBosses/Shake.res" id="4_sjx3v"]
+[ext_resource type="Script" uid="uid://7tlt7n2ryq3j" path="res://SF1/EnemiesAndBosses/GenericEnemeyBattleScene.gd" id="1_qlwy8"]
+[ext_resource type="Shader" uid="uid://c8im77huolbmj" path="res://Shaders/Dissolve.gdshader" id="2_6p2qd"]
+[ext_resource type="Texture2D" uid="uid://bg7u6slhfkm6g" path="res://Shaders/ShaderTextureImages/NoisePixelated.jpg" id="3_5h2of"]
+[ext_resource type="Texture2D" uid="uid://uxpmv85f7w78" path="res://Assets/EnemiesAndBosses/Giant Bat/Battle_Sprites.png" id="4_qlwy8"]
+[ext_resource type="Animation" uid="uid://skmgdy4gvcda" path="res://SF1/EnemiesAndBosses/Death.res" id="5_osd16"]
+[ext_resource type="Animation" uid="uid://bvq6yk607d7a5" path="res://SF1/EnemiesAndBosses/Shake.res" id="6_ssqf8"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t5xh4"]
-shader = ExtResource("2_pchmu")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qswjq"]
+shader = ExtResource("2_6p2qd")
 shader_parameter/dissolve_effect_amount = 0.0
-shader_parameter/noise_texture = ExtResource("3_p0jrt")
+shader_parameter/noise_texture = ExtResource("3_5h2of")
 
 [sub_resource type="Animation" id="Animation_xd71m"]
 resource_name = "Attack"
@@ -22,10 +22,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 1, 1.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0, 2, 3, 0]
+"values": [0, 1, 2, 3]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -34,7 +34,7 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6, 1),
+"times": PackedFloat32Array(0.4, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -47,7 +47,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_1vnhv"]
 resource_name = "Idle"
-length = 0.80001
+length = 0.10001
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -56,10 +56,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1]
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_ejoj2"]
@@ -85,7 +85,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [0.0]
 }
 tracks/2/type = "value"
@@ -98,26 +98,26 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(108, 84)]
+"values": [Vector2(116, 92)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6b8o4"]
 _data = {
 &"Attack": SubResource("Animation_xd71m"),
-&"Death": ExtResource("3_xqb5x"),
+&"Death": ExtResource("5_osd16"),
 &"Idle": SubResource("Animation_1vnhv"),
 &"RESET": SubResource("Animation_ejoj2"),
-&"Shake": ExtResource("4_sjx3v")
+&"Shake": ExtResource("6_ssqf8")
 }
 
-[node name="DarkDwarfBattleScene" type="Node2D"]
-script = ExtResource("1_as3hl")
+[node name="GoblinBattleScene" type="Node2D"]
+script = ExtResource("1_qlwy8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_t5xh4")
-position = Vector2(108, 84)
-texture = ExtResource("2_e7nyu")
-hframes = 5
+material = SubResource("ShaderMaterial_qswjq")
+position = Vector2(116, 92)
+texture = ExtResource("4_qlwy8")
+hframes = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

@@ -24,15 +24,17 @@ var c1 = {
 	"exited_guardiana_once": true,
 	#
 	
-	"battle_1_opening_cutscene": true,
+	"battle_1_opening_cutscene": false,
 	"battle_1_complete": false,
 	
 	# second major cutscene
+	"battle_2_opening_cutscene": false,
 	"battle_2_complete": false,
 	"entered_guardiana_post_battle_2": false,
 	"kane_cutscene_guardiana_castle_played": false,
 	#
 	
+	"battle_3_opening_cutscene": false,
 	"battle_3_complete": false,
 	"spoken_to_guardiana_man_in_alterone_bar": false,
 	"spoken_to_alterone_king_post_guardiana_invasion": false,

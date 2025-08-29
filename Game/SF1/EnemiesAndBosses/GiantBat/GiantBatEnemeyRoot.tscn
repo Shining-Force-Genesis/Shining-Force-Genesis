@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cdklynul2msnf"]
+[gd_scene load_steps=10 format=3 uid="uid://dsrnjdmtgnweu"]
 
-[ext_resource type="PackedScene" uid="uid://588imvwkbshk" path="res://General/CEnemeyRoot/EnemeyRoot.tscn" id="1_tppk4"]
-[ext_resource type="Texture2D" uid="uid://da8nu6bsgh8oc" path="res://Assets/EnemiesAndBosses/Dark Dwarf/Map_Sprites.png" id="3_f6p5r"]
-[ext_resource type="Texture2D" uid="uid://dnpi0hu6tpq3g" path="res://Assets/EnemiesAndBosses/Dark Dwarf/Battle_Sprites.png" id="4_bkyjs"]
+[ext_resource type="PackedScene" uid="uid://588imvwkbshk" path="res://General/CEnemeyRoot/EnemeyRoot.tscn" id="1_3vhmd"]
+[ext_resource type="PackedScene" uid="uid://ca0wytaphx5dm" path="res://SF1/EnemiesAndBosses/GiantBat/GiantBatBattleScene.tscn" id="2_2qayh"]
+[ext_resource type="Texture2D" uid="uid://ksr5k1lbaivy" path="res://Assets/EnemiesAndBosses/Giant Bat/Map_Sprites.png" id="3_2qayh"]
 
-[sub_resource type="Animation" id="Animation_7d712"]
+[sub_resource type="Animation" id="Animation_hsv8d"]
 resource_name = "DownMovement"
 length = 0.80001
 loop_mode = 1
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
-[sub_resource type="Animation" id="Animation_1ugyd"]
+[sub_resource type="Animation" id="Animation_udvjy"]
 resource_name = "LeftMovement"
 length = 0.80001
 loop_mode = 1
@@ -50,7 +50,7 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_2wmhq"]
+[sub_resource type="Animation" id="Animation_8dntj"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -74,10 +74,10 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_vqhly"]
+[sub_resource type="Animation" id="Animation_qld85"]
 resource_name = "RightMovement"
 length = 0.80001
 loop_mode = 1
@@ -106,7 +106,7 @@ tracks/1/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_qturg"]
+[sub_resource type="Animation" id="Animation_5ycmx"]
 resource_name = "UpMovement"
 length = 0.80001
 loop_mode = 1
@@ -123,40 +123,39 @@ tracks/0/keys = {
 "values": [2, 3]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fpcfg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3mtp0"]
 _data = {
-&"DownMovement": SubResource("Animation_7d712"),
-&"LeftMovement": SubResource("Animation_1ugyd"),
-&"RESET": SubResource("Animation_2wmhq"),
-&"RightMovement": SubResource("Animation_vqhly"),
-&"UpMovement": SubResource("Animation_qturg")
+&"DownMovement": SubResource("Animation_hsv8d"),
+&"LeftMovement": SubResource("Animation_udvjy"),
+&"RESET": SubResource("Animation_8dntj"),
+&"RightMovement": SubResource("Animation_qld85"),
+&"UpMovement": SubResource("Animation_5ycmx")
 }
 
-[node name="DarkDwarf" type="Node2D"]
+[node name="GiantBat" type="Node2D"]
 
-[node name="EnemeyRoot" parent="." instance=ExtResource("1_tppk4")]
-enemey_name = "Dark Dwarf"
-coins_min = 25
-coins_max = 25
-texture_sprite_overworld = ExtResource("3_f6p5r")
-texture_sprite_battle = ExtResource("4_bkyjs")
+[node name="EnemeyRoot" parent="." instance=ExtResource("1_3vhmd")]
+enemey_battle_scene = ExtResource("2_2qayh")
+enemey_name = "Giant Bat"
+coins_min = 14
+coins_max = 14
 effective_level = 4
-move = 4
-attack = 5
-defense = 8
-agility = 5
-HP_Current = 11
-HP_Total = 11
+move = 7
+movement_type = 5
+attack = 11
+defense = 6
+agility = 9
+HP_Current = 14
+HP_Total = 14
 
 [node name="Sprite2D" parent="EnemeyRoot" index="0"]
 position = Vector2(0, -8)
-texture = ExtResource("3_f6p5r")
-flip_h = true
+texture = ExtResource("3_2qayh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemeyRoot"]
 root_node = NodePath("../..")
 libraries = {
-&"": SubResource("AnimationLibrary_fpcfg")
+&"": SubResource("AnimationLibrary_3mtp0")
 }
 autoplay = "DownMovement"
 

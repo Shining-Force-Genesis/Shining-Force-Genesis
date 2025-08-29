@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://ce570o0pmrjg"]
+
+[ext_resource type="Script" uid="uid://liywel3tglch" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_a57cp"]
+[ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="2_cgk5l"]
+[ext_resource type="PackedScene" uid="uid://dsrnjdmtgnweu" path="res://SF1/EnemiesAndBosses/GiantBat/GiantBatEnemeyRoot.tscn" id="3_innaj"]
+
+[node name="GiantBat" type="Node2D"]
+script = ExtResource("1_a57cp")
+
+[node name="PlayerCharacterRoot" parent="." instance=ExtResource("2_cgk5l")]
+actor_type = 2
+
+[node name="GiantBat" parent="PlayerCharacterRoot" instance=ExtResource("3_innaj")]
+
+[editable path="PlayerCharacterRoot"]
+[editable path="PlayerCharacterRoot/GiantBat"]
+[editable path="PlayerCharacterRoot/GiantBat/EnemeyRoot"]

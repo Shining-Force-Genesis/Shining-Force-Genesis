@@ -26,7 +26,7 @@ const SF1 = {
 		
 		"Battle2": "res://SF1/Chapters/1/Overworld/Battle2/Battle2_Overworld.tscn",
 		
-		"Battle3": "res://SF1/Chapters/1/AncientsGate/Battle1-AncientsGate.tscn",
+		"Battle3": "res://SF1/Chapters/1/_Battles/3/Battle3.tscn",
 		
 		"Battle4": "res://SF1/Chapters/1/AncientsGate/Battle1-AncientsGate.tscn",
 	},
