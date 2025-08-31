@@ -53,7 +53,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		Singleton_CommonVariables.dialogue_box_node.show()
 		Singleton_CommonVariables.ui__portrait_popup.show()
 		Singleton_CommonVariables.ui__portrait_popup.load_portrait("res://Assets/NPC/Nova_Portraits.png")
-		var display_str = "{main_character_name}!Do you really want to retreat from this battle?"
+		var display_str = "{main_character_name}! Do you really want to retreat from this battle?"
 		Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
 		Singleton_CommonVariables.ui__yes_or_no_prompt.s_show__yes_or_no_prompt()
 		var result = await Signal(Singleton_CommonVariables.ui__yes_or_no_prompt, "signal__yes_or_no_prompt__choice")

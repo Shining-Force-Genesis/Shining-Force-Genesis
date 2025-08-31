@@ -72,42 +72,50 @@ func _on_church_left_exit_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_gort_house_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/GortsHouse.hide()
+		# $Map/GortsHouse.hide()
+		pass
 
 
 func _on_gort_house_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/GortsHouse.show()
+		# $Map/GortsHouse.show()
+		pass
 
 
 func _on_family_house_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/FamilyHome.hide()
+		# $Map/FamilyHome.hide()
+		pass
 
 
 func _on_family_house_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/FamilyHome.show()
+		# $Map/FamilyHome.show()
+		pass
 
 
 func _on_solider_house_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/SoldierHouse.hide()
+		# $Map/SoldierHouse.hide()
+		pass
 
 
 func _on_solider_house_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/SoldierHouse.show()
+		# $Map/SoldierHouse.show()
+		pass
 
 
 func _on_inn_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/Inn.hide()
+		# $Map/Inn.hide()
+		pass
 
 
 func _on_inn_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		$Map/Inn.show()
+		# $Map/Inn.show()
+		pass
 
 
 func _on_bar_entrance_area_2d_body_entered(body: Node2D) -> void:

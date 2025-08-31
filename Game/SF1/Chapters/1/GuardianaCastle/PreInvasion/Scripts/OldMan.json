@@ -7,12 +7,12 @@
 
 		{
 			"InteractionAnswer": "YES",
-			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan_Yes.json"
+			"Script": "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/OldMan_Yes.json"
 		},
 
 		{
 			"InteractionAnswer": "NO",
-			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan_No.json"
+			"Script": "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/OldMan_No.json"
 		}
 	]
 }

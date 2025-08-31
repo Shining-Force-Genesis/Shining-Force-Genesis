@@ -6,9 +6,9 @@ var changing_scene: bool = false
 
 const SF1 = {
 	"C1": {
-		"Guardiana": "res://SF1/Chapter_1/Guardiana/TownTilemap.tscn",
+		"Guardiana": "res://SF1/Chapters/1/Guardiana/PreInvasion/TownTilemap.tscn",
 		"GuardianaInvaded": "res://SF1/Chapters/1/Guardiana/Invaded/GuardianaInvaded.tscn",
-		"GuardianaCastle": "res://SF1/Chapter_1/Guardiana/KingsCastleTilemap.tscn",
+		"GuardianaCastle": "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/KingsCastleTilemap.tscn",
 		"GuardianaCastleInvaded": "res://SF1/Chapters/1/GuardianaCastle/Invaded/GuardianaCastleInvaded.tscn",
 		
 		"Overworld": "res://SF1/Chapters/1/Overworld/Overworld.tscn",

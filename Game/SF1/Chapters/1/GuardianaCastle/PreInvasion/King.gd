@@ -37,17 +37,17 @@ func attempt_interaction_talk() -> void:
 	
 	var script_path = ""
 	if !Singleton_CommonVariables.sf_game_data_node.c1.spoken_to_the_king:
-		script_path = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Planning.json"
+		script_path = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Planning.json"
 		Singleton_CommonVariables.sf_game_data_node.c1.spoken_to_the_king = true
 	elif Singleton_CommonVariables.sf_game_data_node.c1.spoken_to_the_king && !Singleton_CommonVariables.sf_game_data_node.c1.accepted_kings_plan:
-		script_path = "res://SF1/Chapter_1/GuardianaCastle/Scripts/KingRejected.json"
+		script_path = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/KingRejected.json"
 		# Singleton_Game_GlobalCommonVariables.sf_game_data_node.c1.accepted_kings_plan = true
 	elif !Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined && Singleton_CommonVariables.sf_game_data_node.c1.spoken_to_the_king && Singleton_CommonVariables.sf_game_data_node.c1.accepted_kings_plan:
-		script_path = "res://SF1/Chapter_1/GuardianaCastle/Scripts/KingAfterAcceptingPlan.json"
+		script_path = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/KingAfterAcceptingPlan.json"
 	elif Singleton_CommonVariables.sf_game_data_node.c1.kings_permission:
-		script_path = "res://SF1/Chapter_1/GuardianaCastle/Scripts/KingPostForceJoinTalk.json"
+		script_path = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/KingPostForceJoinTalk.json"
 	elif !Singleton_CommonVariables.sf_game_data_node.c1.kings_permission && Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined:
-		script_path = "res://SF1/Chapter_1/GuardianaCastle/Scripts/KingPostForceJoin.json"
+		script_path = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/KingPostForceJoin.json"
 		Singleton_CommonVariables.sf_game_data_node.c1.kings_permission = true
 		Singleton_CommonVariables.gold += 100
 	

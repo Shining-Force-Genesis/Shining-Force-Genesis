@@ -159,7 +159,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		# Singleton_Game_GlobalCommonVariables.main_character_player_node.change_facing_direction_string("LeftMovement")
 		
 		Singleton_CommonVariables.dialogue_box_is_currently_active = true
-		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapter_1/GuardianaCastle/Scripts/MeetingWithTheKing.json"
+		Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/MeetingWithTheKing.json"
 		Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
 		
 		await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog

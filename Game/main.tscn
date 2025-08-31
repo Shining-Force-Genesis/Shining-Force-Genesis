@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://dv3qaqslut63l" path="res://General/ControlsOverworld/MicroMemberListView/MicroMemberListView.tscn" id="20_1u8w0"]
 [ext_resource type="PackedScene" uid="uid://bwmkktkirrfbc" path="res://General/ControlsOverworld/InventoryMenu/InventoryMenu.tscn" id="21_0odxb"]
 [ext_resource type="PackedScene" uid="uid://kqvcybrnvh8r" path="res://General/ControlsOverworld/MemberListView/MemberListView.tscn" id="22_lswn8"]
-[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/Chapter_1/Guardiana/TownTilemap.tscn" id="26_lswn8"]
+[ext_resource type="PackedScene" uid="uid://da720jhkmfku3" path="res://SF1/Chapters/1/Guardiana/PreInvasion/TownTilemap.tscn" id="26_lswn8"]
 
 [node name="MAIN" type="Node2D"]
 script = ExtResource("1_1bvp3")

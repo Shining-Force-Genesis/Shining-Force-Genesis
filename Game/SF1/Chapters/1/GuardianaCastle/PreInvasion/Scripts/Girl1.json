@@ -7,12 +7,12 @@
 
 		{
 			"InteractionAnswer": "YES",
-			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl1_Yes.json"
+			"Script": "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Girl1_Yes.json"
 		},
 
 		{
 			"InteractionAnswer": "NO",
-			"Script": "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl1_No.json"
+			"Script": "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Girl1_No.json"
 		}
 	]
 }

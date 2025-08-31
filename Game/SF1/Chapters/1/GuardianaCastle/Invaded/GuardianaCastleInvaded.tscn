@@ -1,20 +1,20 @@
 [gd_scene load_steps=38 format=4 uid="uid://dnsniuq7v2isf"]
 
-[ext_resource type="Script" uid="uid://dw1xjnj53lj5c" path="res://SF1/Chapter_1/Guardiana/kings_castle_tilemap.gd" id="1_sb6x3"]
+[ext_resource type="Script" uid="uid://dw1xjnj53lj5c" path="res://SF1/Chapters/1/GuardianaCastle/PreInvasion/kings_castle_tilemap.gd" id="1_sb6x3"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_drkoh"]
 [ext_resource type="Texture2D" uid="uid://bb2jwrq5it0w4" path="res://SF1/Assets/Tilesets/6.png" id="3_pdr08"]
 [ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="4_cw15p"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="5_eiels"]
 [ext_resource type="PackedScene" uid="uid://dji1st2fd8pam" path="res://General/Door/door.tscn" id="6_t2gsg"]
 [ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="7_osorp"]
-[ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/Chapter_1/Guardiana/NPCs/GenericOneDialogueNPC.gd" id="8_2knb4"]
+[ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/NPCs/GenericOneDialogueNPC.gd" id="8_2knb4"]
 [ext_resource type="Texture2D" uid="uid://dkoqu4b08efg6" path="res://Assets/NPC/Man_Old_WhiteBeard.png" id="9_ltka7"]
 [ext_resource type="Texture2D" uid="uid://crk5refjaoje8" path="res://Assets/NPC/Woman_Blonde_GreenDress.png" id="10_8ihf2"]
 [ext_resource type="Texture2D" uid="uid://b11vecow46w0q" path="res://Assets/NPC/Child_Pet.png" id="10_cc7eg"]
 [ext_resource type="Texture2D" uid="uid://bo7lpklc416ms" path="res://Assets/NPC/Woman_Redhead.png" id="11_svsiv"]
 [ext_resource type="Texture2D" uid="uid://5qxw13ilj8h0" path="res://Characters/Mae/Assets/Unpromoted_Map_Sprites.png" id="12_0eibk"]
 [ext_resource type="Texture2D" uid="uid://c3k5ghcgiuio2" path="res://Assets/NPC/Soldier_Injured.png" id="13_rdy1y"]
-[ext_resource type="Script" uid="uid://b0a4se0iq6lo1" path="res://SF1/Chapter_1/GuardianaCastle/King.gd" id="14_uc4ay"]
+[ext_resource type="Script" uid="uid://b0a4se0iq6lo1" path="res://SF1/Chapters/1/GuardianaCastle/PreInvasion/King.gd" id="14_uc4ay"]
 [ext_resource type="Texture2D" uid="uid://ca1xibywmhgm1" path="res://Assets/NPC/King Guardiana.png" id="15_v5xal"]
 [ext_resource type="Texture2D" uid="uid://v6ew4ihbmngo" path="res://Assets/NPC/Lord_Varios.png" id="16_pt7xv"]
 [ext_resource type="Texture2D" uid="uid://bgnskiw73wjn6" path="res://Assets/NPC/Chancellor.png" id="18_ya2o5"]
@@ -3430,7 +3430,7 @@ position = Vector2(888, 264)
 [node name="OldManWithBeard" parent="NPCS" instance=ExtResource("7_osorp")]
 position = Vector2(360, 576)
 script = ExtResource("8_2knb4")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan.json"
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/Invaded/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/OldManWithBeard" index="0"]
 FacingDirection = 3
@@ -3449,7 +3449,7 @@ libraries = {
 [node name="Daughter" parent="NPCS" instance=ExtResource("7_osorp")]
 position = Vector2(432, 552)
 script = ExtResource("8_2knb4")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan.json"
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/Invaded/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Daughter" index="0"]
 use_mirror_animation = true
@@ -3467,7 +3467,7 @@ libraries = {
 [node name="Mother" parent="NPCS" instance=ExtResource("7_osorp")]
 position = Vector2(456, 552)
 script = ExtResource("8_2knb4")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan.json"
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/Invaded/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Mother" index="0"]
 use_mirror_animation = true
@@ -3485,7 +3485,7 @@ libraries = {
 [node name="MaidLeft" parent="NPCS" instance=ExtResource("7_osorp")]
 position = Vector2(432, 288)
 script = ExtResource("8_2knb4")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl1.json"
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/Invaded/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/MaidLeft" index="0"]
 stationary = false
@@ -3508,7 +3508,7 @@ tile_map_data = PackedByteArray("AAAFAAAAAAAAAAAAAAA=")
 [node name="MaidRight" parent="NPCS" instance=ExtResource("7_osorp")]
 position = Vector2(576, 288)
 script = ExtResource("8_2knb4")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl2.json"
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/Invaded/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/MaidRight" index="0"]
 stationary = false
@@ -3531,7 +3531,7 @@ tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAA=")
 [node name="SoliderLeft" parent="NPCS" instance=ExtResource("7_osorp")]
 position = Vector2(576, 792)
 script = ExtResource("8_2knb4")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearHeadquarters (2).json"
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/Invaded/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderLeft" index="0"]
 use_mirror_animation = true

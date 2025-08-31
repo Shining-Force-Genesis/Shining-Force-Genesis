@@ -1,26 +1,26 @@
 [gd_scene load_steps=37 format=4 uid="uid://c4bbxku3rhy1c"]
 
-[ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="0"]
-[ext_resource type="Script" uid="uid://dw1xjnj53lj5c" path="res://SF1/Chapter_1/Guardiana/kings_castle_tilemap.gd" id="1_8i5q1"]
-[ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="4_kqqdt"]
-[ext_resource type="Texture2D" uid="uid://bb2jwrq5it0w4" path="res://SF1/Assets/Tilesets/6.png" id="6"]
-[ext_resource type="PackedScene" uid="uid://dji1st2fd8pam" path="res://General/Door/door.tscn" id="6_etloh"]
-[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="6_t0x2g"]
-[ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="7"]
-[ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/Chapter_1/Guardiana/NPCs/GenericOneDialogueNPC.gd" id="7_bwfno"]
-[ext_resource type="Texture2D" uid="uid://dkoqu4b08efg6" path="res://Assets/NPC/Man_Old_WhiteBeard.png" id="8_f023a"]
-[ext_resource type="Texture2D" uid="uid://crk5refjaoje8" path="res://Assets/NPC/Woman_Blonde_GreenDress.png" id="9_75pk4"]
-[ext_resource type="Texture2D" uid="uid://v6ew4ihbmngo" path="res://Assets/NPC/Lord_Varios.png" id="10_0ot5g"]
-[ext_resource type="Texture2D" uid="uid://5qxw13ilj8h0" path="res://Characters/Mae/Assets/Unpromoted_Map_Sprites.png" id="11_ycb3y"]
-[ext_resource type="Texture2D" uid="uid://df5pc7pth6tax" path="res://Characters/Arthur/Assets/Promoted_Map_Sprites.png" id="12_087s1"]
-[ext_resource type="Texture2D" uid="uid://ca1xibywmhgm1" path="res://Assets/NPC/King Guardiana.png" id="13_087s1"]
-[ext_resource type="Script" uid="uid://b0a4se0iq6lo1" path="res://SF1/Chapter_1/GuardianaCastle/King.gd" id="14_ljluk"]
-[ext_resource type="Texture2D" uid="uid://buuvlshs68ehi" path="res://Assets/NPC/Nova.png" id="15_bot6t"]
-[ext_resource type="Texture2D" uid="uid://bgnskiw73wjn6" path="res://Assets/NPC/Chancellor.png" id="16_etloh"]
-[ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="25_mjmit"]
+[ext_resource type="Script" uid="uid://dw1xjnj53lj5c" path="res://SF1/Chapters/1/GuardianaCastle/PreInvasion/kings_castle_tilemap.gd" id="1_nsmj5"]
+[ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_t5f4g"]
+[ext_resource type="Texture2D" uid="uid://bb2jwrq5it0w4" path="res://SF1/Assets/Tilesets/6.png" id="3_phxv7"]
+[ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="4_w6yed"]
+[ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="5_odtdo"]
+[ext_resource type="PackedScene" uid="uid://dji1st2fd8pam" path="res://General/Door/door.tscn" id="6_k25i0"]
+[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="7_kfc8r"]
+[ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/NPCs/GenericOneDialogueNPC.gd" id="8_bueiw"]
+[ext_resource type="Texture2D" uid="uid://dkoqu4b08efg6" path="res://Assets/NPC/Man_Old_WhiteBeard.png" id="9_2qf53"]
+[ext_resource type="Texture2D" uid="uid://crk5refjaoje8" path="res://Assets/NPC/Woman_Blonde_GreenDress.png" id="10_vvbcq"]
+[ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="11_c45v2"]
+[ext_resource type="Texture2D" uid="uid://5qxw13ilj8h0" path="res://Characters/Mae/Assets/Unpromoted_Map_Sprites.png" id="12_nku6e"]
+[ext_resource type="Texture2D" uid="uid://df5pc7pth6tax" path="res://Characters/Arthur/Assets/Promoted_Map_Sprites.png" id="13_4lmp4"]
+[ext_resource type="Script" uid="uid://b0a4se0iq6lo1" path="res://SF1/Chapters/1/GuardianaCastle/PreInvasion/King.gd" id="14_tkw36"]
+[ext_resource type="Texture2D" uid="uid://ca1xibywmhgm1" path="res://Assets/NPC/King Guardiana.png" id="15_p5an1"]
+[ext_resource type="Texture2D" uid="uid://v6ew4ihbmngo" path="res://Assets/NPC/Lord_Varios.png" id="16_8cuqd"]
+[ext_resource type="Texture2D" uid="uid://buuvlshs68ehi" path="res://Assets/NPC/Nova.png" id="17_i5p1g"]
+[ext_resource type="Texture2D" uid="uid://bgnskiw73wjn6" path="res://Assets/NPC/Chancellor.png" id="18_jjpbe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
-texture = ExtResource("0")
+texture = ExtResource("2_t5f4g")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -1048,7 +1048,7 @@ texture_region_size = Vector2i(4, 4)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
-texture = ExtResource("6")
+texture = ExtResource("3_phxv7")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -2076,7 +2076,7 @@ texture_region_size = Vector2i(4, 4)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2"]
-texture = ExtResource("7")
+texture = ExtResource("4_w6yed")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -3110,7 +3110,7 @@ sources/1 = SubResource("TileSetAtlasSource_1")
 sources/2 = SubResource("TileSetAtlasSource_2")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kqqdt"]
-texture = ExtResource("4_kqqdt")
+texture = ExtResource("5_odtdo")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
@@ -3213,7 +3213,7 @@ _data = {
 size = Vector2(120, 24)
 
 [node name="KingsCastleTilemap" type="Node2D"]
-script = ExtResource("1_8i5q1")
+script = ExtResource("1_nsmj5")
 
 [node name="Map" type="Node" parent="."]
 
@@ -3411,31 +3411,31 @@ position = Vector2(1152, 1008)
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="Door" parent="Interactables" instance=ExtResource("6_etloh")]
+[node name="Door" parent="Interactables" instance=ExtResource("6_k25i0")]
 position = Vector2(432, 816)
 
-[node name="Door2" parent="Interactables" instance=ExtResource("6_etloh")]
+[node name="Door2" parent="Interactables" instance=ExtResource("6_k25i0")]
 position = Vector2(432, 600)
 
-[node name="Door3" parent="Interactables" instance=ExtResource("6_etloh")]
+[node name="Door3" parent="Interactables" instance=ExtResource("6_k25i0")]
 position = Vector2(336, 336)
 
-[node name="Door4" parent="Interactables" instance=ExtResource("6_etloh")]
+[node name="Door4" parent="Interactables" instance=ExtResource("6_k25i0")]
 position = Vector2(888, 264)
 
 [node name="NPCS" type="Node" parent="."]
 
-[node name="OldManWithBeard" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="OldManWithBeard" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(408, 576)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/OldMan.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/OldMan.json"
 
 [node name="AnimatableBody2D" parent="NPCS/OldManWithBeard" index="0"]
 FacingDirection = 2
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="3"]
-texture = ExtResource("8_f023a")
+texture = ExtResource("9_2qf53")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/OldManWithBeard/AnimatableBody2D" index="4"]
@@ -3444,17 +3444,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="MaidLeft" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="MaidLeft" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(432, 288)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl1.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Girl1.json"
 
 [node name="AnimatableBody2D" parent="NPCS/MaidLeft" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/MaidLeft/AnimatableBody2D" index="3"]
-texture = ExtResource("9_75pk4")
+texture = ExtResource("10_vvbcq")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/MaidLeft/AnimatableBody2D" index="4"]
@@ -3467,17 +3467,17 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAAFAAAAAAAAAAAAAAA=")
 
-[node name="MaidRight" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="MaidRight" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(576, 288)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Girl2.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Girl2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/MaidRight" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/MaidRight/AnimatableBody2D" index="3"]
-texture = ExtResource("9_75pk4")
+texture = ExtResource("10_vvbcq")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/MaidRight/AnimatableBody2D" index="4"]
@@ -3490,13 +3490,13 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAA=")
 
-[node name="SoliderTreasure" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="SoliderTreasure" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(336, 384)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearTreasure.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/GuardNearTreasure.json"
 
 [node name="Sprite2D" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="3"]
-texture = ExtResource("25_mjmit")
+texture = ExtResource("11_c45v2")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/SoliderTreasure/AnimatableBody2D" index="4"]
@@ -3505,17 +3505,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="SoliderHQ" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="SoliderHQ" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(432, 864)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearHeadquarters.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/GuardNearHeadquarters.json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderHQ" index="0"]
 FacingDirection = 3
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/SoliderHQ/AnimatableBody2D" index="3"]
-texture = ExtResource("25_mjmit")
+texture = ExtResource("11_c45v2")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/SoliderHQ/AnimatableBody2D" index="4"]
@@ -3524,16 +3524,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="SoliderLeft" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="SoliderLeft" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(576, 792)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearHeadquarters (2).json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/GuardNearHeadquarters (2).json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderLeft" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/SoliderLeft/AnimatableBody2D" index="3"]
-texture = ExtResource("25_mjmit")
+texture = ExtResource("11_c45v2")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/SoliderLeft/AnimatableBody2D" index="4"]
@@ -3542,16 +3542,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="SoliderRight" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="SoliderRight" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(672, 792)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/CastleGuard2.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/CastleGuard2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderRight" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/SoliderRight/AnimatableBody2D" index="3"]
-texture = ExtResource("25_mjmit")
+texture = ExtResource("11_c45v2")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/SoliderRight/AnimatableBody2D" index="4"]
@@ -3560,17 +3560,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="Mae" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Mae" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(360, 576)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Mae.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Mae.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Mae" index="0"]
 FacingDirection = 3
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Mae/AnimatableBody2D" index="3"]
-texture = ExtResource("11_ycb3y")
+texture = ExtResource("12_nku6e")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Mae/AnimatableBody2D" index="4"]
@@ -3579,17 +3579,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="Centaur" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Centaur" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(768, 552)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight1.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Knight1.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Centaur/AnimatableBody2D" index="3"]
-texture = ExtResource("12_087s1")
+texture = ExtResource("13_4lmp4")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Centaur/AnimatableBody2D" index="4"]
@@ -3602,17 +3602,17 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAAEAP3/AAAAAAAAAAAFAP3/AAAAAAAAAAAGAP3/AAAAAAAAAAA=")
 
-[node name="Centaur2" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Centaur2" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(816, 552)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight2.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Knight2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur2" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Centaur2/AnimatableBody2D" index="3"]
-texture = ExtResource("12_087s1")
+texture = ExtResource("13_4lmp4")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Centaur2/AnimatableBody2D" index="4"]
@@ -3625,17 +3625,17 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wQAAAAAAAAAAAACAP3/AAAAAAAAAAADAP3/AAAAAAAAAAAEAP3/AAAAAAAAAAA=")
 
-[node name="Centaur3" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Centaur3" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(864, 552)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight3.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Knight3.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur3" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Centaur3/AnimatableBody2D" index="3"]
-texture = ExtResource("12_087s1")
+texture = ExtResource("13_4lmp4")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Centaur3/AnimatableBody2D" index="4"]
@@ -3648,17 +3648,17 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD6/wQAAAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAACAP3/AAAAAAAAAAA=")
 
-[node name="Centaur4" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Centaur4" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(768, 600)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight4.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Knight4.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur4" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Centaur4/AnimatableBody2D" index="3"]
-texture = ExtResource("12_087s1")
+texture = ExtResource("13_4lmp4")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Centaur4/AnimatableBody2D" index="4"]
@@ -3671,17 +3671,17 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAAEAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAPv/AAAAAAAAAAA=")
 
-[node name="Centaur5" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Centaur5" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(816, 600)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight5.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Knight5.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur5" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Centaur5/AnimatableBody2D" index="3"]
-texture = ExtResource("12_087s1")
+texture = ExtResource("13_4lmp4")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Centaur5/AnimatableBody2D" index="4"]
@@ -3694,17 +3694,17 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAA=")
 
-[node name="Centaur6" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Centaur6" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(864, 600)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Knight6.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Knight6.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur6" index="0"]
 stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Centaur6/AnimatableBody2D" index="3"]
-texture = ExtResource("12_087s1")
+texture = ExtResource("13_4lmp4")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Centaur6/AnimatableBody2D" index="4"]
@@ -3717,10 +3717,10 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAA=")
 
-[node name="Centaur7" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Centaur7" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(744, 384)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/KnightInsideTheCastle.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/KnightInsideTheCastle.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Centaur7" index="0"]
 stationary = false
@@ -3728,7 +3728,7 @@ FacingDirection = 1
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Centaur7/AnimatableBody2D" index="3"]
-texture = ExtResource("12_087s1")
+texture = ExtResource("13_4lmp4")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Centaur7/AnimatableBody2D" index="4"]
@@ -3741,13 +3741,13 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAA=")
 
-[node name="SoliderRight2" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="SoliderRight2" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(720, 576)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/GuardNearTheKnights.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/GuardNearTheKnights.json"
 
 [node name="Sprite2D" parent="NPCS/SoliderRight2/AnimatableBody2D" index="3"]
-texture = ExtResource("25_mjmit")
+texture = ExtResource("11_c45v2")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/SoliderRight2/AnimatableBody2D" index="4"]
@@ -3756,15 +3756,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="King" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="King" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(624, 456)
-script = ExtResource("14_ljluk")
+script = ExtResource("14_tkw36")
 
 [node name="AnimatableBody2D" parent="NPCS/King" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/King/AnimatableBody2D" index="3"]
-texture = ExtResource("13_087s1")
+texture = ExtResource("15_p5an1")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/King/AnimatableBody2D" index="4"]
@@ -3773,17 +3773,17 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="Varios" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Varios" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(624, 480)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Varios.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Varios.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Varios" index="0"]
 FacingDirection = 1
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Varios/AnimatableBody2D" index="3"]
-texture = ExtResource("10_0ot5g")
+texture = ExtResource("16_8cuqd")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Varios/AnimatableBody2D" index="4"]
@@ -3792,16 +3792,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="Nova" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Nova" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(576, 456)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/TalkToTheKing.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/TalkToTheKing.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Nova" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Nova/AnimatableBody2D" index="3"]
-texture = ExtResource("15_bot6t")
+texture = ExtResource("17_i5p1g")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Nova/AnimatableBody2D" index="4"]
@@ -3810,16 +3810,16 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="Chancellor" parent="NPCS" instance=ExtResource("6_t0x2g")]
+[node name="Chancellor" parent="NPCS" instance=ExtResource("7_kfc8r")]
 position = Vector2(672, 456)
-script = ExtResource("7_bwfno")
-DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Minister.json"
+script = ExtResource("8_bueiw")
+DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Minister.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Chancellor" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Chancellor/AnimatableBody2D" index="3"]
-texture = ExtResource("16_etloh")
+texture = ExtResource("18_jjpbe")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Chancellor/AnimatableBody2D" index="4"]
