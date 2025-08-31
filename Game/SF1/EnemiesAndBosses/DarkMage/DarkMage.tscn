@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjp416sccg661"]
+
+[ext_resource type="Script" uid="uid://liywel3tglch" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_ylarf"]
+[ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="2_xu7hk"]
+[ext_resource type="PackedScene" uid="uid://c6kcxyffjefg4" path="res://SF1/EnemiesAndBosses/DarkMage/DarkMageEnemeyRoot.tscn" id="3_qn6qd"]
+
+[node name="DarkMage" type="Node2D"]
+script = ExtResource("1_ylarf")
+
+[node name="PlayerCharacterRoot" parent="." instance=ExtResource("2_xu7hk")]
+actor_type = 2
+
+[node name="DarkMage" parent="PlayerCharacterRoot" instance=ExtResource("3_qn6qd")]
+
+[editable path="PlayerCharacterRoot"]
+[editable path="PlayerCharacterRoot/DarkMage"]
+[editable path="PlayerCharacterRoot/DarkMage/EnemeyRoot"]

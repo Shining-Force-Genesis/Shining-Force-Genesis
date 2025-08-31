@@ -14,14 +14,14 @@ var c1 = {
 	# story flags - in order
 	
 	# opening cutscene
-	"spoken_to_varios": true,
-	"spoken_to_lowe": true,
-	"entered_kings_throne": true,
-	"spoken_to_the_king": true,
-	"accepted_kings_plan": true,
-	"initial_force_joined": true,
-	"kings_permission": true,
-	"exited_guardiana_once": true,
+	"spoken_to_varios": false,
+	"spoken_to_lowe": false,
+	"entered_kings_throne": false,
+	"spoken_to_the_king": false,
+	"accepted_kings_plan": false,
+	"initial_force_joined": false,
+	"kings_permission": false,
+	"exited_guardiana_once": false,
 	#
 	
 	"battle_1_opening_cutscene": false,
@@ -40,6 +40,8 @@ var c1 = {
 	"spoken_to_alterone_king_post_guardiana_invasion": false,
 	"spoken_to_kane_alterone": false,
 	"searched_alterone_jail_bars": false,
+	
+	"battle_4_opening_cutscene": false,
 	"battle_4_complete": false,
 	"spoken_to_alterone_king_post_battle_4": false,
 	"pulled_the_chain": false,
@@ -48,6 +50,8 @@ var c1 = {
 	"guardiana_trolley_pushed": false,
 	"alterone_trolley_pushed": false,
 	"approached_alterone_rune_knights": false,
+	
+	
 	
 	# TODO: chest flags? where would it be best to track this
 	

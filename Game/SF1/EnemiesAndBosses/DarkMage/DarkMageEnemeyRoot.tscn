@@ -1,8 +1,37 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsrnjdmtgnweu"]
+[gd_scene load_steps=16 format=3 uid="uid://c6kcxyffjefg4"]
 
-[ext_resource type="PackedScene" uid="uid://588imvwkbshk" path="res://General/CEnemeyRoot/EnemeyRoot.tscn" id="1_3vhmd"]
-[ext_resource type="PackedScene" uid="uid://ca0wytaphx5dm" path="res://SF1/EnemiesAndBosses/GiantBat/GiantBatBattleScene.tscn" id="2_2qayh"]
-[ext_resource type="Texture2D" uid="uid://ksr5k1lbaivy" path="res://Assets/EnemiesAndBosses/Giant Bat/Map_Sprites.png" id="3_2qayh"]
+[ext_resource type="PackedScene" uid="uid://588imvwkbshk" path="res://General/CEnemeyRoot/EnemeyRoot.tscn" id="1_2s5xp"]
+[ext_resource type="PackedScene" uid="uid://dp4miov3d78nw" path="res://SF1/EnemiesAndBosses/DarkMage/DarkMageBattleScene.tscn" id="2_8bufx"]
+[ext_resource type="Texture2D" uid="uid://dcrov2vfave5r" path="res://Assets/EnemiesAndBosses/Dark Mage/Map_Sprites.png" id="3_8bufx"]
+[ext_resource type="Script" uid="uid://bv56w8vkurca3" path="res://General/Actor_Helpers/Inventory.gd" id="3_ea4jt"]
+[ext_resource type="Script" uid="uid://dn5gy28mh1h77" path="res://SF1/Spells/SpellLevel.gd" id="3_hqsfr"]
+[ext_resource type="Script" uid="uid://dwr53yhnk42eo" path="res://SF1/Spells/Spell.gd" id="4_le3b5"]
+
+[sub_resource type="Resource" id="Resource_vxmn6"]
+script = ExtResource("3_hqsfr")
+level = 1
+mp_usage_cost = 0
+attributes = 0
+min_range = 0
+max_range = 0
+battle_scene_spell_animation_scene = ""
+metadata/_custom_type_script = "uid://dn5gy28mh1h77"
+
+[sub_resource type="Resource" id="Resource_v5hwx"]
+script = ExtResource("4_le3b5")
+name = "Blaze"
+usable_on_actor_type = "Opposing"
+levels = Array[Resource]([SubResource("Resource_vxmn6")])
+element_type = 1
+spell_use_range_path = ""
+spell_use_target_path = ""
+metadata/_custom_type_script = "uid://dwr53yhnk42eo"
+
+[sub_resource type="Resource" id="Resource_yuthh"]
+script = ExtResource("3_ea4jt")
+resource = "res://SF1/Items/Weapons/WoodenStaff.tres"
+is_equipped = true
+metadata/_custom_type_script = "uid://bv56w8vkurca3"
 
 [sub_resource type="Animation" id="Animation_hsv8d"]
 resource_name = "DownMovement"
@@ -132,29 +161,33 @@ _data = {
 &"UpMovement": SubResource("Animation_5ycmx")
 }
 
-[node name="GiantBat" type="Node2D"]
+[node name="DarkMage" type="Node2D"]
 
-[node name="EnemeyRoot" parent="." instance=ExtResource("1_3vhmd")]
-enemey_battle_scene = ExtResource("2_2qayh")
-enemey_name = "Giant Bat"
-coins_min = 60
-coins_max = 60
-monster_class = "56"
+[node name="EnemeyRoot" parent="." instance=ExtResource("1_2s5xp")]
+enemey_battle_scene = ExtResource("2_8bufx")
+enemey_name = "Dark Mage"
+coins_min = 92
+coins_max = 92
+monster_class = "53"
+magic_array = Array[Resource]([SubResource("Resource_v5hwx")])
+inventory = Array[ExtResource("3_ea4jt")]([SubResource("Resource_yuthh")])
 effective_level = 5
-move = 7
-movement_type = 5
-evasion_chance = 25.0
-attack = 11
+move = 5
+attack = 6
 defense = 6
 agility = 9
-HP_Current = 14
-HP_Total = 14
-special_attack = 7
-special_attack_chance = 50
+HP_Current = 13
+HP_Total = 13
+MP_Current = 26
+MP_Total = 26
+action_type = 1
+action_type_chance = 75
+special_attack = 1
+special_attack_chance = 25
 
 [node name="Sprite2D" parent="EnemeyRoot" index="0"]
 position = Vector2(0, -8)
-texture = ExtResource("3_2qayh")
+texture = ExtResource("3_8bufx")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="EnemeyRoot"]
 root_node = NodePath("../..")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://sbwnkv4h3a2i"]
+
+[ext_resource type="Script" uid="uid://liywel3tglch" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_jjiv7"]
+[ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="2_3syuh"]
+[ext_resource type="PackedScene" uid="uid://ci5kky82kdgdx" path="res://SF1/EnemiesAndBosses/Sniper/SniperEnemeyRoot.tscn" id="3_4y6rv"]
+
+[node name="Sniper" type="Node2D"]
+script = ExtResource("1_jjiv7")
+
+[node name="PlayerCharacterRoot" parent="." instance=ExtResource("2_3syuh")]
+actor_type = 2
+
+[node name="Sniper" parent="PlayerCharacterRoot" instance=ExtResource("3_4y6rv")]
+
+[editable path="PlayerCharacterRoot"]
+[editable path="PlayerCharacterRoot/Sniper"]
+[editable path="PlayerCharacterRoot/Sniper/EnemeyRoot"]
