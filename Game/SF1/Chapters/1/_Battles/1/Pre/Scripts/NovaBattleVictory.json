@@ -1,0 +1,11 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Nova_Portraits.png"
+		},
+		
+		{
+			"Text": "If that creature spoke truly, we must return to help defend Guardiana!",
+		}
+	]
+}

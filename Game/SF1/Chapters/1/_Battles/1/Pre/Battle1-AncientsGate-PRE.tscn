@@ -2228,6 +2228,7 @@ position = Vector2(348, 132)
 
 [node name="RuneKnight" parent="Enemies" instance=ExtResource("11_dfkyi")]
 position = Vector2(324, 204)
+enemey_leader = true
 
 [node name="CameraLimitsInfo" type="Node" parent="."]
 

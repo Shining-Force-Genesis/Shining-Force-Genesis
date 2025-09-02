@@ -45,7 +45,7 @@ func _ready() -> void:
 
 func _on_castle_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
 		n.marker = n.marker_town
 		SceneManager.ChangeSceneNode(n)
 

@@ -20,6 +20,8 @@ func _ready() -> void:
 	# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
 	# SceneManager.ChangeSceneNode(n)
 	
+	# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+	# SceneManager.ChangeSceneNode(n)
 
 
 func _process(_delta: float) -> void:

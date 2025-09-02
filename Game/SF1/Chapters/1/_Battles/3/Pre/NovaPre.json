@@ -1,0 +1,11 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Nova_Portraits.png"
+		},
+		
+		{
+			"Text": "{main_character}! Enemies await you on the road to Alterone. Take all precautions!",
+		}
+	]
+}

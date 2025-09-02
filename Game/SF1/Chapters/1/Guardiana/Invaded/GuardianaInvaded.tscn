@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://rq7jmg7c1xu3"]
+[gd_scene load_steps=43 format=4 uid="uid://rq7jmg7c1xu3"]
 
 [ext_resource type="Script" uid="uid://biqgl83l86nse" path="res://SF1/Chapters/1/Guardiana/Invaded/guardiana_invaded.gd" id="1_4avf2"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_cvyx5"]
@@ -21,6 +21,7 @@
 [ext_resource type="Resource" uid="uid://cpuphdqq44nku" path="res://SF1/Items/Weapons/Spear.tres" id="20_punyu"]
 [ext_resource type="Resource" uid="uid://76uom5mi1lj6" path="res://SF1/Items/Weapons/WoodenArrow.tres" id="21_ep7uh"]
 [ext_resource type="Resource" uid="uid://dp75hglt5xcrf" path="res://SF1/Items/Weapons/WoodenStaff.tres" id="22_t5h43"]
+[ext_resource type="Texture2D" uid="uid://c3k5ghcgiuio2" path="res://Assets/NPC/Soldier_Injured.png" id="23_4s5u6"]
 [ext_resource type="Texture2D" uid="uid://b3mjn3lsysxk7" path="res://Assets/NPC/Woman_Blonde_PinkDress.png" id="23_8w8gs"]
 [ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="25_3022n"]
 [ext_resource type="Texture2D" uid="uid://cxbca3j666j4k" path="res://Assets/NPC/Dog_Brown.png" id="26_4mvg8"]
@@ -2490,7 +2491,7 @@ position = Vector2(1176, 1056)
 [node name="OldManWithBeard" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(696, 528)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/OldManAroundTown.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAroundTown.json"
 
 [node name="AnimatableBody2D" parent="NPCS/OldManWithBeard" index="0"]
 stationary = false
@@ -2512,7 +2513,7 @@ tile_map_data = PackedByteArray("AAD//wUAAAAAAAAAAAADAAQAAAAAAAAAAAADAAUAAAAAAAA
 [node name="WomanInChruch" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(288, 240)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/WomanRedHeadChurch.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/WomanRedHeadChurch.json"
 
 [node name="AnimatableBody2D" parent="NPCS/WomanInChruch" index="0"]
 use_mirror_animation = true
@@ -2530,7 +2531,7 @@ libraries = {
 [node name="OldManInChruch" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(432, 168)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/OldManAtTheChurch.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAtTheChurch.json"
 
 [node name="AnimatableBody2D" parent="NPCS/OldManInChruch" index="0"]
 stationary = false
@@ -2553,7 +2554,7 @@ tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAAA=")
 [node name="Bartender" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(936, 288)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/BarOwner.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/BarOwner.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Bartender" index="0"]
 stationary = false
@@ -2579,7 +2580,7 @@ tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAA
 [node name="Gort" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(960, 336)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/Gort.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/Gort.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Gort" index="0"]
 FacingDirection = 2
@@ -2598,7 +2599,7 @@ libraries = {
 [node name="ItemSeller" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(816, 552)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/ItemSeller.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ItemSeller.json"
 ITEM_LIST = Array[Resource]([ExtResource("13_owhoi"), ExtResource("14_um5u6"), ExtResource("15_gl6l0")])
 
 [node name="AnimatableBody2D" parent="NPCS/ItemSeller" index="0"]
@@ -2623,7 +2624,7 @@ libraries = {
 [node name="ShopOwner" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(792, 552)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapter_1/Guardiana/Scripts/ShopSeller.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ShopSeller.json"
 ITEM_LIST = Array[Resource]([ExtResource("17_begt3"), ExtResource("18_p5t1t"), ExtResource("19_4po2a"), ExtResource("20_punyu"), ExtResource("21_ep7uh"), ExtResource("22_t5h43")])
 
 [node name="AnimatableBody2D" parent="NPCS/ShopOwner" index="0"]
@@ -2645,33 +2646,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="WomanNearCastle" parent="NPCS" instance=ExtResource("6_pp24s")]
-position = Vector2(624, 384)
-script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/WomanBlondeNearEntranceOfCastle.json"
-
-[node name="AnimatableBody2D" parent="NPCS/WomanNearCastle" index="0"]
-stationary = false
-use_mirror_animation = true
-
-[node name="Sprite2D" parent="NPCS/WomanNearCastle/AnimatableBody2D" index="3"]
-texture = ExtResource("23_8w8gs")
-hframes = 6
-
-[node name="AnimationPlayer" parent="NPCS/WomanNearCastle/AnimatableBody2D" index="4"]
-root_node = NodePath("..")
-libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
-}
-
-[node name="TileMapLayer" parent="NPCS/WomanNearCastle" index="1"]
-visible = false
-tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP7/AAAAAAAAAAADAP//AAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAA=")
-
 [node name="Father" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(552, 600)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GirlsFather.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GirlsFather.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Father" index="0"]
 FacingDirection = 3
@@ -2690,14 +2668,14 @@ libraries = {
 [node name="SoliderInHouse" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(936, 720)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardInsideBuilding.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GuardAtTheChurch.json"
 
 [node name="AnimatableBody2D" parent="NPCS/SoliderInHouse" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/SoliderInHouse/AnimatableBody2D" index="3"]
-texture = ExtResource("25_3022n")
-hframes = 6
+texture = ExtResource("23_4s5u6")
+hframes = 2
 
 [node name="AnimationPlayer" parent="NPCS/SoliderInHouse/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
@@ -2708,7 +2686,7 @@ libraries = {
 [node name="InnKeeper" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(720, 744)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/InnOwner.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/InnOwner.json"
 
 [node name="AnimatableBody2D" parent="NPCS/InnKeeper" index="0"]
 stationary = false
@@ -2730,7 +2708,7 @@ libraries = {
 [node name="GortGrandDaughter" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(288, 672)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GortsFirstGrandDaughter.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GortsFirstGrandDaughter.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GortGrandDaughter" index="0"]
 stationary = false
@@ -2753,7 +2731,7 @@ tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAA
 [node name="Dog" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(432, 768)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/Dog.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/Dog.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Dog" index="0"]
 stationary = false
@@ -2776,7 +2754,7 @@ tile_map_data = PackedByteArray("AAD/////AAAAAAAAAAD8////AAAAAAAAAAA=")
 [node name="LeftGuard" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(816, 936)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardAtExit1.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GuardEntrance.json"
 
 [node name="AnimatableBody2D" parent="NPCS/LeftGuard" index="0"]
 FacingDirection = 1
@@ -2795,7 +2773,7 @@ libraries = {
 [node name="RightGuard" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(888, 936)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardAtExit2.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GuardEntrance.json"
 
 [node name="AnimatableBody2D" parent="NPCS/RightGuard" index="0"]
 FacingDirection = 1
@@ -2814,7 +2792,7 @@ libraries = {
 [node name="ManBottomOfTown" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(816, 768)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/OldManAroundTown.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAroundTown.json"
 
 [node name="AnimatableBody2D" parent="NPCS/ManBottomOfTown" index="0"]
 stationary = false
@@ -2837,7 +2815,7 @@ tile_map_data = PackedByteArray("AAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAA
 [node name="ManNearBar" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(912, 528)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/ManNearBar.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
 
 [node name="AnimatableBody2D" parent="NPCS/ManNearBar" index="0"]
 stationary = false
@@ -2860,15 +2838,14 @@ tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 [node name="GuardNearChurch" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(312, 456)
 script = ExtResource("7_cexrc")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/GuardAtTheChurch.json"
+DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GuardAtTheChurch.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardNearChurch" index="0"]
-stationary = false
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/GuardNearChurch/AnimatableBody2D" index="3"]
-texture = ExtResource("25_3022n")
-hframes = 6
+texture = ExtResource("23_4s5u6")
+hframes = 2
 
 [node name="AnimationPlayer" parent="NPCS/GuardNearChurch/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
@@ -2941,7 +2918,6 @@ shape = SubResource("RectangleShape2D_swv5g")
 [editable path="NPCS/Gort"]
 [editable path="NPCS/ItemSeller"]
 [editable path="NPCS/ShopOwner"]
-[editable path="NPCS/WomanNearCastle"]
 [editable path="NPCS/Father"]
 [editable path="NPCS/SoliderInHouse"]
 [editable path="NPCS/InnKeeper"]

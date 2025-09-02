@@ -24,11 +24,12 @@ const SF1 = {
 		"Battle1Pre": "res://SF1/Chapters/1/_Battles/1/Pre/Battle1-AncientsGate-PRE.tscn",
 		"Battle1": "res://SF1/Chapters/1/_Battles/1/Battle1-AncientsGate.tscn",
 		
-		"Battle2": "res://SF1/Chapters/1/Overworld/Battle2/Battle2_Overworld.tscn",
+		"Battle2": "res://SF1/Chapters/1/_Battles/2/Battle2_Overworld.tscn",
 		
 		"Battle3": "res://SF1/Chapters/1/_Battles/3/Battle3.tscn",
 		
-		"Battle4": "res://SF1/Chapters/1/_Battles/4/Battle4.tscn",
+		"Battle4": "res://SF1/Chapters/1/_Battles/4/Battle4_testing.tscn",
+		# "Battle4": "res://SF1/Chapters/1/_Battles/4/Battle4.tscn",
 	},
 	
 	"HQ": "res://SF1/HQ/HeadQuarters.tscn"

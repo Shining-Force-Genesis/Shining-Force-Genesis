@@ -1,0 +1,11 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Nova_Portraits.png"
+		},
+		
+		{
+			"Text": "Well done, Shining Force! Now, enter Guardiana and find out what's happened there!",
+		}
+	]
+}

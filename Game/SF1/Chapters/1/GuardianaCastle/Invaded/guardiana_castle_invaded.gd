@@ -27,10 +27,6 @@ func _ready() -> void:
 		varios.position = varios.position + Vector2(24 + 24, +24)
 		varios.get_child(0).set_facing_direction("Left")
 	
-	if Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined:
-		var guard_hq = $NPCS/SoliderHQ
-		guard_hq.position = guard_hq.position + Vector2(-24, 0)
-	
 	# position player at navigation marker per previous location
 	match marker:
 		marker_town:

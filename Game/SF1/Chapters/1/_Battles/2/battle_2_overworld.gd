@@ -5,6 +5,8 @@ extends Node
 
 @onready var player_scene = preload("res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn")
 
+signal cutscene_finished
+
 func _ready() -> void:
 	# TODO rename this singleton to globals and then divide overworld battle and other into sub scripts with classnames
 	# for better intellisense
@@ -23,8 +25,16 @@ func _ready() -> void:
 	
 	# TODO: add rotdd menu before start battle at this point
 	# otherwise start battle if not cleared
-	Singleton_CommonVariables.is_currently_in_battle_scene = true
-	start_battle()
+	
+	if !Singleton_CommonVariables.sf_game_data_node.c1.battle_2_opening_cutscene:
+		StartCutscene()
+		await cutscene_finished
+		
+		Singleton_CommonVariables.is_currently_in_battle_scene = true
+		start_battle()
+	else: 
+		PostCutsceneStartBattle()
+	
 	# end_battle()
 	
 	# if cleared do nothing with battle state
@@ -122,3 +132,22 @@ func fill_turn_order_array_with_all_actors():
 		})
 	
 	#print(turn_order_array)
+
+
+func StartCutscene():
+	Singleton_CommonVariables.battle__cursor_node.active = false
+	Singleton_CommonVariables.camera_node.position = Vector2(500,500)
+	Singleton_CommonVariables.camera_node.follow_cursor()
+	
+	Singleton_CommonVariables.dialogue_box_is_currently_active = true
+	Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/_Battles/2/Pre/NovaPre.json"
+	Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+	
+	await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+	
+	emit_signal("cutscene_finished")
+
+
+func PostCutsceneStartBattle():
+	Singleton_CommonVariables.is_currently_in_battle_scene = true
+	Singleton_CommonVariables.battle__logic_node.turn_logic_node.generate_and_launch_new_turn_order()

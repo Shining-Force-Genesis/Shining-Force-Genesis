@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gort/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Gort/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -10,7 +10,7 @@
 		
 		{
 			"Text": "(Gort joins the Shining Force!)",
-			"Sound": "fx | res://Assets/SF1/SoundBank/Jingle - Comrades 2 (Sad Feeling).mp3 | yield"
+			"Sound": "fx | res://Assets/Music/SF1/Jingle - Comrades 1 (Happily).mp3 | yield"
 		},
 
 		{

@@ -5,6 +5,8 @@ extends Node
 
 @onready var player_scene = preload("res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn")
 
+signal battle_ended_cutscene
+
 func _ready() -> void:
 	# TODO rename this singleton to globals and then divide overworld battle and other into sub scripts with classnames
 	# for better intellisense
@@ -47,7 +49,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	# if c.leader:
 	print("here")
 	
-	if true:
+	if !Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
 		
 		Singleton_CommonVariables.dialogue_box_node.show()
@@ -95,7 +97,34 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			Singleton_CommonVariables.main_character_player_node.camera_current(true)
 			
 			Singleton_CommonVariables.interaction_yes_or_no_selection = null
+	else:
+		Singleton_CommonVariables.dialogue_box_node.hide()
+		Singleton_CommonVariables.ui__portrait_popup.hide()
 		
+		Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
+		
+		Singleton_CommonVariables.battle__target_actor_types = null
+		Singleton_CommonVariables.battle__resource_animation_scene_path = null
+		Singleton_CommonVariables.ui__magic_menu.hide()
+		
+		Singleton_CommonVariables.is_currently_in_battle_scene = false
+		# Singleton_CommonVariables.main_character_player_node.queue_free()
+		Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
+		Singleton_CommonVariables.ui__battle_action_menu.is_menu_active = false
+		Singleton_CommonVariables.ui__battle_action_menu.hide_cust()
+		
+		Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+		Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+		
+		Singleton_CommonVariables.interaction_yes_or_no_selection = null
+		
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle2)
+		SceneManager.ChangeSceneNode(n)
+		
+		# Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+		# Singleton_CommonVariables.main_character_player_node.show()
+		# Singleton_CommonVariables.main_character_player_node.camera_current(true)
+	
 	pass
 
 func StartCutscene():
@@ -200,11 +229,15 @@ func PostCutsceneStartBattle():
 func end_battle() -> void:
 	EndBattleCutscene()
 	
+	Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete = true
+	
 	Singleton_CommonVariables.is_currently_in_battle_scene = false
+	
+	emit_signal("battle_ended_cutscene")
 
 func EndBattleCutscene() -> void:
 	Singleton_CommonVariables.dialogue_box_is_currently_active = true
-	Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/_Battles/1/Pre/Scripts/5_RuneKnight.json"
+	Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/_Battles/1/Pre/Scripts/RuneKnight_Defeat.json"
 	Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
 	
 	await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog

@@ -15,6 +15,9 @@ func _ready():
 	pass
 
 
+# TODO needs to check the move tilemap layer and not move over invalid cells
+
+
 func attempt_interaction_talk() -> void:
 	if interacting:
 		return

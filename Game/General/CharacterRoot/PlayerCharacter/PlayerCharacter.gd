@@ -116,7 +116,7 @@ func _process(_delta: float) -> void:
 			interaction_attempt_to_talk()
 			return
 		
-		if Input.is_action_just_released("ui_z_key"):
+		if Input.is_action_just_released("ui_c_key"):
 			# CutscenePlayerTemp.play("Opening")
 			return
 	else:

@@ -1,0 +1,11 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Nova_Portraits.png"
+		},
+		
+		{
+			"Text": "The earthquake blocked the orad. Head north, but be ready for battle.",
+		}
+	]
+}
