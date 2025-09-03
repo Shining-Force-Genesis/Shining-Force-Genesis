@@ -1,10 +1,11 @@
-[gd_scene load_steps=54 format=4 uid="uid://da720jhkmfku3"]
+[gd_scene load_steps=55 format=4 uid="uid://da720jhkmfku3"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="0"]
 [ext_resource type="Script" uid="uid://0vliyr8w3m88" path="res://SF1/Chapters/1/Guardiana/PreInvasion/town_tilemap.gd" id="1_354je"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="4_7m1bb"]
 [ext_resource type="PackedScene" uid="uid://dji1st2fd8pam" path="res://General/Door/door.tscn" id="5_aaxus"]
 [ext_resource type="Texture2D" uid="uid://bb2jwrq5it0w4" path="res://SF1/Assets/Tilesets/6.png" id="6"]
+[ext_resource type="PackedScene" uid="uid://cvisi1dhiyrda" path="res://General/Interactables/Interactable.tscn" id="6_5k383"]
 [ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="6_8cicr"]
 [ext_resource type="Texture2D" uid="uid://dkoqu4b08efg6" path="res://Assets/NPC/Man_Old_WhiteBeard.png" id="7_8tc18"]
 [ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/NPCs/GenericOneDialogueNPC.gd" id="9_r18dk"]
@@ -2341,7 +2342,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/CastleEntranceArea2D"]
-position = Vector2(660, 300)
+position = Vector2(660, 204)
 shape = SubResource("RectangleShape2D_5mdk1")
 metadata/_edit_lock_ = true
 
@@ -2495,23 +2496,47 @@ metadata/_edit_lock_ = true
 
 [node name="Interactables" type="Node" parent="."]
 
-[node name="Door" parent="Interactables" instance=ExtResource("5_aaxus")]
+[node name="Doors" type="Node" parent="Interactables"]
+
+[node name="Door" parent="Interactables/Doors" instance=ExtResource("5_aaxus")]
 position = Vector2(456, 192)
 
-[node name="Door2" parent="Interactables" instance=ExtResource("5_aaxus")]
+[node name="Door2" parent="Interactables/Doors" instance=ExtResource("5_aaxus")]
 position = Vector2(336, 720)
 
-[node name="Door3" parent="Interactables" instance=ExtResource("5_aaxus")]
+[node name="Door3" parent="Interactables/Doors" instance=ExtResource("5_aaxus")]
 position = Vector2(624, 624)
 
-[node name="Door4" parent="Interactables" instance=ExtResource("5_aaxus")]
+[node name="Door4" parent="Interactables/Doors" instance=ExtResource("5_aaxus")]
 position = Vector2(720, 816)
 
-[node name="Door5" parent="Interactables" instance=ExtResource("5_aaxus")]
+[node name="Door5" parent="Interactables/Doors" instance=ExtResource("5_aaxus")]
 position = Vector2(912, 768)
 
-[node name="Door6" parent="Interactables" instance=ExtResource("5_aaxus")]
+[node name="Door6" parent="Interactables/Doors" instance=ExtResource("5_aaxus")]
 position = Vector2(936, 360)
+
+[node name="Searchables" type="Node" parent="Interactables"]
+
+[node name="BookshelfChurchLeft" parent="Interactables/Searchables" instance=ExtResource("6_5k383")]
+position = Vector2(192, 120)
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Interactables/ChruchLeftBookShelf.json"
+
+[node name="BookshelfChurchRight" parent="Interactables/Searchables" instance=ExtResource("6_5k383")]
+position = Vector2(456, 120)
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Interactables/ChruchRightBookShelf.json"
+
+[node name="GortBookshelf" parent="Interactables/Searchables" instance=ExtResource("6_5k383")]
+position = Vector2(288, 624)
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Interactables/GortHouseBookshelf.json"
+
+[node name="ShopSign" parent="Interactables/Searchables" instance=ExtResource("6_5k383")]
+position = Vector2(768, 600)
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Interactables/SignShop.json"
+
+[node name="BarSign" parent="Interactables/Searchables" instance=ExtResource("6_5k383")]
+position = Vector2(912, 384)
+DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Interactables/Bar.json"
 
 [node name="CameraLimitsInfo" type="Node" parent="."]
 

@@ -10,9 +10,15 @@ signal signal_action_finished
 
 @onready var raycast: RayCast2D = $RayCast2D
 
-@onready var animation_player: AnimationPlayer = $Node2D/Max/AnimationPlayer
+# @onready var animation_player: AnimationPlayer = $Node2D/Max/AnimationPlayer
+@onready var animation_player: AnimationPlayer = $Node2D/Max/CharacterRoot/AnimationPlayer
 @onready var collision_shape_cbody: CollisionShape2D = $CharacterBody2D/CollisionShape2D
 @onready var cbody: CharacterBody2D = $CharacterBody2D
+
+const ani_down_movement = "DownMovement"
+const ani_up_movement = "UpMovement"
+const ani_left_movement = "LeftMovement"
+const ani_right_movement = "RightMovement"
 
 enum e_player_directions {
 	UP,
@@ -41,11 +47,19 @@ func _ready() -> void:
 	Singleton_CommonVariables.main_character_player_node_ref = self
 	Singleton_CommonVariables.main_character_player_node = self
 	
+	
 	Singleton_CommonVariables.ui__actor_micro_info_box.display_micro_info_for_force_member_actor(
 		Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.MAX
 	)
 	
 	# print(Player.move_tilemap)
+
+
+func get_actor():
+	var actor = get_child(0).get_child(0).find_child("CharacterRoot")
+	if actor != null:
+		return actor
+
 
 func camera_current(arg: bool) -> void:
 	camera.enabled = arg
@@ -81,19 +95,19 @@ func _process(_delta: float) -> void:
 	if Input.is_action_pressed('ui_up'):
 		facing_direction = e_player_directions.UP
 		move('ui_up')
-		animation_player.play("Up")
+		animation_player.play(ani_up_movement)
 	elif Input.is_action_pressed('ui_down'):
 		facing_direction = e_player_directions.DOWN
 		move('ui_down')
-		animation_player.play("Down")
+		animation_player.play(ani_down_movement)
 	elif Input.is_action_pressed('ui_left'):
 		facing_direction = e_player_directions.LEFT
 		move('ui_left')
-		animation_player.play("Left")
+		animation_player.play(ani_left_movement)
 	elif Input.is_action_pressed('ui_right'):
 		facing_direction = e_player_directions.RIGHT
 		move('ui_right')
-		animation_player.play("Right")	
+		animation_player.play(ani_right_movement)
 		
 
 func move(dir):
@@ -185,26 +199,26 @@ func get_actor_name() -> String:
 func MoveInDirection(arg: String) -> void:
 	match arg:
 		"Down": 
-			animation_player.play("Down")
+			animation_player.play(ani_down_movement)
 			move('ui_down')
 		"Up": 
-			animation_player.play("Up")
+			animation_player.play(ani_up_movement)
 			move('ui_up')
 		"Left": 
-			animation_player.play("Left")
+			animation_player.play(ani_left_movement)
 			move('ui_left')
 		"Right": 
-			animation_player.play("Right")
+			animation_player.play(ani_right_movement)
 			move('ui_right')
 
 
 func set_facing_direction(arg: String) -> void:
 	match arg:
 		"Down": 
-			animation_player.play("Down")
+			animation_player.play(ani_down_movement)
 		"Up": 
-			animation_player.play("Up")
+			animation_player.play(ani_up_movement)
 		"Left": 
-			animation_player.play("Left")
+			animation_player.play(ani_left_movement)
 		"Right": 
-			animation_player.play("Right")
+			animation_player.play(ani_right_movement)

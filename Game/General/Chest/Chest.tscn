@@ -15,3 +15,4 @@ hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = ExtResource("1_hn1g1")
+debug_color = Color(0.352941, 0, 0.772549, 0.419608)

@@ -83,9 +83,10 @@ func set_battle_magic_menu_active() -> void:
 			print("Magic Menu Spells", Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot").get_magic())
 			character_spells = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot").get_magic()
 	else:
-		print("Magic Menu Current Char", Singleton_CommonVariables.main_character_player_node.actor)
-		print("Magic Menu Spells", Singleton_CommonVariables.main_character_player_node.actor.magic_array)
-		character_spells = Singleton_CommonVariables.main_character_player_node.actor.magic_array
+		var ta = Singleton_CommonVariables.main_character_player_node.get_actor()
+		print("Magic Menu Current Char", ta)
+		print("Magic Menu Spells", ta.get_magic_array())
+		character_spells = ta.get_magic_array()
 	
 	if character_spells.size() == 0:
 		AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
@@ -187,7 +188,7 @@ func _input(event):
 				# elif Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == "Enemey":
 				#	i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot")
 			else:
-				i_actor = Singleton_CommonVariables.main_character_player_node.actor
+				i_actor = Singleton_CommonVariables.main_character_player_node.get_actor()
 			
 			magicLevelSelectorWrapper.show()
 			
@@ -233,9 +234,9 @@ func _input(event):
 					actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
 			else: 
 				# actor = Singleton_CommonVariables.sf_game_data_node.ForceMembers[0] # main_character_player_node.actor # Singleton_CommonVariables.main_character_player_node.actor
-				actor = Singleton_CommonVariables.main_character_player_node.actor
+				actor = Singleton_CommonVariables.main_character_player_node.get_actor()
 				# actor.MP_Current = actor.MP_Total
-				actor.set_mp_current(actor.MP_Total)
+				# actor.set_mp_current(actor.MP_Total)
 			
 			print(actor.get_mp_current(), " ", actor.get_magic_array(), " ",  spell_idx, " ",  spell_level_selected)
 			var spell_res_l = load(actor.get_magic_array()[spell_idx].resource)

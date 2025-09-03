@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvisi1dhiyrda"]
+
+[ext_resource type="Script" uid="uid://be5ymi03eiftl" path="res://General/Interactables/interactable.gd" id="1_hjqv4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwjhi"]
+size = Vector2(12, 12)
+
+[node name="Interactable" type="Node2D"]
+script = ExtResource("1_hjqv4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_hwjhi")
+debug_color = Color(0.968627, 0.917647, 0, 0.52549)

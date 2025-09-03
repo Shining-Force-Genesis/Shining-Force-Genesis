@@ -88,7 +88,7 @@ func _input(event: InputEvent) -> void:
 			return
 		elif currently_selected_option == e_menu_options.MAGIC_OPTION:
 			# disabled for now fix later
-			return
+			# return
 			
 			is_menu_active = false
 			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")

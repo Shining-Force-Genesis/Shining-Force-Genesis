@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck7weiy086rpx"]
 
 [ext_resource type="Script" uid="uid://bdquinkbsngor" path="res://Characters/character.gd" id="1_athk2"]
-[ext_resource type="PackedScene" uid="uid://bkq0v02pqpsmn" path="res://Characters/Max/max.tscn" id="1_tr1ox"]
+[ext_resource type="PackedScene" uid="uid://12nby2m8fegb" path="res://SF1/Characters/Max/MaxCharacterRoot.tscn" id="2_kev1y"]
 [ext_resource type="Script" uid="uid://t7jw06iu6w8d" path="res://Characters/character_body_2d.gd" id="3_sf1w8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_athk2"]
@@ -13,9 +13,7 @@ script = ExtResource("1_athk2")
 [node name="Node2D" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="Max" parent="Node2D" instance=ExtResource("1_tr1ox")]
-position = Vector2(0, -8)
-metadata/_edit_lock_ = true
+[node name="Max" parent="Node2D" instance=ExtResource("2_kev1y")]
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 20)
@@ -28,3 +26,6 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 shape = SubResource("RectangleShape2D_athk2")
+
+[editable path="Node2D/Max"]
+[editable path="Node2D/Max/CharacterRoot"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://dlnoi8vjrcode"]
+[gd_scene load_steps=36 format=4 uid="uid://dlnoi8vjrcode"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="1_6gv7k"]
 [ext_resource type="Script" uid="uid://bhjylpac7qk30" path="res://SF1/Chapters/1/AlteroneCastle/alterone_castle.gd" id="1_7gorg"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://ca1xibywmhgm1" path="res://Assets/NPC/King Guardiana.png" id="11_scdpx"]
 [ext_resource type="Texture2D" uid="uid://dauq15gmxoqdh" path="res://Characters/Arthur/Assets/Unpromoted_Map_Sprites.png" id="12_4npua"]
 [ext_resource type="Texture2D" uid="uid://2onimr2a26vs" path="res://Assets/NPC/Woman_Purplette.png" id="14_4npua"]
-[ext_resource type="PackedScene" uid="uid://cpq5jypcomo2k" path="res://General/Bookshelf/Bookshelf.tscn" id="14_yeob8"]
 [ext_resource type="Texture2D" uid="uid://dbqc7w2bdmbst" path="res://Assets/NPC/Man_Merchant_Blue.png" id="16_520r6"]
 [ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="17_7gorg"]
 [ext_resource type="Texture2D" uid="uid://nfarcoc5u48t" path="res://Assets/NPC/Adviser.png" id="18_yeob8"]
@@ -5347,24 +5346,14 @@ metadata/_edit_lock_ = true
 position = Vector2(240, 240)
 
 [node name="Chest" parent="Interactables" instance=ExtResource("19_gw7i7")]
-position = Vector2(420, 684)
+position = Vector2(132, 612)
 gold = 35
 
 [node name="StaticBody2D" parent="Interactables/Chest" index="1"]
 collision_layer = 3
 
-[node name="Bookshelf" parent="Interactables" instance=ExtResource("14_yeob8")]
-position = Vector2(432, 630)
-DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/Invaded/InteractablesScripts/ChruchLeftBookShelf.json"
-
-[node name="GroundAndSea" parent="Interactables/Bookshelf" index="0"]
-position = Vector2(0, -6)
-
-[node name="StaticBody2D" parent="Interactables/Bookshelf" index="1"]
-collision_layer = 3
-
 [node name="Chest2" parent="Interactables" instance=ExtResource("19_gw7i7")]
-position = Vector2(468, 684)
+position = Vector2(204, 444)
 item_resource = ExtResource("11_867nd")
 
 [node name="StaticBody2D" parent="Interactables/Chest2" index="1"]
@@ -5720,7 +5709,6 @@ tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAA
 [connection signal="body_entered" from="Areas/RightArea2D" to="." method="_on_right_area_2d_body_entered"]
 
 [editable path="Interactables/Chest"]
-[editable path="Interactables/Bookshelf"]
 [editable path="Interactables/Chest2"]
 [editable path="NPCS/Khris"]
 [editable path="NPCS/King"]
