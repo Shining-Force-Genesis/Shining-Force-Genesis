@@ -291,8 +291,10 @@ func activate_battle() -> void:
 			background_wrapper.add_child(bs)
 			
 			# if battle__target_array_flattened[i] != null && battle__target_array_flattened[i].foreground != null && tile_name_to_frame_mapping_dictionary.has([battle__target_array_flattened[i].foreground]) != null:
-			bs.set_foreground_frame(tile_name_to_frame_mapping_dictionary[battle__target_array_flattened[i].foreground])
-			bs.set_background_frame(tile_name_to_frame_mapping_dictionary[battle__target_array_flattened[i].background])
+			if battle__target_array_flattened[i].foreground != null:
+				bs.set_foreground_frame(tile_name_to_frame_mapping_dictionary[battle__target_array_flattened[i].foreground])
+			if battle__target_array_flattened[i].background != null:
+				bs.set_background_frame(tile_name_to_frame_mapping_dictionary[battle__target_array_flattened[i].background])
 			# after tween hide
 			bs.hide_extra_backgrounds()
 			

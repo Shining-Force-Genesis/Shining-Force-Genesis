@@ -24,7 +24,7 @@ var GRID_BASED_MOVEMENT:bool = true
 var is_currently_moving:bool = false
 var is_active: bool = false # menu or interacting with an node
 
-var animation_speed = 5
+var animation_speed = 5.5
 
 var rng = RandomNumberGenerator.new()
 
@@ -342,6 +342,9 @@ func attempt_to_move(new_position_target: Vector2, direction: e_directions) -> v
 	
 	if !ray.is_colliding():
 		collision_shape_cell_block.position = collision_cell_blocker_positions[direction]
+		
+		if chracter_animation_player != null:
+			chracter_animation_player.speed_scale = 2
 		
 		var tween: Tween = create_tween()
 		tween.connect("finished", Callable(self, "emit_action_finished"))

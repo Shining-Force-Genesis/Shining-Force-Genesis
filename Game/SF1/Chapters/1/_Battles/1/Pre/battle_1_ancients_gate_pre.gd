@@ -233,6 +233,9 @@ func end_battle() -> void:
 	
 	Singleton_CommonVariables.is_currently_in_battle_scene = false
 	
+	# Update Egress to Gong's Cabin area
+	Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.GongCabin
+	
 	emit_signal("battle_ended_cutscene")
 
 func EndBattleCutscene() -> void:

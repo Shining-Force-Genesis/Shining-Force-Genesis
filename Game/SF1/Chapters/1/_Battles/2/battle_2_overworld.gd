@@ -26,6 +26,8 @@ func _ready() -> void:
 	# TODO: add rotdd menu before start battle at this point
 	# otherwise start battle if not cleared
 	
+	place_actors()
+	
 	if !Singleton_CommonVariables.sf_game_data_node.c1.battle_2_opening_cutscene:
 		StartCutscene()
 		await cutscene_finished
@@ -33,7 +35,8 @@ func _ready() -> void:
 		Singleton_CommonVariables.is_currently_in_battle_scene = true
 		start_battle()
 	else: 
-		PostCutsceneStartBattle()
+		start_battle()
+		# PostCutsceneStartBattle()
 	
 	# end_battle()
 	
@@ -49,6 +52,10 @@ func _ready() -> void:
 
 func end_battle() -> void:
 	Singleton_CommonVariables.is_currently_in_battle_scene = false
+	
+	# Update Egress to Gong's Cabin area
+	Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.GuardianaInvaded
+	
 
 
 func place_leader() -> void:
@@ -63,7 +70,7 @@ func place_leader() -> void:
 			return
 
 
-func start_battle() -> void:
+func place_actors() -> void:
 	Singleton_CommonVariables.battle__turn_number = 1
 	
 	# add all force members first
@@ -91,6 +98,10 @@ func start_battle() -> void:
 		e.get_child(0).set_collision_shape_disabled_state(true)
 		e.position = Vector2.ZERO
 		e.get_child(0).position = e_pos
+
+
+func start_battle() -> void:
+	Singleton_CommonVariables.is_currently_in_battle_scene = true
 	
 	fill_turn_order_array_with_all_actors()
 	# Singleton_CommonVariables.battle__logic_node.turn_logic_node.generate_actor_order_for_current_turn()
@@ -138,6 +149,7 @@ func StartCutscene():
 	Singleton_CommonVariables.battle__cursor_node.active = false
 	Singleton_CommonVariables.camera_node.position = Vector2(500,500)
 	Singleton_CommonVariables.camera_node.follow_cursor()
+	Singleton_CommonVariables.battle__cursor_node.position = char_positions.get_child(0).position
 	
 	Singleton_CommonVariables.dialogue_box_is_currently_active = true
 	Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/_Battles/2/Pre/NovaPre.json"

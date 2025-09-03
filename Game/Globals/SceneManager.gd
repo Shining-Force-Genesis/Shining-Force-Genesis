@@ -12,6 +12,7 @@ const SF1 = {
 		"GuardianaCastleInvaded": "res://SF1/Chapters/1/GuardianaCastle/Invaded/GuardianaCastleInvaded.tscn",
 		
 		"Overworld": "res://SF1/Chapters/1/Overworld/Overworld.tscn",
+		"OverworldEarthquake": "res://SF1/Chapters/1/Overworld/Overworld_Earthquake.tscn",
 		
 		"GongCabin": "res://SF1/Chapters/1/Cabin/Gongs_House.tscn",
 		
@@ -19,7 +20,8 @@ const SF1 = {
 		
 		"AlteroneNoEntry": "res://SF1/Chapters/1/Alterone/NoEntry/AlteroneNoEntry.tscn",
 		"Alterone": "res://SF1/Chapters/1/Alterone/Alterone.tscn",
-		"AlteroneCastle":"res://SF1/Chapters/1/AlteroneCastle/AlteroneCastle.tscn",
+		"AlteroneCastle": "res://SF1/Chapters/1/AlteroneCastle/AlteroneCastle.tscn",
+		"AlteroneCastleBasement": "res://SF1/Chapters/1/AlteroneCastleBasement/AlteroneCastleBasement.tscn",
 		
 		"Battle1Pre": "res://SF1/Chapters/1/_Battles/1/Pre/Battle1-AncientsGate-PRE.tscn",
 		"Battle1": "res://SF1/Chapters/1/_Battles/1/Battle1-AncientsGate.tscn",
@@ -38,6 +40,9 @@ const SF1 = {
 
 func GetSceneNode(path: String) -> Node:
 	# pukes
+	
+	# Singleton_CommonVariables.main_character_player_node.collision_shape_cbody.disabled = true
+	
 	Player.disable()
 	SceneFadeIn()
 	
@@ -46,6 +51,11 @@ func GetSceneNode(path: String) -> Node:
 
 
 func ChangeSceneNode(n: Node) -> void:
+	Player.disable()
+	
+	# NOTE: disabled player collision so if changing to scene where area is at same position auto triggering won't happen
+	Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).set_deferred("disabled", true)
+	
 	if scene_node:
 		for child in scene_node.get_children():
 			child.queue_free()
@@ -53,6 +63,8 @@ func ChangeSceneNode(n: Node) -> void:
 		Player.move_tilemap = null
 		
 		scene_node.call_deferred("add_child", n)
+		
+		# Singleton_CommonVariables.main_character_player_node.collision_shape_cbody.disabled = false
 
 
 func SceneFadeIn() -> void:
@@ -63,6 +75,12 @@ func SceneFadeIn() -> void:
 func SceneFadeOut() -> void:
 	changing_scene = false
 	await transition_node.fade_out()
+	
+	# NOTE: re-enable player collision 
+	Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).disabled = false
+	# Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).set_deferred("disabled", false)
+		
+	# await get_tree().create_timer(1.0).timeout 
 
 # func SetPosition(markpos: Marker2D) -> void:
 # 	Player.set_position(markpos.position)

@@ -282,12 +282,17 @@ func _input(event):
 				Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
 				Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
 				
+				# var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
+				# SceneManager.ChangeSceneNode(n)
+				
 				var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
+				# n.marker = Singleton_CommonVariables.sf_game_data_node.egress_location
 				SceneManager.ChangeSceneNode(n)
 				
-				Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
-				Singleton_CommonVariables.main_character_player_node.show()
-				Singleton_CommonVariables.main_character_player_node.camera_current(true)
+				if Singleton_CommonVariables.main_character_player_node:
+					Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+					Singleton_CommonVariables.main_character_player_node.show()
+					Singleton_CommonVariables.main_character_player_node.camera_current(true)
 				
 				return
 			

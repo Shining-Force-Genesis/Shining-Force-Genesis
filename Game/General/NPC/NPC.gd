@@ -65,8 +65,11 @@ func _ready() -> void:
 	else:
 		chracter_animation_player = chracter_animation_player_normal
 	
+	# add some variance to the npc move speed so it doesn't all look so uniform
+	chracter_animation_player.speed_scale = rng.randf_range(0.8, 1.2)
+	
 	if is_npc && !stationary:
-		await get_tree().create_timer(2).timeout
+		await get_tree().create_timer(rng.randf_range(1.75, 2.75)).timeout
 		npc_move()
 	
 	if chracter_animation_player != null:

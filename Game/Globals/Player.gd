@@ -11,6 +11,7 @@ func disable() -> void:
 		character.set_physics_process(false)
 		character.set_process_input(false) 
 		
+		
 		# force tween to completion
 		# weird position happens without ensuring tween movement completed
 		# killing the tween or awaiting it isn't reliable 

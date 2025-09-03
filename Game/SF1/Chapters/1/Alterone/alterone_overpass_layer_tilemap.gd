@@ -11,6 +11,8 @@ extends Node2D
 ### Navigation Markers
 var marker
 var marker_entrance = "Entrance"
+var marker_hq = "HQ"
+var marker_castle = "Castle"
 
 
 func _ready() -> void:
@@ -25,6 +27,10 @@ func _ready() -> void:
 	match marker:
 		marker_entrance:
 			Player.set_character_position($Markers/OverworldMarker2D.position)
+		marker_hq:
+			Player.set_character_position($Markers/HQMarker2D.position)
+		marker_castle:
+			Player.set_character_position($Markers/CastleMarker2D.position)
 		_:
 			Player.set_character_position($Markers/OverworldMarker2D.position)
 	
@@ -39,7 +45,7 @@ func _ready() -> void:
 
 func _on_overworld_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
 		n.marker = n.marker_alterone
 		SceneManager.ChangeSceneNode(n)
 
@@ -104,3 +110,10 @@ func _on_bar_entrance_area_2d_body_entered(body: Node2D) -> void:
 func _on_bar_exit_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
 		house_bottom_right_roof_tilemap.hide()
+
+
+func _on_castle_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
+		n.marker = n.marker_entrance
+		SceneManager.ChangeSceneNode(n)

@@ -40,31 +40,17 @@ func _ready() -> void:
 
 func _on_guardiana_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
-			n.marker = n.marker_overworld
-			SceneManager.ChangeSceneNode(n)
-		else:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
-			n.marker = n.marker_overworld
-			SceneManager.ChangeSceneNode(n)
-		
-		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
-		# n.marker = n.marker_overworld
-		# SceneManager.ChangeSceneNode(n)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
+		n.marker = n.marker_overworld
+		SceneManager.ChangeSceneNode(n)
 
 
 func _on_ancients_gate_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AncientGate)
-			n.marker = n.marker_entrance
-			SceneManager.ChangeSceneNode(n)
-		else:
-			Singleton_CommonVariables.main_character_player_node.queue_free()
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
-			
-			SceneManager.ChangeSceneNode(n)
+		# Singleton_CommonVariables.main_character_player_node.queue_free()
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AncientGate)
+		
+		SceneManager.ChangeSceneNode(n)
 
 
 func _on_cabin_area_2d_body_entered(body: Node2D) -> void:
@@ -76,11 +62,12 @@ func _on_cabin_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_alterone_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneNoEntry)
-		n.marker = n.marker_entrance
-		SceneManager.ChangeSceneNode(n)
-		
-		# TODO After Battle 3 flag go here
-		#var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
-		#n.marker = n.marker_entrance
-		#SceneManager.ChangeSceneNode(n)
+		if Singleton_CommonVariables.sf_game_data_node.c1.battle_3_complete:
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+			n.marker = n.marker_entrance
+			SceneManager.ChangeSceneNode(n)
+		else:
+			# Singleton_CommonVariables.main_character_player_node.queue_free()
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneNoEntry)
+			n.marker = n.marker_entrance
+			SceneManager.ChangeSceneNode(n)

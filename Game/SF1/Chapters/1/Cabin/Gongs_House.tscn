@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://nn55jt1wlyai"]
+[gd_scene load_steps=24 format=4 uid="uid://nn55jt1wlyai"]
 
 [ext_resource type="Script" uid="uid://cow56obbvgp7l" path="res://SF1/Chapters/1/Cabin/gongs_house.gd" id="1_fesbo"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_uteir"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="4_4ieoj"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="5_iv4p3"]
 [ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="6_mby0v"]
+[ext_resource type="PackedScene" uid="uid://dji1st2fd8pam" path="res://General/Door/door.tscn" id="6_uteir"]
 [ext_resource type="Script" uid="uid://crknlgyjbr2bd" path="res://SF1/Chapters/1/Cabin/Gong.gd" id="7_dowo2"]
 [ext_resource type="Texture2D" uid="uid://7lrkhvl0pk54" path="res://Characters/Gong/Assets/Unpromoted_Map_Sprites.png" id="8_3tetx"]
 [ext_resource type="Script" uid="uid://b0xh4hks73w7" path="res://SF1/Chapters/1/Cabin/Jogurt.gd" id="9_2xntq"]
@@ -3169,6 +3170,9 @@ metadata/_edit_lock_ = true
 [node name="EntranceMarker2D" type="Marker2D" parent="Markers"]
 position = Vector2(252, 420)
 
+[node name="PriestMarker2D" type="Marker2D" parent="Markers"]
+position = Vector2(276, 204)
+
 [node name="Areas" type="Node" parent="."]
 
 [node name="OverworldEntranceArea2D" type="Area2D" parent="Areas"]
@@ -3198,6 +3202,11 @@ metadata/_edit_lock_ = true
 position = Vector2(276, 276)
 shape = SubResource("RectangleShape2D_5pdww")
 metadata/_edit_lock_ = true
+
+[node name="Interactables" type="Node" parent="."]
+
+[node name="Door" parent="Interactables" instance=ExtResource("6_uteir")]
+position = Vector2(264, 240)
 
 [node name="CameraLimitsInfo" type="Node" parent="."]
 

@@ -32,6 +32,12 @@ func _ready() -> void:
 
 func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
-		n.marker = n.marker_ancientsgate
-		SceneManager.ChangeSceneNode(n)
+		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
+			n.marker = n.marker_ancientsgate
+			SceneManager.ChangeSceneNode(n)
+		else:
+			Singleton_CommonVariables.main_character_player_node.queue_free()
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
+			n.marker = n.marker_ancientsgate
+			SceneManager.ChangeSceneNode(n)

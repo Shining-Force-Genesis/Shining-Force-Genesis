@@ -5,9 +5,7 @@ extends Node2D
 @export var item_resource: Resource 
 @export var gold: int = 0
 
-@onready var textureRectNode = $TextureRect
-
-const TILE_SIZE: int = 24
+@onready var sprite_chest = $Sprite2D # $TextureRect
 
 var opened: bool = false
 var retrieved_chest_resources: bool = false
@@ -17,7 +15,7 @@ func _ready():
 		hide()
 	
 	if preopend_chest:
-		textureRectNode.region_rect.position.x = TILE_SIZE
+		sprite_chest.frame = 1
 		opened = true
 
 
@@ -32,7 +30,7 @@ func attempt_to_open_chest() -> void:
 		opened = true
 		print("Trying to open chest")
 		Singleton_CommonVariables.dialogue_box_node.play_message(Singleton_CommonVariables.main_character_player_node.get_actor_name() + " opens the treasure chest!")
-		textureRectNode.region_rect.position.x = TILE_SIZE
+		sprite_chest.frame = 1
 		show()
 	# else: 
 	#	print("Chest was already opened")
@@ -54,6 +52,7 @@ func retrieve_chest_contents() -> void:
 		display_str = "Nothing is found."
 	else:
 		if item_resource != null:
+			play_get_sfx()
 			display_str += ma + " discovered: " + str(item_resource.item_name) + "!"
 			
 			var found = false
@@ -77,9 +76,19 @@ func retrieve_chest_contents() -> void:
 				Singleton_CommonVariables.item_box.push_back(item_resource.resource_path)
 			
 		if gold != 0:
+			play_get_sfx()
 			display_str += ma + " gains " + str(gold) + " coins."
 			Singleton_CommonVariables.gold = gold + Singleton_CommonVariables.gold
-			Singleton_CommonVariables.menus_root_node.GoldInfoBox.UpdateGoldAmountDisplay()
+			Singleton_CommonVariables.ui__gold_info_box.UpdateGoldAmountDisplay()
 	
 	retrieved_chest_resources = true
 	Singleton_CommonVariables.dialogue_box_node.play_message(display_str)
+
+func play_get_sfx() -> void:
+	# Player.disable()
+	AudioManager.pause_all_music()
+	AudioManager.play_sfx("res://Assets/Music/SF1/Jingle - Item Get!!.mp3")
+	await Signal(AudioManager, "signal__audio_manager__soundeffect__finished")
+	AudioManager.pause_all_sfx()
+	AudioManager.resume_all_music()
+	# Player.enable()

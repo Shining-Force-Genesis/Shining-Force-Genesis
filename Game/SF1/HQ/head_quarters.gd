@@ -117,6 +117,7 @@ func _ready() -> void:
 #		NpcRootNode.add_child(npc_fm)
 #		i = i + 1
 
+
 ### Navigations
 
 
@@ -124,6 +125,15 @@ func _on_exit_area_2d_body_entered(body: Node2D) -> void:
 	# TODO need to save previous map and marker
 	
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
-		n.marker = n.marker_hq
-		SceneManager.ChangeSceneNode(n)
+		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
+		# n.marker = n.marker_hq
+		# SceneManager.ChangeSceneNode(n)
+		
+		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
+			n.marker = n.marker_hq
+			SceneManager.ChangeSceneNode(n)
+		else:
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
+			n.marker = n.marker_hq
+			SceneManager.ChangeSceneNode(n)

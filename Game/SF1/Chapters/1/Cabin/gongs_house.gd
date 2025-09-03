@@ -6,7 +6,7 @@ extends Node2D
 ### Navigation Markers
 var marker
 var marker_entrance = "Entrance"
-
+var marker_priest = "Priest"
 
 func _ready() -> void:
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -27,6 +27,9 @@ func _ready() -> void:
 	match marker:
 		marker_entrance:
 			Player.set_character_position($Markers/EntranceMarker2D.position)
+		marker_priest:
+			Player.set_character_position($Markers/PriestMarker2D.position)
+			roof_tilemap.hide()
 		_:
 			Player.set_character_position($Markers/EntranceMarker2D.position)
 	
@@ -41,9 +44,14 @@ func _ready() -> void:
 
 func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
-		n.marker = n.marker_cabin
-		SceneManager.ChangeSceneNode(n)
+		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
+			n.marker = n.marker_cabin
+			SceneManager.ChangeSceneNode(n)
+		else:
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
+			n.marker = n.marker_cabin
+			SceneManager.ChangeSceneNode(n)
 
 
 ### Roofs

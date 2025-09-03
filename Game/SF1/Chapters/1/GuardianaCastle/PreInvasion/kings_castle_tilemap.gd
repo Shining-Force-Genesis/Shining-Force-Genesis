@@ -60,14 +60,18 @@ func _ready() -> void:
 
 func _on_town_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		if Singleton_CommonVariables.sf_game_data_node.c1.exited_guardiana_once:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
-			n.marker = n.marker_castle
-			SceneManager.ChangeSceneNode(n)
-		else:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
-			n.marker = n.marker_castle
-			SceneManager.ChangeSceneNode(n)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
+		n.marker = n.marker_castle
+		SceneManager.ChangeSceneNode(n)
+		
+		# if Singleton_CommonVariables.sf_game_data_node.c1.exited_guardiana_once:
+		#	var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
+		#	n.marker = n.marker_castle
+		#	SceneManager.ChangeSceneNode(n)
+		#else:
+		#	var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
+		#	n.marker = n.marker_castle
+		#	SceneManager.ChangeSceneNode(n)
 
 
 func _on_hq_area_2d_body_entered(body: Node2D) -> void:

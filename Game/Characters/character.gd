@@ -10,6 +10,10 @@ signal signal_action_finished
 
 @onready var raycast: RayCast2D = $RayCast2D
 
+@onready var animation_player: AnimationPlayer = $Node2D/Max/AnimationPlayer
+@onready var collision_shape_cbody: CollisionShape2D = $CharacterBody2D/CollisionShape2D
+@onready var cbody: CharacterBody2D = $CharacterBody2D
+
 enum e_player_directions {
 	UP,
 	DOWN,
@@ -26,7 +30,7 @@ var inputs = {
 	"ui_down": Vector2.DOWN
 }
 
-var animation_speed = 5
+var animation_speed = 5.5
 var moving = false
 
 var move_tween: Tween
@@ -68,25 +72,28 @@ func _process(_delta: float) -> void:
 		return
 	
 	if Input.is_action_just_released("ui_c_key"):
+		# TODO: probably should have these functions return bools
+		# and if talk succeds first early return so there's no situtation where it talks then searches
 		interaction_attempt_to_talk()
+		interaction_attempt_to_search()
 		return
 	
 	if Input.is_action_pressed('ui_up'):
 		facing_direction = e_player_directions.UP
 		move('ui_up')
-		$Node2D/Max/AnimationPlayer.play("Up")
+		animation_player.play("Up")
 	elif Input.is_action_pressed('ui_down'):
 		facing_direction = e_player_directions.DOWN
 		move('ui_down')
-		$Node2D/Max/AnimationPlayer.play("Down")
+		animation_player.play("Down")
 	elif Input.is_action_pressed('ui_left'):
 		facing_direction = e_player_directions.LEFT
 		move('ui_left')
-		$Node2D/Max/AnimationPlayer.play("Left")
+		animation_player.play("Left")
 	elif Input.is_action_pressed('ui_right'):
 		facing_direction = e_player_directions.RIGHT
 		move('ui_right')
-		$Node2D/Max/AnimationPlayer.play("Right")	
+		animation_player.play("Right")	
 		
 
 func move(dir):
@@ -102,6 +109,8 @@ func move(dir):
 	if !ray.is_colliding():
 		# print(ray.get_collider())
 		
+		animation_player.speed_scale = 2
+		
 		#position += inputs[dir] * tile_size
 		move_tween = create_tween()
 		move_tween.tween_property(self, "global_position",
@@ -111,6 +120,8 @@ func move(dir):
 		moving = true
 		await move_tween.finished
 		moving = false
+		
+		animation_player.speed_scale = 1
 		
 		emit_signal("signal_action_finished")
 
@@ -138,8 +149,17 @@ func interaction_attempt_to_search() -> void:
 		var c = raycast.get_collider()
 		print(c)
 		
-		if c.get_parent().has_method("attempt_interaction_search"):
-			c.get_parent().attempt_interaction_search()
+		#if c.get_parent().has_method("attempt_interaction_search"):
+			#c.get_parent().attempt_interaction_search()
+		
+		if c.get_parent().has_method("attempt_to_interact"):
+			c.get_parent().attempt_to_interact()
+		# TODO clean this and refactor there should be a much cleaner way of doing this without
+		# having multiple special paths and configurations
+		elif c.get_parent().get_parent().has_method("attempt_to_interact"):
+			c.get_parent().get_parent().attempt_to_interact()
+		elif c.get_parent().get_child(0).has_method("attempt_to_interact"):
+			c.get_parent().attempt_to_interact()
 
 
 func PlayerFacingDirection() -> String:
@@ -160,31 +180,31 @@ func GetOppositePlayerFacingDirection() -> String:
 		_: return "Down"
 
 func get_actor_name() -> String:
-	return "MAX_STATIC"
+	return "Max" # "MAX_STATIC"
 
 func MoveInDirection(arg: String) -> void:
 	match arg:
 		"Down": 
-			$Node2D/Max/AnimationPlayer.play("Down")
+			animation_player.play("Down")
 			move('ui_down')
 		"Up": 
-			$Node2D/Max/AnimationPlayer.play("Up")
+			animation_player.play("Up")
 			move('ui_up')
 		"Left": 
-			$Node2D/Max/AnimationPlayer.play("Left")
+			animation_player.play("Left")
 			move('ui_left')
 		"Right": 
-			$Node2D/Max/AnimationPlayer.play("Right")
+			animation_player.play("Right")
 			move('ui_right')
 
 
 func set_facing_direction(arg: String) -> void:
 	match arg:
 		"Down": 
-			$Node2D/Max/AnimationPlayer.play("Down")
+			animation_player.play("Down")
 		"Up": 
-			$Node2D/Max/AnimationPlayer.play("Up")
+			animation_player.play("Up")
 		"Left": 
-			$Node2D/Max/AnimationPlayer.play("Left")
+			animation_player.play("Left")
 		"Right": 
-			$Node2D/Max/AnimationPlayer.play("Right")
+			animation_player.play("Right")

@@ -1,20 +1,21 @@
-[gd_scene load_steps=26 format=4 uid="uid://brid65bkie041"]
+[gd_scene load_steps=31 format=4 uid="uid://brid65bkie041"]
 
-[ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="1_5u7vn"]
-[ext_resource type="Texture2D" uid="uid://dupkuyown15rx" path="res://SF1/Assets/Tilesets/10.png" id="2_1hci8"]
-[ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="3_ioqct"]
-[ext_resource type="Texture2D" uid="uid://bdbp5rognaut0" path="res://SF1/Assets/Tilesets/8.png" id="4_e6ay7"]
-[ext_resource type="Texture2D" uid="uid://dt8ickoxyafpn" path="res://SF1/Assets/Tilesets/9.png" id="5_topcw"]
-[ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="6_s1cpx"]
-[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="8_kmohi"]
-[ext_resource type="Texture2D" uid="uid://gxchxmc0f6ym" path="res://Assets/EnemiesAndBosses/Kane/Map_Sprites.png" id="9_je7xw"]
-[ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/NPCs/GenericOneDialogueNPC.gd" id="9_xm380"]
-[ext_resource type="Texture2D" uid="uid://bw8jgq8cyqbr3" path="res://Assets/EnemiesAndBosses/Rune Knight/Map_Sprites.png" id="11_hhob1"]
-[ext_resource type="Texture2D" uid="uid://dg8vop5n15t1q" path="res://Assets/NPC/Priest.png" id="12_qo8yj"]
-[ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="13_jghsi"]
+[ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="1_5gkn0"]
+[ext_resource type="Script" uid="uid://cns2wkp3qvp6g" path="res://SF1/Chapters/1/AlteroneCastleBasement/alterone_castle_basement.gd" id="1_78hvb"]
+[ext_resource type="Texture2D" uid="uid://dupkuyown15rx" path="res://SF1/Assets/Tilesets/10.png" id="2_78hvb"]
+[ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="3_08xca"]
+[ext_resource type="Texture2D" uid="uid://bdbp5rognaut0" path="res://SF1/Assets/Tilesets/8.png" id="4_60v84"]
+[ext_resource type="Texture2D" uid="uid://dt8ickoxyafpn" path="res://SF1/Assets/Tilesets/9.png" id="5_cjdg0"]
+[ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="6_llf2l"]
+[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="7_ofxda"]
+[ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/NPCs/GenericOneDialogueNPC.gd" id="8_ejut4"]
+[ext_resource type="Texture2D" uid="uid://gxchxmc0f6ym" path="res://Assets/EnemiesAndBosses/Kane/Map_Sprites.png" id="9_j4pbg"]
+[ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="10_oeo7m"]
+[ext_resource type="Texture2D" uid="uid://bw8jgq8cyqbr3" path="res://Assets/EnemiesAndBosses/Rune Knight/Map_Sprites.png" id="11_oluja"]
+[ext_resource type="Texture2D" uid="uid://dg8vop5n15t1q" path="res://Assets/NPC/Priest.png" id="12_e3urw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
-texture = ExtResource("1_5u7vn")
+texture = ExtResource("1_5gkn0")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -1042,7 +1043,7 @@ texture_region_size = Vector2i(4, 4)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
-texture = ExtResource("2_1hci8")
+texture = ExtResource("2_78hvb")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -2070,7 +2071,7 @@ texture_region_size = Vector2i(4, 4)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2"]
-texture = ExtResource("3_ioqct")
+texture = ExtResource("3_08xca")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -3098,7 +3099,7 @@ texture_region_size = Vector2i(4, 4)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3"]
-texture = ExtResource("4_e6ay7")
+texture = ExtResource("4_60v84")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -4126,7 +4127,7 @@ texture_region_size = Vector2i(4, 4)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4"]
-texture = ExtResource("5_topcw")
+texture = ExtResource("5_cjdg0")
 texture_region_size = Vector2i(4, 4)
 0:0/0 = 0
 1:0/0 = 0
@@ -5162,13 +5163,25 @@ sources/3 = SubResource("TileSetAtlasSource_3")
 sources/4 = SubResource("TileSetAtlasSource_4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7y8le"]
-texture = ExtResource("6_s1cpx")
+texture = ExtResource("6_llf2l")
 texture_region_size = Vector2i(24, 24)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_12sc5"]
 tile_size = Vector2i(24, 24)
 sources/0 = SubResource("TileSetAtlasSource_7y8le")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_78hvb"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_60v84"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjdg0"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08xca"]
+size = Vector2(12, 12)
 
 [sub_resource type="Animation" id="Animation_8cicr"]
 resource_name = "Down"
@@ -5242,6 +5255,7 @@ _data = {
 }
 
 [node name="AlteroneBasement" type="Node2D"]
+script = ExtResource("1_78hvb")
 
 [node name="Map" type="Node" parent="."]
 
@@ -5261,27 +5275,61 @@ tile_set = SubResource("TileSet_0")
 metadata/_edit_lock_ = true
 
 [node name="MoveTileMapLayer" type="TileMapLayer" parent="Map"]
+visible = false
 z_index = 8
-tile_map_data = PackedByteArray("AAATABgAAAAAAAAAAAAUABgAAAAAAAAAAAAVABgAAAAAAAAAAAAWABgAAAAAAAAAAAAXABgAAAAAAAAAAAAYABgAAAAAAAAAAAAZABgAAAAAAAAAAAAaABgAAAAAAAAAAAAbABgAAAAAAAAAAAAUABcAAAAAAAAAAAATABcAAAAAAAAAAAATABYAAAAAAAAAAAATABUAAAAAAAAAAAATABQAAAAAAAAAAAAUABUAAAAAAAAAAAAVABUAAAAAAAAAAAAWABUAAAAAAAAAAAAWABQAAAAAAAAAAAAVABQAAAAAAAAAAAAUABQAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAXABQAAAAAAAAAAAAXABUAAAAAAAAAAAAYABUAAAAAAAAAAAAYABQAAAAAAAAAAAAaABQAAAAAAAAAAAAaABUAAAAAAAAAAAAbABUAAAAAAAAAAAAbABQAAAAAAAAAAAAbABYAAAAAAAAAAAAbABcAAAAAAAAAAAAaABYAAAAAAAAAAAAcABQAAAAAAAAAAAAdABQAAAAAAAAAAAAeABQAAAAAAAAAAAAfABQAAAAAAAAAAAAgABQAAAAAAAAAAAAgABMAAAAAAAAAAAAgABIAAAAAAAAAAAAgABEAAAAAAAAAAAAgABAAAAAAAAAAAAAfABAAAAAAAAAAAAAfABEAAAAAAAAAAAAgAA8AAAAAAAAAAAAgAA4AAAAAAAAAAAAgAA0AAAAAAAAAAAAfAA4AAAAAAAAAAAAeAA4AAAAAAAAAAAAdAA4AAAAAAAAAAAAdAA0AAAAAAAAAAAAcAA0AAAAAAAAAAAAbAA0AAAAAAAAAAAAbAA4AAAAAAAAAAAAcAA4AAAAAAAAAAAAcAAwAAAAAAAAAAAAbAAwAAAAAAAAAAAAdAAwAAAAAAAAAAAAeAAwAAAAAAAAAAAAfAAwAAAAAAAAAAAAgAAwAAAAAAAAAAAAfAA0AAAAAAAAAAAAeAA0AAAAAAAAAAAAbAA8AAAAAAAAAAAAbABAAAAAAAAAAAAAbABEAAAAAAAAAAAAaABEAAAAAAAAAAAAaABAAAAAAAAAAAAAYABAAAAAAAAAAAAAYABEAAAAAAAAAAAAXABEAAAAAAAAAAAAWABEAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAXAA8AAAAAAAAAAAAXAA4AAAAAAAAAAAAXAA0AAAAAAAAAAAAXAAwAAAAAAAAAAAAYAAwAAAAAAAAAAAAZAAwAAAAAAAAAAAAZAA0AAAAAAAAAAAAYAA0AAAAAAAAAAAAaAA0AAAAAAAAAAAAaAAwAAAAAAAAAAAAYAA4AAAAAAAAAAAAaAA8AAAAAAAAAAAAWAA8AAAAAAAAAAAAWAA4AAAAAAAAAAAAVAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAATAA4AAAAAAAAAAAATAA8AAAAAAAAAAAATABAAAAAAAAAAAAATABEAAAAAAAAAAAATABIAAAAAAAAAAAAUABAAAAAAAAAAAAAUABEAAAAAAAAAAAATAA0AAAAAAAAAAAAUAA0AAAAAAAAAAAAVAA0AAAAAAAAAAAAWAA0AAAAAAAAAAAAWAAwAAAAAAAAAAAAVAAwAAAAAAAAAAAAUAAwAAAAAAAAAAAATAAwAAAAAAAAAAAAeABEAAAAAAAAAAAAUAAsAAAAAAAAAAAATAAsAAAAAAAAAAAATAAoAAAAAAAAAAAATAAkAAAAAAAAAAAATAAgAAAAAAAAAAAATAAcAAAAAAAAAAAAUAAcAAAAAAAAAAAAUAAgAAAAAAAAAAAAUAAYAAAAAAAAAAAATAAYAAAAAAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAAXAAYAAAAAAAAAAAAYAAYAAAAAAAAAAAAYAAcAAAAAAAAAAAAXAAcAAAAAAAAAAAAWAAcAAAAAAAAAAAAVAAcAAAAAAAAAAAAZAAcAAAAAAAAAAAAZAAgAAAAAAAAAAAAZAAYAAAAAAAAAAAAZAAUAAAAAAAAAAAAZAAQAAAAAAAAAAAAZAAMAAAAAAAAAAAAaAAMAAAAAAAAAAAAaAAQAAAAAAAAAAAAbAAQAAAAAAAAAAAAbAAMAAAAAAAAAAAAcAAMAAAAAAAAAAAAcAAQAAAAAAAAAAAAcAAUAAAAAAAAAAAAcAAYAAAAAAAAAAAAbAAcAAAAAAAAAAAAbAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAcAAcAAAAAAAAAAAAcAAkAAAAAAAAAAAAcAAoAAAAAAAAAAAAcAAsAAAAAAAAAAAAbAAsAAAAAAAAAAAAaAAsAAAAAAAAAAAAZAAsAAAAAAAAAAAAYAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAAQAAoAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAARAAoAAAAAAAAAAAARAAsAAAAAAAAAAAARAAwAAAAAAAAAAAARAA0AAAAAAAAAAAARAA4AAAAAAAAAAAAQAA0AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAANAA4AAAAAAAAAAAANAA0AAAAAAAAAAAAMAAwAAAAAAAAAAAAMAAsAAAAAAAAAAAAMAAoAAAAAAAAAAAAMAAkAAAAAAAAAAAAMAA0AAAAAAAAAAAAMAA4AAAAAAAAAAAANAAoAAAAAAAAAAAANAAkAAAAAAAAAAAALAAkAAAAAAAAAAAALAAoAAAAAAAAAAAALAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAAJAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAHAAwAAAAAAAAAAAAHAA0AAAAAAAAAAAAHAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAEAA0AAAAAAAAAAAAEAAwAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAA4AAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAJAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAARAAMAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAATABgAAAAAAAAAAAAUABgAAAAAAAAAAAAVABgAAAAAAAAAAAAWABgAAAAAAAAAAAAXABgAAAAAAAAAAAAYABgAAAAAAAAAAAAZABgAAAAAAAAAAAAaABgAAAAAAAAAAAAbABgAAAAAAAAAAAAUABcAAAAAAAAAAAATABcAAAAAAAAAAAATABYAAAAAAAAAAAATABUAAAAAAAAAAAATABQAAAAAAAAAAAAUABUAAAAAAAAAAAAVABUAAAAAAAAAAAAWABUAAAAAAAAAAAAWABQAAAAAAAAAAAAVABQAAAAAAAAAAAAUABQAAAAAAAAAAAATABMAAAAAAAAAAAAUABMAAAAAAAAAAAAVABMAAAAAAAAAAAAWABMAAAAAAAAAAAAXABMAAAAAAAAAAAAXABQAAAAAAAAAAAAXABUAAAAAAAAAAAAYABUAAAAAAAAAAAAYABQAAAAAAAAAAAAaABQAAAAAAAAAAAAaABUAAAAAAAAAAAAbABUAAAAAAAAAAAAbABQAAAAAAAAAAAAbABYAAAAAAAAAAAAbABcAAAAAAAAAAAAaABYAAAAAAAAAAAAcABQAAAAAAAAAAAAdABQAAAAAAAAAAAAeABQAAAAAAAAAAAAfABQAAAAAAAAAAAAgABQAAAAAAAAAAAAgABMAAAAAAAAAAAAgABIAAAAAAAAAAAAgABEAAAAAAAAAAAAgABAAAAAAAAAAAAAfABAAAAAAAAAAAAAfABEAAAAAAAAAAAAgAA8AAAAAAAAAAAAgAA4AAAAAAAAAAAAgAA0AAAAAAAAAAAAfAA4AAAAAAAAAAAAeAA4AAAAAAAAAAAAdAA4AAAAAAAAAAAAdAA0AAAAAAAAAAAAcAA0AAAAAAAAAAAAbAA0AAAAAAAAAAAAbAA4AAAAAAAAAAAAcAA4AAAAAAAAAAAAcAAwAAAAAAAAAAAAbAAwAAAAAAAAAAAAdAAwAAAAAAAAAAAAeAAwAAAAAAAAAAAAfAAwAAAAAAAAAAAAgAAwAAAAAAAAAAAAfAA0AAAAAAAAAAAAeAA0AAAAAAAAAAAAbAA8AAAAAAAAAAAAbABAAAAAAAAAAAAAbABEAAAAAAAAAAAAaABEAAAAAAAAAAAAaABAAAAAAAAAAAAAYABAAAAAAAAAAAAAYABEAAAAAAAAAAAAXABEAAAAAAAAAAAAWABEAAAAAAAAAAAAWABAAAAAAAAAAAAAXABAAAAAAAAAAAAAXAA8AAAAAAAAAAAAXAA4AAAAAAAAAAAAXAA0AAAAAAAAAAAAXAAwAAAAAAAAAAAAYAAwAAAAAAAAAAAAZAAwAAAAAAAAAAAAZAA0AAAAAAAAAAAAYAA0AAAAAAAAAAAAaAA0AAAAAAAAAAAAaAAwAAAAAAAAAAAAYAA4AAAAAAAAAAAAaAA8AAAAAAAAAAAAWAA8AAAAAAAAAAAAWAA4AAAAAAAAAAAAVAA4AAAAAAAAAAAAUAA4AAAAAAAAAAAATAA4AAAAAAAAAAAATAA8AAAAAAAAAAAATABAAAAAAAAAAAAATABEAAAAAAAAAAAATABIAAAAAAAAAAAAUABAAAAAAAAAAAAAUABEAAAAAAAAAAAATAA0AAAAAAAAAAAAUAA0AAAAAAAAAAAAVAA0AAAAAAAAAAAAWAA0AAAAAAAAAAAAWAAwAAAAAAAAAAAAVAAwAAAAAAAAAAAAUAAwAAAAAAAAAAAATAAwAAAAAAAAAAAAeABEAAAAAAAAAAAAUAAsAAAAAAAAAAAATAAsAAAAAAAAAAAATAAoAAAAAAAAAAAATAAkAAAAAAAAAAAATAAgAAAAAAAAAAAATAAcAAAAAAAAAAAAUAAcAAAAAAAAAAAAUAAgAAAAAAAAAAAAUAAYAAAAAAAAAAAATAAYAAAAAAAAAAAAVAAYAAAAAAAAAAAAWAAYAAAAAAAAAAAAXAAYAAAAAAAAAAAAYAAYAAAAAAAAAAAAYAAcAAAAAAAAAAAAXAAcAAAAAAAAAAAAWAAcAAAAAAAAAAAAVAAcAAAAAAAAAAAAZAAcAAAAAAAAAAAAZAAgAAAAAAAAAAAAZAAYAAAAAAAAAAAAZAAUAAAAAAAAAAAAZAAQAAAAAAAAAAAAZAAMAAAAAAAAAAAAaAAMAAAAAAAAAAAAaAAQAAAAAAAAAAAAbAAQAAAAAAAAAAAAbAAMAAAAAAAAAAAAcAAMAAAAAAAAAAAAcAAQAAAAAAAAAAAAcAAUAAAAAAAAAAAAcAAYAAAAAAAAAAAAbAAcAAAAAAAAAAAAbAAgAAAAAAAAAAAAcAAgAAAAAAAAAAAAcAAcAAAAAAAAAAAAcAAkAAAAAAAAAAAAcAAoAAAAAAAAAAAAcAAsAAAAAAAAAAAAbAAsAAAAAAAAAAAAaAAsAAAAAAAAAAAAZAAsAAAAAAAAAAAAYAAsAAAAAAAAAAAAQAAsAAAAAAAAAAAAQAAoAAAAAAAAAAAAQAAkAAAAAAAAAAAARAAkAAAAAAAAAAAARAAoAAAAAAAAAAAARAAsAAAAAAAAAAAARAAwAAAAAAAAAAAARAA0AAAAAAAAAAAARAA4AAAAAAAAAAAAQAA0AAAAAAAAAAAAPAA0AAAAAAAAAAAAPAA4AAAAAAAAAAAAQAA4AAAAAAAAAAAAOAA4AAAAAAAAAAAANAA4AAAAAAAAAAAANAA0AAAAAAAAAAAAMAAwAAAAAAAAAAAAMAAsAAAAAAAAAAAAMAAoAAAAAAAAAAAAMAAkAAAAAAAAAAAAMAA0AAAAAAAAAAAAMAA4AAAAAAAAAAAANAAoAAAAAAAAAAAANAAkAAAAAAAAAAAALAAkAAAAAAAAAAAALAAoAAAAAAAAAAAALAAwAAAAAAAAAAAAKAAwAAAAAAAAAAAAJAAwAAAAAAAAAAAAIAAwAAAAAAAAAAAAHAAwAAAAAAAAAAAAHAA0AAAAAAAAAAAAHAA4AAAAAAAAAAAAGAA4AAAAAAAAAAAAFAA4AAAAAAAAAAAAEAA0AAAAAAAAAAAAEAAwAAAAAAAAAAAAEAAsAAAAAAAAAAAAEAA4AAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAIAAoAAAAAAAAAAAAJAAoAAAAAAAAAAAAJAAkAAAAAAAAAAAAIAAkAAAAAAAAAAAAHAAkAAAAAAAAAAAAGAAkAAAAAAAAAAAAFAAkAAAAAAAAAAAAEAAkAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAYAAAAAAAAAAAAIAAUAAAAAAAAAAAAIAAQAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAAMAAAAAAAAAAAAKAAMAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAAKAAQAAAAAAAAAAAAJAAQAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAQAAMAAAAAAAAAAAAQAAQAAAAAAAAAAAARAAQAAAAAAAAAAAAPAAQAAAAAAAAAAAAOAAQAAAAAAAAAAAANAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAPAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAARAAMAAAAAAAAAAAARAAUAAAAAAAAAAAARAAYAAAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAAZAA4AAAAAAAAAAAAFAAsAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_12sc5")
 metadata/_edit_lock_ = true
 
 [node name="Markers" type="Node" parent="."]
 
-[node name="OverworldMarker2D" type="Marker2D" parent="Markers"]
+[node name="SecretPathMarker2D" type="Marker2D" parent="Markers"]
 position = Vector2(612, 564)
 metadata/_edit_lock_ = true
 
-[node name="HQMarker2D" type="Marker2D" parent="Markers"]
+[node name="LeftMarker2D" type="Marker2D" parent="Markers"]
 position = Vector2(156, 324)
 metadata/_edit_lock_ = true
 
-[node name="CastleMarker2D" type="Marker2D" parent="Markers"]
+[node name="TopRightMarker2D" type="Marker2D" parent="Markers"]
 position = Vector2(636, 132)
 metadata/_edit_lock_ = true
 
-[node name="CastleMarker2D2" type="Marker2D" parent="Markers"]
+[node name="BottomRightMarker2D" type="Marker2D" parent="Markers"]
 position = Vector2(732, 372)
+metadata/_edit_lock_ = true
+
+[node name="Areas" type="Node" parent="."]
+
+[node name="SecretArea2D" type="Area2D" parent="Areas"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/SecretArea2D"]
+position = Vector2(636, 564)
+shape = SubResource("RectangleShape2D_78hvb")
+
+[node name="LeftArea2D" type="Area2D" parent="Areas"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/LeftArea2D"]
+position = Vector2(132, 324)
+shape = SubResource("RectangleShape2D_60v84")
+metadata/_edit_lock_ = true
+
+[node name="TopArea2D" type="Area2D" parent="Areas"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/TopArea2D"]
+position = Vector2(660, 132)
+shape = SubResource("RectangleShape2D_cjdg0")
+metadata/_edit_lock_ = true
+
+[node name="RightArea2D" type="Area2D" parent="Areas"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/RightArea2D"]
+position = Vector2(756, 372)
+shape = SubResource("RectangleShape2D_08xca")
 metadata/_edit_lock_ = true
 
 [node name="Interactables" type="Node" parent="."]
@@ -5293,9 +5341,9 @@ position = Vector2(888, 816)
 
 [node name="NPCS" type="Node" parent="."]
 
-[node name="Kane" parent="NPCS" instance=ExtResource("8_kmohi")]
+[node name="Kane" parent="NPCS" instance=ExtResource("7_ofxda")]
 position = Vector2(480, 264)
-script = ExtResource("9_xm380")
+script = ExtResource("8_ejut4")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/WomanRedHeadChurch.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Kane" index="0"]
@@ -5303,7 +5351,7 @@ FacingDirection = 3
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Kane/AnimatableBody2D" index="3"]
-texture = ExtResource("9_je7xw")
+texture = ExtResource("9_j4pbg")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Kane/AnimatableBody2D" index="4"]
@@ -5312,9 +5360,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="Guard" parent="NPCS" instance=ExtResource("8_kmohi")]
+[node name="Guard" parent="NPCS" instance=ExtResource("7_ofxda")]
 position = Vector2(240, 288)
-script = ExtResource("9_xm380")
+script = ExtResource("8_ejut4")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAroundTown.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Guard" index="0"]
@@ -5322,7 +5370,7 @@ FacingDirection = 1
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Guard/AnimatableBody2D" index="3"]
-texture = ExtResource("13_jghsi")
+texture = ExtResource("10_oeo7m")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Guard/AnimatableBody2D" index="4"]
@@ -5335,9 +5383,9 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAAAAAAAAPr/AAAAAAAAAAABAPr/AAAAAAAAAAD8/wMAAAAAAAAAAAD+/wUAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wUAAAAAAAAAAAA=")
 
-[node name="RuneKnight1" parent="NPCS" instance=ExtResource("8_kmohi")]
+[node name="RuneKnight1" parent="NPCS" instance=ExtResource("7_ofxda")]
 position = Vector2(240, 216)
-script = ExtResource("9_xm380")
+script = ExtResource("8_ejut4")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
 
 [node name="AnimatableBody2D" parent="NPCS/RuneKnight1" index="0"]
@@ -5345,7 +5393,7 @@ FacingDirection = 3
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/RuneKnight1/AnimatableBody2D" index="3"]
-texture = ExtResource("11_hhob1")
+texture = ExtResource("11_oluja")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/RuneKnight1/AnimatableBody2D" index="4"]
@@ -5358,16 +5406,16 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 
-[node name="RuneKnight2" parent="NPCS" instance=ExtResource("8_kmohi")]
+[node name="RuneKnight2" parent="NPCS" instance=ExtResource("7_ofxda")]
 position = Vector2(264, 192)
-script = ExtResource("9_xm380")
+script = ExtResource("8_ejut4")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
 
 [node name="AnimatableBody2D" parent="NPCS/RuneKnight2" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/RuneKnight2/AnimatableBody2D" index="3"]
-texture = ExtResource("11_hhob1")
+texture = ExtResource("11_oluja")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/RuneKnight2/AnimatableBody2D" index="4"]
@@ -5380,16 +5428,16 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 
-[node name="RuneKnight3" parent="NPCS" instance=ExtResource("8_kmohi")]
+[node name="RuneKnight3" parent="NPCS" instance=ExtResource("7_ofxda")]
 position = Vector2(576, 216)
-script = ExtResource("9_xm380")
+script = ExtResource("8_ejut4")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
 
 [node name="AnimatableBody2D" parent="NPCS/RuneKnight3" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/RuneKnight3/AnimatableBody2D" index="3"]
-texture = ExtResource("11_hhob1")
+texture = ExtResource("11_oluja")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/RuneKnight3/AnimatableBody2D" index="4"]
@@ -5402,16 +5450,16 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 
-[node name="RuneKnight4" parent="NPCS" instance=ExtResource("8_kmohi")]
+[node name="RuneKnight4" parent="NPCS" instance=ExtResource("7_ofxda")]
 position = Vector2(528, 216)
-script = ExtResource("9_xm380")
+script = ExtResource("8_ejut4")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
 
 [node name="AnimatableBody2D" parent="NPCS/RuneKnight4" index="0"]
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/RuneKnight4/AnimatableBody2D" index="3"]
-texture = ExtResource("11_hhob1")
+texture = ExtResource("11_oluja")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/RuneKnight4/AnimatableBody2D" index="4"]
@@ -5424,9 +5472,9 @@ libraries = {
 visible = false
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 
-[node name="Priest" parent="NPCS" instance=ExtResource("8_kmohi")]
+[node name="Priest" parent="NPCS" instance=ExtResource("7_ofxda")]
 position = Vector2(504, 576)
-script = ExtResource("9_xm380")
+script = ExtResource("8_ejut4")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Priest" index="0"]
@@ -5434,7 +5482,7 @@ FacingDirection = 3
 use_mirror_animation = true
 
 [node name="Sprite2D" parent="NPCS/Priest/AnimatableBody2D" index="3"]
-texture = ExtResource("12_qo8yj")
+texture = ExtResource("12_e3urw")
 hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Priest/AnimatableBody2D" index="4"]
@@ -5446,6 +5494,11 @@ libraries = {
 [node name="TileMapLayer" parent="NPCS/Priest" index="1"]
 visible = false
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
+
+[connection signal="body_entered" from="Areas/SecretArea2D" to="." method="_on_secret_area_2d_body_entered"]
+[connection signal="body_entered" from="Areas/LeftArea2D" to="." method="_on_left_area_2d_body_entered"]
+[connection signal="body_entered" from="Areas/TopArea2D" to="." method="_on_top_area_2d_body_entered"]
+[connection signal="body_entered" from="Areas/RightArea2D" to="." method="_on_right_area_2d_body_entered"]
 
 [editable path="NPCS/Kane"]
 [editable path="NPCS/Guard"]

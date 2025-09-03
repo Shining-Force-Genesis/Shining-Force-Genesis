@@ -7,7 +7,7 @@ func _ready():
 
 var camera_zoom: Vector2 = Vector2(1, 1)
 
-var egress_location = null
+var egress_location = SceneManager.SF1.C1.Guardiana # null
 var egress_marker_set = false
 
 var c1 = {
@@ -28,15 +28,15 @@ var c1 = {
 	"battle_1_complete": true,
 	
 	# second major cutscene
-	"battle_2_opening_cutscene": false,
-	"battle_2_complete": false,
-	"entered_guardiana_post_battle_2": false,
-	"kane_cutscene_guardiana_castle_played": false,
+	"battle_2_opening_cutscene": true,
+	"battle_2_complete": true,
+	"entered_guardiana_post_battle_2": true,
+	"kane_cutscene_guardiana_castle_played": true,
 	#
 	
-	"battle_3_opening_cutscene": false,
-	"battle_3_complete": false,
-	"spoken_to_guardiana_man_in_alterone_bar": false,
+	"battle_3_opening_cutscene": true,
+	"battle_3_complete": true,
+	"spoken_to_guardiana_man_in_alterone_bar": true,
 	"spoken_to_alterone_king_post_guardiana_invasion": false,
 	"spoken_to_kane_alterone": false,
 	"searched_alterone_jail_bars": false,

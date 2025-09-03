@@ -11,6 +11,7 @@ var marker_start = "Start"
 var marker_castle = "Castle"
 var marker_overworld = "Overworld"
 var marker_gortbasement = "Gort Basement"
+var marker_priest = "Priest"
 
 func _ready() -> void:
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -31,6 +32,9 @@ func _ready() -> void:
 			Player.set_character_position($Markers/CastleMarker2D.position)
 		marker_gortbasement:
 			Player.set_character_position($Markers/GortBasementMarker2D.position)
+		marker_priest:
+			Player.set_character_position($Markers/PriestMarker2D.position)
+			$Map/Church.hide()
 		_:
 			Player.set_character_position($Markers/StartMarker2D.position)
 	
@@ -52,9 +56,19 @@ func _on_castle_entrance_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
-		n.marker = n.marker_guardiana
-		SceneManager.ChangeSceneNode(n)
+		if Singleton_CommonVariables.sf_game_data_node.c1.battle_3_complete:
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
+			n.marker = n.marker_guardiana
+			SceneManager.ChangeSceneNode(n)
+		else:
+			Singleton_CommonVariables.main_character_player_node.queue_free()
+			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle3)
+			# n.marker = n.marker_castle
+			SceneManager.ChangeSceneNode(n)
+		
+		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
+		# n.marker = n.marker_guardiana
+		# SceneManager.ChangeSceneNode(n)
 
 
 ### Roofs
@@ -143,7 +157,7 @@ func _on_shop_exit_area_2d_body_entered(body: Node2D) -> void:
 var guards_moved: bool = false
 func _on_guard_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		if !Singleton_CommonVariables.sf_game_data_node.c1.kings_permission:
+		if !Singleton_CommonVariables.sf_game_data_node.c1.kane_cutscene_guardiana_castle_played:
 			if guards_moved:
 				return
 			
