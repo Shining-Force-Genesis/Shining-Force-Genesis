@@ -245,7 +245,7 @@ func set_collision_shape_disabled_state(arg: bool) -> void:
 
 
 ### Interactions
-func interaction_attempt_to_talk() -> void:
+func interaction_attempt_to_talk(play_default_msg: bool = false) -> void:
 	if !Singleton_CommonVariables.is_currently_in_battle_scene:
 		
 		# print("Start")
@@ -262,24 +262,35 @@ func interaction_attempt_to_talk() -> void:
 		for obj in objects_collide:
 			if obj.get_parent().get_parent().has_method("attempt_to_interact"):
 				obj.get_parent().get_parent().attempt_to_interact()
+				return
 			elif obj.get_parent().has_method("attempt_to_interact"):
 				obj.get_parent().attempt_to_interact()
+				return
 		
 		for obj in objects_collide:
 			ray_interactables.remove_exception(obj)
-			
+		
+		if play_default_msg:
+			Singleton_CommonVariables.dialogue_box_node.play_message("No one is in that direction.")
+			pass
 		# print("End\n")
 
 
-func interaction_attempt_to_search() -> void:
+func interaction_attempt_to_search(play_default_msg: bool = false) -> void:
 	# if !Singleton_Game_GlobalCommonVariables.is_currently_in_battle_scene:
 	if ray_interactables.is_colliding():
 		# TODO: probably should add a helper function to get the parent element
 		# where the custom logic will live instead of going up for build v0.0.2 its fine
 		if ray_interactables.get_collider().get_parent().get_parent().has_method("attempt_to_interact_search"):
 			ray_interactables.get_collider().get_parent().get_parent().attempt_to_interact()
+			return
 		elif ray_interactables.get_collider().get_parent().has_method("attempt_to_interact_search"):
 			ray_interactables.get_collider().get_parent().attempt_to_interact()
+			return
+		
+		if play_default_msg:
+			Singleton_CommonVariables.dialogue_box_node.play_message("Nothing is unusual.")
+			pass
 
 
 func PlayerFacingDirection() -> String:

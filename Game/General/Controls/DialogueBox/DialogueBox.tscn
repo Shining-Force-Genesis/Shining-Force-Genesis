@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://m6wxoa0pwlvw" path="res://General/Controls/DialogueBox/DialogueBox.gd" id="1_q0es8"]
 [ext_resource type="Texture2D" uid="uid://bygj38vqab46v" path="res://Assets/ShiningForceTextBackground.png" id="1_x68ap"]
-[ext_resource type="FontFile" uid="uid://cqh7m0o0a5lsc" path="res://Assets/Shining-Force-Dialogue.ttf" id="3_rxrjk"]
+[ext_resource type="FontVariation" uid="uid://c0ou0e2p6a1bt" path="res://Assets/dialogue.tres" id="3_8be87"]
 
 [node name="DialogueBox" type="Control"]
 layout_mode = 3
@@ -33,11 +33,11 @@ anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = 8.0
 offset_right = -8.0
-offset_bottom = -13.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/line_separation = 2
-theme_override_fonts/normal_font = ExtResource("3_rxrjk")
+theme_override_fonts/normal_font = ExtResource("3_8be87")
 bbcode_enabled = true
 text = "Hello sfmods!
 Test - [shake rate=20][color=red]BLAZE LV 1[/color] "

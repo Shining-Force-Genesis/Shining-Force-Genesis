@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://c0ou0e2p6a1bt"]
+
+[ext_resource type="FontFile" uid="uid://cqh7m0o0a5lsc" path="res://Assets/Shining-Force-Dialogue.ttf" id="1_6cmdd"]
+
+[resource]
+base_font = ExtResource("1_6cmdd")
+spacing_glyph = -1
+spacing_space = 2

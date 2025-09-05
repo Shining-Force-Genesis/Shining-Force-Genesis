@@ -140,7 +140,7 @@ func move(dir):
 		emit_signal("signal_action_finished")
 
 
-func interaction_attempt_to_talk() -> void:
+func interaction_attempt_to_talk(play_default_msg: bool = false) -> void:
 	if raycast.is_colliding():
 		var c = raycast.get_collider()
 		print(c)
@@ -150,15 +150,24 @@ func interaction_attempt_to_talk() -> void:
 		
 		if c.get_parent().has_method("attempt_interaction_talk"):
 			c.get_parent().attempt_interaction_talk()
+			return
 		# TODO clean this and refactor there should be a much cleaner way of doing this without
 		# having multiple special paths and configurations
 		elif c.get_parent().get_parent().has_method("attempt_interaction_talk"):
 			c.get_parent().get_parent().attempt_interaction_talk()
+			return
 		elif c.get_parent().get_child(0).has_method("attempt_interaction_talk"):
 			c.get_parent().attempt_interaction_talk()
+			return
+		
+		if play_default_msg:
+			Singleton_CommonVariables.dialogue_box_node.play_message("No one is in that direction.")
+	else:
+		if play_default_msg:
+			Singleton_CommonVariables.dialogue_box_node.play_message("No one is in that direction.")
 
 
-func interaction_attempt_to_search() -> void:
+func interaction_attempt_to_search(play_default_msg: bool = false) -> void:
 	if raycast.is_colliding():
 		var c = raycast.get_collider()
 		print(c)
@@ -170,10 +179,19 @@ func interaction_attempt_to_search() -> void:
 			c.get_parent().attempt_to_interact()
 		# TODO clean this and refactor there should be a much cleaner way of doing this without
 		# having multiple special paths and configurations
+			return
 		elif c.get_parent().get_parent().has_method("attempt_to_interact"):
 			c.get_parent().get_parent().attempt_to_interact()
+			return
 		elif c.get_parent().get_child(0).has_method("attempt_to_interact"):
 			c.get_parent().attempt_to_interact()
+			return
+		
+		if play_default_msg:
+			Singleton_CommonVariables.dialogue_box_node.play_message("Nothing is unusual.")
+	else:
+		if play_default_msg:
+			Singleton_CommonVariables.dialogue_box_node.play_message("Nothing is unusual.")
 
 
 func PlayerFacingDirection() -> String:

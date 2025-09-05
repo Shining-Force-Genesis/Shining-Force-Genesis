@@ -78,7 +78,7 @@ func _input(event: InputEvent) -> void:
 			Singleton_CommonVariables.ui__gold_info_box.hide_cust()
 			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
 			
-			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_search()
+			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_search(true)
 			return
 		elif currently_selected_option == e_menu_options.INVENTORY_OPTION:
 			# disabled for now fix later
@@ -123,7 +123,7 @@ func _input(event: InputEvent) -> void:
 			Singleton_CommonVariables.ui__gold_info_box.hide_cust()
 			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
 			
-			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_talk()
+			Singleton_CommonVariables.main_character_player_node.interaction_attempt_to_talk(true)
 			return
 		
 	if event.is_action_released("ui_down"):
