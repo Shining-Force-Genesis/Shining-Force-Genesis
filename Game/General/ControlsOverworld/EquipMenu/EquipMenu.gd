@@ -187,7 +187,9 @@ func update_attack_stat(item_arg) -> void:
 	if item_arg == null:
 		stat_attack_label.text = str(active_char_root.get_attack_base())
 	else:
-		stat_attack_label.text = str(active_char_root.get_attack_base() + item_arg.attribute_bonus[0])
+		# TODO: FIXME: BUSTED but fine for demo
+		# need to loop through and check the actual attributes
+		stat_attack_label.text = str(active_char_root.get_attack_base() + item_arg.attributes[0].attribute_bonus)
 
 
 func set_sprites_to_zero_frame() -> void:

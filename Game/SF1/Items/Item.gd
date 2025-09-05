@@ -2,7 +2,7 @@ extends Resource
 # NOTE: Base Class for all other SF1 items
 class_name CN_SF1_Item
 
-@export_enum("USABLE", "ARMOR", "WEAPON", "RING") var item_type: String
+@export_enum("USABLE", "ARMOR", "WEAPON", "RING", "USABLE_STAT_BUFF") var item_type: String
 
 @export var item_name: String
 
@@ -16,14 +16,40 @@ class_name CN_SF1_Item
 # IMPORTANT: TODO: when newer versions of godot come out simply attribute and attribute bonus
 # to be in the same object group instead of having them as two separate arrays
 
-## The attributes this item will effect
-@export_enum("None", "Attack", "Defense", 
-			"Agility", "Move", 
-			"Critcal", "HP", "MP",
-			"YGRT") var attribute: int # Array[int]
+enum E_ATTRIBUTE {
+	None, 
+	Attack, 
+	Defense, 
+	Agility, 
+	Move, 
+	Critcal,
+	HP, 
+	MP,
+	YGRT
+}
 
+## @deprecated -
+## The attributes this item will effect
+@export_enum(
+	"None", 
+	"Attack", 
+	"Defense", 
+	"Agility", 
+	"Move", 
+	"Critcal",
+	"HP", 
+	"MP",
+	"YGRT"
+) var attribute: int # Array[int]
+
+## @deprecated -
 ## The attribute bonus for the attributes selected above, make sure to match index number on the left side between the two
 @export var attribute_bonus: Array[int]
+
+# @export var attributes: Array[E_ATTRIBUTE, int]
+
+@export var attributes: Array[Attribute] 
+
 
 # NOTE: IMPORTANT:
 # Ensures can't be sold dropped or anything else that might lock the game progress

@@ -1,16 +1,18 @@
-[gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=3 format=3 uid="uid://ctu2kx35ve7cv"]
+[gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=4 format=3 uid="uid://ctu2kx35ve7cv"]
 
 [ext_resource type="Script" uid="uid://5xbou2ipksxe" path="res://SF1/Items/Usable.gd" id="1"]
+[ext_resource type="Script" uid="uid://bvtcie8h2n5g4" path="res://SF1/Items/attribute_class.gd" id="1_kjph4"]
 [ext_resource type="Texture2D" uid="uid://du5d65aq4npnk" path="res://Assets/SFCD/Usables/HealingSeed.png" id="2"]
 
 [resource]
 script = ExtResource("1")
+item_type = "USABLE"
 item_name = "Healing Seed"
 texture = ExtResource("2")
-item_type = "USABLE"
 target_actor_type = 1
 attribute = 0
 attribute_bonus = Array[int]([20])
+attributes = Array[ExtResource("1_kjph4")]([])
 key_item = false
 price_buy = 200
 price_sell = 150

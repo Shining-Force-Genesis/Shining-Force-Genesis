@@ -1,21 +1,29 @@
-[gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=5 format=3 uid="uid://76uom5mi1lj6"]
+[gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=7 format=3 uid="uid://76uom5mi1lj6"]
 
 [ext_resource type="Script" uid="uid://huwgu556ry2n" path="res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd" id="1"]
+[ext_resource type="Script" uid="uid://bvtcie8h2n5g4" path="res://SF1/Items/attribute_class.gd" id="1_2ysqx"]
 [ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="2"]
 [ext_resource type="Texture2D" uid="uid://xfm3sq1314mi" path="res://Assets/SFCD/Items/Weapons/Wooden_Arrow.png" id="3"]
 [ext_resource type="Texture2D" uid="uid://b26tv6uy3e6au" path="res://Assets/SF1/Weapons/Wooden_Arrow.png" id="4"]
+
+[sub_resource type="Resource" id="Resource_k6ddp"]
+script = ExtResource("1_2ysqx")
+attribute_type = 1
+attribute_bonus = 8
+metadata/_custom_type_script = "uid://bvtcie8h2n5g4"
 
 [resource]
 script = ExtResource("2")
 battle_texture = ExtResource("4")
 chance_to_crack = false
-equippable_by = 0
+equippable_by = Array[int]([7])
 item_type = "WEAPON"
 item_name = "Wooden Arrow"
 texture = ExtResource("3")
 target_actor_type = 2
-attribute = 0
+attribute = 1
 attribute_bonus = Array[int]([8])
+attributes = Array[ExtResource("1_2ysqx")]([SubResource("Resource_k6ddp")])
 key_item = false
 price_buy = 350
 price_sell = 250

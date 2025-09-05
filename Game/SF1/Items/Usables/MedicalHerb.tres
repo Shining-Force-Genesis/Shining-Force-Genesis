@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=3 format=3 uid="uid://b6ce41ly70sg"]
+[gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=4 format=3 uid="uid://b6ce41ly70sg"]
 
 [ext_resource type="Script" uid="uid://5xbou2ipksxe" path="res://SF1/Items/Usable.gd" id="1"]
+[ext_resource type="Script" uid="uid://bvtcie8h2n5g4" path="res://SF1/Items/attribute_class.gd" id="1_2f7kh"]
 [ext_resource type="Texture2D" uid="uid://py6abcvd748s" path="res://Assets/SFCD/Usables/MedicalHerb.png" id="2"]
 
 [resource]
@@ -11,6 +12,7 @@ texture = ExtResource("2")
 target_actor_type = 1
 attribute = 6
 attribute_bonus = Array[int]([10])
+attributes = Array[ExtResource("1_2f7kh")]([])
 key_item = false
 price_buy = 50
 price_sell = 20

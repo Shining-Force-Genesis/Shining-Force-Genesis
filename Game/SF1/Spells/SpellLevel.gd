@@ -20,8 +20,6 @@ class_name CN_SF1_Spell_Level
 ## to get spells that can  effect multiple attributes
 @export_enum("None", "Attack", "HP") var attributes: int
 
-#export(Array, int, "Attack", "HP", "None") var attributes
-
 # What is the lowest amount not including resistances this spell level should reach
 @export var min_range: int
 # What is the highest amount not including resistances this spell level should reach

@@ -1,12 +1,10 @@
 extends Node2D
 
 signal signal_action_finished
-
 signal signal_move_complete
 
 # signal 
 
-#
 @onready var ray: RayCast2D = $RayCast2D
 @onready var ray_interactables: RayCast2D = $InteractablesRayCast2D
 # @onready var _timer: Timer = $Timer
@@ -29,8 +27,6 @@ var animation_speed = 5.5
 var rng = RandomNumberGenerator.new()
 
 
-#
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	# TODO: do something smarter for this setup
 	# maybe make leader a export and then check if set and then set this
@@ -218,7 +214,7 @@ func check_if_move_is_possible(new_pos_arg: Vector2) -> bool:
 #		# print(new_pos_arg,  enemey.global_position)
 #		if new_pos_arg == enemey.global_position:
 #			return false
-
+	
 	for sub_array in Singleton_CommonVariables.active_actor_move_point_representation:
 		for move_pos in sub_array:
 			if move_pos != null:

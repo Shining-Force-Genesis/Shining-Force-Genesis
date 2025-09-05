@@ -48,13 +48,13 @@ func battle_message_play(str_arg = "") -> void:
 	dialogueRichTextLabel.show()
 	show()
 	
-	var dialogueTween = create_tween()
-	dialogueTween.tween_method(dialogueRichTextLabel.set_visible_characters, 0, dialogueRichTextLabel.get_parsed_text().length(), GetTweenTimeForText(str_arg))
-	dialogueTween.set_ease(Tween.EASE_IN)
-	dialogueTween.set_trans(Tween.TRANS_LINEAR)
+	var internal_dialogueTween = create_tween()
+	internal_dialogueTween.tween_method(dialogueRichTextLabel.set_visible_characters, 0, dialogueRichTextLabel.get_parsed_text().length(), GetTweenTimeForText(str_arg))
+	internal_dialogueTween.set_ease(Tween.EASE_IN)
+	internal_dialogueTween.set_trans(Tween.TRANS_LINEAR)
 	# dialogueTween.connect("tween_completed", Callable(self, "battle_message_play__completed"))
 	
-	await dialogueTween.finished
+	await internal_dialogueTween.finished
 	await get_tree().create_timer(1.0).timeout
 	
 	dialogueRichTextLabel.set_visible_characters(0)
@@ -96,10 +96,10 @@ func play_message_none_interactable(str_arg = "") -> void:
 	dialogueRichTextLabel.show()
 	dialogueRichTextLabel.bbcode_text = str_arg
 	
-	var dialogueTween = create_tween()
-	dialogueTween.tween_method(dialogueRichTextLabel.set_visible_characters, 0, dialogueRichTextLabel.get_parsed_text().length(), GetTweenTimeForText(str_arg))
-	dialogueTween.set_ease(Tween.EASE_IN)
-	dialogueTween.set_trans(Tween.TRANS_LINEAR)
+	var internal_dialogueTween = create_tween()
+	internal_dialogueTween.tween_method(dialogueRichTextLabel.set_visible_characters, 0, dialogueRichTextLabel.get_parsed_text().length(), GetTweenTimeForText(str_arg))
+	internal_dialogueTween.set_ease(Tween.EASE_IN)
+	internal_dialogueTween.set_trans(Tween.TRANS_LINEAR)
 	return
 
 

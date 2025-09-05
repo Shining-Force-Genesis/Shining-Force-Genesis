@@ -179,9 +179,9 @@ func get_attack() -> int:
 	for i in range(inventory.size()):
 		if inventory[i].is_equipped:
 			var item_res = load(inventory[i].resource)
-			for j in (item_res.attribute_bonus.size()):
-				if item_res.attribute == 0: #TODO: should have a better way to refer to the attack attribute than if equal 0
-					attack_attribute_bonus_total += item_res.attribute_bonus[j]
+			for j in (item_res.attributes.size()):
+				if item_res.attributes[j].attribute_type == 1: #TODO: should have a better way to refer to the attack attribute than if equal 0
+					attack_attribute_bonus_total += item_res.attributes[j].attribute_bonus
 	
 	return attack + attack_attribute_bonus_total
 

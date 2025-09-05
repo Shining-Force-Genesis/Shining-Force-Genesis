@@ -30,10 +30,17 @@ var is_equip_menu_active: bool = false
 # make this this a global enum somewhere else
 # taken from Item.gd
 enum E_SF1_ATTRIBUTES {
-	NONE, ATTACK, DEFENSE,
-	AGILITY, MOVE, CRITICAL, HP, MP,
+	NONE, 
+	ATTACK, 
+	DEFENSE,
+	AGILITY, 
+	MOVE, 
+	CRITICAL, 
+	HP, 
+	MP,
 	YGRT
 }
+
 
 func _ready():
 	pass
@@ -42,6 +49,8 @@ func _ready():
 func set_equip_menu_active():
 	# show()
 	# CleanItemSlots()
+	
+	await get_tree().create_timer(0.1).timeout
 	
 	if Singleton_CommonVariables.selected_character.inventory.size() > 0:
 		get_parent().get_parent().active = false
@@ -73,9 +82,15 @@ func set_equip_menu_inactive() -> void:
 
 func DisplayWeapons() -> void:
 	weapons_array = []
+	
+	print(Singleton_CommonVariables.selected_character)
+	
 	for item in Singleton_CommonVariables.selected_character.inventory:
 		var irl = load(item.resource)
+		
 		if irl is CN_SF1_Item_Weapon:
+			print(irl.item_name)
+			print(irl.equippable_by)
 			
 			for class_req in irl.equippable_by:
 				if class_req == Singleton_CommonVariables.selected_character.class_idx:
@@ -89,9 +104,31 @@ func DisplayWeapons() -> void:
 	
 	var i = 0
 	var iicn = get_node("ItemIconsControlNode")
+	var a_weapon_is_equipped: bool = false
 	for item in weapons_array:
 		iicn.get_child(i).texture = item.resource.texture
+		
+		if item.is_equipped:
+			a_weapon_is_equipped = true
+			
+			if i == 0:
+				redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[0]
+				selected_item = E_SelectedItem.UP
+				PreviewDisplayCharacterStatsWithNewEquipSelection(weapons_array[0].resource)
+			elif i == 1:
+				redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[1]
+				selected_item = E_SelectedItem.LEFT
+				PreviewDisplayCharacterStatsWithNewEquipSelection(weapons_array[1].resource)
+			elif i == 2:
+				redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[2]
+				selected_item = E_SelectedItem.RIGHT
+				PreviewDisplayCharacterStatsWithNewEquipSelection(weapons_array[2].resource)
+		
 		i = i + 1
+	
+	if !a_weapon_is_equipped:
+		redSelectionNode.position = ITEM_TEXT_SELECTION_POSITIONS[3]
+		selected_item = E_SelectedItem.DOWN
 
 
 func _process(_delta):
@@ -156,6 +193,8 @@ func _process(_delta):
 		set_equip_menu_inactive()
 		get_parent().get_parent().active = true
 		get_parent().get_parent().itemsViewControlNode.show()
+		get_parent().get_parent().itemsViewControlNode.find_child("RedSelectionBorderRoot").hide()
+		get_parent().get_parent().itemsViewControlNode.DisplayItems()
 		get_parent().get_parent().DisplayItemsFullInfo(Singleton_CommonVariables.selected_character)
 		
 	elif Input.is_action_just_released("ui_b_key"):
@@ -163,6 +202,8 @@ func _process(_delta):
 		set_equip_menu_inactive()
 		get_parent().get_parent().active = true
 		get_parent().get_parent().itemsViewControlNode.show()
+		get_parent().get_parent().itemsViewControlNode.find_child("RedSelectionBorderRoot").hide()
+		get_parent().get_parent().itemsViewControlNode.DisplayItems()
 	
 	pass
 
@@ -191,17 +232,17 @@ func DisplayCharacterStats(force_member) -> void:
 		var irl = load(item.resource)
 		var j = 0
 		if irl is CN_SF1_Item_Weapon:
-			for attr in irl.attribute:
+			for attr in range(irl.attributes.size()):
 				# print(attr)
-				match attr:
+				match irl.attributes[attr].attribute_type:
 					# Singleton_Game_GlobalCommonVariables.E_SF1_ATTRIBUTES.NONE: pass
-					E_SF1_ATTRIBUTES.ATTACK: attack = attack + irl.attribute_bonus[j]
-					E_SF1_ATTRIBUTES.DEFENSE: defense = defense + irl.attribute_bonus[j]
-					E_SF1_ATTRIBUTES.AGILITY: agility = agility + irl.attribute_bonus[j]
-					E_SF1_ATTRIBUTES.MOVE: move = move + irl.attribute_bonus[j]
-					E_SF1_ATTRIBUTES.CRITICAL: critical_hit_chance = critical_hit_chance + irl.attribute_bonus[j]
-					E_SF1_ATTRIBUTES.HP: hp = hp + irl.attribute_bonus[j]
-					E_SF1_ATTRIBUTES.MP: mp = mp + irl.attribute_bonus[j]
+					E_SF1_ATTRIBUTES.ATTACK: attack = attack + irl.attributes[attr].attribute_bonus
+					E_SF1_ATTRIBUTES.DEFENSE: defense = defense + irl.attributes[attr].attribute_bonus
+					E_SF1_ATTRIBUTES.AGILITY: agility = agility + irl.attributes[attr].attribute_bonus
+					E_SF1_ATTRIBUTES.MOVE: move = move + irl.attributes[attr].attribute_bonus
+					E_SF1_ATTRIBUTES.CRITICAL: critical_hit_chance = critical_hit_chance + irl.attributes[attr].attribute_bonus
+					E_SF1_ATTRIBUTES.HP: hp = hp + irl.attributes[attr].attribute_bonus
+					E_SF1_ATTRIBUTES.MP: mp = mp + irl.attributes[attr].attribute_bonus
 					# E_A.YGRT: attack = attack + weapon_resource_preview.attribute_bonus[i]
 				
 				j = j + 1
@@ -231,24 +272,25 @@ func PreviewDisplayCharacterStatsWithNewEquipSelection(weapon_resource_preview) 
 	var double_attack_chance = c.stats.double_attack_chance + c.stats.double_attack_chance_boost
 	var dodge_chance = c.stats.dodge_chance + c.stats.dodge_chance_boost
 	
-	
 	var i = 0
 	if weapon_resource_preview != null:
 		selectedItemLabel.text = weapon_resource_preview.item_name
 		
-		for attr in weapon_resource_preview.attribute:
-			print(attr)
-			match attr:
+		for attr in range(weapon_resource_preview.attributes.size()):
+			
+			print("What the fuck - ", weapon_resource_preview.attributes[attr], E_SF1_ATTRIBUTES.ATTACK)
+			
+			match weapon_resource_preview.attributes[attr].attribute_type:
 				# Singleton_Game_GlobalCommonVariables.E_SF1_ATTRIBUTES.NONE: pass
-				E_SF1_ATTRIBUTES.ATTACK: attack = attack + weapon_resource_preview.attribute_bonus[i]
-				E_SF1_ATTRIBUTES.DEFENSE: defense = defense + weapon_resource_preview.attribute_bonus[i]
-				E_SF1_ATTRIBUTES.AGILITY: agility = agility + weapon_resource_preview.attribute_bonus[i]
-				E_SF1_ATTRIBUTES.MOVE: move = move + weapon_resource_preview.attribute_bonus[i]
-				E_SF1_ATTRIBUTES.CRITICAL: critical_hit_chance = critical_hit_chance + weapon_resource_preview.attribute_bonus[i]
-				E_SF1_ATTRIBUTES.HP: hp = hp + weapon_resource_preview.attribute_bonus[i]
-				E_SF1_ATTRIBUTES.MP: mp = mp + weapon_resource_preview.attribute_bonus[i]
-				# E_A.YGRT: attack = attack + weapon_resource_preview.attribute_bonus[i]
-		
+				E_SF1_ATTRIBUTES.ATTACK: attack = attack + weapon_resource_preview.attributes[attr].attribute_bonus
+				E_SF1_ATTRIBUTES.DEFENSE: defense = defense + weapon_resource_preview.attributes[attr].attribute_bonus
+				E_SF1_ATTRIBUTES.AGILITY: agility = agility + weapon_resource_preview.attributes[attr].attribute_bonus
+				E_SF1_ATTRIBUTES.MOVE: move = move + weapon_resource_preview.attributes[attr].attribute_bonus
+				E_SF1_ATTRIBUTES.CRITICAL: critical_hit_chance = critical_hit_chance + weapon_resource_preview.attributes[attr].attribute_bonus
+				E_SF1_ATTRIBUTES.HP: hp = hp + weapon_resource_preview.attributes[attr].attribute_bonus
+				E_SF1_ATTRIBUTES.MP: mp = mp + weapon_resource_preview.attributes[attr].attribute_bonus
+				# E_A.YGRT: attack = attack + weapon_resource_preview.attribute_bonus
+			
 			i = i + 1
 	else:
 		selectedItemLabel.text = "NOTHING"

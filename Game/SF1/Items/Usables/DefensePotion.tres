@@ -1,18 +1,20 @@
-[gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=5 format=3 uid="uid://btmx75maqvgv6"]
+[gd_resource type="Resource" script_class="CN_SF1_Item_Usable" load_steps=6 format=3 uid="uid://btmx75maqvgv6"]
 
 [ext_resource type="Script" uid="uid://5xbou2ipksxe" path="res://SF1/Items/Usable.gd" id="1"]
+[ext_resource type="Script" uid="uid://bvtcie8h2n5g4" path="res://SF1/Items/attribute_class.gd" id="1_0dxqh"]
 [ext_resource type="Script" uid="uid://8l6h3ksn3a1k" path="res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1_plus_Self.gd" id="2"]
 [ext_resource type="Script" uid="uid://dp6auj7qlt42u" path="res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://6b25jr50h1ll" path="res://Assets/SFCD/Usables/DefensePotion.png" id="4"]
 
 [resource]
 script = ExtResource("1")
+item_type = "USABLE"
 item_name = "Defense Potion"
 texture = ExtResource("4")
-item_type = "USABLE"
 target_actor_type = 1
 attribute = 0
 attribute_bonus = Array[int]([1, 4])
+attributes = Array[ExtResource("1_0dxqh")]([])
 key_item = false
 price_buy = 500
 price_sell = 500

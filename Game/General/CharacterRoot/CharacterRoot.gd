@@ -130,9 +130,9 @@ func get_attack() -> int:
 	for i in range(sfnode_data.inventory.size()):
 		if sfnode_data.inventory[i].is_equipped:
 			var item_res = load(sfnode_data.inventory[i].resource)
-			for j in (item_res.attribute_bonus.size()):
-				if item_res.attribute == 0: #TODO: should have a better way to refer to the attack attribute than if equal 0
-					attack_attribute_bonus_total += item_res.attribute_bonus[j]
+			for j in (item_res.attributes.size()):
+				if item_res.attributes[0].attribute_type == 1: #TODO: should have a better way to refer to the attack attribute than if equal 0
+					attack_attribute_bonus_total += item_res.attributes[j].attribute_bonus
 	
 	return sfnode_data.stats.attack + attack_attribute_bonus_total
 
@@ -270,6 +270,8 @@ func generate_stat_gain(cur_lv: int, stat: int, stat_target: int, growth_curve):
 	if percent_target_at_lvl == null:
 		return 0
 	
+	# basically flooring the result don't need the decmial part anyways
+	@warning_ignore("integer_division")
 	var current_stat_percentage = (stat / stat_target) * 100
 	
 	var stat_gain = 0

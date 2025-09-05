@@ -150,7 +150,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
 			Singleton_CommonVariables.sf_game_data_node.c1.initial_force_joined = true
 			
-			var pn = get_parent()
+			# var pn = get_parent()
 			
 			var luke = $NPCsForceJoin/Luke.get_child(0)
 			var ken  = $NPCsForceJoin/Ken.get_child(0)

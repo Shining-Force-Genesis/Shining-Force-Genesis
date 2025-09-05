@@ -1,20 +1,28 @@
-[gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=4 format=3 uid="uid://cpuphdqq44nku"]
+[gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=6 format=3 uid="uid://cpuphdqq44nku"]
 
 [ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="1"]
+[ext_resource type="Script" uid="uid://bvtcie8h2n5g4" path="res://SF1/Items/attribute_class.gd" id="1_d77on"]
 [ext_resource type="Texture2D" uid="uid://cpvmx37ruui2g" path="res://Assets/SFCD/Items/Weapons/Spear.png" id="2"]
 [ext_resource type="Texture2D" uid="uid://im8nxme8ktuq" path="res://Assets/SF1/Weapons/Spear.png" id="3"]
+
+[sub_resource type="Resource" id="Resource_blkpb"]
+script = ExtResource("1_d77on")
+attribute_type = 1
+attribute_bonus = 8
+metadata/_custom_type_script = "uid://bvtcie8h2n5g4"
 
 [resource]
 script = ExtResource("1")
 battle_texture = ExtResource("3")
 chance_to_crack = false
-equippable_by = 1
+equippable_by = Array[int]([1, 0])
 item_type = "WEAPON"
 item_name = "Spear"
 texture = ExtResource("2")
 target_actor_type = 2
-attribute = 0
+attribute = 1
 attribute_bonus = Array[int]([8])
+attributes = Array[ExtResource("1_d77on")]([SubResource("Resource_blkpb")])
 key_item = false
 price_buy = 150
 price_sell = 150

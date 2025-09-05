@@ -58,12 +58,6 @@ func _ready():
 	
 	DisplayNewlySelectedCharacterInfo(Singleton_CommonVariables.sf_game_data_node.ForceMembers[0])
 	
-	# Test not used node
-	# var c = Singleton_Game_GlobalCommonVariables.sf_game_data_node.ForceMembers[0]
-	# flist_vbox_container.get_node("CharacterWrapperNode/NameStaticLabel").text = c.name
-	# flist_vbox_container.get_node("CharacterWrapperNode/ClassStaticLabel").text = c.class
-	# flist_vbox_container.get_node("CharacterWrapperNode/LevelStaticLabel").text = str(c.level)
-	
 	load_character_lines()
 	
 	pass
@@ -233,12 +227,11 @@ func _input(event):
 						SelectItemOrSelectItemReciever()
 					
 					"EQUIP": 
-						AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
-						return 
-						equipItemsControlNode.DisplayCharacterStats(Singleton_CommonVariables.sf_game_data_node.ForceMembers[i])
+						overview_mangic_and_inventory_control_node.hide()
+						equipItemsControlNode.CleanItemSlots()
 						itemsViewControlNode.hide()
+						equipItemsControlNode.DisplayCharacterStats(Singleton_CommonVariables.selected_character)
 						equipItemsControlNode.set_equip_menu_active()
-						
 					_: 
 						overview_mangic_and_inventory_control_node.hide()
 						itemsViewControlNode.set_item_selection_menu_active()
