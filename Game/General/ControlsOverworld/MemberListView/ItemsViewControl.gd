@@ -125,11 +125,9 @@ func DropItemFromCharacter() -> void:
 	selected_item = E_SelectedItem.UP
 	# get_parent().get_parent().DisplayItemsFullInfo(Singleton_CommonVariables.selected_character)
 	
-	if Singleton_CommonVariables.selected_character.inventory.size() == 0:
-		set_item_selection_menu_inactive()
-		get_parent().get_parent().active = true
-	
-	# DisplayItems()
+	#if Singleton_CommonVariables.selected_character.inventory.size() == 0:
+	set_item_selection_menu_inactive()
+	get_parent().get_parent().active = true
 	
 	get_parent().get_parent().set_overvview_view_active()
 

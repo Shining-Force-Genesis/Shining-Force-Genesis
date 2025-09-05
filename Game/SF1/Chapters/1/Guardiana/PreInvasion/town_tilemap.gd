@@ -11,6 +11,7 @@ var marker_start = "Start"
 var marker_castle = "Castle"
 var marker_overworld = "Overworld"
 var marker_gortbasement = "Gort Basement"
+var marker_priest = "Priest"
 
 func _ready() -> void:
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -33,6 +34,7 @@ func _ready() -> void:
 	if Singleton_CommonVariables.sf_game_data_node.egress_marker_set:
 		Singleton_CommonVariables.sf_game_data_node.egress_marker_set = false
 		Player.set_character_position($Markers/EgressMarker.position)
+		$Map/Church.hide()
 	else:
 		match marker:
 			marker_overworld:
@@ -41,6 +43,9 @@ func _ready() -> void:
 				Player.set_character_position($Markers/CastleMarker2D.position)
 			marker_gortbasement:
 				Player.set_character_position($Markers/GortBasementMarker2D.position)
+			marker_priest:
+				Player.set_character_position($Markers/EgressMarker.position)
+				$Map/Church.hide()
 			_:
 				Player.set_character_position($Markers/StartMarker2D.position)
 	

@@ -83,9 +83,11 @@ func set_items_view_active():
 func set_overvview_view_active():
 	itemsViewControlNode.hide()
 	itemsViewControlNode.CleanItemSlots()
-	overview_mangic_and_inventory_control_node.show()
 	
-	# Singleton_CommonVariables.sf_game_data_node.ForceMembers[i].name, current_selection
+	if Singleton_CommonVariables.selected_character != null:
+		DisplayNewlySelectedCharacterInfo(Singleton_CommonVariables.selected_character)
+	
+	overview_mangic_and_inventory_control_node.show()
 
 
 func load_character_lines() -> void:
