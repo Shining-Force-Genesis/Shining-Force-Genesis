@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dlefd54ec4ccd"]
+[gd_scene load_steps=29 format=3 uid="uid://dlefd54ec4ccd"]
 
 [ext_resource type="Script" uid="uid://cec6dx1xogrhk" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://b8f1gj7urnvyo" path="res://timescale.gd" id="2_h2yge"]
@@ -6,8 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cja307vwntmy8" path="res://UI/SceneTransition.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d22vywrt5rx3p" path="res://General/Controls/DialogueBox/DialogueBox.tscn" id="6_272bh"]
 [ext_resource type="PackedScene" uid="uid://cqu54wxhekf6p" path="res://General/Controls/PortraitPopup/PortraitPopup.tscn" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cwox7fubhpjll" path="res://General/ControlsBattle/InventoryBattleMenu/InventoryBattleMenu.tscn" id="7_xuqvo"]
 [ext_resource type="PackedScene" uid="uid://bjn64b22cl6ex" path="res://General/Controls/GoldInfoBox/GoldInfoBox.tscn" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://c503ret6y3xep" path="res://General/Controls/ActorMicroInfoBox/ActorMicroInfoBox.tscn" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://dd24vfnbavcoh" path="res://General/ControlsBattle/InventoryItemSelectBattleMenu/InventoryItemSelectInBattleMenu.tscn" id="9_a6jrf"]
 [ext_resource type="PackedScene" uid="uid://r7q6cbglek3n" path="res://General/ControlsOverworld/ActionsMenu/ActionsMenu.tscn" id="10_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b8ebym4vluj2q" path="res://General/ControlsOverworld/MagicMenu/MagicMenu.tscn" id="11_dg77c"]
 [ext_resource type="PackedScene" uid="uid://d2rfk1jmulpj6" path="res://General/ControlsBattle/ActionsMenu/ActionsMenu.tscn" id="12_w48qg"]
@@ -50,6 +52,10 @@ position = Vector2(8, 8)
 visible = false
 position = Vector2(240, 280)
 
+[node name="BattleInventoryMenuRoot" parent="UI_Battle" instance=ExtResource("7_xuqvo")]
+visible = false
+position = Vector2(240, 280)
+
 [node name="TargetActorMicroInfoBox" parent="UI_Battle" instance=ExtResource("13_vivmo")]
 visible = false
 position = Vector2(8, 280)
@@ -57,6 +63,10 @@ position = Vector2(8, 280)
 [node name="ViewSelectedActorInfoPopup" parent="UI_Battle" instance=ExtResource("14_2cqfq")]
 visible = false
 position = Vector2(120, 60)
+
+[node name="InventoryItemSelectInBattleMenu" parent="UI_Battle" instance=ExtResource("9_a6jrf")]
+visible = false
+position = Vector2(0, 184)
 
 [node name="UI" type="CanvasLayer" parent="."]
 

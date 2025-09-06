@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=4 uid="uid://da720jhkmfku3"]
+[gd_scene load_steps=56 format=4 uid="uid://da720jhkmfku3"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="0"]
 [ext_resource type="Script" uid="uid://0vliyr8w3m88" path="res://SF1/Chapters/1/Guardiana/PreInvasion/town_tilemap.gd" id="1_354je"]
@@ -2116,6 +2116,8 @@ size = Vector2(72, 24)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aaxus"]
 size = Vector2(48, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5k383"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngrh1"]
 size = Vector2(16, 16)
 
@@ -2352,6 +2354,14 @@ metadata/_edit_lock_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/OverworldEntranceArea2D"]
 position = Vector2(864, 972)
 shape = SubResource("RectangleShape2D_aaxus")
+metadata/_edit_lock_ = true
+
+[node name="GortBasementEntranceArea2D" type="Area2D" parent="Areas"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/GortBasementEntranceArea2D"]
+position = Vector2(372, 636)
+shape = SubResource("RectangleShape2D_5k383")
 metadata/_edit_lock_ = true
 
 [node name="Roofs" type="Node" parent="."]
@@ -3210,6 +3220,7 @@ shape = SubResource("RectangleShape2D_swv5g")
 
 [connection signal="body_entered" from="Areas/CastleEntranceArea2D" to="." method="_on_castle_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Areas/OverworldEntranceArea2D" to="." method="_on_overworld_entrance_area_2d_body_entered"]
+[connection signal="body_entered" from="Areas/GortBasementEntranceArea2D" to="." method="_on_gort_basement_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/ChurchLeftEntranceArea2D" to="." method="_on_church_left_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/ChurchLeftExitArea2D" to="." method="_on_church_left_exit_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/GortHouseEntranceArea2D" to="." method="_on_gort_house_entrance_area_2d_body_entered"]

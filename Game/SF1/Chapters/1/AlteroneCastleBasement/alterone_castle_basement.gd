@@ -70,6 +70,6 @@ func _on_left_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_secret_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
-		n.marker = n.marker_hq
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneSecretPath)
+		n.marker = n.market_castle
 		SceneManager.ChangeSceneNode(n)

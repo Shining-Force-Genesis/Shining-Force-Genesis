@@ -13,6 +13,8 @@ var marker
 var marker_entrance = "Entrance"
 var marker_hq = "HQ"
 var marker_castle = "Castle"
+var marker_house_bottom = "House Bottom"
+var marker_house_top = "House Top"
 
 
 func _ready() -> void:
@@ -31,6 +33,12 @@ func _ready() -> void:
 			Player.set_character_position($Markers/HQMarker2D.position)
 		marker_castle:
 			Player.set_character_position($Markers/CastleMarker2D.position)
+		marker_house_bottom:
+			Player.set_character_position($Markers/HouseBottomMarker2D.position)
+			house_bottom_left_roof_tilemap.hide()
+		marker_house_top:
+			Player.set_character_position($Markers/HouseTopMarker2D.position)
+			house_top_right_roof_tilemap.hide()
 		_:
 			Player.set_character_position($Markers/OverworldMarker2D.position)
 	
@@ -116,4 +124,23 @@ func _on_castle_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
 		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
 		n.marker = n.marker_entrance
+		SceneManager.ChangeSceneNode(n)
+
+
+func _on_hq_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneHQPath)
+		n.marker = n.market_alterone
+		SceneManager.ChangeSceneNode(n)
+
+
+func _on_house_bottom_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneBottomHouse)
+		SceneManager.ChangeSceneNode(n)
+
+
+func _on_house_top_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneTopHouse)
 		SceneManager.ChangeSceneNode(n)

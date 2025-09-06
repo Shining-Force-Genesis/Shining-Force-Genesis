@@ -10,7 +10,7 @@ var marker
 var marker_start = "Start"
 var marker_castle = "Castle"
 var marker_overworld = "Overworld"
-var marker_gortbasement = "Gort Basement"
+var marker_gort_basement = "Gort Basement"
 var marker_priest = "Priest"
 
 func _ready() -> void:
@@ -41,8 +41,9 @@ func _ready() -> void:
 				Player.set_character_position($Markers/OverworldMarker2D.position)
 			marker_castle:
 				Player.set_character_position($Markers/CastleMarker2D.position)
-			marker_gortbasement:
+			marker_gort_basement:
 				Player.set_character_position($Markers/GortBasementMarker2D.position)
+				$Map/GortsHouse.hide()
 			marker_priest:
 				Player.set_character_position($Markers/EgressMarker.position)
 				$Map/Church.hide()
@@ -70,6 +71,12 @@ func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
 		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
 		n.marker = n.marker_guardiana
+		SceneManager.ChangeSceneNode(n)
+
+
+func _on_gort_basement_entrance_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaGortBasement)
 		SceneManager.ChangeSceneNode(n)
 
 

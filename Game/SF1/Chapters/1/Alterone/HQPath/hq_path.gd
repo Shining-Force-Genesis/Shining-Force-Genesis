@@ -1,0 +1,56 @@
+extends Node2D
+
+@onready var move_tilemap = $Map/MoveTileMapLayer
+
+### Navigation Markers
+var marker
+var market_alterone = "Alterone"
+var market_hq = "HQ"
+var market_secret = "Secret"
+
+func _ready() -> void:
+	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
+	Player.character.camera.limit_right = $CameraLimitsInfo.get_child(0).position.x
+	Player.character.camera.limit_bottom = $CameraLimitsInfo.get_child(0).position.y
+	
+	# get map move tilelayer
+	Player.move_tilemap = move_tilemap
+	
+	# position player at navigation marker per previous location
+	match marker:
+		market_alterone:
+			Player.set_character_position($Markers/EntranceMarker2D.position)
+		market_hq:
+			Player.set_character_position($Markers/HQMarker2D.position)
+		market_secret:
+			Player.set_character_position($Markers/SecretPathMarker2D.position)
+		_:
+			Player.set_character_position($Markers/EntranceMarker2D.position)
+	
+	# enable player
+	if SceneManager.changing_scene:
+		SceneManager.SceneFadeOut()
+		Player.enable()
+
+
+### Navigations
+
+
+func _on_secret_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneSecretPath)
+		n.marker = n.market_hq
+		SceneManager.ChangeSceneNode(n)
+
+
+func _on_hq_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.HQ)
+		SceneManager.ChangeSceneNode(n)
+
+
+func _on_alterone_area_2d_body_entered(body: Node2D) -> void:
+	if body is PlayerBody:
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+		n.marker = n.marker_hq
+		SceneManager.ChangeSceneNode(n)

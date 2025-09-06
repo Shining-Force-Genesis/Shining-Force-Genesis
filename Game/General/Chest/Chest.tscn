@@ -12,6 +12,7 @@ texture = ExtResource("1_yrcc4")
 hframes = 2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = ExtResource("1_hn1g1")

@@ -14,7 +14,7 @@ var game_management_wrapper_node = null
 var menus_root_node = null
 var camera_node = null
 var dialogue_box_node: DialogueBox = null
-var scene_manager_node = null
+var scene_manager_node: SCENE_MANGER = null
 var top_level_fader_node = null
 
 
@@ -48,6 +48,9 @@ var ui__overworld_action_menu: Actions_Menu_Overworld = null
 var ui__micro_member_list_view: Node2D = null
 
 var ui__battle_action_menu: Node2D = null
+var ui__battle_inventory_action_menu: Node2D = null
+var ui__battle_inventory_item_action_menu: Node2D = null
+var battle_inventory_action_type
 
 # battle ui controls
 var ui__land_effect_popup_node: Node2D = null
@@ -92,7 +95,7 @@ var interaction_node_reference = null
 var main_character_active_kinematic_body_node = null
 
 # Game Specific Variables
-var sf_game_data_node = null
+var sf_game_data_node: SF1_DATA_NODE = null
 
 # var E_SF_CHARACTERS = null
 # var SF_CHARACTERS = null 

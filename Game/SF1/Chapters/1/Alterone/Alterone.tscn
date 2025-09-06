@@ -5359,6 +5359,14 @@ metadata/_edit_lock_ = true
 position = Vector2(204, 780)
 metadata/_edit_lock_ = true
 
+[node name="HouseBottomMarker2D" type="Marker2D" parent="Markers"]
+position = Vector2(468, 876)
+metadata/_edit_lock_ = true
+
+[node name="HouseTopMarker2D" type="Marker2D" parent="Markers"]
+position = Vector2(876, 132)
+metadata/_edit_lock_ = true
+
 [node name="CastleMarker2D" type="Marker2D" parent="Markers"]
 position = Vector2(540, 180)
 metadata/_edit_lock_ = true
@@ -5388,6 +5396,22 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/HQArea2D"]
 position = Vector2(228, 780)
+shape = SubResource("RectangleShape2D_wwxnh")
+metadata/_edit_lock_ = true
+
+[node name="HouseBottomArea2D" type="Area2D" parent="Areas"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/HouseBottomArea2D"]
+position = Vector2(468, 852)
+shape = SubResource("RectangleShape2D_wwxnh")
+metadata/_edit_lock_ = true
+
+[node name="HouseTopArea2D" type="Area2D" parent="Areas"]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Areas/HouseTopArea2D"]
+position = Vector2(900, 132)
 shape = SubResource("RectangleShape2D_wwxnh")
 metadata/_edit_lock_ = true
 
@@ -6078,6 +6102,9 @@ visible = false
 tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAAAAAD9//7/AAAAAAAAAAD+//7/AAAAAAAAAAD///7/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAA=")
 
 [connection signal="body_entered" from="Areas/OverworldArea2D" to="." method="_on_overworld_area_2d_body_entered"]
+[connection signal="body_entered" from="Areas/HQArea2D" to="." method="_on_hq_area_2d_body_entered"]
+[connection signal="body_entered" from="Areas/HouseBottomArea2D" to="." method="_on_house_bottom_area_2d_body_entered"]
+[connection signal="body_entered" from="Areas/HouseTopArea2D" to="." method="_on_house_top_area_2d_body_entered"]
 [connection signal="body_entered" from="Areas/CastleArea2D" to="." method="_on_castle_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/ChurchEntranceArea2D" to="." method="_on_church_entrance_area_2d_body_entered"]
 [connection signal="body_entered" from="Roofs/ChurchExitArea2D" to="." method="_on_church_exit_area_2d_body_entered"]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dd24vfnbavcoh"]
+
+[ext_resource type="Script" uid="uid://cnqf5wyjdqo8q" path="res://General/ControlsBattle/InventoryItemSelectBattleMenu/inventory_item_select_in_battle_menu.gd" id="1_0dwuk"]
+[ext_resource type="PackedScene" uid="uid://dm34h0ef7o3sm" path="res://General/ControlsBattle/InventoryItemSelectBattleMenu/StatMicroView.tscn" id="2_cqkm5"]
+[ext_resource type="Texture2D" uid="uid://d35uukjs780wk" path="res://Assets/EmptyItemSlot.png" id="2_cy7us"]
+[ext_resource type="PackedScene" uid="uid://b6b3p443v3erl" path="res://General/ControlsBattle/InventoryItemSelectBattleMenu/ItemMicroView.tscn" id="3_tcfol"]
+[ext_resource type="PackedScene" uid="uid://b451lgd0islao" path="res://General/ControlsSelectors/RedSelectionBorder/RedSelectionBorder.tscn" id="3_xnws0"]
+
+[node name="InventoryItemSelectInBattleMenu" type="Node2D"]
+script = ExtResource("1_0dwuk")
+
+[node name="InventoryPreview" type="Node2D" parent="."]
+position = Vector2(258, 96)
+scale = Vector2(1.5, 1.5)
+
+[node name="SlotUpSprite" type="Sprite2D" parent="InventoryPreview"]
+position = Vector2(24, 12)
+texture = ExtResource("2_cy7us")
+metadata/_edit_lock_ = true
+
+[node name="SlotLeftSprite" type="Sprite2D" parent="InventoryPreview"]
+position = Vector2(8, 24)
+texture = ExtResource("2_cy7us")
+metadata/_edit_lock_ = true
+
+[node name="SlotRightSprite" type="Sprite2D" parent="InventoryPreview"]
+position = Vector2(40, 24)
+texture = ExtResource("2_cy7us")
+metadata/_edit_lock_ = true
+
+[node name="SlotDownSprite" type="Sprite2D" parent="InventoryPreview"]
+position = Vector2(24, 36)
+texture = ExtResource("2_cy7us")
+metadata/_edit_lock_ = true
+
+[node name="RedSelectionBorderRoot" parent="InventoryPreview" instance=ExtResource("3_xnws0")]
+visible = false
+position = Vector2(16, 0)
+
+[node name="StatsInfoView" parent="." instance=ExtResource("2_cqkm5")]
+position = Vector2(90, 54)
+scale = Vector2(1, 1)
+
+[node name="InfoItemView" parent="." instance=ExtResource("3_tcfol")]
+position = Vector2(360, 108)
+scale = Vector2(1, 1)

@@ -1,5 +1,6 @@
 extends Node
 
+class_name SF1_DATA_NODE
 
 func _ready():
 	Singleton_CommonVariables.sf_game_data_node = self

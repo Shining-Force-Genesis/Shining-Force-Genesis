@@ -2,6 +2,7 @@ extends Node2D
 
 @export var preopend_chest: bool = false
 @export var hidden_chest: bool = false
+@export var is_chest_empty: bool = false
 @export var item_resource: Resource 
 @export var gold: int = 0
 

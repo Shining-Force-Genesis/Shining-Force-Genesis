@@ -77,23 +77,20 @@ func _on_hq_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_treasure_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		pass
-	# TODO:
-	# SceneManager.ChangeScene(SceneManager.SF1.C1.HQ)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleTreasureRoom)
+		SceneManager.ChangeSceneNode(n)
 
 
 func _on_tower_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		pass
-	# TODO:
-	# SceneManager.ChangeScene(SceneManager.SF1.C1.HQ)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleTowerEntrance)
+		SceneManager.ChangeSceneNode(n)
 
 
 func _on_throne_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		pass
-	# TODO:
-	# SceneManager.ChangeScene(SceneManager.SF1.C1.HQ)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleAboveThroneRoom)
+		SceneManager.ChangeSceneNode(n)
 
 
 ### Roof Areas

@@ -196,17 +196,17 @@ func set_sprites_to_zero_frame() -> void:
 
 
 func OpenInventoryMenu() -> void:
-	return
-	
 	is_menu_active = false
 	AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
 	AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
 	hide()
-	Singleton_CommonVariables.ui__gold_info_box.hide()
-	Singleton_CommonVariables.ui__actor_micro_info_box.hide()
+	# Singleton_CommonVariables.ui__gold_info_box.hide()
+	# Singleton_CommonVariables.ui__actor_micro_info_box.hide()
 	
-	# disgusting remove these later but convertint to process instead of input with the just pressed action
-	await Signal(get_tree().create_timer(0.2), "timeout")
+	await get_tree().create_timer(0.1).timeout
 	
-	Singleton_CommonVariables.ui__inventory_menu.show_with_tween()
+	# Singleton_CommonVariables.ui__magic_menu.show_cust()
+	Singleton_CommonVariables.ui__battle_inventory_action_menu.show_with_tween()
 	
+	# overworld menu
+	# Singleton_CommonVariables.ui__inventory_menu.show_with_tween()
