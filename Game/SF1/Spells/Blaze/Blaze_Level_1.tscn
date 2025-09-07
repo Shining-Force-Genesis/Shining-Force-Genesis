@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6k3kv4hgim0"]
+[gd_scene load_steps=6 format=3 uid="uid://b6k3kv4hgim0"]
 
 [ext_resource type="Script" uid="uid://cncq2d2s51lpm" path="res://SF1/Spells/Blaze/Blaze_Level_2.gd" id="1_rm3v7"]
+[ext_resource type="Texture2D" uid="uid://cgunxstkc3o3m" path="res://Assets/Internal_SFR_Cust/Blaze/Blaze_Fireball_Small.png" id="2_jkvmo"]
 
 [sub_resource type="Animation" id="Animation_e722h"]
 resource_name = "Default"
@@ -46,6 +47,7 @@ script = ExtResource("1_rm3v7")
 
 [node name="BaseFlame" type="Sprite2D" parent="."]
 position = Vector2(108, 92)
+texture = ExtResource("2_jkvmo")
 hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

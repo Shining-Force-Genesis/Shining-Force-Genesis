@@ -150,9 +150,10 @@ func play_death_animation_for_all_defeated_actors() -> void:
 	for b_idx in Singleton_CommonVariables.battle__turn_order_array.size():
 		if Singleton_CommonVariables.battle__turn_order_array[b_idx].alive == false:
 			
-			if Singleton_CommonVariables.battle__turn_order_array[b_idx].node.enemey_leader:
-				get_parent().get_parent().end_battle();
-				await get_parent().get_parent().battle_ended_cutscene
+			if Singleton_CommonVariables.battle__turn_order_array[b_idx].type != "character":
+				if Singleton_CommonVariables.battle__turn_order_array[b_idx].node.enemey_leader:
+					get_parent().get_parent().end_battle();
+					await get_parent().get_parent().battle_ended_cutscene
 			
 			# play death animations then delete them when complete
 			

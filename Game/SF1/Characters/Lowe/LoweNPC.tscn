@@ -12,7 +12,7 @@ script = ExtResource("1_ci5gj")
 [node name="AnimatableBody2D" parent="NPCRoot" index="0"]
 higher_order_npc = true
 
-[node name="Sprite2D" parent="NPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("3_a2fbm")
 
 [editable path="NPCRoot"]

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvnx3d4tby4fi"]
+
+[ext_resource type="Texture2D" uid="uid://w0cqfvktlotn" path="res://Assets/SF1/Spells/Heal/Fairy.png" id="1_inns6"]
+[ext_resource type="Script" uid="uid://ds1ut7yx6cay1" path="res://SF1/Spells/Heal/heal_animation.gd" id="1_xaora"]
+
+[sub_resource type="Animation" id="Animation_xaora"]
+resource_name = "Default"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-54, 138), Vector2(162, 114), Vector2(252, 24), Vector2(150, 60), Vector2(324, 78), Vector2(444, 42), Vector2(336, 36), Vector2(444, 114), Vector2(582, 84), Vector2(702, 36)]
+}
+
+[sub_resource type="Animation" id="Animation_3nj56"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-54, 138)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbdxm"]
+_data = {
+&"Default": SubResource("Animation_xaora"),
+&"RESET": SubResource("Animation_3nj56")
+}
+
+[node name="HealAnimation" type="Node2D"]
+script = ExtResource("1_xaora")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-54, 138)
+texture = ExtResource("1_inns6")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mbdxm")
+}

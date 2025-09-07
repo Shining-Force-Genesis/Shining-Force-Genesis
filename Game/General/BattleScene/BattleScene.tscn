@@ -27,11 +27,13 @@ position = Vector2(-1, -2)
 [node name="BackgroundBattleScene" parent="BackgroundWrapper" instance=ExtResource("3_7dhk1")]
 
 [node name="EnemeyWrapper" type="Node2D" parent="."]
-position = Vector2(-25, -11)
+position = Vector2(-3.8147e-06, 0)
 scale = Vector2(1.5, 1.5)
+metadata/_edit_lock_ = true
 
 [node name="EnemeyScene" parent="EnemeyWrapper" instance=ExtResource("8_waxw2")]
-position = Vector2(22, -6)
+position = Vector2(82.6667, 117.333)
+metadata/_edit_lock_ = true
 
 [node name="CharacterWrapper" type="Node2D" parent="."]
 position = Vector2(-54, -4)
@@ -40,6 +42,15 @@ metadata/_edit_lock_ = true
 [node name="CharacterScene" parent="CharacterWrapper" instance=ExtResource("8_pklxd")]
 position = Vector2(340, 223)
 scale = Vector2(1.5, 1.5)
+
+[node name="CharacterAlliesWrapper" type="Node2D" parent="."]
+position = Vector2(-54, -4)
+metadata/_edit_lock_ = true
+
+[node name="CharacterScene" parent="CharacterAlliesWrapper" instance=ExtResource("8_pklxd")]
+visible = false
+position = Vector2(180, 223)
+scale = Vector2(-1.5, 1.5)
 
 [node name="BackgroundStaticColorsControl" type="Control" parent="."]
 layout_mode = 3

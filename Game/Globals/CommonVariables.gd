@@ -111,9 +111,12 @@ var sf_game_data_node: SF1_DATA_NODE = null
 
 var battle__scene_node: Node2D
 
-var battle__logic_node: Node
+var battle__logic_node: battle_logic_node
 
-var battle__logic__target_selection_node: Node
+# etc... "CHARACTER_HEAL" "ATTACK" "MAGIC_ATTACK"
+var battle__scene_operation_type: String
+
+var battle__logic__target_selection_node: BattleLogicTargetSelectionNode
 var battle__logic__target_selection_wrapper_node: Node2D
 var battle__target_use_range_array_representation
 var battle__target_selector_array_representation

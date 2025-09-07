@@ -300,8 +300,11 @@ func _input(event):
 			
 			if spell_res_l.name == "Heal":
 				print("Heal selected")
-				AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
-				return
+				# TODO: when enemeies have heal need to create a check for actor type then
+				# do the equals "ENEMEY_HEAL" set and new battle logic in the battle scene stuff too
+				Singleton_CommonVariables.battle__scene_operation_type = "CHARACTER_HEAL"
+				# AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+				# return
 			
 			is_battle_magic_menu_active = false
 			is_select_magic_level_active = false

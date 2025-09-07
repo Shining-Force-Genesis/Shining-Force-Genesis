@@ -1,6 +1,6 @@
-[gd_scene load_steps=25 format=4 uid="uid://de52sd70eonn0"]
+[gd_scene load_steps=22 format=4 uid="uid://de52sd70eonn0"]
 
-[ext_resource type="Script" uid="uid://c8rp78epspejp" path="res://SF1/Chapters/1/_Battles/4/battle_4.gd" id="1_7rngb"]
+[ext_resource type="Script" uid="uid://dmfsalcf5dwk" path="res://SF1/Chapters/1/_Battles/4/battle_4_testing.gd" id="1_1ii5n"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_04hgo"]
 [ext_resource type="Texture2D" uid="uid://dupkuyown15rx" path="res://SF1/Assets/Tilesets/10.png" id="3_ya75a"]
 [ext_resource type="Texture2D" uid="uid://b6kmx352to45r" path="res://SF1/Assets/Tilesets/7.png" id="4_baadm"]
@@ -11,9 +11,6 @@
 [ext_resource type="TileSet" uid="uid://b8euyhgwarcdy" path="res://SF1/Assets/Terrain_Stand.tres" id="9_aor56"]
 [ext_resource type="TileSet" uid="uid://dnbm43vn3ir48" path="res://SF1/Assets/Terrain_Background.tres" id="10_riqkf"]
 [ext_resource type="TileSet" uid="uid://cp0jvdbs5oc3t" path="res://SF1/Assets/Terrain_Effect.tres" id="11_n18fj"]
-[ext_resource type="PackedScene" uid="uid://ce570o0pmrjg" path="res://SF1/EnemiesAndBosses/GiantBat/GiantBat.tscn" id="14_dt0mq"]
-[ext_resource type="PackedScene" uid="uid://sbwnkv4h3a2i" path="res://SF1/EnemiesAndBosses/Sniper/Sniper.tscn" id="15_fvwbr"]
-[ext_resource type="PackedScene" uid="uid://bjp416sccg661" path="res://SF1/EnemiesAndBosses/DarkMage/DarkMage.tscn" id="16_ew0n3"]
 [ext_resource type="PackedScene" uid="uid://cyw8ri3jdrriy" path="res://General/Camera/Camera2D_Cust.tscn" id="17_g8tfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_allfl"]
@@ -5177,7 +5174,7 @@ sources/0 = SubResource("TileSetAtlasSource_rjakc")
 size = Vector2(12, 12)
 
 [node name="Alterone" type="Node"]
-script = ExtResource("1_7rngb")
+script = ExtResource("1_1ii5n")
 
 [node name="Map" type="Node" parent="."]
 
@@ -5229,59 +5226,44 @@ tile_set = ExtResource("11_n18fj")
 metadata/_edit_lock_ = true
 
 [node name="Marker2D" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(426, 564)
+position = Vector2(420, 564)
 
 [node name="Marker2D2" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(402, 564)
+position = Vector2(396, 564)
 
 [node name="Marker2D3" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(378, 564)
+position = Vector2(372, 564)
 
 [node name="Marker2D4" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(378, 588)
+position = Vector2(372, 588)
 
 [node name="Marker2D5" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(402, 588)
+position = Vector2(396, 588)
 
 [node name="Marker2D6" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(426, 588)
+position = Vector2(420, 588)
 
 [node name="Marker2D7" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(378, 612)
+position = Vector2(372, 612)
 
 [node name="Marker2D8" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(402, 612)
+position = Vector2(396, 612)
 
 [node name="Marker2D9" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(426, 612)
+position = Vector2(420, 612)
 
 [node name="Marker2D10" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(300, 876)
+position = Vector2(294, 876)
 
 [node name="Marker2D11" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(324, 876)
+position = Vector2(318, 876)
 
 [node name="Marker2D12" type="Marker2D" parent="CharacterPositions"]
-position = Vector2(252, 876)
+position = Vector2(246, 876)
 
 [node name="Characters" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="GiantBat" parent="Enemies" instance=ExtResource("14_dt0mq")]
-position = Vector2(474, 540)
-
-[node name="GiantBat2" parent="Enemies" instance=ExtResource("14_dt0mq")]
-position = Vector2(474, 588)
-
-[node name="Sniper" parent="Enemies" instance=ExtResource("15_fvwbr")]
-position = Vector2(450, 564)
-
-[node name="Sniper2" parent="Enemies" instance=ExtResource("15_fvwbr")]
-position = Vector2(498, 540)
-
-[node name="DarkMage" parent="Enemies" instance=ExtResource("16_ew0n3")]
-position = Vector2(426, 540)
 
 [node name="CameraLimitsInfo" type="Node" parent="."]
 

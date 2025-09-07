@@ -31,9 +31,9 @@ func _process(_delta: float) -> void:
 		Singleton_CommonVariables.main_character_player_node.hide()
 		Singleton_CommonVariables.main_character_player_node.camera_current(false)
 		
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
+		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
 		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
-		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle4)
+		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle4)
 		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
 		
 		SceneManager.ChangeSceneNode(n)

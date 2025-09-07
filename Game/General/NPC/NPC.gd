@@ -34,7 +34,10 @@ enum EFacingDirection { DOWN, UP, LEFT, RIGHT }
 # TODO: even though this works should see if godot will offer a better way to handle none shared animation players
 @onready var chracter_animation_player_normal: AnimationPlayer = $AnimationPlayer
 @onready var chracter_animation_player_mirror: AnimationPlayer = $AnimationPlayerMirrorMovement
+@onready var chracter_animation_player_8_standard: AnimationPlayer = $AnimationPlayer8Standard
 @export var use_mirror_animation: bool = false
+@export var use_8_standard_animation: bool = false
+
 var chracter_animation_player: AnimationPlayer
 
 const down_movement = "Down" # old raw strings were `${direction}Movement`
@@ -62,6 +65,8 @@ func _ready() -> void:
 	
 	if use_mirror_animation:
 		chracter_animation_player = chracter_animation_player_mirror
+	elif !use_mirror_animation && use_8_standard_animation:
+		chracter_animation_player = chracter_animation_player_8_standard
 	else:
 		chracter_animation_player = chracter_animation_player_normal
 	
@@ -173,6 +178,16 @@ func play_animation(animation_name: String) ->  void:
 ### Facing Direction Helpers
 
 func change_facing_direction(current_selection_pos: Vector2) -> void:
+	#if use_8_standard_animation:
+		#if position.x > current_selection_pos.x:
+			#play_animation(right_movement)
+		#elif position.x < current_selection_pos.x:
+			#play_animation(left_movement)
+		#elif position.y < current_selection_pos.y:
+			#play_animation(down_movement)
+		#elif position.y > current_selection_pos.y:
+			#play_animation(up_movement)
+	#else:
 	if position.x < current_selection_pos.x:
 		play_animation(right_movement)
 	elif position.x > current_selection_pos.x:

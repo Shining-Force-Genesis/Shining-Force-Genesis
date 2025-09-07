@@ -12,39 +12,6 @@ shader = ExtResource("2_d8yu6")
 shader_parameter/dissolve_effect_amount = 0.0
 shader_parameter/noise_texture = ExtResource("3_s86d3")
 
-[sub_resource type="Animation" id="Animation_xd71m"]
-resource_name = "Attack"
-length = 1.60001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.6, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"emit_attack_anticapation_frame_reached"
-}, {
-"args": [],
-"method": &"emit_attack_frame_reached"
-}]
-}
-
 [sub_resource type="Animation" id="Animation_1vnhv"]
 resource_name = "Idle"
 length = 0.10001
@@ -101,9 +68,42 @@ tracks/2/keys = {
 "values": [Vector2(116, 92)]
 }
 
+[sub_resource type="Animation" id="Animation_e86uu"]
+resource_name = "Attack"
+length = 1.60001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"emit_attack_anticapation_frame_reached"
+}, {
+"args": [],
+"method": &"emit_attack_frame_reached"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6b8o4"]
 _data = {
-&"Attack": SubResource("Animation_xd71m"),
+&"Attack": SubResource("Animation_e86uu"),
 &"Death": ExtResource("5_7digj"),
 &"Idle": SubResource("Animation_1vnhv"),
 &"RESET": SubResource("Animation_ejoj2"),

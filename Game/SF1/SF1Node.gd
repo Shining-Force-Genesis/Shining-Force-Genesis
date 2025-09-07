@@ -1008,7 +1008,7 @@ var ForceMembers = [
 			"move_boost": 0,
 			
 			"hp": 12,
-			"hp_current": 12,
+			"hp_current": 5,
 			"hp_boost": 0,
 			"hp_permanent_increase": 0,
 			"hp_target_unpromoted": 18,

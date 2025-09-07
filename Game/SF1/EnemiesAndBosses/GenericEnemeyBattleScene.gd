@@ -62,6 +62,8 @@ func play_use() -> void:
 
 func play_shake() -> void:
 	animation_player.play("Shake")
+	await animation_player.animation_finished
+	play_idle()
 
 
 func play_death() -> void:

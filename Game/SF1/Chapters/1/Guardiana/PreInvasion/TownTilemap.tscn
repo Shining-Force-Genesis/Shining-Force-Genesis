@@ -2668,11 +2668,10 @@ DefaultScript = "res://SF1/Chapters/1/Guardiana/PreInvasion/Scripts/Gort.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Gort" index="0"]
 FacingDirection = 2
-use_mirror_animation = true
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCS/Gort/AnimatableBody2D" index="3"]
 texture = ExtResource("12_7o0ra")
-hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Gort/AnimatableBody2D" index="4"]
 root_node = NodePath("..")

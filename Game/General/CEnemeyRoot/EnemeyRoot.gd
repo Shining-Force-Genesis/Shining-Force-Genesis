@@ -8,11 +8,18 @@ extends Node2D
 
 @export var enemey_battle_scene: PackedScene #  = "res://SF1/EnemiesAndBosses/RuneKnight/RuneKnightBattleScene.tscn"
 
+# All of these signals are used in different scripts or calls false positive warnings
+@warning_ignore("unused_signal")
 signal signal_check_defeat_done
+@warning_ignore("unused_signal")
 signal signal_death_animation_complete
+@warning_ignore("unused_signal")
 signal signal_completed_turn
+@warning_ignore("unused_signal")
 signal signal_character_moved(new_pos)
+@warning_ignore("unused_signal")
 signal signal_show_character_action_menu
+@warning_ignore("unused_signal")
 signal signal_switch_focus_to_cursor
 
 # @onready var pnode = get_parent()

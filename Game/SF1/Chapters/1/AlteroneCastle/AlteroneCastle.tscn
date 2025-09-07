@@ -10513,11 +10513,10 @@ script = ExtResource("9_vbhlu")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/WomanRedHeadChurch.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Khris" index="0"]
-use_mirror_animation = true
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCS/Khris/AnimatableBody2D" index="3"]
 texture = ExtResource("10_m7dyj")
-hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Khris/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
@@ -10555,11 +10554,10 @@ DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/BarOwner.json"
 [node name="AnimatableBody2D" parent="NPCS/KnightLeft" index="0"]
 stationary = false
 FacingDirection = 3
-use_mirror_animation = true
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCS/KnightLeft/AnimatableBody2D" index="3"]
 texture = ExtResource("12_4npua")
-hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/KnightLeft/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
@@ -10579,11 +10577,10 @@ DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GirlsFather.json
 [node name="AnimatableBody2D" parent="NPCS/KnightRight" index="0"]
 stationary = false
 FacingDirection = 2
-use_mirror_animation = true
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCS/KnightRight/AnimatableBody2D" index="3"]
 texture = ExtResource("12_4npua")
-hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/KnightRight/AnimatableBody2D" index="4"]
 root_node = NodePath("..")

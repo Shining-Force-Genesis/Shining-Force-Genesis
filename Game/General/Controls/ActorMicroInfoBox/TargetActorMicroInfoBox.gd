@@ -227,6 +227,19 @@ func hide_cust() -> void:
 # const target_actor_bottom_left_pos: Vector2 = Vector2(8, 134)
 # const target_actor_bottom_right_pos: Vector2 = Vector2(200, 134)
 
+
+func show_cust_ally() -> void: 
+	position = hidden_position
+	show()
+	
+	if _tween:
+		_tween.kill()
+	
+	_tween = get_tree().create_tween()
+	_tween.tween_property(self, "position", Vector2(8, 8), Singleton_CommonVariables.menu_tween_time)
+	_tween.set_trans(Tween.TRANS_LINEAR)
+
+
 func show_cust_target() -> void: 
 	position = Vector2(480, 308) # hidden_position
 	show()

@@ -3221,10 +3221,10 @@ script = ExtResource("7_dowo2")
 
 [node name="AnimatableBody2D" parent="NPCs/GongNPCRoot" index="0"]
 FacingDirection = 2
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCs/GongNPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("8_3tetx")
-hframes = 6
 
 [node name="JogurtNPCRoot" parent="NPCs" instance=ExtResource("6_mby0v")]
 position = Vector2(408, 336)
@@ -3232,10 +3232,10 @@ script = ExtResource("9_2xntq")
 
 [node name="AnimatableBody2D" parent="NPCs/JogurtNPCRoot" index="0"]
 FacingDirection = 3
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCs/JogurtNPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("10_xagmw")
-hframes = 6
 
 [node name="WomanNPCRoot" parent="NPCs" instance=ExtResource("6_mby0v")]
 position = Vector2(216, 168)

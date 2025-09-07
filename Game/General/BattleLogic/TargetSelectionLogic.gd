@@ -1,5 +1,7 @@
 extends Node
 
+class_name BattleLogicTargetSelectionNode
+
 var is_target_selection_active: bool = false
 
 @onready var target_selection_wrapper: Node2D = $TargetSelectionWrapper
