@@ -4,7 +4,7 @@ This is a currently work in progress (WIP) remake of the original Shining Force 
 
 ## Install
 
-Just download the latest release from the builds section extract the exe from the zip file and run it.
+Just download the latest release from the [release section](https://github.com/Shining-Force-Genesis/Shining-Force-Genesis/releases) extract the exe from the zip file and run it.
 
 ## Controls
 
