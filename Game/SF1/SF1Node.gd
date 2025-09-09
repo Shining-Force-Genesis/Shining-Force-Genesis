@@ -15,29 +15,29 @@ var c1 = {
 	# story flags - in order
 	
 	# opening cutscene
-	"spoken_to_varios": true,
-	"spoken_to_lowe": true,
-	"entered_kings_throne": true,
-	"spoken_to_the_king": true,
-	"accepted_kings_plan": true,
-	"initial_force_joined": true,
-	"kings_permission": true,
-	"exited_guardiana_once": true,
+	"spoken_to_varios": false,
+	"spoken_to_lowe": false,
+	"entered_kings_throne": false,
+	"spoken_to_the_king": false,
+	"accepted_kings_plan": false,
+	"initial_force_joined": false,
+	"kings_permission": false,
+	"exited_guardiana_once": false,
 	#
 	
-	"battle_1_opening_cutscene": true,
-	"battle_1_complete": true,
+	"battle_1_opening_cutscene": false,
+	"battle_1_complete": false,
 	
 	# second major cutscene
-	"battle_2_opening_cutscene": true,
-	"battle_2_complete": true,
-	"entered_guardiana_post_battle_2": true,
-	"kane_cutscene_guardiana_castle_played": true,
+	"battle_2_opening_cutscene": false,
+	"battle_2_complete": false,
+	"entered_guardiana_post_battle_2": false,
+	"kane_cutscene_guardiana_castle_played": false,
 	#
 	
-	"battle_3_opening_cutscene": true,
-	"battle_3_complete": true,
-	"spoken_to_guardiana_man_in_alterone_bar": true,
+	"battle_3_opening_cutscene": false,
+	"battle_3_complete": false,
+	"spoken_to_guardiana_man_in_alterone_bar": false,
 	"spoken_to_alterone_king_post_guardiana_invasion": false,
 	"spoken_to_kane_alterone": false,
 	"searched_alterone_jail_bars": false,
@@ -1008,7 +1008,7 @@ var ForceMembers = [
 			"move_boost": 0,
 			
 			"hp": 12,
-			"hp_current": 5,
+			"hp_current": 12,
 			"hp_boost": 0,
 			"hp_permanent_increase": 0,
 			"hp_target_unpromoted": 18,
@@ -1676,14 +1676,20 @@ var ForceMembers = [
 		"character": E_SF1_FM.MAE,
 		"leader": false,
 		
-		"character_base_node": "res://SF1/Characters/Mae/Mae.tscn",
-		"character_npc_scene": "res://SF1/Characters/Mae/MaeNPC.tscn",
+		# TODO: add order field so its possible to select the order of your units being placed
+		# will need to be unique values think on this later very LOW PRIORITY
+		"order": 8,
+		
+		## Promotion stage dictates where the character is in their promotion stage
+		## 0 unpromoted - 1 promoted - 2 or higher as possible options for different stages
+		"promotion_stage": 0,
 		
 		"unlocked": false,
 		"active_in_force": false,
 		"alive": true,
 		
 		"name": "Mae", # TODO: do nicknames
+		"nickname": null,
 		"race": "Centaur",
 		
 		"class_full": "Knight",
@@ -1692,17 +1698,35 @@ var ForceMembers = [
 		
 		"level": 2,
 		
+		"ai_target_priority": 0,
+		
+		"movement_type": E_MOVEMENT_TYPES.MOUNTED,
+		
+		"textures_and_scenes": [
+			# unpromoted
+			{
+				# textures
+				"overworld_texture": "",
+				"battle_texture": "",
+				"portrait_texture": "res://Characters/Mae/Assets/Unpromoted_Portraits.png",
+				# scenes
+				"battle_scene": "",
+				"player_scene": "res://SF1/Characters/Mae/Mae.tscn",
+				# TODO: create a base path for characters and use in a similar fashion to the soundback
+				# of - ex. base + "Max.tscn" || "MaxNPC.tscn" etc
+				# HQ NPC node
+				"npc_scene": "res://SF1/Characters/Mae/MaeNPC.tscn",
+			}
+		],
+		
 		"status_effects": [
 			
 		],
 		
-		"ai_target_priority": 0,
-		
-		"movement_type": "Mounted",
-		
 		"stats": {
 			"attack": 5,
 			"attack_boost": 0,
+			"attack_permanent_increase": 0,
 			"attack_target_unpromoted": 15,
 			"attack_unpromoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.LINEAR],
 			"attack_target_promoted": 18,
@@ -1710,6 +1734,7 @@ var ForceMembers = [
 			
 			"defense": 5,
 			"defense_boost": 0,
+			"defense_permanent_increase": 0,
 			"defense_target_unpromoted": 15,
 			"defense_unpromoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.EARLY],
 			"defense_target_promoted": 35,
@@ -1717,23 +1742,29 @@ var ForceMembers = [
 			
 			"agility": 7,
 			"agility_boost": 0,
+			"agility_permanent_increase": 0,
 			"agility_target_unpromoted": 14,
 			"agility_unpromoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.LINEAR],
 			"agility_target_promoted": 45,
 			"agility_promoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.LINEAR],
 			
 			"move": 7,
+			"move_permanent_increase": 0,
 			"move_boost": 0,
 			
 			"hp": 11,
+			"hp_current": 11,
 			"hp_boost": 0,
+			"hp_permanent_increase": 0,
 			"hp_target_unpromoted": 24,
 			"hp_unpromoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.LATE],
 			"hp_target_promoted": 43,
 			"hp_promoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.EARLY],
 			
 			"mp": 0,
+			"mp_current": 0,
 			"mp_boost": 0,
+			"mp_permanent_increase": 0,
 			"mp_target_unpromoted": 0,
 			"mp_unpromoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.LINEAR],
 			"mp_target_promoted": 0,
@@ -1741,6 +1772,7 @@ var ForceMembers = [
 			
 			"critical_hit_chance": 3,
 			"critical_hit_chance_boost": 0,
+			"critical_hit_permanent_increase": 0,
 			"critical_hit_chance_target_unpromoted": 1,
 			"critical_hit_chance_unpromoted_growth_curve": CN_SF1_StatGrowthCurves.CURVES[CN_SF1_StatGrowthCurves.E_CURVE.LINEAR],
 			"critical_hit_chance_target_promoted": 4,
@@ -1795,7 +1827,21 @@ var ForceMembers = [
 			# Down
 		],
 		
-		"magic": []
+		"magic": [],
+		
+		# TODO: need to copy these over to all other characters
+		"actor_meta_stats": {
+			# battles gone through ? maybe
+			# maybe track each magic spell used
+			"kills": 0,
+			"defeats": 0,
+			"dodges": 0,
+			"misses": 0,
+			"critical_hits": 0,
+			"double_attacks": 0,
+			"special_attacks": 0,
+			"counter_attacks": 0
+		}
 	},
 	
 	# Khris

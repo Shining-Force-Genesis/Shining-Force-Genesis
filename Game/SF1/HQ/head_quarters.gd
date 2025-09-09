@@ -14,6 +14,8 @@ var marker_entrance = "Entrance"
 
 
 func _ready() -> void:
+	Player.character.enable_main_character()
+	
 	AudioManager.play_music_n(
 		# Singleton_Dev_Internal.base_path + "Assets/SF1/SoundBank/Headquarters.mp3"
 		"res://Assets/Music/SF1/Headquarters.mp3"
@@ -36,6 +38,10 @@ func _ready() -> void:
 	# enable player
 	if SceneManager.changing_scene:
 		SceneManager.SceneFadeOut()
+		Player.enable()
+	else:
+		if Singleton_CommonVariables.main_character_player_node.get("cbody") != null:
+			Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).disabled = false
 		Player.enable()
 
 	var active_pos = ActivePositionsRootNode.get_children()
@@ -125,9 +131,9 @@ func _on_exit_area_2d_body_entered(body: Node2D) -> void:
 	# TODO need to save previous map and marker
 	
 	if body is PlayerBody:
-		# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
-		# n.marker = n.marker_hq
-		# SceneManager.ChangeSceneNode(n)
+		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
+		Player.disable(false)
+		await SceneManager.SceneFadeIn()
 		
 		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
 			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)

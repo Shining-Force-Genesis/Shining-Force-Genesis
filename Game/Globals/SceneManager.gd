@@ -2,6 +2,7 @@ extends Node
 
 class_name SCENE_MANGER
 
+var cpn: Node
 var scene_node: Node
 var transition_node: Node
 var changing_scene: bool = false
@@ -43,9 +44,11 @@ const SF1 = {
 		"Battle1Pre": "res://SF1/Chapters/1/_Battles/1/Pre/Battle1-AncientsGate-PRE.tscn",
 		"Battle1": "res://SF1/Chapters/1/_Battles/1/Battle1-AncientsGate.tscn",
 		
-		"Battle2": "res://SF1/Chapters/1/_Battles/2/Battle2_Overworld.tscn",
+		# "Battle2": "res://SF1/Chapters/1/_Battles/2/Battle2_Overworld.tscn",
+		"Battle2": "res://SF1/Chapters/1/_Battles/2/TestBattle2_Overworld.tscn",
 		
-		"Battle3": "res://SF1/Chapters/1/_Battles/3/Battle3.tscn",
+		# "Battle3": "res://SF1/Chapters/1/_Battles/3/Battle3.tscn",
+		"Battle3": "res://SF1/Chapters/1/_Battles/3/PreBattle3.tscn",
 		
 		"Battle4": "res://SF1/Chapters/1/_Battles/4/Battle4_testing.tscn",
 		# "Battle4": "res://SF1/Chapters/1/_Battles/4/Battle4.tscn",
@@ -56,14 +59,7 @@ const SF1 = {
 
 
 func GetSceneNode(path: String) -> Node:
-	# pukes
-	
-	# Singleton_CommonVariables.main_character_player_node.collision_shape_cbody.disabled = true
-	
-	Player.disable()
-	SceneFadeIn()
-	
-	var n = await load(path).instantiate()
+	var n = load(path).instantiate()
 	return n
 
 
@@ -71,7 +67,8 @@ func ChangeSceneNode(n: Node) -> void:
 	Player.disable()
 	
 	# NOTE: disabled player collision so if changing to scene where area is at same position auto triggering won't happen
-	Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).set_deferred("disabled", true)
+	if Singleton_CommonVariables.main_character_player_node != null && Singleton_CommonVariables.main_character_player_node.get("cbody") != null:
+		Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).set_deferred("disabled", true)
 	
 	if scene_node:
 		for child in scene_node.get_children():
@@ -80,8 +77,6 @@ func ChangeSceneNode(n: Node) -> void:
 		Player.move_tilemap = null
 		
 		scene_node.call_deferred("add_child", n)
-		
-		# Singleton_CommonVariables.main_character_player_node.collision_shape_cbody.disabled = false
 
 
 func SceneFadeIn() -> void:
@@ -94,9 +89,5 @@ func SceneFadeOut() -> void:
 	await transition_node.fade_out()
 	
 	# NOTE: re-enable player collision 
-	Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).disabled = false
-	
-	# await get_tree().create_timer(1.0).timeout 
-
-# func SetPosition(markpos: Marker2D) -> void:
-# 	Player.set_position(markpos.position)
+	if Singleton_CommonVariables.main_character_player_node.get("cbody") != null:
+		Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).disabled = false

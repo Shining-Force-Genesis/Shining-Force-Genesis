@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/NPC/King_Gaurdiana_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/King_Gaurdiana_Portraits.png"
 		},
 
 		{
@@ -25,7 +25,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Mae/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Mae/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -33,7 +33,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/NPC/King_Gaurdiana_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/King_Gaurdiana_Portraits.png"
 		},
 
 		{

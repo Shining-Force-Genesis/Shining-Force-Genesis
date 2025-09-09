@@ -195,6 +195,8 @@ func activate_battle() -> void:
 	
 	Singleton_CommonVariables.battle__scene_node.show()
 	
+	AudioManager.play_music_n("res://Assets/Music/SF1/Battle Encounter.mp3")
+	
 	# 
 	if Singleton_CommonVariables.battle__scene_operation_type == "CHARACTER_HEAL":
 		print("sighhhh this is gonna be a bit of work")
@@ -677,6 +679,8 @@ func activate_battle() -> void:
 	# await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
 	
 	emit_signal("signal__battle_scene_completed")
+	
+	AudioManager.stop_music_n()
 	
 	Singleton_CommonVariables.battle__currently_active_actor.end_turn()
 
@@ -1201,7 +1205,7 @@ func calculate_damage_step() -> void:
 	
 	if not attack_missed:
 #		if using_spell:
-		AudioManager.play_sfx("res://Assets/Sounds/HitSoundCut.wav")
+		AudioManager.play_sfx("res://Assets/Music/SF1/SF1_SFX_sfx_Crash.wav")
 #
 # 		target_actor Sprite.material.shader = shader_color_blend
 #		target_actor Sprite.material.set_shader_param("blend_strength_modifier", 0.35)

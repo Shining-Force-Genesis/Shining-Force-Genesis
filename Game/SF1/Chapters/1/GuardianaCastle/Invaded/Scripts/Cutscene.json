@@ -1,7 +1,7 @@
 {
 	"script": [
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/Varios_Portraits.png"
 		},
 
 		{
@@ -9,7 +9,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/Kane_Mask_Portraits.png"
 		},
 
 		{
@@ -17,7 +17,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/Varios_Portraits.png"
 		},
 
 		{
@@ -25,7 +25,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/Kane_Mask_Portraits.png"
 		},
 
 		{
@@ -33,7 +33,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Gong/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/Varios_Portraits.png"
 		},
 
 		{
@@ -45,7 +45,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Mae/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Mae/Assets/Unpromoted_Portraits.png"
 		},
 
 		{
@@ -53,7 +53,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Mae/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Assets/NPC/Kane_Mask_Portraits.png"
 		},
 
 		{
@@ -61,7 +61,7 @@
 		},
 
 		{
-			"ShowPortrait": "res://Assets/SF1/PlayableCharacters/Mae/Unpromoted_Portraits.png"
+			"ShowPortrait": "res://Characters/Mae/Assets/Unpromoted_Portraits.png"
 		},
 
 		{

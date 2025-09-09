@@ -103,6 +103,7 @@ _data = {
 script = ExtResource("1_in78h")
 
 [node name="CharacterRoot" parent="." instance=ExtResource("2_mbt44")]
+SF1_MEMBER_INDEX = 5
 texture_sprite_overworld_unpromoted = ExtResource("3_y0t36")
 texture_sprite_battle_unpromoted = ExtResource("4_bu0tq")
 texture_sprite_portrait_unpromoted = ExtResource("5_xmsi0")

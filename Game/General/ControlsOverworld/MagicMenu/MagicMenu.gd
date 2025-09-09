@@ -276,7 +276,7 @@ func _input(event):
 				Singleton_CommonVariables.ui__magic_menu.hide()
 				
 				Singleton_CommonVariables.is_currently_in_battle_scene = false
-				# Singleton_CommonVariables.main_character_player_node.queue_free()
+				# Singleton_CommonVariables.main_character_player_node.disabled_main_character()
 				Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
 				Singleton_CommonVariables.ui__battle_action_menu.is_menu_active = false
 				Singleton_CommonVariables.ui__battle_action_menu.hide_cust()
@@ -287,7 +287,7 @@ func _input(event):
 				# var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
 				# SceneManager.ChangeSceneNode(n)
 				
-				var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
+				var n = SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
 				# n.marker = Singleton_CommonVariables.sf_game_data_node.egress_location
 				SceneManager.ChangeSceneNode(n)
 				

@@ -1,0 +1,15 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Misheala_Portraits.png"
+		},
+		
+		{
+			"Text": "If you are too scared to hear my words, how can you hope to survive the trials you face?"
+		},
+		
+		{
+			"HidePortrait": ""
+		}
+	]
+}

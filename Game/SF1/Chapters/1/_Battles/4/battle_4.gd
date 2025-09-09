@@ -5,6 +5,9 @@ extends Node
 
 @onready var player_scene = preload("res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn")
 
+signal battle_ended_cutscene
+var is_battle_done: bool = false
+
 func _ready() -> void:
 	# TODO rename this singleton to globals and then divide overworld battle and other into sub scripts with classnames
 	# for better intellisense
@@ -18,6 +21,8 @@ func _ready() -> void:
 	Singleton_CommonVariables.battle__characters = $Characters
 	
 	Singleton_CommonVariables.battle__movement_tiles_wrapper_node = $BattleLogic/MovementWrapper
+	
+	SceneManager.SceneFadeOut()
 	
 	# TODO: check if first time play cutscene
 	
@@ -197,10 +202,37 @@ func PostCutsceneStartBattle():
 	Singleton_CommonVariables.is_currently_in_battle_scene = true
 	Singleton_CommonVariables.battle__logic_node.turn_logic_node.generate_and_launch_new_turn_order()
 
+
 func end_battle() -> void:
-	EndBattleCutscene()
+	# Singleton_CommonVariables.camera_node.is_following_cursor = false
+	
+	Singleton_CommonVariables.sf_game_data_node.c1.battle_4_complete = true
 	
 	Singleton_CommonVariables.is_currently_in_battle_scene = false
+	Singleton_CommonVariables.battle__movement_tiles_wrapper_node.hide()
+	Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+	
+	$BattleLogic/TurnLogic.queue_free()
+	$BattleLogic/MovementLogic.queue_free()
+	
+	var enemies_c = $Enemies.get_children()
+	for enemey in enemies_c:
+		enemey.get_child(0).set_active_processing(false)
+	
+	var characters_c = $Characters.get_children()
+	for character in characters_c:
+		character.get_child(0).set_active_processing(false)
+		
+		if character.name == "Max":
+			character.get_child(0).set_active_processing(true)
+			character.get_child(0).use_move_tilemap = true
+			character.get_child(0).move_tilemap = $Map/MoveTileMapLayer
+	
+	await EndBattleCutscene()
+	emit_signal("battle_ended_cutscene")
+	
+	# Update Egress to Gong's Cabin area
+	# Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.GongCabin
 
 func EndBattleCutscene() -> void:
 	Singleton_CommonVariables.dialogue_box_is_currently_active = true

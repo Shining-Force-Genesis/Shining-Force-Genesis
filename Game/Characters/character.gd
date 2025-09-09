@@ -36,9 +36,12 @@ var inputs = {
 	"ui_down": Vector2.DOWN
 }
 
-var animation_speed = 5.5
+const default_animation_speed = 5.5
+var animation_speed = default_animation_speed
 var moving = false
 
+var tween_animation_time: float = 0.5
+var tween_animation_time_speed_const: float = 0.5
 var move_tween: Tween
 
 func _ready() -> void:
@@ -54,6 +57,17 @@ func _ready() -> void:
 	
 	# print(Player.move_tilemap)
 
+func enable_main_character() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT
+	camera.enabled = true
+	show()
+	return
+
+func disabled_main_character() -> void:
+	process_mode = Node.PROCESS_MODE_DISABLED
+	camera.enabled = false
+	hide()
+	return
 
 func get_actor():
 	var actor = get_child(0).get_child(0).find_child("CharacterRoot")
@@ -240,3 +254,10 @@ func set_facing_direction(arg: String) -> void:
 			animation_player.play(ani_left_movement)
 		"Right": 
 			animation_player.play(ani_right_movement)
+
+func set_movement_speed_timer(speed_arg: float) -> void:
+	tween_animation_time = speed_arg
+
+func reset_movement_speed_timer() -> void:
+	animation_player.speed_scale = 1
+	tween_animation_time = tween_animation_time_speed_const

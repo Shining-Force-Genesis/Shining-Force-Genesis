@@ -11,7 +11,7 @@ func _ready() -> void:
 
 func fade_in() -> void:
 	ap.play("FadeIn")
-	# await ap.animation_finished
+	await ap.animation_finished
 
 
 func fade_out() -> void:

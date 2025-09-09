@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cmvsdgs6ul6fm"]
+[gd_scene load_steps=19 format=4 uid="uid://cmvsdgs6ul6fm"]
 
 [ext_resource type="Script" uid="uid://b3nko0nf1yjk4" path="res://SF1/Chapters/1/Alterone/BottomHouse/bottom_house.gd" id="1_4poig"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_o6dg8"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dt8ickoxyafpn" path="res://SF1/Assets/Tilesets/9.png" id="6_c3b6a"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="7_ig4qw"]
 [ext_resource type="PackedScene" uid="uid://ddkr5q87xwgw4" path="res://General/Chest/Chest.tscn" id="8_4poig"]
+[ext_resource type="Resource" uid="uid://csvxes4ersrm" path="res://SF1/Items/Weapons/BronzeLance.tres" id="9_ugt7n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85gjp"]
 texture = ExtResource("2_o6dg8")
@@ -5208,9 +5209,11 @@ position = Vector2(276, 156)
 
 [node name="Chest2" parent="Interactables" instance=ExtResource("8_4poig")]
 position = Vector2(276, 180)
+gold = 70
 
 [node name="Chest3" parent="Interactables" instance=ExtResource("8_4poig")]
 position = Vector2(324, 180)
+item_resource = ExtResource("9_ugt7n")
 
 [node name="Chest4" parent="Interactables" instance=ExtResource("8_4poig")]
 position = Vector2(372, 228)

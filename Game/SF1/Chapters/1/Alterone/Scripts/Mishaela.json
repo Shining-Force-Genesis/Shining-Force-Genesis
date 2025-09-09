@@ -1,0 +1,26 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Misheala_Portraits.png"
+		},
+		
+		{
+			"Text": "Greetings,{main_character_name}. With my powers I can see the future. Care to know your fate?",
+			"InteractionPrompt": "YesOrNo"
+		},
+		
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapters/1/Alterone/Scripts/MishaelaYes.json"
+		},
+		
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapters/1/Alterone/Scripts/MishaelaNo.json"
+		},
+		
+		{
+			"HidePortrait": ""
+		}
+	]
+}

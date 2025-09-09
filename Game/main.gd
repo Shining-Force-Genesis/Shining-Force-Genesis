@@ -1,11 +1,10 @@
 extends Node2D
 
+@onready var cpn = $Node
 
 func _ready() -> void:
 	SceneManager.scene_node = $Scene
-	
-	
-	
+	SceneManager.cpn = cpn
 	#var n = get_node("Scene")
 	#for child in n.get_children():
 	#	child.queue_free()
@@ -14,14 +13,24 @@ func _ready() -> void:
 	
 	
 	# Singleton_CommonVariables.main_character_player_node.queue_free()
-	# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1)
+	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1)
 	# SceneManager.ChangeSceneNode(n)
 	
-	# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
+	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
 	# SceneManager.ChangeSceneNode(n)
 	
-	# var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
+	var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+	SceneManager.ChangeSceneNode(n)
+	
+	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
 	# SceneManager.ChangeSceneNode(n)
+	
+	#Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
+	#Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+	#Singleton_CommonVariables.main_character_player_node.hide()
+	#Singleton_CommonVariables.main_character_player_node.camera_current(false)
+	#var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle3)
+	#SceneManager.ChangeSceneNode(n)
 
 
 func _process(_delta: float) -> void:

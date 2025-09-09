@@ -1,5 +1,7 @@
 extends Node2D
 
+signal signal_cursor_move_completed
+
 var active: bool = false
 
 # TODO: really need to move these constants into global common vars
@@ -28,6 +30,14 @@ func set_active() -> void:
 	show()
 	active = true
 
+func set_inactive() -> void:
+	# actor_g_pos = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position
+	# position = actor_g_pos
+	
+	Singleton_CommonVariables.camera_node.follow_actor()
+	
+	hide()
+	active = false
 
 func _process(_delta) -> void:
 	if active:
@@ -46,9 +56,9 @@ func _process(_delta) -> void:
 		
 		if x_tile_move != 0 || y_tile_move != 0:
 			if Input.is_action_pressed("ui_left_shift"):
-				await move_to_new_position(Vector2(self.position.x + x_tile_move, self.position.y + y_tile_move), 0.075)
+				await move_to_new_position_internal(Vector2(self.position.x + x_tile_move, self.position.y + y_tile_move), 0.075)
 			else:
-				await move_to_new_position(Vector2(self.position.x + x_tile_move, self.position.y + y_tile_move), tile_move_time)
+				await move_to_new_position_internal(Vector2(self.position.x + x_tile_move, self.position.y + y_tile_move), tile_move_time)
 
 
 func cancel_cursor(): 
@@ -64,7 +74,7 @@ func cancel_cursor():
 	# TODO: create different movement speed choices
 	var tween_time = distance * 0.00125
 	
-	await move_to_new_position(actor_g_pos, tween_time)
+	await move_to_new_position_internal(actor_g_pos, tween_time)
 	await Signal(get_tree().create_timer(0.05), "timeout")
 	
 	active = false
@@ -102,6 +112,26 @@ func _input(_event: InputEvent) -> void:
 
 func move_to_new_position(new_pos: Vector2, t: float = cursor_move_speed_default, activate_at_end: bool = true) -> void:
 	show()
+	Singleton_CommonVariables.camera_node.follow_cursor()
+	
+	var distance = position.distance_to(new_pos)
+	# TODO: create different movement speed choices
+	var tween_time = distance * 0.0015
+	
+	movementTween = create_tween()
+	movementTween.tween_property(self, "position", new_pos, tween_time)
+	movementTween.set_trans(Tween.TRANS_LINEAR)
+	movementTween.set_ease(Tween.EASE_OUT)
+	active = false
+	await movementTween.finished
+	if activate_at_end:
+		active = true
+	
+	Singleton_CommonVariables.camera_node.follow_actor()
+	emit_signal("signal_cursor_move_completed")
+
+func move_to_new_position_internal(new_pos: Vector2, t: float = cursor_move_speed_default, activate_at_end: bool = true) -> void:
+	show()
 	movementTween = create_tween()
 	movementTween.tween_property(self, "position", new_pos, t)
 	movementTween.set_trans(Tween.TRANS_LINEAR)
@@ -110,3 +140,5 @@ func move_to_new_position(new_pos: Vector2, t: float = cursor_move_speed_default
 	await movementTween.finished
 	if activate_at_end:
 		active = true
+	
+	emit_signal("signal_cursor_move_completed")

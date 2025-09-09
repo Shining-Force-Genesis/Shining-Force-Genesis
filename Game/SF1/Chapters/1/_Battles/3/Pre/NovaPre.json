@@ -5,7 +5,7 @@
 		},
 		
 		{
-			"Text": "{main_character}! Enemies await you on the road to Alterone. Take all precautions!",
+			"Text": "{main_character_name}! Enemies await you on the road to Alterone. Take all precautions!",
 		}
 	]
 }

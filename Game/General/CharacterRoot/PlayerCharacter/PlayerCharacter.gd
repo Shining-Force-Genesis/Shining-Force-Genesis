@@ -26,6 +26,9 @@ var animation_speed = 5.5
 
 var rng = RandomNumberGenerator.new()
 
+var move_tilemap
+var use_move_tilemap: bool = false
+
 
 func _ready() -> void:
 	# TODO: do something smarter for this setup
@@ -145,26 +148,34 @@ func _process(_delta: float) -> void:
 				play_animation("RightMovement")
 				
 				if check_if_move_is_possible(Vector2(position.x + 24, position.y)):
+					# AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Step.wav")
 					update_land_effect_with_tile_at_pos(Vector2(position.x + 24, position.y))
 					attempt_to_move(Vector2(position.x + 24, position.y), e_directions.RIGHT)
+					
 			elif Input.is_action_pressed("ui_left"):
 				play_animation("LeftMovement")
 				
 				if check_if_move_is_possible(Vector2(position.x - 24, position.y)):
+					# AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Step.wav")
 					update_land_effect_with_tile_at_pos(Vector2(position.x - 24, position.y))
 					attempt_to_move(Vector2(position.x - 24, position.y), e_directions.LEFT)
+					
 			elif Input.is_action_pressed("ui_up"):
 				play_animation("UpMovement")
 				
 				if check_if_move_is_possible(Vector2(position.x, position.y - 24)):
+					# AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Step.wav")
 					update_land_effect_with_tile_at_pos(Vector2(position.x, position.y - 24))
 					attempt_to_move(Vector2(position.x, position.y - 24), e_directions.UP)
+					
 			elif Input.is_action_pressed("ui_down"):
 				play_animation("DownMovement")
 				
 				if check_if_move_is_possible(Vector2(position.x, position.y + 24)):
+					# AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Step.wav")
 					update_land_effect_with_tile_at_pos(Vector2(position.x, position.y + 24))
 					attempt_to_move(Vector2(position.x, position.y + 24), e_directions.DOWN)
+					
 		else:
 			if Input.is_action_pressed("ui_right"):
 				play_animation("RightMovement")
@@ -346,6 +357,12 @@ func attempt_to_move(new_position_target: Vector2, direction: e_directions) -> v
 	
 	if chracter_animation_player != null:
 		chracter_animation_player.speed_scale = 2
+	
+	if use_move_tilemap && move_tilemap:
+		var clicked_cell = move_tilemap.local_to_map(ray.target_position + ray.global_position)
+		var data = move_tilemap.get_cell_source_id(clicked_cell)
+		if data == 0:
+			return
 	
 	if !ray.is_colliding():
 		collision_shape_cell_block.position = collision_cell_blocker_positions[direction]

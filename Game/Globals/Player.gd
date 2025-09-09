@@ -5,7 +5,7 @@ var character: Node2D
 
 var move_tilemap: TileMapLayer
 
-func disable() -> void:
+func disable(kill_tween: bool = true) -> void:
 	if character:
 		character.set_process(false)
 		character.set_physics_process(false)
@@ -14,7 +14,7 @@ func disable() -> void:
 		# force tween to completion
 		# weird position happens without ensuring tween movement completed
 		# killing the tween or awaiting it isn't reliable 
-		if character.move_tween:
+		if kill_tween && character.move_tween:
 			character.move_tween.pause()
 			character.move_tween.custom_step(999)
 

@@ -19,6 +19,7 @@ func _ready() -> void:
 	
 	Singleton_CommonVariables.battle__movement_tiles_wrapper_node = $BattleLogic/MovementWrapper
 	
+	SceneManager.SceneFadeOut()
 	# TODO: check if first time play cutscene
 	
 	# TODO: add rotdd menu before start battle at this point

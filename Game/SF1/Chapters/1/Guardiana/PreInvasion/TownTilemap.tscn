@@ -3031,6 +3031,7 @@ script = ExtResource("9_r18dk")
 position = Vector2(-72, -528)
 collision_layer = 0
 collision_mask = 0
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCsForceJoin/Luke/AnimatableBody2D" index="3"]
 texture = ExtResource("28_7lvds")
@@ -3049,6 +3050,7 @@ script = ExtResource("9_r18dk")
 position = Vector2(-72, -528)
 collision_layer = 0
 collision_mask = 0
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCsForceJoin/Ken/AnimatableBody2D" index="3"]
 texture = ExtResource("29_f1o52")
@@ -3067,6 +3069,7 @@ script = ExtResource("9_r18dk")
 position = Vector2(-72, -528)
 collision_layer = 0
 collision_mask = 0
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCsForceJoin/Tao/AnimatableBody2D" index="3"]
 texture = ExtResource("30_uwa77")
@@ -3085,6 +3088,7 @@ script = ExtResource("9_r18dk")
 position = Vector2(-72, -528)
 collision_layer = 0
 collision_mask = 0
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCsForceJoin/Hans/AnimatableBody2D" index="3"]
 texture = ExtResource("31_tmdx5")
@@ -3103,6 +3107,7 @@ script = ExtResource("9_r18dk")
 position = Vector2(-72, -528)
 collision_layer = 0
 collision_mask = 0
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCsForceJoin/Lowe/AnimatableBody2D" index="3"]
 texture = ExtResource("32_fvwyb")
@@ -3142,6 +3147,7 @@ script = ExtResource("35_fvwyb")
 [node name="AnimatableBody2D" parent="NPCsGameStart/Lowe" index="0"]
 position = Vector2(-72, -528)
 FacingDirection = 2
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCsGameStart/Lowe/AnimatableBody2D" index="3"]
 texture = ExtResource("32_fvwyb")

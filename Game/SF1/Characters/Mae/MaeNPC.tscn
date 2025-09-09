@@ -1,19 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://gjjrnuw3m57u"]
+[gd_scene load_steps=4 format=3 uid="uid://2d4lles5ahae"]
 
-[ext_resource type="Script" uid="uid://d1vigovgr65b2" path="res://SF1/Characters/GenericHeadquartersNPC.gd" id="1_5guat"]
-[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="1_jw3ev"]
+[ext_resource type="Script" uid="uid://d1vigovgr65b2" path="res://SF1/Characters/GenericHeadquartersNPC.gd" id="1_rgsmx"]
+[ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="2_lsumt"]
 [ext_resource type="Texture2D" uid="uid://5qxw13ilj8h0" path="res://Characters/Mae/Assets/Unpromoted_Map_Sprites.png" id="3_y1k07"]
 
 [node name="MaeNPC" type="Node2D"]
-script = ExtResource("1_5guat")
+script = ExtResource("1_rgsmx")
 
-[node name="NPCRoot" parent="." instance=ExtResource("1_jw3ev")]
+[node name="NPCRoot" parent="." instance=ExtResource("2_lsumt")]
 
 [node name="AnimatableBody2D" parent="NPCRoot" index="0"]
 higher_order_npc = true
+use_8_standard_animation = true
 
-[node name="Sprite2D" parent="NPCRoot/AnimatableBody2D" index="2"]
+[node name="Sprite2D" parent="NPCRoot/AnimatableBody2D" index="3"]
 texture = ExtResource("3_y1k07")
-hframes = 6
 
 [editable path="NPCRoot"]

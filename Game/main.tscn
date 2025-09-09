@@ -139,17 +139,12 @@ position = Vector2(280, 200)
 scale = Vector2(1, 1)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_lquwl")]
-visible = false
 
 [node name="Node" type="Node" parent="."]
 
 [node name="Character" parent="Node" instance=ExtResource("17_074og")]
 z_index = 1
 position = Vector2(252, 420)
-
-[node name="Camera2D" type="Camera2D" parent="Node/Character"]
-position = Vector2(0, -1)
-zoom = Vector2(1.5, 1.5)
 
 [node name="Scene" type="Node" parent="."]
 

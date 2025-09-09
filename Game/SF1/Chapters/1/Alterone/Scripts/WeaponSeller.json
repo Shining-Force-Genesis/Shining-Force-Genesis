@@ -1,0 +1,11 @@
+{
+	"script": [
+		{
+			"Text": "You need weapons, and I've got the best in town. Step right up!"
+		},
+		
+		{
+			"ShowMenu": "ShopMenu"
+		}
+	]
+}

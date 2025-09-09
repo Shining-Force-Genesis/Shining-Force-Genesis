@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://cdp7un44rnmon"]
+[gd_scene load_steps=20 format=4 uid="uid://cdp7un44rnmon"]
 
 [ext_resource type="Script" uid="uid://baw3kqnq0mein" path="res://SF1/Chapters/1/Alterone/TopHouse/top_house.gd" id="1_8hcf5"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_ikm2p"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://dt8ickoxyafpn" path="res://SF1/Assets/Tilesets/9.png" id="6_knr41"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="7_w111w"]
 [ext_resource type="PackedScene" uid="uid://ddkr5q87xwgw4" path="res://General/Chest/Chest.tscn" id="8_04pin"]
+[ext_resource type="Resource" uid="uid://bmmv68np23pvb" path="res://SF1/Items/Weapons/ShortSword.tres" id="9_hw32x"]
+[ext_resource type="Resource" uid="uid://ctu2kx35ve7cv" path="res://SF1/Items/Usables/HealingSeed.tres" id="10_erye1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8hcf5"]
 texture = ExtResource("2_ikm2p")
@@ -5208,12 +5210,11 @@ position = Vector2(276, 156)
 
 [node name="Chest2" parent="Interactables" instance=ExtResource("8_04pin")]
 position = Vector2(276, 180)
-
-[node name="Chest3" parent="Interactables" instance=ExtResource("8_04pin")]
-position = Vector2(324, 180)
+item_resource = ExtResource("9_hw32x")
 
 [node name="Chest4" parent="Interactables" instance=ExtResource("8_04pin")]
 position = Vector2(372, 228)
+item_resource = ExtResource("10_erye1")
 
 [node name="Chest5" parent="Interactables" instance=ExtResource("8_04pin")]
 position = Vector2(276, 204)

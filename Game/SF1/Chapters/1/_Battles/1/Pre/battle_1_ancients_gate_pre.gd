@@ -7,6 +7,8 @@ extends Node
 
 signal battle_ended_cutscene
 
+var is_battle_done: bool = false
+
 func _ready() -> void:
 	# TODO rename this singleton to globals and then divide overworld battle and other into sub scripts with classnames
 	# for better intellisense
@@ -21,6 +23,7 @@ func _ready() -> void:
 	
 	Singleton_CommonVariables.battle__movement_tiles_wrapper_node = $BattleLogic/MovementWrapper
 	
+	SceneManager.SceneFadeOut()
 	# TODO: check if first time play cutscene
 	
 	# TODO: add rotdd menu before start battle at this point
@@ -44,7 +47,12 @@ func _ready() -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print(area)
+	print(area,  Singleton_CommonVariables.battle__currently_active_actor.name)
+	
+	# TODO: need to eventually pull the leader var from the actors 
+	if Singleton_CommonVariables.battle__currently_active_actor.name != "Max":
+		return
+	
 	# for c in Singleton_CommonVariables.sf_game_data_node.ForceMembers:
 	# if c.leader:
 	print("here")
@@ -81,15 +89,16 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			Singleton_CommonVariables.ui__magic_menu.hide()
 			
 			Singleton_CommonVariables.is_currently_in_battle_scene = false
-			# Singleton_CommonVariables.main_character_player_node.queue_free()
+			# Singleton_CommonVariables.main_character_player_node.disabled_main_character()
 			Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
 			Singleton_CommonVariables.ui__battle_action_menu.is_menu_active = false
 			Singleton_CommonVariables.ui__battle_action_menu.hide_cust()
 			
 			Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
 			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+			await SceneManager.SceneFadeIn()
 			
-			var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
+			var n = SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
 			SceneManager.ChangeSceneNode(n)
 			
 			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
@@ -108,7 +117,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		Singleton_CommonVariables.ui__magic_menu.hide()
 		
 		Singleton_CommonVariables.is_currently_in_battle_scene = false
-		# Singleton_CommonVariables.main_character_player_node.queue_free()
+		# Singleton_CommonVariables.main_character_player_node.disabled_main_character()
 		Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
 		Singleton_CommonVariables.ui__battle_action_menu.is_menu_active = false
 		Singleton_CommonVariables.ui__battle_action_menu.hide_cust()
@@ -118,7 +127,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 		Singleton_CommonVariables.interaction_yes_or_no_selection = null
 		
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle2)
+		await SceneManager.SceneFadeIn()
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle2)
 		SceneManager.ChangeSceneNode(n)
 		
 		# Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
@@ -227,16 +237,56 @@ func PostCutsceneStartBattle():
 	Singleton_CommonVariables.battle__logic_node.turn_logic_node.generate_and_launch_new_turn_order()
 
 func end_battle() -> void:
-	EndBattleCutscene()
+	# Singleton_CommonVariables.camera_node.is_following_cursor = false
+	is_battle_done = true
+	
+	Singleton_CommonVariables.battle__cursor_node.set_inactive()
 	
 	Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete = true
 	
 	Singleton_CommonVariables.is_currently_in_battle_scene = false
+	Singleton_CommonVariables.battle__movement_tiles_wrapper_node.hide()
+	Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+	
+	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+	
+	$BattleLogic/TurnLogic.queue_free()
+	$BattleLogic/MovementLogic.queue_free()
+	
+	var enemies_c = $Enemies.get_children()
+	for enemey in enemies_c:
+		enemey.get_child(0).set_active_processing(false)
+		enemey.end_turn()
+	
+	var characters_c = $Characters.get_children()
+	for character in characters_c:
+		character.get_child(0).set_active_processing(false)
+		character.end_turn()
+	
+	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+	Singleton_CommonVariables.battle__cursor_node.cancel_cursor()
+	Singleton_CommonVariables.battle__cursor_node.set_inactive()
+	await EndBattleCutscene()
+	emit_signal("battle_ended_cutscene")
+	Singleton_CommonVariables.battle__cursor_node.cancel_cursor()
+	Singleton_CommonVariables.battle__cursor_node.set_inactive()
+	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+	Singleton_CommonVariables.battle__currently_active_actor.end_turn()
+	
+	for character in characters_c:
+		character.get_child(0).set_active_processing(false)
+		character.end_turn()
+		
+		if character.name == "Max":
+			Singleton_CommonVariables.battle__currently_active_actor = character
+			character.get_child(0).set_active_processing(true)
+			character.get_child(0).use_move_tilemap = true
+			character.get_child(0).move_tilemap = $Map/MoveTileMapLayer
+	
+	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
 	
 	# Update Egress to Gong's Cabin area
 	Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.GongCabin
-	
-	emit_signal("battle_ended_cutscene")
 
 func EndBattleCutscene() -> void:
 	Singleton_CommonVariables.dialogue_box_is_currently_active = true
@@ -287,10 +337,6 @@ func start_battle() -> void:
 		e.get_child(0).position = e_pos
 	
 	fill_turn_order_array_with_all_actors()
-	
-	# Singleton_CommonVariables.battle__logic_node.turn_logic_node.generate_actor_order_for_current_turn()
-	
-	## # Singleton_CommonVariables.battle__logic_node.turn_logic_node.generate_and_launch_new_turn_order()
 	
 	# TODO: create turn order
 

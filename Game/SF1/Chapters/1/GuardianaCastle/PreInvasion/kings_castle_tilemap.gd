@@ -15,6 +15,8 @@ var marker_throne = "Throne"
 
 
 func _ready() -> void:
+	Player.character.enable_main_character()
+	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
 	Player.character.camera.limit_right = $CameraLimitsInfo.get_child(0).position.x
 	Player.character.camera.limit_bottom = $CameraLimitsInfo.get_child(0).position.y
@@ -53,6 +55,10 @@ func _ready() -> void:
 	if SceneManager.changing_scene:
 		SceneManager.SceneFadeOut()
 		Player.enable()
+	else:
+		if Singleton_CommonVariables.main_character_player_node.get("cbody") != null:
+			Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).disabled = false
+		Player.enable()
 
 
 ### Navigation
@@ -60,7 +66,11 @@ func _ready() -> void:
 
 func _on_town_entrance_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
+		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
+		Player.disable(false)
+		await SceneManager.SceneFadeIn()
+		
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
 		n.marker = n.marker_castle
 		SceneManager.ChangeSceneNode(n)
 		
@@ -76,26 +86,42 @@ func _on_town_entrance_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_hq_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.HQ)
+		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
+		Player.disable(false)
+		await SceneManager.SceneFadeIn()
+		
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.HQ)
 		n.marker = n.marker_entrance
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_treasure_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleTreasureRoom)
+		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
+		Player.disable(false)
+		await SceneManager.SceneFadeIn()
+		
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleTreasureRoom)
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_tower_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleTowerEntrance)
+		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
+		Player.disable(false)
+		await SceneManager.SceneFadeIn()
+		
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleTowerEntrance)
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_throne_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleAboveThroneRoom)
+		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
+		Player.disable(false)
+		await SceneManager.SceneFadeIn()
+		
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleAboveThroneRoom)
 		SceneManager.ChangeSceneNode(n)
 
 

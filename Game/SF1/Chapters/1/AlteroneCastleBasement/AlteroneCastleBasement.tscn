@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://brid65bkie041"]
+[gd_scene load_steps=38 format=4 uid="uid://brid65bkie041"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="1_5gkn0"]
 [ext_resource type="Script" uid="uid://cns2wkp3qvp6g" path="res://SF1/Chapters/1/AlteroneCastleBasement/alterone_castle_basement.gd" id="1_78hvb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dt8ickoxyafpn" path="res://SF1/Assets/Tilesets/9.png" id="5_cjdg0"]
 [ext_resource type="Texture2D" uid="uid://cspxa7w6tlcyx" path="res://SF1/Assets/CustomTileOverworldInformation.png" id="6_llf2l"]
 [ext_resource type="PackedScene" uid="uid://itpvlgqdm3kt" path="res://General/NPC/NPC.tscn" id="7_ofxda"]
+[ext_resource type="PackedScene" uid="uid://dji1st2fd8pam" path="res://General/Door/door.tscn" id="8_08xca"]
 [ext_resource type="Script" uid="uid://ce0ial7hyb0p" path="res://SF1/NPCs/GenericOneDialogueNPC.gd" id="8_ejut4"]
 [ext_resource type="Texture2D" uid="uid://gxchxmc0f6ym" path="res://Assets/EnemiesAndBosses/Kane/Map_Sprites.png" id="9_j4pbg"]
 [ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="10_oeo7m"]
@@ -10480,6 +10481,9 @@ shape = SubResource("RectangleShape2D_08xca")
 metadata/_edit_lock_ = true
 
 [node name="Interactables" type="Node" parent="."]
+
+[node name="Door" parent="Interactables" instance=ExtResource("8_08xca")]
+position = Vector2(623, 192)
 
 [node name="CameraLimitsInfo" type="Node" parent="."]
 

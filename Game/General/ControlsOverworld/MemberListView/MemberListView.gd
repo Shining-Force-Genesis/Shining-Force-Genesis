@@ -362,6 +362,7 @@ func DisplayNewlySelectedCharacterInfo(force_member) -> void:
 
 func DisplayItemsFullInfo(force_member) -> void:
 	var c = force_member
+	print(c)
 	CleanDisplayItemsFullInfoForNextDisplay()
 	
 	# itemsViewControlNode
@@ -369,7 +370,11 @@ func DisplayItemsFullInfo(force_member) -> void:
 	var i = 0
 	for item in c.inventory:
 		var irl = load(item.resource)
+		#if irl == null:
+		#	continue
+		
 		print(irl)
+		print(irl.item_name)
 		itemsView_itemIconsControlNode.get_child(i).texture = irl.texture
 		
 		itemsView_itemNameAndEquippedControlNode.get_child(i).get_child(1).text = irl.item_name

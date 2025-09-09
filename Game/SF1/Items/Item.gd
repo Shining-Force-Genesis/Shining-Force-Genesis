@@ -2,7 +2,14 @@ extends Resource
 # NOTE: Base Class for all other SF1 items
 class_name CN_SF1_Item
 
-@export_enum("USABLE", "ARMOR", "WEAPON", "RING", "USABLE_STAT_BUFF") var item_type: String
+@export_enum(
+	"USABLE", 
+	"ARMOR", 
+	"WEAPON", 
+	"RING", 
+	"USABLE_STAT_BUFF"
+	# , "fix status ailments"
+) var item_type: String
 
 @export var item_name: String
 

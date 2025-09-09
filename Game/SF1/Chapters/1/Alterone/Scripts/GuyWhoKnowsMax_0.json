@@ -1,0 +1,18 @@
+{
+	"script": [
+		{
+			"Text": "You must be {main_character_name}, right?",
+			"InteractionPrompt": "YesOrNo"
+		},
+		
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapters/1/Alterone/Scripts/GuyWhoKnowsMax_Yes_0.json"
+		},
+		
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapters/1/Alterone/Scripts/GuyWhoKnowsMax_No_0.json"
+		}
+	]
+}

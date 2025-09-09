@@ -1,0 +1,15 @@
+{
+	"script": [
+		{
+			"ShowPortrait": "res://Assets/NPC/Misheala_Portraits.png"
+		},
+		
+		{
+			"Text": "Death lies to the north. Go back to Guardiana, for your doom awaits if you continue."
+		},
+		
+		{
+			"HidePortrait": ""
+		}
+	]
+}

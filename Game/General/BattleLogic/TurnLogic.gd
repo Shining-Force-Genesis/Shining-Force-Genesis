@@ -40,12 +40,16 @@ func generate_actor_order_for_current_turn():
 
 
 func generate_and_launch_new_turn_order():
+	if get_parent().get_parent().is_battle_done:
+		return
+	
 	generate_actor_order_for_current_turn()
 	
 	# print(turn_order_array)
 	
 	for actor in Singleton_CommonVariables.battle__turn_order_array:
 		print("\n", actor)
+		
 		
 		# astar_node.clear()
 		
@@ -59,10 +63,18 @@ func generate_and_launch_new_turn_order():
 		print(actor.type, " Turn Start")
 		Singleton_CommonVariables.battle__currently_active_actor = actor.node
 		
+		if get_parent().get_parent().is_battle_done:
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+			Singleton_CommonVariables.battle__cursor_node.set_inactive()
+			return
+		
 		# camera.smooth_move_to_new_position(a.node.get_node("EnemeyRoot/KinematicBody2D"))
 		# await cursor_move_to_next_actor(a.node, previous_actor_pos)
+		Singleton_CommonVariables.battle__cursor_node.move_to_new_position(actor.node.get_child(0).global_position, 0.5)
+		await Signal(Singleton_CommonVariables.battle__cursor_node, "signal_cursor_move_completed")
 		## await Signal(camera, "signal_camera_move_complete")
 		# cursor_root.hide()
+		Singleton_CommonVariables.battle__cursor_node.set_inactive()
 		
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(true)
 		
@@ -94,6 +106,7 @@ func generate_and_launch_new_turn_order():
 		
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).z_index = 1
 		await Signal(Singleton_CommonVariables.battle__currently_active_actor, "signal_completed_turn")
+		Singleton_CommonVariables.battle__cursor_node.position = actor.node.get_child(0).global_position
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).z_index = 0
 		
 		print(actor.type, " Turn End")
@@ -101,6 +114,10 @@ func generate_and_launch_new_turn_order():
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
 		
 		play_death_animation_for_all_defeated_actors()
+		if get_parent().get_parent().is_battle_done:
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+			Singleton_CommonVariables.battle__cursor_node.set_inactive()
+			return
 		
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).play_facing_direction("Down")
 		
@@ -143,22 +160,38 @@ func generate_and_launch_new_turn_order():
 	
 #	print("\n\n\nTurn " + str(turn_number) + " Completed\n\n\n")
 	Singleton_CommonVariables.battle__turn_number += 1
+	
+	if get_parent().get_parent().is_battle_done:
+		return
+	
 	generate_and_launch_new_turn_order()
 
 
 func play_death_animation_for_all_defeated_actors() -> void:
-	for b_idx in Singleton_CommonVariables.battle__turn_order_array.size():
-		if Singleton_CommonVariables.battle__turn_order_array[b_idx].alive == false:
+	var enemies_left: bool = false
+	for actor in Singleton_CommonVariables.battle__turn_order_array:
+		if actor.type == "enemey":
+			if actor.alive:
+				enemies_left = true
+				break
+	
+	if !enemies_left:
+		get_parent().get_parent().end_battle();
+		await get_parent().get_parent().battle_ended_cutscene
+		return
+	
+	for actor in Singleton_CommonVariables.battle__turn_order_array:
+		if actor.alive == false:
 			
-			if Singleton_CommonVariables.battle__turn_order_array[b_idx].type != "character":
-				if Singleton_CommonVariables.battle__turn_order_array[b_idx].node.enemey_leader:
+			if actor.type != "character":
+				if is_instance_valid(actor.node) && actor.node.enemey_leader:
 					get_parent().get_parent().end_battle();
 					await get_parent().get_parent().battle_ended_cutscene
 			
 			# play death animations then delete them when complete
 			
-			if Singleton_CommonVariables.battle__turn_order_array[b_idx].id != null:
-				Singleton_CommonVariables.battle__turn_order_array[b_idx].node.queue_free()
-				Singleton_CommonVariables.battle__turn_order_array[b_idx].id = null
+			if actor.id != null:
+				actor.node.queue_free()
+				actor.id = null
 			
 			# Singleton_CommonVariables.battle__turn_order_array.remove_at(b_idx)
