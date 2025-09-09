@@ -40,6 +40,8 @@ func _ready() -> void:
 	# Singleton_CommonVariables.is_currently_in_battle_scene = true
 	start_battle()
 	
+	AudioManager.play_music_n("res://Assets/Music/SF1/Battle 2 (Standard).mp3")
+	
 	if !Singleton_CommonVariables.sf_game_data_node.c1.battle_3_opening_cutscene:
 		StartCutscene()
 	else: 
@@ -125,6 +127,8 @@ func end_battle() -> void:
 			character.get_child(0).move_tilemap = $Map/MoveTileMapLayer
 	
 	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+	
+	Singleton_CommonVariables.sf_game_data_node.reset_currents_for_all_characters()
 	
 	# Update Egress to Gong's Cabin area
 	# Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.GongCabin

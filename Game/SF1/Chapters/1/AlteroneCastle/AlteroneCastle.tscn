@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://dlnoi8vjrcode"]
+[gd_scene load_steps=46 format=4 uid="uid://dlnoi8vjrcode"]
 
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="1_6gv7k"]
 [ext_resource type="Script" uid="uid://bhjylpac7qk30" path="res://SF1/Chapters/1/AlteroneCastle/alterone_castle.gd" id="1_7gorg"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://2onimr2a26vs" path="res://Assets/NPC/Woman_Purplette.png" id="14_4npua"]
 [ext_resource type="Texture2D" uid="uid://dbqc7w2bdmbst" path="res://Assets/NPC/Man_Merchant_Blue.png" id="16_520r6"]
 [ext_resource type="Texture2D" uid="uid://cfux04qshveoj" path="res://Assets/NPC/Soldier.png" id="17_7gorg"]
+[ext_resource type="Script" uid="uid://c41uk1mqitpa8" path="res://SF1/Chapters/1/AlteroneCastle/King.gd" id="17_txkvv"]
 [ext_resource type="Texture2D" uid="uid://nfarcoc5u48t" path="res://Assets/NPC/Adviser.png" id="18_yeob8"]
 [ext_resource type="PackedScene" uid="uid://ddkr5q87xwgw4" path="res://General/Chest/Chest.tscn" id="19_gw7i7"]
 [ext_resource type="Texture2D" uid="uid://crk5refjaoje8" path="res://Assets/NPC/Woman_Blonde_GreenDress.png" id="23_uqyia"]
@@ -10335,7 +10336,7 @@ size = Vector2(62, 16)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ns3b3"]
 size = Vector2(16, 16)
 
-[sub_resource type="Animation" id="Animation_8cicr"]
+[sub_resource type="Animation" id="Animation_cjdg0"]
 resource_name = "Down"
 loop_mode = 1
 tracks/0/type = "value"
@@ -10351,7 +10352,7 @@ tracks/0/keys = {
 "values": [1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_wy8xx"]
+[sub_resource type="Animation" id="Animation_llf2l"]
 resource_name = "Left"
 loop_mode = 1
 tracks/0/type = "value"
@@ -10367,7 +10368,7 @@ tracks/0/keys = {
 "values": [2, 3]
 }
 
-[sub_resource type="Animation" id="Animation_8tc18"]
+[sub_resource type="Animation" id="Animation_ofxda"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -10382,7 +10383,7 @@ tracks/0/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_r18dk"]
+[sub_resource type="Animation" id="Animation_ejut4"]
 resource_name = "Up"
 loop_mode = 1
 tracks/0/type = "value"
@@ -10398,12 +10399,12 @@ tracks/0/keys = {
 "values": [4, 5]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wy8xx"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j4pbg"]
 _data = {
-&"Down": SubResource("Animation_8cicr"),
-&"Left": SubResource("Animation_wy8xx"),
-&"RESET": SubResource("Animation_8tc18"),
-&"Up": SubResource("Animation_r18dk")
+&"Down": SubResource("Animation_cjdg0"),
+&"Left": SubResource("Animation_llf2l"),
+&"RESET": SubResource("Animation_ofxda"),
+&"Up": SubResource("Animation_ejut4")
 }
 
 [node name="AlteroneOverpassLayerTilemap" type="Node2D"]
@@ -10537,7 +10538,7 @@ position = Vector2(888, 816)
 [node name="Khris" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(480, 408)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/WomanRedHeadChurch.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/Khris.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Khris" index="0"]
 use_8_standard_animation = true
@@ -10548,13 +10549,12 @@ texture = ExtResource("10_m7dyj")
 [node name="AnimationPlayer" parent="NPCS/Khris/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="King" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(432, 216)
-script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAtTheChurch.json"
+script = ExtResource("17_txkvv")
 
 [node name="AnimatableBody2D" parent="NPCS/King" index="0"]
 use_mirror_animation = true
@@ -10566,7 +10566,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/King/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/King" index="1"]
@@ -10576,7 +10576,7 @@ tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAAA=")
 [node name="KnightLeft" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(312, 312)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/BarOwner.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/Knight1.json"
 
 [node name="AnimatableBody2D" parent="NPCS/KnightLeft" index="0"]
 stationary = false
@@ -10589,7 +10589,7 @@ texture = ExtResource("12_4npua")
 [node name="AnimationPlayer" parent="NPCS/KnightLeft/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/KnightLeft" index="1"]
@@ -10599,7 +10599,7 @@ tile_map_data = PackedByteArray("AAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAA
 [node name="KnightRight" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(552, 312)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GirlsFather.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/Knight2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/KnightRight" index="0"]
 stationary = false
@@ -10612,7 +10612,7 @@ texture = ExtResource("12_4npua")
 [node name="AnimationPlayer" parent="NPCS/KnightRight/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/KnightRight" index="1"]
@@ -10622,7 +10622,7 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wAAAAAAAAAAAAD+/wAAAAAAAAA
 [node name="GuardPath" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(624, 288)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GortsFirstGrandDaughter.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/GuardDoor.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardPath" index="0"]
 use_mirror_animation = true
@@ -10634,7 +10634,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardPath/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardPath" index="1"]
@@ -10644,7 +10644,7 @@ tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAA
 [node name="GuardPath2" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(576, 648)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GortsFirstGrandDaughter.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/GuardWater.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardPath2" index="0"]
 use_mirror_animation = true
@@ -10656,7 +10656,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardPath2/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardPath2" index="1"]
@@ -10666,7 +10666,7 @@ tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAA
 [node name="WomanPurple" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(312, 576)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAroundTown.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/KhrisRelative.json"
 
 [node name="AnimatableBody2D" parent="NPCS/WomanPurple" index="0"]
 use_mirror_animation = true
@@ -10678,7 +10678,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/WomanPurple/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/WomanPurple" index="1"]
@@ -10688,7 +10688,7 @@ tile_map_data = PackedByteArray("AAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAA
 [node name="WomanGreenDress" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(360, 528)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/WomanGreenDress.json"
 
 [node name="AnimatableBody2D" parent="NPCS/WomanGreenDress" index="0"]
 FacingDirection = 2
@@ -10701,7 +10701,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/WomanGreenDress/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/WomanGreenDress" index="1"]
@@ -10711,7 +10711,7 @@ tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 [node name="GuardTableRight" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(624, 456)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAroundTown.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/GuardBar1.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardTableRight" index="0"]
 FacingDirection = 2
@@ -10724,7 +10724,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardTableRight/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardTableRight" index="1"]
@@ -10734,7 +10734,7 @@ tile_map_data = PackedByteArray("AAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAA
 [node name="GuardBarLeft" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(576, 432)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/OldManAroundTown.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/GuardBar2.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardBarLeft" index="0"]
 use_mirror_animation = true
@@ -10746,7 +10746,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardBarLeft/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardBarLeft" index="1"]
@@ -10756,7 +10756,7 @@ tile_map_data = PackedByteArray("AAD+//v/AAAAAAAAAAD+//r/AAAAAAAAAAD///r/AAAAAAA
 [node name="GuardBarUp" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(624, 408)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/GortsFirstGrandDaughter.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/GuardBar3.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardBarUp" index="0"]
 FacingDirection = 1
@@ -10769,7 +10769,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardBarUp/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardBarUp" index="1"]
@@ -10779,7 +10779,7 @@ tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAADAP7/AAAAAAAAAAACAP7/AAAAAAA
 [node name="Advisior" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(480, 240)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/Minister.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Advisior" index="0"]
 use_mirror_animation = true
@@ -10791,7 +10791,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/Advisior/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/Advisior" index="1"]
@@ -10801,7 +10801,7 @@ tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 [node name="GuardEntranceMain" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(432, 648)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/Guard2Entrance.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardEntranceMain" index="0"]
 use_mirror_animation = true
@@ -10813,7 +10813,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardEntranceMain/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardEntranceMain" index="1"]
@@ -10823,7 +10823,7 @@ tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 [node name="GuardEntranceLeft" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(408, 672)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/Guard1Entrance.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardEntranceLeft" index="0"]
 use_mirror_animation = true
@@ -10835,7 +10835,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardEntranceLeft/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardEntranceLeft" index="1"]
@@ -10845,7 +10845,7 @@ tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 [node name="GuardEntranceRight" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(456, 672)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/ManInTownTrolley.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/Guard3Entrance.json"
 
 [node name="AnimatableBody2D" parent="NPCS/GuardEntranceRight" index="0"]
 use_mirror_animation = true
@@ -10857,7 +10857,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/GuardEntranceRight/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/GuardEntranceRight" index="1"]
@@ -10867,7 +10867,7 @@ tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 [node name="Bartender2" parent="NPCS" instance=ExtResource("8_qs6fh")]
 position = Vector2(600, 360)
 script = ExtResource("9_vbhlu")
-DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/BarOwner.json"
+DefaultScript = "res://SF1/Chapters/1/AlteroneCastle/Scripts/BarOwner.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Bartender2" index="0"]
 use_mirror_animation = true
@@ -10882,7 +10882,7 @@ hframes = 6
 [node name="AnimationPlayer" parent="NPCS/Bartender2/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
 libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
+&"": SubResource("AnimationLibrary_j4pbg")
 }
 
 [node name="TileMapLayer" parent="NPCS/Bartender2" index="1"]

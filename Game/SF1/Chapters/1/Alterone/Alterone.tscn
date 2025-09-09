@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://brbr3my3ggct3"]
+[gd_scene load_steps=49 format=4 uid="uid://brbr3my3ggct3"]
 
 [ext_resource type="Script" uid="uid://di1xhh6q0anf4" path="res://SF1/Chapters/1/Alterone/alterone_overpass_layer_tilemap.gd" id="1_d3feq"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_ct8dq"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://crk5refjaoje8" path="res://Assets/NPC/Woman_Blonde_GreenDress.png" id="23_yf2hy"]
 [ext_resource type="Texture2D" uid="uid://l6s2g6ux0uq7" path="res://Assets/EnemiesAndBosses/Mishaela/Map_Sprites.png" id="24_83kb4"]
 [ext_resource type="Texture2D" uid="uid://ckeldykjc6y0f" path="res://Assets/NPC/Woman_Old.png" id="25_yf2hy"]
+[ext_resource type="Script" uid="uid://byn4lq4s41ax" path="res://SF1/Chapters/1/Alterone/ImportantMan.gd" id="29_iavpm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85gjp"]
 texture = ExtResource("2_ct8dq")
@@ -5940,8 +5941,7 @@ tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAABAP7/AAAAAAAAAAA=")
 
 [node name="ImportantMan" parent="NPCS" instance=ExtResource("8_igtbx")]
 position = Vector2(816, 720)
-script = ExtResource("9_83kb4")
-DefaultScript = "res://SF1/Chapters/1/Alterone/Scripts/GuyWhoKnowsMax_0.json"
+script = ExtResource("29_iavpm")
 
 [node name="AnimatableBody2D" parent="NPCS/ImportantMan" index="0"]
 use_mirror_animation = true

@@ -14,6 +14,8 @@ var marker_gort_basement = "Gort Basement"
 var marker_priest = "Priest"
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/After City Destruction.mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -48,6 +50,10 @@ func _ready() -> void:
 		if Singleton_CommonVariables.main_character_player_node.get("cbody") != null:
 			Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).disabled = false
 		Player.enable()
+		
+	var fm_idx = Singleton_CommonVariables.sf_game_data_node.E_SF1_FM.GORT
+	if Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked:
+		$NPCS/Gort.queue_free()
 
 
 ### Navigation

@@ -11,11 +11,16 @@ var marker_secret_path = "SecretPath"
 
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/Castle (Guardiana and Others).mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
 	Player.character.camera.limit_right = $CameraLimitsInfo.get_child(0).position.x
 	Player.character.camera.limit_bottom = $CameraLimitsInfo.get_child(0).position.y
+	
+	if Singleton_CommonVariables.sf_game_data_node.c1.searched_alterone_jail_bars:
+		$Map/SecretCovered.hide()
 	
 	# Player.character.camera.limit_left = 0
 	# Player.character.camera.limit_top = 0
@@ -43,12 +48,14 @@ func _ready() -> void:
 	
 	# enable player
 	if SceneManager.changing_scene:
-		SceneManager.SceneFadeOut()
+		await SceneManager.SceneFadeOut()
 		Player.enable()
+		Player.character.enable_main_character()
 	else:
 		if Singleton_CommonVariables.main_character_player_node.get("cbody") != null:
 			Singleton_CommonVariables.main_character_player_node.cbody.get_child(0).disabled = false
 		Player.enable()
+		Player.character.enable_main_character()
 
 
 ### Navigation
@@ -59,7 +66,7 @@ func _on_right_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
 		n.marker = n.marker_top_right
 		SceneManager.ChangeSceneNode(n)
 
@@ -69,7 +76,7 @@ func _on_top_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
 		n.marker = n.marker_bottom_right
 		SceneManager.ChangeSceneNode(n)
 
@@ -79,15 +86,16 @@ func _on_left_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
 		n.marker = n.marker_left
 		SceneManager.ChangeSceneNode(n)
 
 func _on_secret_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
-		Player.disable(false)
-		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneSecretPath)
-		n.marker = n.market_castle
-		SceneManager.ChangeSceneNode(n)
+		if Singleton_CommonVariables.sf_game_data_node.c1.searched_alterone_jail_bars:
+			AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
+			Player.disable(false)
+			await SceneManager.SceneFadeIn()
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneSecretPath)
+			n.marker = n.market_castle
+			SceneManager.ChangeSceneNode(n)

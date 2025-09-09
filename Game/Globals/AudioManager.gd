@@ -28,29 +28,29 @@ func _ready():
 	#AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_soundeffects), true)
 	#AudioServer.set_bus_mute(AudioServer.get_bus_index(bus_music), true)
 	#AudioServer.set_bus_mute(AudioServer.get_bus_index(bus), true)
-
+	
 # Re-enable this for dialgoue sound-effects P1
 #	dialoguePlayer = AudioStreamPlayer.new() 
 #	dialoguePlayer.connect("finished", self, "_dialogue_on_sfx_finished", [dialoguePlayer])
 #	dialoguePlayer.stream = load("res://Assets/SF2/Sounds/SFX/sfx_Dialogue_03.wav")
 #	dialoguePlayer.bus = bus_dialogue_sfx
 #	add_child(dialoguePlayer)
-
+	
 	for i in num_players_music:
 		var p = AudioStreamPlayer.new()
 		add_child(p)
 		available_music_p.append(p)
 		p.connect("finished", Callable(self, "_music_on_stream_finished").bind(p))
 		p.bus = bus_music
-
+	
 	for i in num_players_alt_music:
 		var p = AudioStreamPlayer.new()
-
+	
 		p.connect("finished", Callable(self, "_music_on_stream_finished").bind(p))
 		p.bus = bus_alt_music
 		add_child(p)
 		available_alt_music_p.append(p)
-
+	
 	for i in num_players_sound_effects:
 		var p = AudioStreamPlayer.new()
 		add_child(p)
@@ -133,24 +133,26 @@ func stop_alt_music_n() -> void:
 
 
 func get_runtime_audio_file_data_for_stream(audio_file: String):
-	var file = FileAccess.open(audio_file, FileAccess.READ)
-	if file:
-		var stream
-		# file.open(audio_file, file.READ)
-		var buffer = file.get_buffer(file.get_length())
-		stream = AudioStreamMP3.new()
-
-		# IMPORTANT: NOTE:
-		# Wav file support needs to be tested if wav files are ever loaded dynamically at runtime
-		# stream = AudioStreamSample.new()
-		# stream.format = AudioStreamSample.FORMAT_16_BITS
-		# stream.stereo = true
-
-		stream.data = buffer
-		file.close()
-		return stream
-	else:
-		return null
+	return load(audio_file)
+	
+	#var file = FileAccess.open(audio_file, FileAccess.READ)
+	#if file:
+		#var stream
+		## file.open(audio_file, file.READ)
+		#var buffer = file.get_buffer(file.get_length())
+		#stream = AudioStreamMP3.new()
+#
+		## IMPORTANT: NOTE:
+		## Wav file support needs to be tested if wav files are ever loaded dynamically at runtime
+		## stream = AudioStreamSample.new()
+		## stream.format = AudioStreamSample.FORMAT_16_BITS
+		## stream.stereo = true
+#
+		#stream.data = buffer
+		#file.close()
+		#return stream
+	#else:
+		#return null
 
 
 # When sfx files are fixed and post processed probably should use dynamic import as well

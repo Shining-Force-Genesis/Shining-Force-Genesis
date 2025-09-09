@@ -278,7 +278,11 @@ func interaction_attempt_to_talk(play_default_msg: bool = false) -> void:
 			ray_interactables.remove_exception(obj)
 		
 		if play_default_msg:
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
 			Singleton_CommonVariables.dialogue_box_node.play_message("No one is in that direction.")
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 			pass
 		# print("End\n")
 
@@ -296,7 +300,11 @@ func interaction_attempt_to_search(play_default_msg: bool = false) -> void:
 			return
 		
 		if play_default_msg:
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
 			Singleton_CommonVariables.dialogue_box_node.play_message("Nothing is unusual.")
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 			pass
 
 

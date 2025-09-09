@@ -9,6 +9,8 @@ var marker_entrance = "Entrance"
 var marker_priest = "Priest"
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/Town Theme.mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -55,15 +57,15 @@ func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
 		await SceneManager.SceneFadeIn()
 		
 		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete && Singleton_CommonVariables.sf_game_data_node.c1.battle_2_complete:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
 			n.marker = n.marker_cabin
 			SceneManager.ChangeSceneNode(n)
 		elif Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete && !Singleton_CommonVariables.sf_game_data_node.c1.battle_2_complete:
 			Singleton_CommonVariables.main_character_player_node.disabled_main_character()
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle2)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle2)
 			SceneManager.ChangeSceneNode(n)
 		else:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Overworld)
 			n.marker = n.marker_cabin
 			SceneManager.ChangeSceneNode(n)
 

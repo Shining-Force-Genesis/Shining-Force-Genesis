@@ -1,0 +1,15 @@
+{
+	"script": [
+		{
+			"Text": "Surprised, {main_character_name}? Alterone has already surrendered! Put him in a prison cell! I'll decide how to best dispose of him in a day or two."
+		},
+		
+		{
+			"Text": "Kane, you promised that Alterone would not be involved in any of this!"
+		},
+		
+		{
+			"Text": "Quiet, fool! Or I'll throw you in the cell with him! Take him away."
+		}
+	]
+}

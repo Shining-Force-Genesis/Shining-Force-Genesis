@@ -1,0 +1,18 @@
+{
+	"script": [
+		{
+			"Text": "Khris, where are you? Have you seen her?",
+			"InteractionPrompt": "YesOrNo"
+		},
+		
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapters/1/AlteroneCastle/Scripts/KhrisRelativeYes.json"
+		},
+		
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapters/1/AlteroneCastle/Scripts/KhrisRelativeNo.json"
+		}
+	]
+}

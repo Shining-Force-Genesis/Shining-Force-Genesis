@@ -47,7 +47,7 @@ func _on_secret_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneSecretPath)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneSecretPath)
 		n.marker = n.market_hq
 		SceneManager.ChangeSceneNode(n)
 
@@ -57,7 +57,7 @@ func _on_hq_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.HQ)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.HQ)
 		SceneManager.ChangeSceneNode(n)
 
 
@@ -66,6 +66,12 @@ func _on_alterone_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
-		n.marker = n.marker_hq
-		SceneManager.ChangeSceneNode(n)
+		
+		if Singleton_CommonVariables.sf_game_data_node.c1.searched_alterone_jail_bars:
+			Singleton_CommonVariables.main_character_player_node.disabled_main_character()
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle4)
+			SceneManager.ChangeSceneNode(n)
+		else:
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+			n.marker = n.marker_hq
+			SceneManager.ChangeSceneNode(n)

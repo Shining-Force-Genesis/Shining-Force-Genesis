@@ -1,0 +1,18 @@
+{
+	"script": [
+		{
+			"Text": "Do you know the King's secret?",
+			"InteractionPrompt": "YesOrNo"
+		},
+		
+		{
+			"InteractionAnswer": "YES",
+			"Script": "res://SF1/Chapters/1/AlteroneCastle/Scripts/WomanGreenDressYes.json"
+		},
+		
+		{
+			"InteractionAnswer": "NO",
+			"Script": "res://SF1/Chapters/1/AlteroneCastle/Scripts/WomanGreenDressNo.json"
+		}
+	]
+}

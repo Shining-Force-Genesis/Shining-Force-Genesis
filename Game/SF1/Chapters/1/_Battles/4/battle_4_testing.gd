@@ -5,6 +5,9 @@ extends Node
 
 @onready var player_scene = preload("res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn")
 
+signal battle_ended_cutscene
+var is_battle_done: bool = false
+
 func _ready() -> void:
 	# TODO rename this singleton to globals and then divide overworld battle and other into sub scripts with classnames
 	# for better intellisense

@@ -19,8 +19,8 @@ func _ready() -> void:
 	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
 	# SceneManager.ChangeSceneNode(n)
 	
-	var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
-	SceneManager.ChangeSceneNode(n)
+	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
+	# SceneManager.ChangeSceneNode(n)
 	
 	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
 	# SceneManager.ChangeSceneNode(n)

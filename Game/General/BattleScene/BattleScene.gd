@@ -6,7 +6,8 @@ signal signal__current_actor_exchange_completed
 
 signal signal__battle_scene_completed
 
-const enemey_position: Vector2 = Vector2(0, 0)
+# const enemey_position: Vector2 = Vector2(0, 0)
+const enemey_position: Vector2 = Vector2(-96, -72)
 const character_position: Vector2 = Vector2(340, 226)
 const character_ally_position: Vector2 = Vector2(180, 226)
 
@@ -101,6 +102,14 @@ func _ready():
 	current_initiator_actor_battle_scene_node = null
 	current_target_actor_battle_scene_node = null
 	
+	
+	
+	
+	
+	enemeyWrapper.position += Vector2(-48, -24)
+	
+	
+	
 	cleanup_wrappers()
 
 func cleanup_wrappers() -> void:
@@ -117,6 +126,9 @@ func cleanup_wrappers() -> void:
 	# Remove any remaining spells battle animations
 	for s in spells_wrapper.get_children():
 		s.queue_free()
+		
+	for c in characterAlliesWrapper.get_children():
+		c.queue_free()
 
 
 
@@ -203,7 +215,7 @@ func activate_battle() -> void:
 		
 		activate_battle_character_cast_heal()
 		
-		Singleton_CommonVariables.battle__scene_operation_type == ""
+		Singleton_CommonVariables.battle__scene_operation_type = ""
 		return
 	
 	
@@ -888,7 +900,7 @@ func activate_battle_character_cast_heal() -> void:
 	Singleton_CommonVariables.battle__resource_animation_scene_path = null
 	Singleton_CommonVariables.battle__target_actor_types = null
 	Singleton_CommonVariables.battle__magic_spell_level_selected = null
-	Singleton_CommonVariables.battle__scene_operation_type == ""
+	Singleton_CommonVariables.battle__scene_operation_type = ""
 	
 	Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
 	Singleton_CommonVariables.ui__target_actor_micro_info_box.hide_cust_target_battle_scene()

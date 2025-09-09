@@ -12,6 +12,8 @@ var marker_top_right = "TopRight"
 var marker_bottom_right = "BottomRight"
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/Castle (Guardiana and Others).mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -60,7 +62,7 @@ func _on_castle_entrance_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
 		n.marker = n.marker_town
 		SceneManager.ChangeSceneNode(n)
 
@@ -72,12 +74,12 @@ func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
 		await SceneManager.SceneFadeIn()
 		
 		if Singleton_CommonVariables.sf_game_data_node.c1.battle_3_complete:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
 			n.marker = n.marker_guardiana
 			SceneManager.ChangeSceneNode(n)
 		else:
 			Singleton_CommonVariables.main_character_player_node.disabled_main_character()
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle3)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle3)
 			# n.marker = n.marker_castle
 			SceneManager.ChangeSceneNode(n)
 		
@@ -91,27 +93,27 @@ func _on_overworld_entrance_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_right_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
 		n.marker = n.marker_bottom_right
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_top_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
 		n.marker = n.marker_top_right
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_left_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
 		n.marker = n.marker_left
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_town_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
 		n.marker = n.marker_castle
 		SceneManager.ChangeSceneNode(n)

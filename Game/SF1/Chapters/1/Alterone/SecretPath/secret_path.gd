@@ -44,7 +44,7 @@ func _on_secret_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastleBasement)
 		n.marker = n.marker_secret_path
 		SceneManager.ChangeSceneNode(n)
 
@@ -54,6 +54,6 @@ func _on_hq_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneHQPath)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneHQPath)
 		n.marker = n.market_secret
 		SceneManager.ChangeSceneNode(n)

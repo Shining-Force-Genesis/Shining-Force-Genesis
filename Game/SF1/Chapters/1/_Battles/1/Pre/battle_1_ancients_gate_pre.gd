@@ -32,6 +32,8 @@ func _ready() -> void:
 	# Singleton_CommonVariables.is_currently_in_battle_scene = true
 	start_battle()
 	
+	AudioManager.play_music_n("res://Assets/Music/SF1/Battle 1 (Standard).mp3")
+	
 	if !Singleton_CommonVariables.sf_game_data_node.c1.battle_1_opening_cutscene:
 		StartCutscene()
 	else: 
@@ -151,7 +153,7 @@ func StartCutscene():
 	TaoChat()
 
 func TaoChat():
-	Singleton_CommonVariables.battle__cursor_node.move_to_new_position(Vector2(
+	Singleton_CommonVariables.battle__cursor_node.move_to_new_position_internal(Vector2(
 		Singleton_CommonVariables.battle__cursor_node.position.x - Singleton_CommonVariables.battle__cursor_node.TILE_SIZE,
 		Singleton_CommonVariables.battle__cursor_node.position.y
 	),
@@ -168,7 +170,7 @@ func TaoChat():
 	First_RuneKnightChat()
 
 func First_RuneKnightChat():
-	Singleton_CommonVariables.battle__cursor_node.move_to_new_position(Vector2(
+	Singleton_CommonVariables.battle__cursor_node.move_to_new_position_internal(Vector2(
 		Singleton_CommonVariables.battle__cursor_node.position.x,
 		Singleton_CommonVariables.battle__cursor_node.position.y - ( Singleton_CommonVariables.battle__cursor_node.TILE_SIZE * 10)
 	),
@@ -186,7 +188,7 @@ func First_RuneKnightChat():
 
 
 func EarthquakeChat():
-	Singleton_CommonVariables.battle__cursor_node.move_to_new_position(Vector2(
+	Singleton_CommonVariables.battle__cursor_node.move_to_new_position_internal(Vector2(
 		Singleton_CommonVariables.battle__cursor_node.position.x,
 		Singleton_CommonVariables.battle__cursor_node.position.y + ( Singleton_CommonVariables.battle__cursor_node.TILE_SIZE * 9)
 	),
@@ -204,7 +206,7 @@ func EarthquakeChat():
 
 
 func Second_RuneKnightChat():
-	Singleton_CommonVariables.battle__cursor_node.move_to_new_position(Vector2(
+	Singleton_CommonVariables.battle__cursor_node.move_to_new_position_internal(Vector2(
 		Singleton_CommonVariables.battle__cursor_node.position.x,
 		Singleton_CommonVariables.battle__cursor_node.position.y - ( Singleton_CommonVariables.battle__cursor_node.TILE_SIZE * 9)
 	),
@@ -287,6 +289,9 @@ func end_battle() -> void:
 	
 	# Update Egress to Gong's Cabin area
 	Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.GongCabin
+	
+	Singleton_CommonVariables.sf_game_data_node.reset_currents_for_all_characters()
+	
 
 func EndBattleCutscene() -> void:
 	Singleton_CommonVariables.dialogue_box_is_currently_active = true

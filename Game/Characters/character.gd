@@ -175,10 +175,18 @@ func interaction_attempt_to_talk(play_default_msg: bool = false) -> void:
 			return
 		
 		if play_default_msg:
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
 			Singleton_CommonVariables.dialogue_box_node.play_message("No one is in that direction.")
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 	else:
 		if play_default_msg:
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
 			Singleton_CommonVariables.dialogue_box_node.play_message("No one is in that direction.")
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 
 
 func interaction_attempt_to_search(play_default_msg: bool = false) -> void:
@@ -202,10 +210,18 @@ func interaction_attempt_to_search(play_default_msg: bool = false) -> void:
 			return
 		
 		if play_default_msg:
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
 			Singleton_CommonVariables.dialogue_box_node.play_message("Nothing is unusual.")
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 	else:
 		if play_default_msg:
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+			Singleton_CommonVariables.dialogue_box_is_currently_active = true
 			Singleton_CommonVariables.dialogue_box_node.play_message("Nothing is unusual.")
+			await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 
 
 func PlayerFacingDirection() -> String:
@@ -244,6 +260,21 @@ func MoveInDirection(arg: String) -> void:
 			move('ui_right')
 
 
+func MoveInDirectionIgnoreCollisions(arg: String) -> void:
+	match arg:
+		"Down": 
+			animation_player.play(ani_down_movement)
+			move_ignore_collisions('ui_down')
+		"Up": 
+			animation_player.play(ani_up_movement)
+			move_ignore_collisions('ui_up')
+		"Left": 
+			animation_player.play(ani_left_movement)
+			move_ignore_collisions('ui_left')
+		"Right": 
+			animation_player.play(ani_right_movement)
+			move_ignore_collisions('ui_right')
+
 func set_facing_direction(arg: String) -> void:
 	match arg:
 		"Down": 
@@ -261,3 +292,21 @@ func set_movement_speed_timer(speed_arg: float) -> void:
 func reset_movement_speed_timer() -> void:
 	animation_player.speed_scale = 1
 	tween_animation_time = tween_animation_time_speed_const
+
+
+func move_ignore_collisions(dir):
+	animation_player.speed_scale = 2
+	
+	#position += inputs[dir] * tile_size
+	move_tween = create_tween()
+	move_tween.tween_property(self, "global_position",
+		global_position + inputs[dir] * tile_size, 
+		1.0/animation_speed
+		).set_trans(Tween.TRANS_LINEAR)
+	moving = true
+	await move_tween.finished
+	moving = false
+	
+	animation_player.speed_scale = 1
+	
+	emit_signal("signal_action_finished")

@@ -79,7 +79,7 @@ func calculate_hp_or_mp_bar_width_and_set(current_hp, total_hp, current_mp, tota
 		mp_bar.hide()
 
 func update_active_info(name_arg, class_arg, level, current_hp, total_hp, current_mp, total_mp):
-	print("ARHGUYIHWUIHAUIWHUDFIHWUFI")
+	# print("ARHGUYIHWUIHAUIWHUDFIHWUFI")
 
 	calculate_hp_or_mp_bar_width_and_set(current_hp, total_hp, current_mp, total_mp)
 

@@ -18,6 +18,8 @@ var marker_house_top = "House Top"
 
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/Town Theme.mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -62,7 +64,7 @@ func _on_overworld_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.OverworldEarthquake)
 		n.marker = n.marker_alterone
 		SceneManager.ChangeSceneNode(n)
 
@@ -131,25 +133,25 @@ func _on_bar_exit_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_castle_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
 		n.marker = n.marker_entrance
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_hq_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneHQPath)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneHQPath)
 		n.marker = n.market_alterone
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_house_bottom_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneBottomHouse)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneBottomHouse)
 		SceneManager.ChangeSceneNode(n)
 
 
 func _on_house_top_area_2d_body_entered(body: Node2D) -> void:
 	if body is PlayerBody:
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneTopHouse)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneTopHouse)
 		SceneManager.ChangeSceneNode(n)

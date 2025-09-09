@@ -36,6 +36,6 @@ func _on_house_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
 		n.marker = n.marker_house_top
 		SceneManager.ChangeSceneNode(n)

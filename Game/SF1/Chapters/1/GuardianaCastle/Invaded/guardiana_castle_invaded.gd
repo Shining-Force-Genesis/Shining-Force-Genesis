@@ -15,6 +15,8 @@ var marker_throne = "Throne"
 
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/Castle (Guardiana and Others).mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮
@@ -33,7 +35,7 @@ func _ready() -> void:
 		$NPCS/Mae.queue_free()
 		$NPCS/King.queue_free()
 		$NPCS/Kane.queue_free()
-		var advisior = $NPCS/Chancellor.get_child(0)
+		# var advisior = $NPCS/Chancellor.get_child(0)
 	
 	# position player at navigation marker per previous location
 	match marker:

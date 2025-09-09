@@ -136,10 +136,10 @@ func _on_exit_area_2d_body_entered(body: Node2D) -> void:
 		await SceneManager.SceneFadeIn()
 		
 		if Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastleInvaded)
 			n.marker = n.marker_hq
 			SceneManager.ChangeSceneNode(n)
 		else:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaCastle)
 			n.marker = n.marker_hq
 			SceneManager.ChangeSceneNode(n)

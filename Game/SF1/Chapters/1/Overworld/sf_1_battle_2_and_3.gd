@@ -10,6 +10,8 @@ var marker_cabin = "Cabin"
 var marker_alterone = "Alterone"
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/World Map 1.mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮

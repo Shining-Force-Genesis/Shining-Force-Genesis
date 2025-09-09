@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://rq7jmg7c1xu3"]
+[gd_scene load_steps=46 format=4 uid="uid://rq7jmg7c1xu3"]
 
 [ext_resource type="Script" uid="uid://biqgl83l86nse" path="res://SF1/Chapters/1/Guardiana/Invaded/guardiana_invaded.gd" id="1_4avf2"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_cvyx5"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bo7lpklc416ms" path="res://Assets/NPC/Woman_Redhead.png" id="9_x1mqq"]
 [ext_resource type="Texture2D" uid="uid://bka5sbtp1rrkh" path="res://Assets/NPC/Man_Old_Bald.png" id="11_xb2o3"]
 [ext_resource type="Texture2D" uid="uid://dtpolsyh45ghe" path="res://Characters/Gort/Assets/Unpromoted_Map_Sprites.png" id="12_1a1oy"]
+[ext_resource type="Script" uid="uid://3s2srjhyom2h" path="res://SF1/Chapters/1/Guardiana/Invaded/Gort.gd" id="12_c3ylx"]
 [ext_resource type="Resource" uid="uid://b6ce41ly70sg" path="res://SF1/Items/Usables/MedicalHerb.tres" id="13_owhoi"]
 [ext_resource type="Resource" uid="uid://5pp71m0e17gl" path="res://SF1/Items/Usables/AngelWing.tres" id="14_um5u6"]
 [ext_resource type="Resource" uid="uid://ctu2kx35ve7cv" path="res://SF1/Items/Usables/HealingSeed.tres" id="15_gl6l0"]
@@ -2601,7 +2602,7 @@ tile_map_data = PackedByteArray("AAABAP//AAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAA
 
 [node name="Gort" parent="NPCS" instance=ExtResource("6_pp24s")]
 position = Vector2(960, 336)
-script = ExtResource("7_cexrc")
+script = ExtResource("12_c3ylx")
 DefaultScript = "res://SF1/Chapters/1/Guardiana/Invaded/Scripts/Gort.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Gort" index="0"]

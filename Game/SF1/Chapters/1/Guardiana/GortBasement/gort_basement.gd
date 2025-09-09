@@ -42,10 +42,10 @@ func _on_stairs_area_2d_body_entered(body: Node2D) -> void:
 		await SceneManager.SceneFadeIn()
 		
 		if !Singleton_CommonVariables.sf_game_data_node.c1.battle_1_complete:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
 			n.marker = n.marker_gort_basement
 			SceneManager.ChangeSceneNode(n)
 		else:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
 			n.marker = n.marker_gort_basement
 			SceneManager.ChangeSceneNode(n)

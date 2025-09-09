@@ -14,6 +14,8 @@ var marker_gort_basement = "Gort Basement"
 var marker_priest = "Priest"
 
 func _ready() -> void:
+	AudioManager.play_music_n("res://Assets/Music/SF1/Town Theme.mp3")
+	
 	Player.character.enable_main_character()
 	
 	# set camera limits - there has to be better cleaner way to do this PUKES 🤮🤮🤮

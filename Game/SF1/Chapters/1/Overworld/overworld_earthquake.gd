@@ -49,7 +49,7 @@ func _on_guardiana_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GuardianaInvaded)
 		n.marker = n.marker_overworld
 		SceneManager.ChangeSceneNode(n)
 
@@ -61,7 +61,7 @@ func _on_ancients_gate_area_2d_body_entered(body: Node2D) -> void:
 		await SceneManager.SceneFadeIn()
 		
 		# Singleton_CommonVariables.main_character_player_node.disabled_main_character()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AncientGate)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AncientGate)
 		
 		SceneManager.ChangeSceneNode(n)
 
@@ -71,7 +71,7 @@ func _on_cabin_area_2d_body_entered(body: Node2D) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/SF1_SFX_sfx_Stairs.wav")
 		Player.disable(false)
 		await SceneManager.SceneFadeIn()
-		var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.GongCabin)
+		var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GongCabin)
 		n.marker = n.marker_entrance
 		SceneManager.ChangeSceneNode(n)
 
@@ -83,11 +83,11 @@ func _on_alterone_area_2d_body_entered(body: Node2D) -> void:
 		await SceneManager.SceneFadeIn()
 		
 		if Singleton_CommonVariables.sf_game_data_node.c1.battle_3_complete:
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Alterone)
 			n.marker = n.marker_entrance
 			SceneManager.ChangeSceneNode(n)
 		else:
 			# Singleton_CommonVariables.main_character_player_node.disabled_main_character()
-			var n = await SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneNoEntry)
+			var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneNoEntry)
 			n.marker = n.marker_entrance
 			SceneManager.ChangeSceneNode(n)

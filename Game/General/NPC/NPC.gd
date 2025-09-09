@@ -322,3 +322,24 @@ func MoveInDirection(arg: String, _arg2 = false) -> void:
 		"Right": 
 			play_animation(right_movement)
 			attempt_to_move(Vector2(position.x + 24, position.y), e_directions.RIGHT)
+
+
+func MoveInDirectionIgnoreCollisions(arg: String, _arg2 = false) -> void:
+	match arg:
+		"Down": 
+			play_animation(down_movement)
+			attempt_to_move_ignore_raycast(Vector2(position.x, position.y + 24), e_directions.DOWN)
+		"Up": 
+			play_animation(up_movement)
+			attempt_to_move_ignore_raycast(Vector2(position.x, position.y - 24), e_directions.UP)
+		"Left": 
+			play_animation(left_movement)
+			attempt_to_move_ignore_raycast(Vector2(position.x - 24, position.y), e_directions.LEFT)
+		"Right": 
+			play_animation(right_movement)
+			attempt_to_move_ignore_raycast(Vector2(position.x + 24, position.y), e_directions.RIGHT)
+
+
+func attempt_to_move_ignore_raycast(new_position_target: Vector2, _direction: e_directions) -> void:
+	chracter_animation_player.speed_scale = 2
+	action_move(new_position_target)

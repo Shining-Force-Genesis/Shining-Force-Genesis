@@ -32,6 +32,8 @@ func _ready() -> void:
 	
 	place_actors()
 	
+	AudioManager.play_music_n("res://Assets/Music/SF1/Battle 2 (Standard).mp3")
+	
 	if !Singleton_CommonVariables.sf_game_data_node.c1.battle_2_opening_cutscene:
 		StartCutscene()
 		await cutscene_finished
@@ -107,6 +109,8 @@ func end_battle() -> void:
 	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
 	
 	Singleton_CommonVariables.sf_game_data_node.egress_location = SceneManager.SF1.C1.GuardianaInvaded
+	
+	Singleton_CommonVariables.sf_game_data_node.reset_currents_for_all_characters()
 
 
 func place_leader() -> void:
