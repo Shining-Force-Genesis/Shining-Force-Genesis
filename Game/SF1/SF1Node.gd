@@ -317,7 +317,7 @@ var ForceMembers = [
 			
 			# Left
 			{
-				"resource": "res://SF1/Items/Weapons/ShortSword.tres",
+				"resource": "res://SF1/Items/Weapons/MiddleSword.tres",
 				"is_equipped": true
 			},
 			
