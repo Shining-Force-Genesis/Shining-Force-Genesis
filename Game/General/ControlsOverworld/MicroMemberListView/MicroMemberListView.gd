@@ -174,7 +174,7 @@ func _input(event):
 			
 				break
 	
-	elif event.is_action_pressed("ui_a_key"):
+	elif event.is_action_released("ui_a_key"):
 		var fm_size = internal_sfgdn_force_members_array.size()
 		
 		for i in fm_size:
@@ -216,7 +216,7 @@ func _input(event):
 		# active = false
 		return
 		
-	elif event.is_action_pressed("ui_b_key"):
+	elif event.is_action_released("ui_b_key"):
 		# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 		hide()
 		active = false

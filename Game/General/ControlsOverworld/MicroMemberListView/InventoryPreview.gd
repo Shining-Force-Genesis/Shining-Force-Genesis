@@ -70,7 +70,7 @@ func _process(_delta):
 			current_selection = E_ItemSelection.RIGHT
 			RedSelectionBorderRoot.position = RedSelectionPositions[current_selection]
 	
-	elif Input.is_action_just_pressed("ui_a_key"):
+	elif Input.is_action_just_released("ui_a_key"):
 #		var fm_size = Singleton_Game_GlobalCommonVariables.sf_game_data_node.ForceMembers.size()
 #
 #
@@ -109,7 +109,7 @@ func _process(_delta):
 			
 		return
 		
-	elif Input.is_action_just_pressed("ui_b_key"):
+	elif Input.is_action_just_released("ui_b_key"):
 		# Singleton_Game_GlobalCommonVariables.main_character_player_node.active = true
 		# hide()
 		active = false

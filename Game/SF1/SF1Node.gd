@@ -381,7 +381,7 @@ var ForceMembers = [
 		
 		"unlocked": true,
 		"active_in_force": true,
-		"alive": true,
+		"alive": false,
 		
 		"name": "Luke",
 		"nickname": null,

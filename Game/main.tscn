@@ -61,8 +61,7 @@ visible = false
 position = Vector2(8, 280)
 
 [node name="ViewSelectedActorInfoPopup" parent="UI_Battle" instance=ExtResource("14_2cqfq")]
-visible = false
-position = Vector2(120, 60)
+position = Vector2(120, 72)
 
 [node name="InventoryItemSelectInBattleMenu" parent="UI_Battle" instance=ExtResource("9_a6jrf")]
 visible = false
@@ -139,6 +138,7 @@ position = Vector2(280, 200)
 scale = Vector2(1, 1)
 
 [node name="CanvasLayer" parent="." instance=ExtResource("5_lquwl")]
+visible = false
 
 [node name="Node" type="Node" parent="."]
 

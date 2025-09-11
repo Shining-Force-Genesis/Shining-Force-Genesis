@@ -52,11 +52,11 @@ func _process(_delta):
 	if !is_menu_active:
 		return
 		
-	if Input.is_action_just_pressed("ui_b_key"):
+	if Input.is_action_just_released("ui_b_key"):
 		CancelShopMenu()
 		return
 		
-	if Input.is_action_just_pressed("ui_a_key"):
+	if Input.is_action_just_released("ui_a_key"):
 		await Signal(get_tree().create_timer(0.02), "timeout")
 		# event.is_action_released("ui_accept"):
 		print("Accept Action - ", currently_selected_option)

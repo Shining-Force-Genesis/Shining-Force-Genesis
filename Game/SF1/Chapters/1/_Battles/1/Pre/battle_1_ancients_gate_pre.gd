@@ -318,7 +318,7 @@ func start_battle() -> void:
 	# add all force members first
 	var cp_idx: int = 1
 	for c in Singleton_CommonVariables.sf_game_data_node.ForceMembers:
-		if c.active_in_force && !c.leader:
+		if c.alive && c.active_in_force && !c.leader:
 			var x = load(c.textures_and_scenes[c.promotion_stage].player_scene).instantiate()
 			# x.position = char_positions.get_child(cp_idx).position
 			

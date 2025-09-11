@@ -61,12 +61,7 @@ func _process(_delta) -> void:
 				await move_to_new_position_internal(Vector2(self.position.x + x_tile_move, self.position.y + y_tile_move), tile_move_time)
 
 
-func cancel_cursor(): 
-#	if position == actor_g_pos:
-#	# print("Same Pos")
-#	# Why did I have this in the godot 3 version again?
-#	pass
-	
+func cancel_cursor():
 	Singleton_CommonVariables.camera_node.follow_actor()
 	
 	var distance = actor_g_pos.distance_to(position)

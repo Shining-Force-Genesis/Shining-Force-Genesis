@@ -14,7 +14,7 @@ func _process(_delta: float) -> void:
 		
 		DisplayServer.window_set_mode(target_mode)
 	
-	if Input.is_action_just_released("ui_page_down") || Input.is_action_just_pressed("ui_tab"):
+	if Input.is_action_just_released("ui_page_down") || Input.is_action_just_released("ui_tab"):
 		print("here")
 		
 		if !gotta_go_fast:
@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 			gotta_go_fast = false
 			Engine.time_scale = 1
 			
-	if Input.is_action_just_pressed("ui_text_backspace"):
+	if Input.is_action_just_released("ui_text_backspace"):
 		# Singleton_CommonVariables.main_character_player_node.queue_free()
 		Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(false)

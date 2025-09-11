@@ -8,6 +8,8 @@ extends Node2D
 @onready var ActivePositionsRootNode = $ActiveForceMarkers
 @onready var InactivePositionsRootNode = $InactiveForcePositionsNode2D
 
+@onready var dead_spirt_pic = preload("res://Assets/NPC/Dead_Spirt.png")
+
 ### Navigation Markers
 var marker
 var marker_entrance = "Entrance"
@@ -63,17 +65,16 @@ func _ready() -> void:
 		
 		print(fm.name)
 		
-		# TODO create gort npc scene and update force members after this point
-		# TODO create resource class for characters a giant json blob is terrible 
-		if fm.name == "Gort":
-			return
-		
 		print(fm.textures_and_scenes[0].npc_scene)
 		npc_fm = load(fm.textures_and_scenes[0].npc_scene).instantiate()
 		# TODO: stationary
 		npc_fm_chr = npc_fm.get_child(0).get_child(0)
 		npc_fm_chr.stationary = true
+		# npc_fm_chr.use_mirror_animation = false
+		# npc_fm_chr.use_8_standard_animation = true
 		
+		if !fm.alive:
+			npc_fm.find_child("Sprite2D").texture = dead_spirt_pic
 		
 		# TODO: when there's more than 12 characters in total need to add checks 
 		# to not overflow the active_pos
@@ -87,17 +88,13 @@ func _ready() -> void:
 			
 			apn = inactive_pos[i].name
 			if apn.contains("Facing-Down"):
-				print("Down")
-				# npc_fm.get_child(0).get_child(0).facing_direction = 0
+				npc_fm_chr.FacingDirection = 0
 			elif "Facing-Left" in apn:
-				print("Left")
-				# npc_fm.get_child(0).get_child(0).facing_direction = 2
+				npc_fm_chr.FacingDirection = 2
 			elif "Facing-Right" in apn:
-				print("Right")
-				# npc_fm.get_child(0).get_child(0).facing_direction = 3
+				npc_fm_chr.FacingDirection = 3
 			elif "Facing-Up" in apn:
-				print("Up")
-				# npc_fm.get_child(0).get_child(0).facing_direction = 1
+				npc_fm_chr.FacingDirection = 1
 			
 			# print(npc_fm_chr.default_facing_direction, " ", apn)
 			

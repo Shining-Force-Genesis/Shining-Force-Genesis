@@ -51,7 +51,7 @@ func _process(_delta):
 		return
 	
 	
-	if Input.is_action_just_pressed("ui_a_key"):
+	if Input.is_action_just_released("ui_a_key"):
 		
 		match Singleton_CommonVariables.action_type:
 			"SHOP_BUY":
@@ -95,7 +95,7 @@ func _process(_delta):
 		
 		return
 		
-	elif Input.is_action_just_pressed("ui_b_key"):
+	elif Input.is_action_just_released("ui_b_key"):
 		print("Cancel")
 		is_menu_active = false
 		hide()

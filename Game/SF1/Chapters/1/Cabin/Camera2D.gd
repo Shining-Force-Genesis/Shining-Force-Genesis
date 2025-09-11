@@ -93,7 +93,7 @@ func zoom():
 
 
 func rotate_cam():
-	if Input.is_action_just_pressed("ui_end"):
+	if Input.is_action_just_released("ui_end"):
 		rotate(10)
 
 

@@ -154,7 +154,7 @@ func display_actor_info(actor: Node2D) -> void:
 		
 		for n in range(inventory_item_size):
 			var itemInfoN = itemInfoNode.instantiate()
-			itemInfoN.cust_scale = Vector2(0.8, 0.8)
+			# itemInfoN.cust_scale = Vector2(0.7, 0.7)
 			var item_res = load(inventory[n].resource)
 			itemInfoN.texture = item_res.texture
 			itemInfoN.item_name = item_res.item_name
@@ -180,5 +180,5 @@ func display_actor_info(actor: Node2D) -> void:
 			var spellInfoN = spellInfoNode.instantiate()
 			print(magic[n].resource)
 			spellInfoN.spell_obj = load(magic[n].resource)
-			spellInfoN.cust_scale = Vector2(0.8, 0.8)
+			# spellInfoN.cust_scale = Vector2(0.7, 0.7)
 			magic_vbox.add_child(spellInfoN)

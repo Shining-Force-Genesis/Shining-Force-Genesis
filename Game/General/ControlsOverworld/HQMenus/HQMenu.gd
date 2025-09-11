@@ -46,11 +46,11 @@ func _process(_delta):
 	if !is_menu_active:
 		return
 	
-	if Input.is_action_just_pressed("ui_b_key"):
+	if Input.is_action_just_released("ui_b_key"):
 		CancelHQMenu()
 		return
 		
-	if Input.is_action_just_pressed("ui_a_key"):
+	if Input.is_action_just_released("ui_a_key"):
 		# event.is_action_released("ui_accept"):
 		print("Accept Action - ", currently_selected_option)
 		if currently_selected_option == e_menu_options.STATS_OPTION:
