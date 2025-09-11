@@ -88,32 +88,32 @@ func _process(_delta):
 			print("TODO INVENTORY")
 			return
 			
-			is_menu_active = false
-			AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
-			AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
-			
-			hide()
-			
-			Singleton_CommonVariables.action_type = "HQ_STATS"
-			
-			# Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable("What would you like?")
-			Singleton_CommonVariables.dialogue_box_node.show()
-			
-			var display_str = "DEV NOTE - Use overworld inventory menu to check stats.\nDo you need anything else?"
-			Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
-			Singleton_CommonVariables.ui__yes_or_no_prompt.s_show__yes_or_no_prompt()
-			var result = await Signal(Singleton_CommonVariables.ui__yes_or_no_prompt, "signal__yes_or_no_prompt__choice")
-			if result == "NO":
-				Singleton_CommonVariables.dialogue_box_node.hide()
-				CancelHQMenu()
-				return
-			elif result == "YES":
-				Singleton_CommonVariables.dialogue_box_node.hide()
-				Singleton_CommonVariables.ui__gold_info_box.hide()
-				show()
-				await Signal(get_tree().create_timer(0.1), "timeout")
-				is_menu_active = true
-			return
+			#is_menu_active = false
+			#AudioManager.play_sfx("res://Assets/Sounds/MenuSelectSoundModif.wav")
+			#AudioManager.play_sfx("res://Assets/Sounds/MenuPanSoundCut.wav")
+			#
+			#hide()
+			#
+			#Singleton_CommonVariables.action_type = "HQ_STATS"
+			#
+			## Singleton_Game_GlobalCommonVariables.dialogue_box_node.play_message_none_interactable("What would you like?")
+			#Singleton_CommonVariables.dialogue_box_node.show()
+			#
+			#var display_str = "DEV NOTE - Use overworld inventory menu to check stats.\nDo you need anything else?"
+			#Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
+			#Singleton_CommonVariables.ui__yes_or_no_prompt.s_show__yes_or_no_prompt()
+			#var result = await Signal(Singleton_CommonVariables.ui__yes_or_no_prompt, "signal__yes_or_no_prompt__choice")
+			#if result == "NO":
+				#Singleton_CommonVariables.dialogue_box_node.hide()
+				#CancelHQMenu()
+				#return
+			#elif result == "YES":
+				#Singleton_CommonVariables.dialogue_box_node.hide()
+				#Singleton_CommonVariables.ui__gold_info_box.hide()
+				#show()
+				#await Signal(get_tree().create_timer(0.1), "timeout")
+				#is_menu_active = true
+			#return
 		elif currently_selected_option == e_menu_options.JOIN_OPTION:
 			# print("TODO JOIN")
 			# return

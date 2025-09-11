@@ -68,7 +68,7 @@ func draw_and_populate_cell_info(
 	Singleton_CommonVariables.battle__target_use_range_array_representation[row_arg][col_arg].on_tile = actor_details.type
 	Singleton_CommonVariables.battle__target_use_range_array_representation[row_arg][col_arg].node = actor_details.node
 	
-	draw_flashing_movement_square(white_segment, tile_pos_arg.x, tile_pos_arg.y)
+	draw_flashing_movement_square(white_segment, int(tile_pos_arg.x), int(tile_pos_arg.y))
 
 
 func check_if_actor_on_tile_at_pos(chk_pos_arg: Vector2):
@@ -444,10 +444,8 @@ func _process(_delta: float) -> void:
 			
 			Singleton_CommonVariables.battle__currently_active_actor.end_turn()
 			return
-			
-			await Singleton_CommonVariables.battle__scene_node.signal__battle_scene_completed
-			
-			return
+			# await Singleton_CommonVariables.battle__scene_node.signal__battle_scene_completed
+			# return
 		
 		if Singleton_CommonVariables.battle__target_selection_type == "use_item":
 			is_target_selection_active = false
@@ -515,10 +513,8 @@ func _process(_delta: float) -> void:
 			
 			Singleton_CommonVariables.battle__currently_active_actor.end_turn()
 			return
-			
-			await Singleton_CommonVariables.battle__scene_node.signal__battle_scene_completed
-			
-			return
+			# await Singleton_CommonVariables.battle__scene_node.signal__battle_scene_completed
+			# return
 		
 		
 		if Singleton_CommonVariables.battle__target_selection_actor != null:

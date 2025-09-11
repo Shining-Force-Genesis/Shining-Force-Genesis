@@ -768,7 +768,7 @@ func activate_battle_character_cast_heal() -> void:
 	current_initiator_actor_battle_scene_node = caa_bs
 	
 	var cur_idx = -1 
-	var first_cast = true
+	# var first_cast = true
 	for i in battle__target_array_flattened.size():
 		# if enemey actor
 		if battle__target_array_flattened[i].actor_type == "na":
@@ -1001,7 +1001,7 @@ func activate_battle_character_used_item() -> void:
 	current_initiator_actor_battle_scene_node = caa_bs
 	
 	var cur_idx = -1 
-	var first_cast = true
+	# var first_cast = true
 	for i in battle__target_array_flattened.size():
 		# if enemey actor
 		if battle__target_array_flattened[i].actor_type == "na":

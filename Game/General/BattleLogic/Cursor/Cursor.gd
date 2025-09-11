@@ -110,7 +110,7 @@ func _input(_event: InputEvent) -> void:
 					Singleton_CommonVariables.ui__view_selected_actor_info_node.set_battle_view_selected_actor_info_menu_active()
 
 
-func move_to_new_position(new_pos: Vector2, t: float = cursor_move_speed_default, activate_at_end: bool = true) -> void:
+func move_to_new_position(new_pos: Vector2, _t: float = cursor_move_speed_default, activate_at_end: bool = true) -> void:
 	show()
 	Singleton_CommonVariables.camera_node.follow_cursor()
 	

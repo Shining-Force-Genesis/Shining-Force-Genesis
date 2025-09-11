@@ -5,6 +5,7 @@ extends Node
 
 @onready var player_scene = preload("res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn")
 
+@warning_ignore("unused_signal")
 signal battle_ended_cutscene
 var is_battle_done: bool = false
 
@@ -92,7 +93,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 			Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
 			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
 			
-			var n = await SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
+			var n = SceneManager.GetSceneNode(Singleton_CommonVariables.sf_game_data_node.egress_location)
 			SceneManager.ChangeSceneNode(n)
 			
 			Singleton_CommonVariables.main_character_player_node.set_active_processing(true)

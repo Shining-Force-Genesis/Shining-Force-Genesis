@@ -79,7 +79,7 @@ var move_boost: int
 @export_range(0, 100) var double_attack_chance: int = 10
 @export_range(0, 100) var dodge_chance: int = 10
 ## TODO: why does this exist again if dodge exists?
-@export var evasion_chance: float = (1 / 32) * 100
+@export var evasion_chance: float = (1.0 / 32.0) * 100
 
 @export var attack: int
 @export var defense: int

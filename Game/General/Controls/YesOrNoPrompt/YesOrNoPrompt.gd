@@ -38,7 +38,7 @@ func _process(_delta):
 	if !is_menu_active:
 		return
 	
-	if Input.is_action_just_pressed("ui_a_key"):
+	if Input.is_action_just_released("ui_a_key"):
 		print("Accept Action - ", currently_selected_option)
 		if currently_selected_option == e_menu_options.YES_OPTION:
 			YesChoiceSelected()
@@ -47,7 +47,7 @@ func _process(_delta):
 			NoChoiceSelected()
 			return
 	
-	elif Input.is_action_just_pressed("ui_b_key"):
+	elif Input.is_action_just_released("ui_b_key"):
 		menu_option_selected(e_menu_options.NO_OPTION, "NoMenuOption")
 		
 		# Small yield to quickly show the no selection before disappering
