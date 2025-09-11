@@ -63,6 +63,28 @@ func _input(event):
 		if event.is_action_released("ui_a_key"):
 			print("Accept Action - ", currently_selected_option)
 			
+			# Singleton_CommonVariables.battle__currently_active_actor
+			var actor_root = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+			if actor_root != null:
+				var inventory = Singleton_CommonVariables.sf_game_data_node.ForceMembers[actor_root.SF1_MEMBER_INDEX].inventory
+				
+				Singleton_CommonVariables.ui__battle_inventory_item_action_menu.inventory = inventory
+				Singleton_CommonVariables.ui__battle_inventory_item_action_menu.actor_type = "Character"
+				Singleton_CommonVariables.ui__battle_inventory_item_action_menu.force_member_idx = actor_root.SF1_MEMBER_INDEX
+				# return
+			else:
+				actor_root = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot")
+				if actor_root != null:
+					return
+					
+				AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Error.wav")
+				return
+			
+			Singleton_CommonVariables.ui__battle_inventory_item_action_menu.display_actor_inventory()
+			# if actor_root == null:
+				# TODO: print error message
+				# pass
+			
 			if currently_selected_option == e_inventory_menu_options.EQUIP_OPTION:
 				cleanup_for_sub_menu_navigation()
 				

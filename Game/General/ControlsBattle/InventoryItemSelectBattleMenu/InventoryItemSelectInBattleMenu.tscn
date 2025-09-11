@@ -38,9 +38,25 @@ visible = false
 position = Vector2(16, 0)
 
 [node name="StatsInfoView" parent="." instance=ExtResource("2_cqkm5")]
+visible = false
 position = Vector2(90, 54)
 scale = Vector2(1, 1)
+
+[node name="DodgeStaticLabel" parent="StatsInfoView" index="9"]
+visible = false
+
+[node name="DodgeLabel" parent="StatsInfoView" index="10"]
+visible = false
+
+[node name="CriticalStaticLabel" parent="StatsInfoView" index="11"]
+visible = false
+
+[node name="CriticalLabel" parent="StatsInfoView" index="12"]
+visible = false
 
 [node name="InfoItemView" parent="." instance=ExtResource("3_tcfol")]
 position = Vector2(360, 108)
 scale = Vector2(1, 1)
+
+[editable path="StatsInfoView"]
+[editable path="InfoItemView"]

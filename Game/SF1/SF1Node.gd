@@ -311,7 +311,7 @@ var ForceMembers = [
 		"inventory": [
 			# Up
 			{
-				"resource": "res://SF1/Items/Weapons/Spear.tres",
+				"resource": "res://SF1/Items/Usables/AngelWing.tres",
 				"is_equipped": false
 			},
 			
@@ -379,8 +379,8 @@ var ForceMembers = [
 		## 0 unpromoted - 1 promoted - 2 or higher as possible options for different stages
 		"promotion_stage": 0,
 		
-		"unlocked": false,
-		"active_in_force": false,
+		"unlocked": true,
+		"active_in_force": true,
 		"alive": true,
 		
 		"name": "Luke",

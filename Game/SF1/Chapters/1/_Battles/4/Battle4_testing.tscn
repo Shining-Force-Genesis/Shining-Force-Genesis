@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://de52sd70eonn0"]
+[gd_scene load_steps=23 format=4 uid="uid://de52sd70eonn0"]
 
 [ext_resource type="Script" uid="uid://dmfsalcf5dwk" path="res://SF1/Chapters/1/_Battles/4/battle_4_testing.gd" id="1_1ii5n"]
 [ext_resource type="Texture2D" uid="uid://c18kbtwy56ooc" path="res://SF1/Assets/Tilesets/0.png" id="2_04hgo"]
@@ -11,6 +11,7 @@
 [ext_resource type="TileSet" uid="uid://b8euyhgwarcdy" path="res://SF1/Assets/Terrain_Stand.tres" id="9_aor56"]
 [ext_resource type="TileSet" uid="uid://dnbm43vn3ir48" path="res://SF1/Assets/Terrain_Background.tres" id="10_riqkf"]
 [ext_resource type="TileSet" uid="uid://cp0jvdbs5oc3t" path="res://SF1/Assets/Terrain_Effect.tres" id="11_n18fj"]
+[ext_resource type="PackedScene" uid="uid://ce570o0pmrjg" path="res://SF1/EnemiesAndBosses/GiantBat/GiantBat.tscn" id="12_unhru"]
 [ext_resource type="PackedScene" uid="uid://cyw8ri3jdrriy" path="res://General/Camera/Camera2D_Cust.tscn" id="17_g8tfo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_allfl"]
@@ -5264,6 +5265,9 @@ position = Vector2(246, 876)
 [node name="Characters" type="Node" parent="."]
 
 [node name="Enemies" type="Node" parent="."]
+
+[node name="GiantBat" parent="Enemies" instance=ExtResource("12_unhru")]
+position = Vector2(396, 540)
 
 [node name="CameraLimitsInfo" type="Node" parent="."]
 

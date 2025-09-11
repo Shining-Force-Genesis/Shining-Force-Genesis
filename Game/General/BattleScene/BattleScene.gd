@@ -209,6 +209,14 @@ func activate_battle() -> void:
 	
 	AudioManager.play_music_n("res://Assets/Music/SF1/Battle Encounter.mp3")
 	
+	if Singleton_CommonVariables.battle__scene_operation_type == "USE_ITEM_ON_CHARACTERS":
+		print("sighhhh this is gonna be a bit of work")
+		
+		activate_battle_character_used_item()
+		
+		Singleton_CommonVariables.battle__scene_operation_type = ""
+		return
+	
 	# 
 	if Singleton_CommonVariables.battle__scene_operation_type == "CHARACTER_HEAL":
 		print("sighhhh this is gonna be a bit of work")
@@ -920,7 +928,310 @@ func activate_battle_character_cast_heal() -> void:
 	pass
 
 
+func activate_battle_character_used_item() -> void:
+	# TODO: this should be a match statement with more sub functions to handle the different cases
+	# casts egress from angel wing
+	# casts item on self
+	# casts item on allies
+	# casts item on allies + self
+	# casts item on enemey
+	# casts item on enemies
+	# cast item on enemey self
+	# cast item on all in range
+	
+	# display character actor that cast the spell or used the item
+	Singleton_CommonVariables.ui__actor_micro_info_box.display_actor_info(Singleton_CommonVariables.battle__currently_active_actor)
+	if a_node != null:
+		Singleton_CommonVariables.ui__target_actor_micro_info_box.display_actor_info(a_node)
+		Singleton_CommonVariables.ui__target_actor_micro_info_box.show_cust_target_battle_scene()
+	
+	Singleton_CommonVariables.ui__actor_micro_info_box.show_cust()
+	
+	print("Battle Target Selection Type - ", Singleton_CommonVariables.battle__target_selection_type)
+	
+	# Singleton_AudioManager.play_alt_music_n(Singleton_DevToolingManager.base_path + "Assets/SF1/SoundBank/Battle Encounter.mp3")
+	
+	var cur_actor_node
+	var caa_bs
+	# Setup currently active actor 
+	var a = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+	current_initiator_actor_node = a
+	current_initiator_actor_parent_node = Singleton_CommonVariables.battle__currently_active_actor
+	cur_actor_node = a
+	caa_bs = a.battle__scene_unpromoted.instantiate()
+	caa_bs.scale = Vector2(1.5, 1.5)
+	caa_bs.position = character_position # spot where all actor stands should reach to
+	
+	caa_bs.get_child(0).frame = tile_name_stand_to_frame_mapping_dictionary[
+		get_stand_value_at_cell_at_pos(
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position
+		)
+	]
+	
+	# setup backgrounds
+	var bs = background_scene.instantiate()
+	background_wrapper.add_child(bs)
+	
+	var wuttt = get_foreground_value_at_cell_at_pos(
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position
+		)
+	print(wuttt)
+		
+	bs.set_foreground_frame(tile_name_to_frame_mapping_dictionary[
+		get_foreground_value_at_cell_at_pos(
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position
+		)
+	])
+	bs.set_background_frame(tile_name_to_frame_mapping_dictionary[
+		get_background_value_at_cell_at_pos(
+			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).global_position
+		)
+	])
+	
+	# caa_bs.position = Vector2(0, caa_bs.position.y)
+	# characterAlliesWrapper.add_child(caa_bs)
+	# current_initiator_actor_battle_scene_node = caa_bs
+	
+	#	# TODO: create function in chracter base to automatically pass back the equipped item
+	#	var weapon_res = char_actor_rn.inventory_items_id[0] 
+	#	# load("res://SF1/Items/Weapons/WoodenArrow.tres") # Singleton_Game_GlobalBattleVariables.currently_active_character.get_node("CharacterRoot").inventory_items_id[0]
+	#	internal_init_weapon_for_actor(weaponSprite, weapon_res)
+	
+	characterWrapper.add_child(caa_bs)
+	current_initiator_actor_battle_scene_node = caa_bs
+	
+	var cur_idx = -1 
+	var first_cast = true
+	for i in battle__target_array_flattened.size():
+		# if enemey actor
+		if battle__target_array_flattened[i].actor_type == "na":
+			continue
+		
+		if battle__target_array_flattened[i].actor_type == "character":
+			cur_idx = i
+			var acr = battle__target_array_flattened[i].node.get_child(0).find_child("CharacterRoot")
+			current_target_actor_id = battle__target_array_flattened[i].node.get_instance_id()
+			current_target_actor_parent_node = battle__target_array_flattened[i].node
+			
+			var a_bs = acr.battle__scene_unpromoted.instantiate()
+			a_bs.scale = Vector2(-1.5, 1.5)
+			a_bs.position = character_ally_position
+			
+			current_target_actor_battle_scene_node = a_bs
+			
+			a_bs.get_child(0).frame = tile_name_stand_to_frame_mapping_dictionary[
+				get_stand_value_at_cell_at_pos(
+					acr.global_position
+				)
+			]
+			
+			Singleton_CommonVariables.ui__target_actor_micro_info_box.display_actor_info( battle__target_array_flattened[i].node)
+			Singleton_CommonVariables.ui__target_actor_micro_info_box.show_cust_ally()
+			# Singleton_CommonVariables.ui__target_actor_micro_info_box.show_cust_target_battle_scene()
+			
+			current_target_actor_node = acr
+			
+			characterAlliesWrapper.add_child(a_bs)
+			
+			break
+	
+	
+	# TODO
+	# as fade out is playing should also tween background character and enemey
+	# await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
+	
+	if battle__target_array_flattened[cur_idx].actor_type == "character":
+		# Do Battle Scene for current actors
+		await get_tree().create_timer(0.5).timeout
+		await display_battle_message(cur_actor_node.get_actor_name() + " uses Item!") # print_who_is_attacking
+		# await Signal(self, "signal__function_completed")
+		await get_tree().create_timer(0.2).timeout
+		
+		# play animation for attack or spell or use item here
+		# await 
+		
+		print("use item")
+		# caa_bs.connect("attack_frame_reached", Callable(attack_frame_reached))
+		# caa_bs.connect("attack_anticapation_frame_reached", Callable(attack_anticapation_frame_reached))
+		# caa_bs.connect("spell_cast_frame_reached", Callable(cast_anticapation_frame_reached))
+			
+		#if Singleton_CommonVariables.battle__target_selection_type == "magic":
+			#caa_bs.play_cast()
+			#calculate_heal_step()
+			#await signal__current_actor_exchange_completed
+		#else:
+			#caa_bs.play_attack_normal()
+		
+		caa_bs.play_cast()
+		await get_tree().create_timer(0.5).timeout
+		
+		# var spell_bs = load(Singleton_CommonVariables.battle__resource_animation_scene_path).instantiate()
+		# var spell_bs = load("res://SF1/Spells/Heal/HealAnimation.tscn").instantiate()
+		# spell_bs.position = Vector2(spell_bs.position.x, spell_bs.position.y - 80)
+		# spells_wrapper.add_child(spell_bs)
+		
+		# await get_tree().create_timer(1.5).timeout
+		
+		calculate_item_step()
+		# await signal__current_actor_exchange_completed
+		await Signal(self, "signal__current_actor_exchange_completed")
+		await get_tree().create_timer(0.5).timeout
+		
+		# await Signal(self, "signal__function_completed")
+		
+		# attack_frame_reached()
+		# await Signal(self, "signal__current_actor_exchange_completed")
+		
+		# await Signal(self, "signal__current_actor_exchange_completed")
+		# await Signal(caa_bs, "battle__animation_completed")
+		print("play Idle")
+		caa_bs.play_idle()
+		
+		await get_tree().create_timer(0.5).timeout
+		
+		print("Next Actor")
+		
+	
+	# var btaf_size = battle__target_array_flattened.size()
+	
+	# do battle scene
+	
+	# return to currently active actor and do exp lvl calcs etcs now
+	# exp level
+	# print("TODO: generate stat gain and print based on character stat curves")
+	# print(Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type)
+	if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == 1: # character
+		if experience_points_gain > 48:
+			experience_points_gain = 48 # limit exp gain main to 48 for cases like blaze 2
+		
+		current_initiator_actor_node.set_exp(current_initiator_actor_node.get_exp() + experience_points_gain)
+		print("Current EXP - ", current_initiator_actor_node.get_exp())
+		
+		# exp
+		await display_battle_message(current_initiator_actor_node.get_actor_name() + " gains " + str(experience_points_gain) + " experience points.")
+		
+		# TODO: level up
+		if current_initiator_actor_node.get_exp() >= 100:
+			current_initiator_actor_node.set_exp(0)
+			# initator_actor.level += 1
+		
+			await display_battle_message(
+				current_initiator_actor_node.get_actor_name() + "'s level increases to " + str(current_initiator_actor_node.get_level() + 1) + "!"
+			)
+			
+			var stat_gain_array = current_initiator_actor_node.set_level(current_initiator_actor_node.get_level() + 1)
+			var stat_string_one_line = ""
+			for i in stat_gain_array.size():
+				stat_string_one_line += stat_gain_array[i] + " "
+			
+			await display_battle_message(stat_string_one_line)
+			
+			# await Signal(get_tree().create_timer(1), "timeout")
+	
+	
+	# cleanup
+	
+	# TODO
+	# await Singleton_CommonVariables.top_level_fader_node.play_fade_in_quick()
+	
+	cleanup_wrappers()
+	
+	# Cleanup Magic selection information so the following character doesnt cast the previously selected spell during their normal attack
+	# how and why was this even a thing in this codebase????????
+	Singleton_CommonVariables.battle__resource_animation_scene_path = null
+	Singleton_CommonVariables.battle__target_actor_types = null
+	Singleton_CommonVariables.battle__magic_spell_level_selected = null
+	Singleton_CommonVariables.battle__scene_operation_type = ""
+	
+	Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+	Singleton_CommonVariables.ui__target_actor_micro_info_box.hide_cust_target_battle_scene()
+	
+	hide()
+	
+	await get_tree().create_timer(1).timeout
+	
+	print("TODO FADE HERE")
+	
+	# TODO
+	# await Singleton_CommonVariables.top_level_fader_node.play_fade_out_quick()
+	
+	emit_signal("signal__battle_scene_completed")
+	
+	Singleton_CommonVariables.battle__currently_active_actor.end_turn()
+	pass
+
 ### 
+
+
+func calculate_item_step() -> void:
+	var initator_actor = current_initiator_actor_node # Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot") # current_target_actor_node
+	var targeted_actor = current_target_actor_node # Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+	
+	# TODO TODOOOOOOOOOO play heal animation
+	
+	# TODO: should display actor boxes earlier than damage step
+	#	# Singleton_Game_GlobalBattleVariables.battle_base.targetActorMicroInfoRoot.display_micro_info_for_actor(Singleton_Game_GlobalBattleVariables.currently_active_character)
+	#	# Singleton_Game_GlobalBattleVariables.battle_base.targetActorMicroInfoRoot.display_micro_info_for_actor(Singleton_Game_GlobalBattleVariables.currently_active_character)
+	
+	var heal_amount = 10
+	
+	if targeted_actor.get_hp_current() + heal_amount >= targeted_actor.get_hp_total():
+		heal_amount = targeted_actor.get_hp_total() - targeted_actor.get_hp_current()
+		targeted_actor.set_hp_current(targeted_actor.get_hp_total())
+	else:
+		targeted_actor.set_hp_current(targeted_actor.get_hp_current() + heal_amount)
+	
+	# print(initator_actor.get_attack(), targeted_actor.get_defense())
+	
+# 	TODO: update micro actors boxes after attack hp current set
+#	Singleton_CommonVariables.battle_base.targetActorMicroInfoRoot.display_micro_info_for_actor(Singleton_CommonVariables.currently_active_character)
+#	Singleton_CommonVariables.battle_base.activeActorMicroInfoRoot.display_micro_info_for_actor(Singleton_CommonVariables.currently_selected_actor)
+	
+	if current_initiator_actor_parent_node.get_child(0).actor_type == 1: # character
+		Singleton_CommonVariables.ui__actor_micro_info_box.display_actor_info(current_initiator_actor_parent_node)
+		Singleton_CommonVariables.ui__target_actor_micro_info_box.display_actor_info(current_target_actor_parent_node)
+	#if current_initiator_actor_parent_node.get_child(0).actor_type == 2: # enemey
+		#Singleton_CommonVariables.ui__actor_micro_info_box.display_actor_info(current_target_actor_parent_node)
+		#Singleton_CommonVariables.ui__target_actor_micro_info_box.display_actor_info(current_initiator_actor_parent_node)
+	
+#
+#	# enemeySprite.material.shader = shader_color_blend
+#	# enemeySprite.material.set_shader_param("blend_strength_modifier", 0.35)
+	
+#		if using_spell:
+	AudioManager.play_sfx("res://Assets/Sounds/HealSound.wav")
+#
+# 	target_actor Sprite.material.shader = shader_color_blend
+#	target_actor Sprite.material.set_shader_param("blend_strength_modifier", 0.35)
+	
+	#current_target_actor_battle_scene_node.play_shake()
+	#await get_tree().create_timer(0.3).timeout
+	#if targeted_actor.get_hp_current() <= 0:
+		#current_target_actor_battle_scene_node.play_death()
+	
+	
+	#if initator_actor.actor_type == "character":
+		#var _ignore = await display_battle_message("Inflicts " + str(damage) + " points of damage on the " + targeted_actor.get_actor_name() + ".")
+	#else:
+		#var _ignore = await display_battle_message("Inflicts " + str(damage) + " points of damage to " + targeted_actor.get_actor_name() + ".")
+	#
+	
+	# var _ignore = await 
+	await display_battle_message(targeted_actor.get_actor_name() + " regaints " + str(heal_amount) + " hit points.")
+	
+	if initator_actor.actor_type == "character":
+		accumulate_exp_gain(heal_amount)
+	
+	#  enemeySprite.material.set_shader_param("blend_strength_modifier", 0.0)
+	#  TODO: play idle for both actors 
+	
+	Singleton_CommonVariables.dialogue_box_node.hide()
+	
+	await Signal(get_tree().create_timer(0.5), "timeout")
+	
+	emit_signal("signal__current_actor_exchange_completed")
+	# return damage
+
 
 func calculate_heal_step() -> void:
 	var initator_actor = current_initiator_actor_node # Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot") # current_target_actor_node

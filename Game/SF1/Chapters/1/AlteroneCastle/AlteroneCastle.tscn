@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bv8tlsb35djm" path="res://Characters/Khris/Assets/Unpromoted_Map_Sprites.png" id="10_m7dyj"]
 [ext_resource type="Resource" uid="uid://ctu2kx35ve7cv" path="res://SF1/Items/Usables/HealingSeed.tres" id="11_7q57h"]
 [ext_resource type="Texture2D" uid="uid://ca1xibywmhgm1" path="res://Assets/NPC/King Guardiana.png" id="11_scdpx"]
-[ext_resource type="Resource" uid="uid://bmmv68np23pvb" path="res://SF1/Items/Weapons/ShortSword.tres" id="12_1sbu2"]
 [ext_resource type="Texture2D" uid="uid://dauq15gmxoqdh" path="res://Characters/Arthur/Assets/Unpromoted_Map_Sprites.png" id="12_4npua"]
+[ext_resource type="Resource" uid="uid://ctdke16fihjn" path="res://SF1/Items/Weapons/MiddleSword.tres" id="12_txkvv"]
 [ext_resource type="Resource" uid="uid://dp75hglt5xcrf" path="res://SF1/Items/Weapons/WoodenStaff.tres" id="13_txkvv"]
 [ext_resource type="Texture2D" uid="uid://2onimr2a26vs" path="res://Assets/NPC/Woman_Purplette.png" id="14_4npua"]
 [ext_resource type="Texture2D" uid="uid://dbqc7w2bdmbst" path="res://Assets/NPC/Man_Merchant_Blue.png" id="16_520r6"]
@@ -10515,7 +10515,7 @@ position = Vector2(228, 132)
 
 [node name="Chest5" parent="Interactables" instance=ExtResource("19_gw7i7")]
 position = Vector2(228, 156)
-item_resource = ExtResource("12_1sbu2")
+item_resource = ExtResource("12_txkvv")
 
 [node name="Chest6" parent="Interactables" instance=ExtResource("19_gw7i7")]
 position = Vector2(276, 156)

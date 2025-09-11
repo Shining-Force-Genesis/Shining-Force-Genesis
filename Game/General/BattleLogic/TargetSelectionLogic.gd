@@ -10,6 +10,9 @@ var is_target_selection_active: bool = false
 var actor_root
 var target_range_array_representation
 
+var give_item_idx: int
+var use_item_idx: int
+
 func _ready():
 	Singleton_CommonVariables.battle__logic__target_selection_node = self
 	Singleton_CommonVariables.battle__logic__target_selection_wrapper_node = $TargetSelectionWrapper
@@ -84,6 +87,8 @@ var targetables
 func set_attack_target_selection() -> void:
 	get_actor_root()
 	
+	Singleton_CommonVariables.battle__target_actor_types = "Opposing"
+	
 	if actor_root.actor_type == "character":
 		allies = "character"
 		targetables = "enemey"
@@ -116,6 +121,97 @@ func set_attack_target_selection() -> void:
 	
 	draw_use_range_from_script("res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd")
 	attempt_to_find_first_target_or_display_warning(load("res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd").new())
+
+
+func set_give_item_target_selection() -> void:
+	get_actor_root()
+	
+	Singleton_CommonVariables.battle__target_actor_types = "Allies"
+	
+	if actor_root.actor_type == "character":
+		allies = "character"
+		# allies = ""
+		targetables = "character"
+	elif actor_root.actor_type == "enemey":
+		allies = "enemey"
+		# allies = ""
+		targetables = "enemey"
+	
+	# TODO: move these normal_attack strings to an enum or something in the global common vars
+	# CLEAN: cleanup later
+	Singleton_CommonVariables.battle__target_selection_type = "give_item"
+	
+	var inventory = actor_root.get_inventory()
+	for i in range(inventory.size()):
+		print(inventory[i])
+		
+		var item_res = load(inventory[i].resource)
+		
+		if item_res.item_type == "WEAPON":
+			if inventory[i].is_equipped == true:
+				print("get use range and target selector type")
+			
+				draw_use_range_from_script(item_res.item_use_range_path)
+				attempt_to_find_first_target_or_display_warning(load(item_res.item_use_target_path).new())
+			
+				return
+	
+	draw_use_range_from_script("res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd")
+	attempt_to_find_first_target_or_display_warning(load("res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd").new())
+
+
+func set_use_item_target_selection() -> void:
+	get_actor_root()
+	var inventory = actor_root.get_inventory()
+	
+	var item = load(inventory[use_item_idx].resource)
+	
+	# if item consume and remove
+	# if weapon or ring or other check if breakable 
+	
+	# TODO: need to update target_actor_type in all items to better reflect target choices
+	# should be generic enough even enemies could use medicalherbs on each other
+	Singleton_CommonVariables.battle__target_actor_types = "Allies"
+	
+	if actor_root.actor_type == "character":
+		allies = "character"
+		targetables = "character"
+	elif actor_root.actor_type == "enemey":
+		allies = "enemey"
+		targetables = "enemey"
+	
+	# TODO: move these normal_attack strings to an enum or something in the global common vars
+	# CLEAN: cleanup later
+	Singleton_CommonVariables.battle__target_selection_type = "use_item"
+	
+	# draw_use_range_from_script("res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd")
+	# attempt_to_find_first_target_or_display_warning(load("res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd").new())
+	
+	# item
+	draw_use_range_from_script(item.item_use_range_path)
+	attempt_to_find_first_target_or_display_warning(load(item.item_use_target_path).new())
+	
+	#var inventory = actor_root.get_inventory()
+	#for i in range(inventory.size()):
+		#print(inventory[i])
+		#
+		#var item_res = load(inventory[i].resource)
+		#
+		#if item_res.item_type == "WEAPON":
+			#if inventory[i].is_equipped == true:
+				#print("get use range and target selector type")
+			#
+				#draw_use_range_from_script(item_res.item_use_range_path)
+				#attempt_to_find_first_target_or_display_warning(load(item_res.item_use_target_path).new())
+			#
+				#return
+	#
+	## TODO: should make it possible that characters and enemies can have different 
+	## default use targets ranges and selectors
+	#
+	#draw_use_range_from_script("res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd")
+	#attempt_to_find_first_target_or_display_warning(load("res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd").new())
+
 
 
 func set_magic_target_selection(spell_lvl_resource: CN_SF1_Spell_Level) -> void:
@@ -270,6 +366,13 @@ func cancel_target_selection() -> void:
 	
 	if Singleton_CommonVariables.battle__target_selection_type == "magic":
 		Singleton_CommonVariables.ui__magic_menu.show_cust() 
+	elif Singleton_CommonVariables.battle__target_selection_type == "give_item":
+		# Singleton_CommonVariables.ui__magic_menu.show_cust() 
+		Singleton_CommonVariables.ui__battle_inventory_item_action_menu.show_with_tween()
+		Singleton_CommonVariables.ui__battle_inventory_item_action_menu.set_menu_active()
+	elif Singleton_CommonVariables.battle__target_selection_type == "use_item":
+		Singleton_CommonVariables.ui__battle_inventory_item_action_menu.show_with_tween()
+		Singleton_CommonVariables.ui__battle_inventory_item_action_menu.set_menu_active()
 	else:
 		Singleton_CommonVariables.ui__battle_action_menu.show_cust()
 		Singleton_CommonVariables.ui__battle_action_menu.set_menu_active()
@@ -283,6 +386,141 @@ func _process(_delta: float) -> void:
 		cancel_target_selection()
 	
 	if Input.is_action_just_released("ui_a_key"):
+		if Singleton_CommonVariables.battle__target_selection_type == "give_item":
+			is_target_selection_active = false
+			
+			Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+			
+			get_single_actor_at_cursor(
+					Singleton_CommonVariables.battle__target_selection_cursor.position
+				)
+				
+			#if target_range_array_representation.size() == 1:
+				## print("One target")
+				#get_single_actor_at_cursor(
+					#Singleton_CommonVariables.battle__target_selection_cursor.position
+				#)
+			#else:
+				#find_actors_from_center_position(
+					#target_range_array_representation,
+					#Singleton_CommonVariables.battle__target_selection_cursor.position
+				#)
+			
+			# all actors that are in the target selection
+			print("target array - ", Singleton_CommonVariables.battle__target_array)
+			# TODO: fix me later one clean 
+			clean_battle_target_array()
+			
+			print("target array cleaned - ", Singleton_CommonVariables.battle__target_array)
+			
+			Singleton_CommonVariables.battle__cursor_node.hide()
+			
+			# TODO: give item here
+			
+			var pn = Singleton_CommonVariables.battle__target_array[0][0].node
+			var r_idx = pn.find_child("CharacterRoot").SF1_MEMBER_INDEX
+			var g_idx = Singleton_CommonVariables.battle__currently_active_actor.find_child("CharacterRoot").SF1_MEMBER_INDEX
+			
+			
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[r_idx].inventory.append(
+				Singleton_CommonVariables.sf_game_data_node.ForceMembers[g_idx].inventory[give_item_idx]
+			)
+			Singleton_CommonVariables.sf_game_data_node.ForceMembers[g_idx].inventory.remove_at(give_item_idx)
+			
+			# give_item_idx
+			
+			## 
+			
+			is_target_selection_active = false
+			Singleton_CommonVariables.battle__target_selection_actor = null
+			if Singleton_CommonVariables.battle__target_selection_cursor != null:
+				Singleton_CommonVariables.battle__target_selection_cursor.queue_free()
+			
+			target_selection_wrapper.hide()
+			
+			## 
+			Singleton_CommonVariables.ui__target_actor_micro_info_box.hide_cust_target()
+			
+			Singleton_CommonVariables.battle__currently_active_actor.end_turn()
+			return
+			
+			await Singleton_CommonVariables.battle__scene_node.signal__battle_scene_completed
+			
+			return
+		
+		if Singleton_CommonVariables.battle__target_selection_type == "use_item":
+			is_target_selection_active = false
+			
+			Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+			Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+			
+			#get_single_actor_at_cursor(
+					#Singleton_CommonVariables.battle__target_selection_cursor.position
+				#)
+				
+			if target_range_array_representation.size() == 1:
+				# print("One target")
+				get_single_actor_at_cursor(
+					Singleton_CommonVariables.battle__target_selection_cursor.position
+				)
+			else:
+				find_actors_from_center_position(
+					target_range_array_representation,
+					Singleton_CommonVariables.battle__target_selection_cursor.position
+				)
+			
+			# all actors that are in the target selection
+			print("target array - ", Singleton_CommonVariables.battle__target_array)
+			# TODO: fix me later one clean 
+			clean_battle_target_array()
+			
+			print("target array cleaned - ", Singleton_CommonVariables.battle__target_array)
+			
+			Singleton_CommonVariables.battle__cursor_node.hide()
+			
+			Singleton_CommonVariables.battle__scene_operation_type = "USE_ITEM_ON_CHARACTERS"
+			Singleton_CommonVariables.battle__scene_node.activate_battle()
+			
+			var c_idx = Singleton_CommonVariables.battle__currently_active_actor.find_child("CharacterRoot").SF1_MEMBER_INDEX
+			if Singleton_CommonVariables.sf_game_data_node.ForceMembers[c_idx].inventory.size() > 0:
+				Singleton_CommonVariables.sf_game_data_node.ForceMembers[c_idx].inventory.remove_at(use_item_idx)
+				# inventory = Singleton_CommonVariables.sf_game_data_node.ForceMembers[c_idx].inventory
+			
+			# TODO: give item here
+			
+			#var pn = Singleton_CommonVariables.battle__target_array[0][0].node
+			#var r_idx = pn.find_child("CharacterRoot").SF1_MEMBER_INDEX
+			#var g_idx = Singleton_CommonVariables.battle__currently_active_actor.find_child("CharacterRoot").SF1_MEMBER_INDEX
+			#
+			#
+			#Singleton_CommonVariables.sf_game_data_node.ForceMembers[r_idx].inventory.append(
+				#Singleton_CommonVariables.sf_game_data_node.ForceMembers[g_idx].inventory[give_item_idx]
+			#)
+			#Singleton_CommonVariables.sf_game_data_node.ForceMembers[g_idx].inventory.remove_at(give_item_idx)
+			#
+			## give_item_idx
+			
+			## 
+			
+			is_target_selection_active = false
+			Singleton_CommonVariables.battle__target_selection_actor = null
+			if Singleton_CommonVariables.battle__target_selection_cursor != null:
+				Singleton_CommonVariables.battle__target_selection_cursor.queue_free()
+			
+			target_selection_wrapper.hide()
+			
+			## 
+			Singleton_CommonVariables.ui__target_actor_micro_info_box.hide_cust_target()
+			
+			Singleton_CommonVariables.battle__currently_active_actor.end_turn()
+			return
+			
+			await Singleton_CommonVariables.battle__scene_node.signal__battle_scene_completed
+			
+			return
+		
+		
 		if Singleton_CommonVariables.battle__target_selection_actor != null:
 			# pass
 			is_target_selection_active = false
