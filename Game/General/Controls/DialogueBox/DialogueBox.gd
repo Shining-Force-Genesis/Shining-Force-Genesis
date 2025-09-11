@@ -7,6 +7,7 @@ class_name  DialogueBox
 
 signal signal_dialogue_completed
 signal signal__dialogbox__finished_dialog
+signal signal__dialogbox__text_finished_displaying
 
 @export_file("*.json") var external_file = ''
 @onready var dialogueRichTextLabel = $NinePatchRect/RichTextLabel
@@ -280,8 +281,10 @@ func load_dialog():
 				
 				return
 			elif key == "InteractionPrompt":
+				await Signal(self, "signal__dialogbox__text_finished_displaying")
+				
 				active = false
-				# Singleton_CommonVariables.ui__yes_or_no_prompt.s_show__yes_or_no_prompt()
+				
 				Singleton_CommonVariables.ui__yes_or_no_prompt.s_show__yes_or_no_prompt()
 				var result = await Signal(Singleton_CommonVariables.ui__yes_or_no_prompt, "signal__yes_or_no_prompt__choice")
 				if result == "NO":
@@ -362,6 +365,8 @@ func _on_Tween_tween_completed():
 	
 	print("Tween complete Dialgoue")
 	finished = true
+	
+	emit_signal("signal__dialogbox__text_finished_displaying")
 
 
 func check_and_replace_text_sub_points(str_arg: String) -> String:

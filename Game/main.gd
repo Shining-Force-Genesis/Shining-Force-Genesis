@@ -22,8 +22,11 @@ func _ready() -> void:
 	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
 	# SceneManager.ChangeSceneNode(n)
 	
-	var n = SceneManager.GetSceneNode(SceneManager.SF1.HQ)
+	var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
 	SceneManager.ChangeSceneNode(n)
+	
+	# var n = SceneManager.GetSceneNode(SceneManager.SF1.HQ)
+	# SceneManager.ChangeSceneNode(n)
 	
 	#Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
 	#Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
