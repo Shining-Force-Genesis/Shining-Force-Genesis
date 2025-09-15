@@ -2595,23 +2595,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_wy8xx")
 }
 
-[node name="Varios" parent="NPCS" instance=ExtResource("6_8cicr")]
-position = Vector2(24, -24)
-script = ExtResource("9_r18dk")
-
-[node name="AnimatableBody2D" parent="NPCS/Varios" index="0"]
-use_mirror_animation = true
-
-[node name="Sprite2D" parent="NPCS/Varios/AnimatableBody2D" index="3"]
-texture = ExtResource("11_87wuq")
-hframes = 6
-
-[node name="AnimationPlayer" parent="NPCS/Varios/AnimatableBody2D" index="4"]
-root_node = NodePath("..")
-libraries = {
-&"": SubResource("AnimationLibrary_wy8xx")
-}
-
 [node name="OldManInChruch" parent="NPCS" instance=ExtResource("6_8cicr")]
 position = Vector2(432, 168)
 script = ExtResource("9_r18dk")
@@ -3164,11 +3147,10 @@ script = ExtResource("34_uwa77")
 
 [node name="AnimatableBody2D" parent="NPCsGameStart/Varios" index="0"]
 position = Vector2(-72, -528)
-use_mirror_animation = true
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCsGameStart/Varios/AnimatableBody2D" index="3"]
 texture = ExtResource("11_87wuq")
-hframes = 6
 
 [node name="AnimationPlayer" parent="NPCsGameStart/Varios/AnimatableBody2D" index="4"]
 root_node = NodePath("..")
@@ -3247,7 +3229,6 @@ shape = SubResource("RectangleShape2D_swv5g")
 
 [editable path="NPCS/OldManWithBeard"]
 [editable path="NPCS/WomanInChruch"]
-[editable path="NPCS/Varios"]
 [editable path="NPCS/OldManInChruch"]
 [editable path="NPCS/Bartender"]
 [editable path="NPCS/Gort"]

@@ -119,6 +119,8 @@ func set_battle_magic_menu_active() -> void:
 			Singleton_CommonVariables.ui__overworld_action_menu.set_menu_active()
 		return
 	
+	print(character_spells)
+	
 	for idx in (character_spells.size()):
 		# print("Spell - ", spell)
 		var spell_res = load(character_spells[idx].resource)
@@ -182,12 +184,12 @@ func _input(event):
 			
 			var i_actor
 			if Singleton_CommonVariables.is_currently_in_battle_scene:
-				i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+				# i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
 				
-				# if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == "Character":
-				#	i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
-				# elif Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == "Enemey":
-				#	i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot")
+				if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == 1:
+					i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+				elif Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == 2:
+					i_actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot")
 			else:
 				i_actor = Singleton_CommonVariables.main_character_player_node.get_actor()
 			
@@ -233,6 +235,8 @@ func _input(event):
 			if Singleton_CommonVariables.is_currently_in_battle_scene:
 				if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == 1: # Character
 					actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+				if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == 2: # Enemey
+					actor = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("EnemeyRoot")
 			else: 
 				# actor = Singleton_CommonVariables.sf_game_data_node.ForceMembers[0] # main_character_player_node.actor # Singleton_CommonVariables.main_character_player_node.actor
 				actor = Singleton_CommonVariables.main_character_player_node.get_actor()
@@ -331,7 +335,8 @@ func select_spell(spell_select_idx, rs_pos, magic_menu_option) -> void:
 		AudioManager.play_sfx("res://Assets/Sounds/MenuMoveSoundCut.wav")
 		currently_selected_option = magic_menu_option
 		redSelection.position = rs_pos
-		spell_name_label.text = character_spells[spell_select_idx].name
+		if character_spells[spell_select_idx].has("name"):
+			spell_name_label.text = character_spells[spell_select_idx].name
 		spell_idx = spell_select_idx
 
 

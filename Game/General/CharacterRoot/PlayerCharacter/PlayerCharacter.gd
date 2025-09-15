@@ -2,6 +2,7 @@ extends Node2D
 
 signal signal_action_finished
 signal signal_move_complete
+signal signal_death_animation_finished
 
 # signal 
 
@@ -220,12 +221,6 @@ func _process(_delta: float) -> void:
 
 
 func check_if_move_is_possible(new_pos_arg: Vector2) -> bool:
-#	var enemey_children = Singleton_CommonVariables.enemey_nodes.get_children()
-#	for enemey in enemey_children:
-#		# print(new_pos_arg,  enemey.global_position)
-#		if new_pos_arg == enemey.global_position:
-#			return false
-	
 	for sub_array in Singleton_CommonVariables.active_actor_move_point_representation:
 		for move_pos in sub_array:
 			if move_pos != null:
@@ -336,6 +331,16 @@ func play_animation(animation_name: String) ->  void:
 			if chracter_animation_player.has_animation(animation_name):
 				chracter_animation_player.play(animation_name)
 
+
+func play_death_animation() -> void:
+	if chracter_animation_player != null:
+		if chracter_animation_player.has_animation("GenericEnemeyAnimations/Death"):
+			chracter_animation_player.play("GenericEnemeyAnimations/Death")
+			await chracter_animation_player.animation_finished
+			AudioManager.play_sfx("res://Assets/SF2/Sounds/SFX/sfx_Hit.wav")
+			emit_signal("signal_death_animation_finished")
+		else:
+			emit_signal("signal_death_animation_finished")
 
 enum e_directions {
 	LEFT,

@@ -10,16 +10,16 @@ var rng = RandomNumberGenerator.new()
 
 func generate_actor_order_for_current_turn():
 	#print("Generate Actor Order for Turn\n", turn_order_array)
-	
 	var ordered_turn_array = Singleton_CommonVariables.battle__turn_order_array
 	
 	rng.randomize()
-	# ordered_turn_array.sort_custom(Callable(self, "sort_actors_by_agility"))
 	
-	# is the error cause of the random or is this incorrect usage
+	for idx in ordered_turn_array.size():
+		ordered_turn_array[idx].speed_for_turn_order = ordered_turn_array[idx].speed + rng.randi_range(-1, 1)
+	
 	ordered_turn_array.sort_custom(
 		func(a, b): 
-			return (a.speed + rng.randi_range(-1, 1)) > (b.speed + rng.randi_range(-1, 1))
+			return a.speed_for_turn_order > b.speed_for_turn_order
 	)
 	
 	print("\nOrdered Array\n")
@@ -28,15 +28,6 @@ func generate_actor_order_for_current_turn():
 	print("\n")
 	
 	Singleton_CommonVariables.battle__turn_order_array = ordered_turn_array
-
-
-#func sort_actors_by_agility(a, b) -> bool:
-#	# # TODO: remove the ag_a b add outisde of the sort to fix
-#	# # the unguarded linear sort error
-#	var ag_a = rng.randi_range(-1, 1)
-#	var ag_b = rng.randi_range(-1, 1)
-#
-#	return (a.speed + ag_a) > (b.speed + ag_b)
 
 
 func generate_and_launch_new_turn_order():
@@ -49,7 +40,6 @@ func generate_and_launch_new_turn_order():
 	
 	for actor in Singleton_CommonVariables.battle__turn_order_array:
 		print("\n", actor)
-		
 		
 		# astar_node.clear()
 		
@@ -114,6 +104,7 @@ func generate_and_launch_new_turn_order():
 		Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
 		
 		play_death_animation_for_all_defeated_actors()
+		
 		if get_parent().get_parent().is_battle_done:
 			Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
 			Singleton_CommonVariables.battle__cursor_node.set_inactive()
@@ -188,10 +179,94 @@ func play_death_animation_for_all_defeated_actors() -> void:
 					get_parent().get_parent().end_battle();
 					await get_parent().get_parent().battle_ended_cutscene
 			
+			if actor.type == "character":
+				var x = actor.node.find_child("CharacterRoot")
+				if is_instance_valid(actor.node) && x:
+					if x.SF1_MEMBER_INDEX == 0:
+						
+						# get_parent().get_parent().end_battle();
+						# await get_parent().get_parent().battle_ended_cutscene
+						Singleton_CommonVariables.camera_node.follow_actor()
+						Singleton_CommonVariables.battle__cursor_node.set_inactive()
+						
+						Singleton_CommonVariables.is_currently_in_battle_scene = false
+						Singleton_CommonVariables.battle__movement_tiles_wrapper_node.hide()
+						Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+						
+						Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+						
+						Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+						
+						Singleton_CommonVariables.sf_game_data_node.reset_currents_for_all_characters()
+						
+						force_leader_died()
+						
+						# get_parent().queue_free()
+						
+						return
+			
+			
 			# play death animations then delete them when complete
 			
 			if actor.id != null:
 				actor.node.queue_free()
 				actor.id = null
 			
+			#if actor.id != null:
+				#actor.id = null
+				#
+				## needs to be added to all other actors sigh globin done
+				#actor.node.get_child(0).play_death_animation()
+				#await actor.node.get_child(0).signal_death_animation_finished
+				#
+				#actor.node.queue_free()
+			
 			# Singleton_CommonVariables.battle__turn_order_array.remove_at(b_idx)
+
+
+func force_leader_died() -> void:
+	Singleton_CommonVariables.battle__currently_active_actor.get_child(0).set_active_processing(false)
+	
+	Singleton_CommonVariables.dialogue_box_node.show()
+	# Singleton_CommonVariables.ui__portrait_popup.show()
+	# Singleton_CommonVariables.ui__portrait_popup.load_portrait("res://Assets/NPC/Nova_Portraits.png")
+	
+	#var display_str = "{main_character_name}! Do you really want to retreat from this battle?"
+	#Singleton_CommonVariables.dialogue_box_node.play_message_none_interactable(display_str)
+	#Singleton_CommonVariables.ui__yes_or_no_prompt.s_show__yes_or_no_prompt()
+	#var result = await Signal(Singleton_CommonVariables.ui__yes_or_no_prompt, "signal__yes_or_no_prompt__choice")
+	
+	Singleton_CommonVariables.dialogue_box_is_currently_active = true
+	var display_str = "{main_character_name}! Has been defeated..."
+	# Singleton_CommonVariables.dialogue_box_node.external_file = "res://SF1/Chapters/1/_Battles/1/Pre/Scripts/NovaLeaveBattle.json"
+	# Singleton_CommonVariables.dialogue_box_node._process_new_resource_file()
+	Singleton_CommonVariables.dialogue_box_node.play_message(display_str)
+	await Singleton_CommonVariables.dialogue_box_node.signal__dialogbox__finished_dialog
+	
+	Singleton_CommonVariables.dialogue_box_node.hide()
+	Singleton_CommonVariables.ui__portrait_popup.hide()
+	
+	Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
+	
+	Singleton_CommonVariables.battle__target_actor_types = null
+	Singleton_CommonVariables.battle__resource_animation_scene_path = null
+	Singleton_CommonVariables.ui__magic_menu.hide()
+	
+	Singleton_CommonVariables.is_currently_in_battle_scene = false
+	# Singleton_CommonVariables.main_character_player_node.queue_free()
+	Singleton_CommonVariables.sf_game_data_node.egress_marker_set = true
+	Singleton_CommonVariables.ui__battle_action_menu.is_menu_active = false
+	Singleton_CommonVariables.ui__battle_action_menu.hide_cust()
+	
+	Singleton_CommonVariables.ui__land_effect_popup_node.hide_cust()
+	Singleton_CommonVariables.ui__actor_micro_info_box.hide_cust()
+	await SceneManager.SceneFadeIn()
+	
+	var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GongCabin)
+	SceneManager.ChangeSceneNode(n)
+	
+	Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
+	Singleton_CommonVariables.main_character_player_node.show()
+	Singleton_CommonVariables.main_character_player_node.camera_current(true)
+	
+	Singleton_CommonVariables.interaction_yes_or_no_selection = null

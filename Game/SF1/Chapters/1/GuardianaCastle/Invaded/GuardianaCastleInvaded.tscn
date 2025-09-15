@@ -6741,11 +6741,10 @@ DefaultScript = "res://SF1/Chapter_1/GuardianaCastle/Scripts/Varios.json"
 
 [node name="AnimatableBody2D" parent="NPCS/Varios" index="0"]
 FacingDirection = 3
-use_mirror_animation = true
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCS/Varios/AnimatableBody2D" index="3"]
 texture = ExtResource("16_pt7xv")
-hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Varios/AnimatableBody2D" index="4"]
 root_node = NodePath("..")

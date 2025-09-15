@@ -5,35 +5,16 @@ extends Node2D
 func _ready() -> void:
 	SceneManager.scene_node = $Scene
 	SceneManager.cpn = cpn
-	#var n = get_node("Scene")
-	#for child in n.get_children():
-	#	child.queue_free()
-	#var s = load("res://SF1/Chapter_1/Gong_Cabin/Gongs_House.tscn").instantiate()
-	# n.add_child(s)
 	
-	
-	# Singleton_CommonVariables.main_character_player_node.queue_free()
-	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1)
-	# SceneManager.ChangeSceneNode(n)
-	
-	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle1Pre)
-	# SceneManager.ChangeSceneNode(n)
-	
-	# var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.AlteroneCastle)
-	# SceneManager.ChangeSceneNode(n)
-	
-	#var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Guardiana)
+	#var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.GongCabin)
 	#SceneManager.ChangeSceneNode(n)
 	
-	var n = SceneManager.GetSceneNode(SceneManager.SF1.HQ)
+	Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
+	Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
+	Singleton_CommonVariables.main_character_player_node.hide()
+	Singleton_CommonVariables.main_character_player_node.camera_current(false)
+	var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle4)
 	SceneManager.ChangeSceneNode(n)
-	
-	#Singleton_CommonVariables.main_character_player_node = Singleton_CommonVariables.main_character_player_node_ref
-	#Singleton_CommonVariables.main_character_player_node.set_active_processing(false)
-	#Singleton_CommonVariables.main_character_player_node.hide()
-	#Singleton_CommonVariables.main_character_player_node.camera_current(false)
-	#var n = SceneManager.GetSceneNode(SceneManager.SF1.C1.Battle4)
-	#SceneManager.ChangeSceneNode(n)
 
 
 #func _process(_delta: float) -> void:

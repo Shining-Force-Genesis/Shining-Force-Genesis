@@ -63,6 +63,9 @@ func _ready() -> void:
 		if fm.leader:
 			continue
 		
+		if !fm.unlocked:
+			continue
+		
 		print(fm.name)
 		
 		print(fm.textures_and_scenes[0].npc_scene)

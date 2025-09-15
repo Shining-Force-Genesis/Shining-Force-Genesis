@@ -1,8 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjp416sccg661"]
+[gd_scene load_steps=6 format=3 uid="uid://bjp416sccg661"]
 
 [ext_resource type="Script" uid="uid://liywel3tglch" path="res://SF1/Characters/GenericPlayableActor.gd" id="1_ylarf"]
 [ext_resource type="PackedScene" uid="uid://bdkexl3twcqsr" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacterV2.tscn" id="2_xu7hk"]
 [ext_resource type="PackedScene" uid="uid://c6kcxyffjefg4" path="res://SF1/EnemiesAndBosses/DarkMage/DarkMageEnemeyRoot.tscn" id="3_qn6qd"]
+[ext_resource type="Script" uid="uid://g0rxrvilrpit" path="res://SF1/Spells/SpellUnit.gd" id="4_p4lqu"]
+
+[sub_resource type="Resource" id="Resource_3uwm4"]
+script = ExtResource("4_p4lqu")
+resource = "res://SF1/Spells/Blaze/Blaze.tres"
+levels = [{
+"unlock_levels": {
+"unpromoted": 1
+},
+"unlocked": true
+}, {
+"unlock_levels": {
+"unpromoted": 1
+},
+"unlocked": true
+}, {
+"unlock_levels": {
+"unpromoted": 1
+},
+"unlocked": false
+}, {
+"unlock_levels": {
+"unpromoted": 1
+},
+"unlocked": false
+}]
+metadata/_custom_type_script = "uid://g0rxrvilrpit"
 
 [node name="DarkMage" type="Node2D"]
 script = ExtResource("1_ylarf")
@@ -11,6 +38,9 @@ script = ExtResource("1_ylarf")
 actor_type = 2
 
 [node name="DarkMage" parent="PlayerCharacterRoot" instance=ExtResource("3_qn6qd")]
+
+[node name="EnemeyRoot" parent="PlayerCharacterRoot/DarkMage" index="0"]
+magic_array = Array[ExtResource("4_p4lqu")]([SubResource("Resource_3uwm4")])
 
 [editable path="PlayerCharacterRoot"]
 [editable path="PlayerCharacterRoot/DarkMage"]

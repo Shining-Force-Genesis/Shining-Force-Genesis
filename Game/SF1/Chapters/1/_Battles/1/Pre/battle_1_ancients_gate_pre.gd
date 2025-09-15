@@ -236,6 +236,9 @@ func Second_RuneKnightChat():
 
 func PostCutsceneStartBattle():
 	Singleton_CommonVariables.is_currently_in_battle_scene = true
+	
+	$BattleLogic/AIManager.setup_ai_manager_initial()
+	
 	Singleton_CommonVariables.battle__logic_node.turn_logic_node.generate_and_launch_new_turn_order()
 
 func end_battle() -> void:
@@ -341,6 +344,8 @@ func start_battle() -> void:
 		e.position = Vector2.ZERO
 		e.get_child(0).position = e_pos
 	
+	# $BattleLogic/AIManager.setup_ai_manager_initial()
+	
 	fill_turn_order_array_with_all_actors()
 	
 	# TODO: create turn order
@@ -360,6 +365,7 @@ func fill_turn_order_array_with_all_actors():
 			# "name": enemey.get_name(), 
 			"type": "enemey", 
 			"speed": enemey.get_child(0).find_child("EnemeyRoot").get_agility(), # enemey.cget_agility(), 
+			"speed_for_turn_order": enemey.get_child(0).find_child("EnemeyRoot").get_agility(), # enemey.cget_agility(), 
 			"node": enemey, 
 			"alive": true,
 			"id": enemey.get_instance_id()
@@ -373,6 +379,7 @@ func fill_turn_order_array_with_all_actors():
 			# "name": character.get_name(), 
 			"type": "character", 
 			"speed": character.get_child(0).find_child("CharacterRoot").get_agility(), # character.cget_agility(), 
+			"speed_for_turn_order":  character.get_child(0).find_child("CharacterRoot").get_agility(), # character.cget_agility(), 
 			"node": character, 
 			"alive": true,
 			"id": character.get_instance_id()

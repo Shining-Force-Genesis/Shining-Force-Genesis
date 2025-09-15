@@ -319,6 +319,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
 		Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
 		
+		Singleton_CommonVariables.ui__member_list_menu.update_view()
+		
 		Singleton_CommonVariables.main_character_player_node.set_active_processing(true)
 
 #

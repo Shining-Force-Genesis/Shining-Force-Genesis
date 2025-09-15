@@ -83,5 +83,7 @@ func interaction_completed() -> void:
 	Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].unlocked = true
 	Singleton_CommonVariables.sf_game_data_node.ForceMembers[fm_idx].active_in_force = true
 	
+	Singleton_CommonVariables.ui__member_list_menu.update_view()
+	
 	queue_free()
 	# queue_free()

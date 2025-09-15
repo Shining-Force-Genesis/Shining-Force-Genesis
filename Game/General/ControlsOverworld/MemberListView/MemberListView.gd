@@ -63,6 +63,11 @@ func _ready():
 	pass
 
 
+func update_view() -> void:
+	DisplayNewlySelectedCharacterInfo(Singleton_CommonVariables.sf_game_data_node.ForceMembers[0])
+	load_character_lines() 
+
+
 func set_menu_active() -> void:
 	active = true
 

@@ -61,6 +61,7 @@ visible = false
 position = Vector2(8, 280)
 
 [node name="ViewSelectedActorInfoPopup" parent="UI_Battle" instance=ExtResource("14_2cqfq")]
+visible = false
 position = Vector2(120, 72)
 
 [node name="InventoryItemSelectInBattleMenu" parent="UI_Battle" instance=ExtResource("9_a6jrf")]

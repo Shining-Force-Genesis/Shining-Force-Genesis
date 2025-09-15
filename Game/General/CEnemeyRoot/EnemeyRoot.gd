@@ -8,6 +8,8 @@ extends Node2D
 
 @export var enemey_battle_scene: PackedScene #  = "res://SF1/EnemiesAndBosses/RuneKnight/RuneKnightBattleScene.tscn"
 
+@onready var death_sprites = preload("res://Assets/Internal_SFR_Cust/Battle_Sprite_Death.png")
+
 # All of these signals are used in different scripts or calls false positive warnings
 @warning_ignore("unused_signal")
 signal signal_check_defeat_done
@@ -25,11 +27,7 @@ signal signal_switch_focus_to_cursor
 # @onready var pnode = get_parent()
 
 # @onready var characterRoot = self
-# @onready var kinematicBody = $KinematicBody2D
 # @onready var animationPlayer = $AnimationPlayer
-# @onready var animationTree = $AnimationTree
-# @onready var animationTreeState = animationTree.get("parameters/playback")
-# @onready var tween = $KinematicBody2D/Tween
 
 # const TILE_SIZE: int = 24
 # var movement_tween_speed = 0.1625
@@ -50,7 +48,8 @@ var active: bool = false
 @export var monster_class: String
 
 ## Only the first 4 fields are valid everything after that is ignored!
-@export var magic_array: Array[Resource]
+@export var magic_array: Array[CN_SF1_Spell_Unit]
+# @export var magic_array: Array[Resource]
 
 ## TODO: clean me up item id and drop chance object array type
 ## TODO: move this into CN_SF1_Inventory_Item
@@ -136,6 +135,7 @@ func get_actor_name() -> String:
 func get_class_full() -> String:
 	return ""
 
+
 func get_class_short() -> String:
 	return ""
 
@@ -147,8 +147,10 @@ func get_level() -> int:
 func get_hp_total() -> int:
 	return HP_Total # sfnode_data.stats.hp + sfnode_data.stats.hp_boost + sfnode_data.stats.hp_permanent_increase
 
+
 func get_hp_current() -> int:
 	return HP_Current
+
 
 func set_hp_current(new_hp_target: int) -> void:
 	HP_Current = new_hp_target
@@ -157,8 +159,10 @@ func set_hp_current(new_hp_target: int) -> void:
 func get_mp_total() -> int:
 	return MP_Total # sfnode_data.stats.mp + sfnode_data.stats.mp_boost + sfnode_data.stats.mp_permanent_increase
 
+
 func get_mp_current() -> int:
 	return MP_Current # sfnode_data.stats.mp_current
+
 
 func set_mp_current(new_mp_target: int) -> void:
 	MP_Current = new_mp_target
@@ -166,6 +170,7 @@ func set_mp_current(new_mp_target: int) -> void:
 
 func get_movement_type() -> int:
 	return movement_type
+
 
 func get_movement() -> int:
 	return move + move_boost
@@ -178,8 +183,10 @@ func get_exp() -> int:
 #func get_attack_base() -> int:
 #	return sfnode_data.stats.attack
 
+
 func get_attack_base() -> int:
 	return attack
+
 
 func get_attack() -> int:
 	var attack_attribute_bonus_total: int = 0
@@ -206,14 +213,18 @@ func get_agility() -> int:
 func get_inventory():
 	return inventory
 
+
 func remove_inventory_item_at_idx(currently_selected_option: int) -> void:
 	inventory.remove_at(currently_selected_option)
+
 
 func set_equip_state_inventory_item_at_idx(item_idx: int, equip_state: bool) -> void:
 	inventory[item_idx].is_equipped = equip_state
 
+
 func get_magic():
 	return magic_array
+
 
 func get_magic_array():
 	if 0 == magic_array.size():

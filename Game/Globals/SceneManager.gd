@@ -42,7 +42,8 @@ const SF1 = {
 		"AlteroneCastleBasement": "res://SF1/Chapters/1/AlteroneCastleBasement/AlteroneCastleBasement.tscn",
 		
 		"Battle1Pre": "res://SF1/Chapters/1/_Battles/1/Pre/Battle1-AncientsGate-PRE.tscn",
-		"Battle1": "res://SF1/Chapters/1/_Battles/1/Battle1-AncientsGate.tscn",
+		# "Battle1": "res://SF1/Chapters/1/_Battles/1/Battle1-AncientsGate.tscn",
+		"Battle1": "res://SF1/Chapters/1/_Battles/1/Pre/Battle1-AncientsGate-PRE.tscn",
 		
 		# "Battle2": "res://SF1/Chapters/1/_Battles/2/Battle2_Overworld.tscn",
 		"Battle2": "res://SF1/Chapters/1/_Battles/2/Battle2_Overworld.tscn",

@@ -6901,11 +6901,10 @@ DefaultScript = "res://SF1/Chapters/1/GuardianaCastle/PreInvasion/Scripts/Varios
 
 [node name="AnimatableBody2D" parent="NPCS/Varios" index="0"]
 FacingDirection = 1
-use_mirror_animation = true
+use_8_standard_animation = true
 
 [node name="Sprite2D" parent="NPCS/Varios/AnimatableBody2D" index="3"]
 texture = ExtResource("16_8cuqd")
-hframes = 6
 
 [node name="AnimationPlayer" parent="NPCS/Varios/AnimatableBody2D" index="4"]
 root_node = NodePath("..")

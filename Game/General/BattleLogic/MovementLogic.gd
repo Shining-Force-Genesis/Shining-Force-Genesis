@@ -122,11 +122,46 @@ func set_actor_type() -> void:
 	actor_type = "character"
 
 
+func new_move_gen() -> void:
+	var r: int = 6; # move or radius
+	var n: int = (r * 2) + 1; # array size (6 * 2) + 1 = 13
+	var x: int = r; # // coordinates are one-based
+	var y: int = r; # // coordinates are one-based
+	# x y are starting coord of the array
+	
+	# create the empty 2D array
+	var tile_grid_rep = []
+	tile_grid_rep.resize(n)
+	for idx in range(n):
+		tile_grid_rep[idx] = []
+		tile_grid_rep[idx].resize(n)
+	
+	# draw the shining force move diamond
+	for i in range(n):
+		for j in range(n):
+			var dist: int = abs(x - i) + abs(y - j); # // calculate distance
+			if dist == 0: # at x,y
+				tile_grid_rep[i][j] = null;
+			elif dist <= r: # distance to x,y is within range
+				tile_grid_rep[i][j] = dist;
+			else: # distance to x,y is outside of range
+				tile_grid_rep[i][j] = 0;
+	
+	for i in range(n):
+		print(tile_grid_rep[i])
+	
+	pass
+
+
+
 func generate_movement_array_representation():
 	print("\nGenerate Movement Start")
 	
 	for n in Singleton_CommonVariables.battle__movement_tiles_wrapper_node.get_children():
 		n.queue_free()
+	
+	
+	new_move_gen()
 	
 	set_actor_type()
 	

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdkexl3twcqsr"]
+[gd_scene load_steps=4 format=3 uid="uid://bdkexl3twcqsr"]
 
 [ext_resource type="Script" uid="uid://dg8eueh5u4brf" path="res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.gd" id="1_h8i6a"]
 [ext_resource type="Shape2D" uid="uid://bh7uaaxfqc2lk" path="res://General/24x24_collision_shape.tres" id="3_b6lvg"]
+[ext_resource type="Texture2D" uid="uid://d05hbsujoou7w" path="res://Assets/Internal_SFR_Cust/Battle_Sprite_Death.png" id="3_rt0gb"]
 
 [node name="PlayerCharacterRoot" type="AnimatableBody2D"]
 sync_to_physics = false
@@ -23,3 +24,8 @@ metadata/_edit_lock_ = true
 [node name="InteractablesRayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 20)
 collision_mask = 2
+
+[node name="DeathSprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("3_rt0gb")
+hframes = 3

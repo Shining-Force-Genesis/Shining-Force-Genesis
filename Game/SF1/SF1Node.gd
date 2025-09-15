@@ -25,7 +25,7 @@ var c1 = {
 	"exited_guardiana_once": false,
 	#
 	
-	"battle_1_opening_cutscene": false,
+	"battle_1_opening_cutscene": true,
 	"battle_1_complete": false,
 	
 	# second major cutscene
@@ -381,7 +381,7 @@ var ForceMembers = [
 		
 		"unlocked": true,
 		"active_in_force": true,
-		"alive": false,
+		"alive": true,
 		
 		"name": "Luke",
 		"nickname": null,
@@ -725,8 +725,8 @@ var ForceMembers = [
 		## 0 unpromoted - 1 promoted - 2 or higher as possible options for different stages
 		"promotion_stage": 0,
 		
-		"unlocked": false,
-		"active_in_force": false,
+		"unlocked": true,
+		"active_in_force": true,
 		"alive": true,
 		
 		"name": "Tao",
@@ -2055,7 +2055,7 @@ var ForceMembers = [
 					},
 					
 					{ # 2
-						"unlocked": true,
+						"unlocked": false,
 						"unlock_levels": {
 							"unpromoted": 5
 							# promoted

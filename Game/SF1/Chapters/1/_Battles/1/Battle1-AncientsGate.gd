@@ -5,6 +5,8 @@ extends Node
 
 @onready var player_scene = preload("res://General/CharacterRoot/PlayerCharacter/PlayerCharacter.tscn")
 
+var is_battle_done: bool = false
+
 func _ready() -> void:
 	# TODO rename this singleton to globals and then divide overworld battle and other into sub scripts with classnames
 	# for better intellisense
@@ -105,6 +107,7 @@ func fill_turn_order_array_with_all_actors():
 			# "name": enemey.get_name(), 
 			"type": "enemey", 
 			"speed": enemey.get_child(0).find_child("EnemeyRoot").get_agility(), # enemey.cget_agility(), 
+			"speed_for_turn_order": enemey.get_child(0).find_child("EnemeyRoot").get_agility(), # enemey.cget_agility(), 
 			"node": enemey, 
 			"alive": true,
 			"id": enemey.get_instance_id()
@@ -118,6 +121,7 @@ func fill_turn_order_array_with_all_actors():
 			# "name": character.get_name(), 
 			"type": "character", 
 			"speed": character.get_child(0).find_child("CharacterRoot").get_agility(), # character.cget_agility(), 
+			"speed_for_turn_order":  character.get_child(0).find_child("CharacterRoot").get_agility(), # character.cget_agility(), 
 			"node": character, 
 			"alive": true,
 			"id": character.get_instance_id()
