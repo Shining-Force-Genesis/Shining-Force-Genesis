@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=5 format=3 uid="uid://csvxes4ersrm"]
+[gd_resource type="Resource" script_class="CN_SF1_Item_Weapon" load_steps=6 format=3 uid="uid://csvxes4ersrm"]
 
 [ext_resource type="Script" uid="uid://cfmbic4ip0ofo" path="res://SF1/Items/Weapon.gd" id="1_rfor6"]
 [ext_resource type="Script" uid="uid://bvtcie8h2n5g4" path="res://SF1/Items/attribute_class.gd" id="1_w7rd4"]
 [ext_resource type="Texture2D" uid="uid://brhaqyiph1q8b" path="res://Assets/SFCD/Items/Weapons/Brozne_Lance.png" id="2_o2kri"]
+[ext_resource type="Texture2D" uid="uid://78wu7om7vqgv" path="res://Assets/SF1/Weapons/Bronze_Lance.png" id="2_xigsh"]
 
 [sub_resource type="Resource" id="Resource_xigsh"]
 script = ExtResource("1_w7rd4")
@@ -12,7 +13,7 @@ metadata/_custom_type_script = "uid://bvtcie8h2n5g4"
 
 [resource]
 script = ExtResource("1_rfor6")
-chance_to_crack = false
+battle_texture = ExtResource("2_xigsh")
 equippable_by = Array[int]([1])
 item_type = "WEAPON"
 item_name = "Bronze Lance"
@@ -21,10 +22,7 @@ target_actor_type = 2
 attribute = 1
 attribute_bonus = Array[int]([7])
 attributes = Array[ExtResource("1_w7rd4")]([SubResource("Resource_xigsh")])
-key_item = false
 price_buy = 200
 price_sell = 150
 item_use_range_path = "res://General/UseAndTargetRangeResources/UseRangeResources/UseRange_1.gd"
 item_use_target_path = "res://General/UseAndTargetRangeResources/TargetRangeResources/TargetRange_1.gd"
-sell_to_deals = false
-usable = false

@@ -1,6 +1,11 @@
 # @tool
 extends Node2D
 
+# TODO: all the battle sub funcs
+# need lots of helper functions should be simplified
+# helper for the weapon set for forcemember
+# check enemey sprites and see if it would be simple to add weapon set for enemies too
+
 signal signal__function_completed
 signal signal__current_actor_exchange_completed
 
@@ -16,6 +21,7 @@ var rng = RandomNumberGenerator.new()
 # const shader_color_blend = preload("res://Shaders/ColorBlend.gdshader")
 const shader_dissolve = preload("res://Shaders/Dissolve.gdshader")
 const shader_texture__noise_pixelated = preload("res://Shaders/ShaderTextureImages/NoisePixelated.jpg")
+# const shader_texture__noise_pixelated = preload("res://Shaders/ShaderTextureImages/dots_texture_death.png")
 
 @onready var background_scene = preload("res://General/BattleScene/BackgroundScene/BackgroundBattleScene.tscn")
 @onready var background_wrapper = $BackgroundWrapper
@@ -297,10 +303,20 @@ func activate_battle() -> void:
 			)
 		]
 		
-		#	# TODO: create function in chracter base to automatically pass back the equipped item
-		#	var weapon_res = char_actor_rn.inventory_items_id[0] 
-		#	# load("res://SF1/Items/Weapons/WoodenArrow.tres") # Singleton_Game_GlobalBattleVariables.currently_active_character.get_node("CharacterRoot").inventory_items_id[0]
-		#	internal_init_weapon_for_actor(weaponSprite, weapon_res)
+		# equip weapon texture
+		var croot = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+		if croot != null:
+			var inv = Singleton_CommonVariables.sf_game_data_node.ForceMembers[croot.SF1_MEMBER_INDEX].inventory
+			var found_weapon: bool = false
+			for i_it in inv:
+				if i_it.is_equipped:
+					var weapon_res = load(i_it.resource)
+					caa_bs.find_child("WeaponSprite2D").texture = weapon_res.battle_texture
+					found_weapon = true
+					break
+			
+			if !found_weapon:
+				caa_bs.find_child("WeaponSprite2D").hide()
 		
 		characterWrapper.add_child(caa_bs)
 		current_initiator_actor_battle_scene_node = caa_bs
@@ -361,6 +377,20 @@ func activate_battle() -> void:
 			#	# load("res://SF1/Items/Weapons/WoodenArrow.tres") # Singleton_Game_GlobalBattleVariables.currently_active_character.get_node("CharacterRoot").inventory_items_id[0]
 			#	internal_init_weapon_for_actor(weaponSprite, weapon_res)
 			
+			# if Singleton_CommonVariables.battle__currently_active_actor.get_child(0).actor_type == 1: # character
+			#var croot = Singleton_CommonVariables.battle__currently_active_actor.get_child(0).find_child("CharacterRoot")
+			#if croot != null:
+				#var inv = Singleton_CommonVariables.sf_game_data_node.ForceMembers[croot.SF1_MEMBER_INDEX].inventory
+				#for i_it in inv:
+					#if i_it.is_equipped:
+						## TODO: create function in chracter base to automatically pass back the equipped item
+						#var weapon_res = load(i_it.resource)
+						## load("res://SF1/Items/Weapons/WoodenArrow.tres") # Singleton_Game_GlobalBattleVariables.currently_active_character.get_node("CharacterRoot").inventory_items_id[0]
+						## ("WeaponSprite2D")
+						#a_bs.get_child(1).texture = weapon_res.battle_texture
+						## internal_init_weapon_for_actor(weaponSprite, weapon_res)
+		
+		
 			current_target_actor_node = a
 			
 			characterWrapper.add_child(a_bs)
@@ -1062,7 +1092,7 @@ func activate_battle_character_used_item() -> void:
 		#else:
 			#caa_bs.play_attack_normal()
 		
-		caa_bs.play_cast()
+		# caa_bs.play_cast()
 		await get_tree().create_timer(0.5).timeout
 		
 		# var spell_bs = load(Singleton_CommonVariables.battle__resource_animation_scene_path).instantiate()
